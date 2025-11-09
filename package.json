@@ -1,5 +1,5 @@
 {
-  "name": "mi-proyecto",
+  "name": "blitz-quiz",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -33,7 +33,7 @@
     "zone.js": "~0.15.0"
   },
   "devDependencies": {
-    "@angular/build": "^20.3.6",
+"@angular/build": "^20.3.6",
     "@angular/cli": "^20.3.6",
     "@angular/compiler-cli": "^20.3.0",
     "@types/jasmine": "~5.1.0",
@@ -46,4 +46,6 @@
     "karma-jasmine-html-reporter": "~2.1.0",
     "typescript": "~5.9.2"
   }
+
 }
+

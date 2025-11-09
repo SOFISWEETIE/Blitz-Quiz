@@ -23,6 +23,7 @@ yarn-error.log
 # Visual Studio Code
 .vscode/
 
+
 # Miscellaneous
 /.angular/cache
 .sass-cache/
@@ -39,3 +40,7 @@ Thumbs.db
 
 # Environment variables
 .env
+
+
+# Proteger firebase keys
+/src/environments/environment.ts

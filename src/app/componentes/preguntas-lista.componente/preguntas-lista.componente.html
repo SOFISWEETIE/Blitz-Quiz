@@ -1,0 +1,27 @@
+<div class="contenedor">
+  <h2> BlitzQuiz </h2>
+
+  <!-- aparece siempre  -->
+  <p><strong> Conectado a Firebase</strong></p>
+
+  <!-- si encontramos datos -->
+  <div *ngIf="preguntas$ | async as preguntas; else cargando">
+    
+    <p><strong>Total preguntas:</strong> {{ preguntas.length }}</p>
+
+    <app-pregunta
+      *ngFor="let p of preguntas"
+      [pregunta]="p">
+    </app-pregunta>
+
+    <!-- Si hay conexión pero 0 preguntas -->
+    <p *ngIf="preguntas.length === 0" class="vacio">
+       Colección vacía 
+    </p>
+  </div>
+
+  <!-- CARGANDO O SIN CONEXIÓN -->
+  <ng-template #cargando>
+    <p class="cargando"> Cargando preguntas....</p>
+  </ng-template>
+</div>

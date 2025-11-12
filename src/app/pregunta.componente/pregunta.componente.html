@@ -1,0 +1,20 @@
+<div class="tarjeta-pregunta">
+  <h3>{{ pregunta.enunciado }}</h3>
+
+  <div class="botones">
+    <button
+      *ngFor="let r of pregunta.respuestas"
+      (click)="seleccionar(r.texto)"
+      [class.correcta]="seleccionada === r.texto && r.correcta"
+      [class.incorrecta]="seleccionada === r.texto && !r.correcta"
+      [disabled]="seleccionada !== null">
+      {{ r.texto }}
+    </button>
+  </div>
+
+  <p *ngIf="seleccionada !== null" class="resultado">
+    <strong>
+      {{ esCorrecta(seleccionada) ? '¡Correcto' : 'Fallaste' }}
+    </strong>
+  </p>
+</div>

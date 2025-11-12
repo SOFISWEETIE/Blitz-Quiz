@@ -1,7 +1,7 @@
 // para conectar con firebase
 export const environment = {
   production: false,
-  firebaseConfig: {
+  firebase: {
     apiKey: "AIzaSyCisEzjaNmpuOxdHna0qxJZSrdxI8jmCX8",
     authDomain: "sas-tfg.firebaseapp.com",
     projectId: "sas-tfg",

@@ -1,0 +1,30 @@
+const fs = require('fs');
+const path = require('path');
+const dotenv = require('dotenv');
+
+// Leer archivo .env
+dotenv.config();
+
+// Ruta del archivo environment.ts
+const envFolder = path.join(__dirname, 'src', 'environments');
+const targetPath = path.join(envFolder, 'environment.ts');
+
+// Crear carpeta si no existe
+if (!fs.existsSync(envFolder)) {
+fs.mkdirSync(envFolder, { recursive: true });
+}
+
+// Generar contenido de environment.ts
+const envConfigFile = `export const environment = {
+production: false,
+apiUrl: '${process.env.API_URL || ''}',
+authToken: '${process.env.AUTH_TOKEN || ''}',
+firebaseApiKey: '${process.env.FIREBASE_API_KEY || ''}',
+firebaseAuthDomain: '${process.env.FIREBASE_AUTH_DOMAIN || ''}'
+};
+`;
+
+// Escribir/actualizar environment.ts
+fs.writeFileSync(targetPath, envConfigFile);
+
+console.log('environment.ts generado correctamente desde .env');

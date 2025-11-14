@@ -4,13 +4,17 @@
   <!-- aparece siempre  -->
   <p><strong> Conectado a Firebase</strong></p>
 
-  <!-- si encontramos datos -->
+  <!-- *ngIf con async espera a que Firebase envie los datos.
+     Cuando llegan, los guarda en la variable 'preguntas'.
+     Si aún no han llegado, muestra la plantilla 'cargando'. -->
   <div *ngIf="preguntas$ | async as preguntas; else cargando">
     
     <p><strong>Total preguntas:</strong> {{ preguntas.length }}</p>
 
+
+    <!-- *ngFor="let p of preguntas"  recorre array de preguntas -->
     <app-pregunta
-      *ngFor="let p of preguntas"
+      *ngFor="let p of preguntas"  
       [pregunta]="p">
     </app-pregunta>
 
@@ -20,7 +24,7 @@
     </p>
   </div>
 
-  <!-- CARGANDO O SIN CONEXIÓN -->
+  <!--  -->
   <ng-template #cargando>
     <p class="cargando"> Cargando preguntas....</p>
   </ng-template>

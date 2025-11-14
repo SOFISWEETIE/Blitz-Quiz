@@ -1,3 +1,5 @@
+// Componente que lista las preguntas obtenidas desde Firestore
+
 import { Component, OnInit } from '@angular/core';
 import { PreguntaServicio } from '../../servicios/pregunta.servicio';
 import { Pregunta } from '../../modelos/pregunta.modelo';
@@ -14,9 +16,12 @@ import { CommonModule} from '@angular/common';
   styleUrl: './preguntas-lista.componente.css'
 })
 export class PreguntasListaComponente {
+  // rescatamos las preguntas como un observable
   preguntas$!: Observable<Pregunta[]>;
 
+  // llama al servicio para obtener las preguntas
   constructor(private preguntaServicio: PreguntaServicio) {
+    
     this.preguntas$ = this.preguntaServicio.obtenerPreguntas();
   }
 

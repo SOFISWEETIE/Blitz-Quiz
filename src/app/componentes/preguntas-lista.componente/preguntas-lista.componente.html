@@ -4,6 +4,11 @@
   <!-- aparece siempre  -->
   <p><strong> Conectado a Firebase</strong></p>
 
+  <div class="user-info" *ngIf="user$ | async as user">
+    <p>Conectado como: <strong>{{ user.displayName || user.email }}</strong></p>
+    <button (click)="logout()">Cerrar sesión</button>
+  </div>
+
   <!-- *ngIf con async espera a que Firebase envie los datos.
      Cuando llegan, los guarda en la variable 'preguntas'.
      Si aún no han llegado, muestra la plantilla 'cargando'. -->

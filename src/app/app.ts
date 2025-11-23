@@ -1,11 +1,11 @@
 import { Component, signal } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
-import { PreguntasListaComponente } from './componentes/preguntas-lista.componente/preguntas-lista.componente';
 
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, PreguntasListaComponente],
+  imports: [RouterOutlet, CommonModule],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

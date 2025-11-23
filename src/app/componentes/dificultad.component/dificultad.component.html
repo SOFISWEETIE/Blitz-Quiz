@@ -1,0 +1,11 @@
+<h1>¡ELIGE LA DIFICULTAD!</h1>
+
+<div class="dificultades">
+  <button 
+    *ngFor="let nivel of dificultades" 
+    (click)="elegir(nivel)"
+    class="boton-dificultad">
+    {{ nivel | titlecase }}
+  </button>
+</div>
+

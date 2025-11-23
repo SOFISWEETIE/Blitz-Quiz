@@ -1,0 +1,20 @@
+<div>
+
+  <!-- MODO ALEATORIO: te dice qué te tocó -->
+  <div *ngIf="seleccion.modo === 'aleatorio'">
+    <h2>🎲 MODO ALEATORIO</h2>
+    <p>¡Sorpresa! Te tocó: <strong>{{ seleccion.categoria }}</strong> - {{ seleccion.dificultad }}</p>
+  </div>
+
+  <p>Pregunta {{ numeroPregunta() }} de {{ totalPreguntas() }}</p>
+  <p>Aciertos: {{ puntuacion.aciertos }}</p>
+
+  <h2>{{ preguntaActual()?.pregunta }}</h2>
+
+<div *ngFor="let opcion of respuestasMezcladas(); let i = index">
+  <button (click)="responder(opcion)">
+    {{ opcion }}
+  </button>
+</div>
+
+</div>

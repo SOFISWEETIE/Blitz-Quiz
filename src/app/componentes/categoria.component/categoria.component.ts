@@ -1,21 +1,22 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SeleccionService } from '../../servicios/seleccion.service';
 import { Router } from '@angular/router';
+import { SeleccionService } from '../../servicios/seleccion.service';
 
 @Component({
   selector: 'app-categoria',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './categoria.component.html'
+  templateUrl: './categoria.component.html',
+  styleUrl: './categoria.component.css'
 })
 export class CategoriaComponent {
-  categorias = ['Arte', 'Ciencia', 'Deporte', 'Cine y TV', 'Geografia', 'Historia', 'Musica'];
+  categorias = ['Arte','Ciencia','Deporte','Cine','Geografia','Historia','Musica','Tecnologia'];
 
-  constructor(private seleccion: SeleccionService, private router: Router) {}
+  constructor(private router: Router, public seleccion: SeleccionService) {}
 
-  elegir(categoria: string) {
-    this.seleccion.establecerCategoria(categoria);
+  elegirCategoria(cat: string) {
+    this.seleccion.establecerCategoria(cat);
     this.router.navigate(['/dificultad']);
   }
 }

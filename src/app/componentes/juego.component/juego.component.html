@@ -1,32 +1,8 @@
-<!-- ⏰ TEMPORIZADOR BIEN GORDO Y BONITO ⏰ -->
-<div class="temporizador-contenedor">
-  <div class="temporizador" 
-       [class.urgente]="tiempoRestante <= 10" 
-       [class.peligro]="tiempoRestante <= 5">
-    ⏰ 
-    <span class="numero">{{ tiempoRestante }}</span> 
-    segundos
-  </div>
+<div *ngIf="preguntaActual()">
+  <app-pregunta
+    [pregunta]="preguntaActual()"
+    (siguiente)="avanzarPregunta()"
+  ></app-pregunta>
 </div>
 
-
-<div class="juego-contenedor">
-
-  <!-- MODO ALEATORIO: te dice qué te tocó -->
-  <div *ngIf="seleccion.modo === 'aleatorio'">
-    <h2>🎲 MODO ALEATORIO</h2>
-    <p>¡Sorpresa! Te tocó: <strong>{{ seleccion.categoria }}</strong> - {{ seleccion.dificultad }}</p>
-  </div>
-
-  <p>Pregunta {{ numeroPregunta() }} de {{ totalPreguntas() }}</p>
-  <p>Aciertos: {{ puntuacion.aciertos }}</p>
-
-  <h2>{{ preguntaActual()?.pregunta }}</h2>
-
-<div *ngFor="let opcion of respuestasMezcladas(); let i = index">
-  <button (click)="responder(opcion)">
-    {{ opcion }}
-  </button>
-</div>
-
-</div>
+<p>Pregunta {{ numeroPregunta() }} de {{ totalPreguntas() }}</p>

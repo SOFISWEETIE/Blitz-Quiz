@@ -1,11 +1,4 @@
-<h1>¡ELIGE LA DIFICULTAD!</h1>
-
-<div class="dificultades">
-  <button 
-    *ngFor="let nivel of dificultades" 
-    (click)="elegir(nivel)"
-    class="boton-dificultad">
-    {{ nivel | titlecase }}
-  </button>
+<h1>Elige la dificultad</h1>
+<div *ngFor="let dif of dificultades">
+  <button (click)="elegirDificultad(dif)">{{ dif }}</button>
 </div>
-

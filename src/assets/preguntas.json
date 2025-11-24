@@ -214,7 +214,6 @@
       {"pregunta": "¿Qué película es de Kubrick?", "opciones": ["El Resplandor", "Alien", "Seven", "Matrix"], "correcta": "El Resplandor"}
     ]
   },
-
   "Música": {
     "facil": [
       {"pregunta": "¿Quién canta Shape of You?", "opciones": ["Ed Sheeran", "Shawn Mendes", "Bruno Mars", "Drake"], "correcta": "Ed Sheeran"},

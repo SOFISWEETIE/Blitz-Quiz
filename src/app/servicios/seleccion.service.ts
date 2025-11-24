@@ -32,5 +32,19 @@ export class SeleccionService {
   reiniciarVidas() {
     this.vidas = 3;
   }
+
+  establecerCategoriaAleatoria(): string {
+  const categorias = ['Arte','Ciencia','Deporte','Cine','Geografia','Historia','Musica','Tecnologia'];
+  const cat = categorias[Math.floor(Math.random() * categorias.length)];
+  this.categoria = cat;
+  return cat;
+}
+
+establecerDificultadAleatoria(): string {
+  const dificultades = ['facil', 'media', 'dificil'];
+  const dif = dificultades[Math.floor(Math.random() * dificultades.length)];
+  this.dificultad = dif;
+  return dif;
+}
   
 }

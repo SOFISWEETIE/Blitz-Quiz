@@ -1,1 +1,14 @@
-<p>pregunta.component works!</p>
+<div class="temporizador">
+    <span>{{ tiempoRestante }} segundos</span>
+</div>
+
+
+<div class="pregunta">
+  <h2>{{ pregunta.pregunta }}</h2>
+
+  <div class="opciones">
+    <button *ngFor="let opcion of opcionesMezcladas" (click)="responder(opcion)">
+      {{ opcion }}
+    </button>
+  </div>
+</div>

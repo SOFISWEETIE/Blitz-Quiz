@@ -1,49 +1,32 @@
 import { Injectable } from '@angular/core';
-import { Pregunta } from '../modelos/pregunta.model';
+import { HttpClient } from '@angular/common/http';
+import { firstValueFrom } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PreguntasService {
-
-  private preguntasJson: any = null;
-
-  async cargarPreguntas(): Promise<void> {
-    if (!this.preguntasJson) {
-      
-      const respuesta = await fetch('/preguntas.json');  
-      if (!respuesta.ok) {
-        throw new Error('No se pudo cargar el JSON. ¿Está en la carpeta public?');
-      }
-      this.preguntasJson = await respuesta.json();
-    }
-  }
-
-  async obtenerPreguntas(categoria: string, dificultad: string): Promise<Pregunta[]> {
-    await this.cargarPreguntas();
-    return this.preguntasJson[categoria][dificultad] as Pregunta[];
-  }
+  constructor(private http: HttpClient) {}
 
   
-  async obtenerTodasLasPreguntas(): Promise<Pregunta[]> {
-    await this.cargarPreguntas();
-    const todas: Pregunta[] = [];
+  async obtenerPreguntas(categoria: string, dificultad: string): Promise<any[]> {
+    
+    const data: any = await firstValueFrom(
+      this.http.get('assets/preguntas.json')
+    );
 
-  // 
-  for (const categoria in this.preguntasJson) {
-    for (const dificultad of ['facil', 'media', 'dificil']) {
-      const preguntas = this.preguntasJson[categoria][dificultad] || [];
-      todas.push(...preguntas);
+    const cat = data[categoria];
+    if (!cat) {
+      throw new Error(`Categoría no encontrada: ${categoria}`);
     }
-  }
 
-  // Mezclamos las preguntas antes de devolverlas
-  return todas.sort(() => Math.random() - 0.5);
-  }
+    const difKey = dificultad.toLowerCase(); 
+    const dif = cat[difKey];
+    if (!dif) {
+      throw new Error(`Dificultad no encontrada: ${dificultad}`);
+    }
 
-
-  async obtenerCategorias(): Promise<string[]> {
-    await this.cargarPreguntas();
-    return Object.keys(this.preguntasJson);   
+    
+    return [...dif];
   }
 }

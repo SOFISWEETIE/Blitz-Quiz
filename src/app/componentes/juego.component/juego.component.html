@@ -1,4 +1,16 @@
-<div>
+<!-- ⏰ TEMPORIZADOR BIEN GORDO Y BONITO ⏰ -->
+<div class="temporizador-contenedor">
+  <div class="temporizador" 
+       [class.urgente]="tiempoRestante <= 10" 
+       [class.peligro]="tiempoRestante <= 5">
+    ⏰ 
+    <span class="numero">{{ tiempoRestante }}</span> 
+    segundos
+  </div>
+</div>
+
+
+<div class="juego-contenedor">
 
   <!-- MODO ALEATORIO: te dice qué te tocó -->
   <div *ngIf="seleccion.modo === 'aleatorio'">

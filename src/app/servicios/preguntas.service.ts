@@ -25,8 +25,6 @@ export class PreguntasService {
     if (!dif) {
       throw new Error(`Dificultad no encontrada: ${dificultad}`);
     }
-
-    
     return [...dif];
   }
 }

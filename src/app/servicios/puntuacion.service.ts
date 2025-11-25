@@ -23,7 +23,7 @@ export class PuntuacionService {
     this.totalPreguntas = total;
   }
 
-  // MÉTODO CLÁSICO (lo mantienes para los modos normales)
+  
   sumarCorrecta() {
     this.correctas++;
     this.puntosTotales += 100;  // o lo que tengas ahora
@@ -31,10 +31,10 @@ export class PuntuacionService {
 
   sumarIncorrecta() {
     this.incorrectas++;
-    // Sin puntos negativos por ahora (tú mandas)
+    
   }
 
-  // ==================== MÉTODOS NUEVOS PARA PREGUNTAS RÁPIDAS ====================
+  
 
   
   sumarCorrectaRapida(tiempoRestante: number) {

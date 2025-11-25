@@ -12,7 +12,6 @@ import { PuntuacionService } from '../../servicios/puntuacion.service';
 export class PreguntaRapidasComponent implements OnChanges, OnDestroy {
   @Input() pregunta: any = null;
   @Input() numeroPregunta: number = 1;
-
   @Output() siguiente = new EventEmitter<void>();
   
 

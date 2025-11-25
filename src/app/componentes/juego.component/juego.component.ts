@@ -33,36 +33,34 @@ export class JuegoComponent implements OnInit {
   ) {}
 
   async ngOnInit() {
-    this.puntuacion.reiniciar();
+  this.puntuacion.reiniciar();  // ← AHORA SÍ reinicia puntosTotales = 0
 
-    // MODO PREGUNTAS RÁPIDAS
-    if (this.seleccion.modo === 'rapidas') {
-      await this.cargarPreguntasRapidas();
-      return;
-    }
-
-    // MODO CLÁSICO Y ALEATORIO (tu código original, intacto)
-    try {
-      let categoria: string;
-      let dificultad: string;
-
-      if (this.seleccion.modo === 'clasico') {
-        categoria = this.seleccion.categoria;
-        dificultad = this.seleccion.dificultad;
-      } else {
-        categoria = this.seleccion.establecerCategoriaAleatoria();
-        dificultad = this.seleccion.establecerDificultadAleatoria();
-      }
-
-      const preguntas = await this.preguntasService.obtenerPreguntas(categoria, dificultad);
-      this.puntuacion.establecerTotal(preguntas.length);
-      this.puntuacion.preguntasActuales = preguntas;
-
-    } catch (error) {
-      alert('Error cargando preguntas');
-      this.router.navigate(['/modos']);
-    }
+  if (this.seleccion.modo === 'rapidas') {
+    await this.cargarPreguntasRapidas();
+    return;
   }
+
+  try {
+    let categoria: string;
+    let dificultad: string;
+
+    if (this.seleccion.modo === 'clasico') {
+      categoria = this.seleccion.categoria;
+      dificultad = this.seleccion.dificultad;
+    } else {
+      categoria = this.seleccion.establecerCategoriaAleatoria();
+      dificultad = this.seleccion.establecerDificultadAleatoria();
+    }
+
+    const preguntas = await this.preguntasService.obtenerPreguntas(categoria, dificultad);
+    this.puntuacion.establecerTotal(preguntas.length);
+    this.puntuacion.preguntasActuales = preguntas;
+
+  } catch (error) {
+    alert('Error cargando preguntas');
+    this.router.navigate(['/modos']);
+  }
+}
 
   // Carga 20 preguntas mezcladas de TODO el JSON
   private async cargarPreguntasRapidas() {
@@ -124,8 +122,5 @@ export class JuegoComponent implements OnInit {
     this.router.navigate(['/resultados']);
   }
 }
-
-  gameOverRapida() {
-    this.router.navigate(['/resultados']);
-  }
+ 
 }

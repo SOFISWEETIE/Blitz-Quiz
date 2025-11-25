@@ -1,10 +1,14 @@
-<div class="temporizador">
-    <span>{{ tiempoRestante }} segundos</span>
-</div>
+<div class="normal">
+  <h2>MODO NORMAL</h2>
+  <p>Pregunta {{ numeroPregunta }} de {{ totalPreguntas }}</p>
 
+  <div class="timer" [class.danger]="tiempoRestante <= 5">
+    {{ tiempoRestante }}
+  </div>
 
-<div class="pregunta">
-  <h2>{{ pregunta.pregunta }}</h2>
+  <h3>{{ pregunta.pregunta }}</h3>
+
+  <div class="puntos" *ngIf="mostrarPuntos">+{{ puntosGanados }}</div>
 
   <div class="opciones">
     <button *ngFor="let opcion of opcionesMezcladas" (click)="responder(opcion)">

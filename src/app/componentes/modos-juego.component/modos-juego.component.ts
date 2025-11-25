@@ -22,4 +22,9 @@ export class ModosJuegoComponent {
     this.seleccion.modo = 'aleatorio';
     this.router.navigate(['/juego']);
   }
+
+  elegirRapidas() {
+  this.seleccion.establecerModo('rapidas');
+  this.router.navigate(['/juego']);
+}
 }

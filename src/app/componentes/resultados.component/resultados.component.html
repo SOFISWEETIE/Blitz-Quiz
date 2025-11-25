@@ -1,6 +1,25 @@
-<h1>¡FIN DEL QUIZ!</h1>
-<h2>¡Enhorabuena! Sacaste {{ puntuacion.correctas }} de {{ puntuacion.totalPreguntas }}</h2>
-<p>Categoría: <strong>{{ seleccion.categoria }}</strong></p>
-<p>Dificultad: <strong>{{ seleccion.dificultad }}</strong></p>
+<div class="resultados-container">
+  <h1>¡FIN DEL QUIZ!</h1>
+
+  <!-- MODO RÁPIDAS: solo puntos -->
+  <div *ngIf="seleccion.modo === 'rapidas'; else modoNormal">
+    <h2 class="puntos-grandes">
+      ¡Enhorabuena!<br>
+      Sacaste <strong>{{ puntuacion.puntosTotales }}</strong> puntos
+    </h2>
+    <p class="rapidas-titulo">en PREGUNTAS RÁPIDAS</p>
+    <p>Aciertos: {{ puntuacion.correctas }} | Fallos: {{ puntuacion.incorrectas }}</p>
+  </div>
+
+  <!-- MODO CLÁSICO / ALEATORIO -->
+  <ng-template #modoNormal>
+    <h2>
+      ¡Enhorabuena!<br>
+      Sacaste {{ puntuacion.correctas }} de {{ puntuacion.totalPreguntas }}
+    </h2>
+    <p>Categoría: {{ seleccion.categoria || 'Aleatoria' }}</p>
+    <p>Dificultad: {{ seleccion.dificultad || 'Aleatoria' }}</p>
+  </ng-template>
+</div>
 
 <button (click)="volverAJugar()">JUGAR OTRA VEZ</button>

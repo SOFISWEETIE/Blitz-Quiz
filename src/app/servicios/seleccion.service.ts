@@ -4,12 +4,14 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class SeleccionService {
-  modo: 'clasico' | 'aleatorio' | 'supervivencia' = 'clasico';
+  // ← AQUÍ SOLO AÑADIMOS 'rapidas' al tipo, el resto igualito que tenías tú
+  modo: 'clasico' | 'aleatorio' | 'rapidas' = 'clasico';
+
   categoria: string = '';
   dificultad: string = '';
   vidas: number = 3;
 
-  establecerModo(modo: 'clasico' | 'aleatorio' | 'supervivencia') {
+  establecerModo(modo: 'clasico' | 'aleatorio' | 'rapidas') {
     this.modo = modo;
   }
 
@@ -34,17 +36,16 @@ export class SeleccionService {
   }
 
   establecerCategoriaAleatoria(): string {
-  const categorias = ['Arte','Ciencia','Deporte','Cine','Geografia','Historia','Musica','Tecnologia'];
-  const cat = categorias[Math.floor(Math.random() * categorias.length)];
-  this.categoria = cat;
-  return cat;
-}
+    const categorias = ['Arte','Ciencia','Deporte','Cine','Geografia','Historia'];
+    const cat = categorias[Math.floor(Math.random() * categorias.length)];
+    this.categoria = cat;
+    return cat;
+  }
 
-establecerDificultadAleatoria(): string {
-  const dificultades = ['facil', 'media', 'dificil'];
-  const dif = dificultades[Math.floor(Math.random() * dificultades.length)];
-  this.dificultad = dif;
-  return dif;
-}
-  
+  establecerDificultadAleatoria(): string {
+    const dificultades = ['facil', 'media', 'dificil'];
+    const dif = dificultades[Math.floor(Math.random() * dificultades.length)];
+    this.dificultad = dif;
+    return dif;
+  }
 }

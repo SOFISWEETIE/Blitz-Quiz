@@ -214,61 +214,7 @@
       {"pregunta": "¿Qué película es de Kubrick?", "opciones": ["El Resplandor", "Alien", "Seven", "Matrix"], "correcta": "El Resplandor"}
     ]
   },
-  "Música": {
-    "facil": [
-      {"pregunta": "¿Quién canta Shape of You?", "opciones": ["Ed Sheeran", "Shawn Mendes", "Bruno Mars", "Drake"], "correcta": "Ed Sheeran"},
-      {"pregunta": "¿Qué grupo canta Bohemian Rhapsody?", "opciones": ["Queen", "The Beatles", "AC/DC", "Coldplay"], "correcta": "Queen"},
-      {"pregunta": "¿Quién canta Rolling in the Deep?", "opciones": ["Adele", "Rihanna", "Beyoncé", "Sia"], "correcta": "Adele"},
-      {"pregunta": "¿Qué cantante es conocido como El Rey del Pop?", "opciones": ["Michael Jackson", "Prince", "Elvis", "Bowie"], "correcta": "Michael Jackson"},
-      {"pregunta": "¿Qué artista canta Bad Guy?", "opciones": ["Billie Eilish", "Dua Lipa", "Olivia Rodrigo", "Halsey"], "correcta": "Billie Eilish"},
-      {"pregunta": "¿Qué banda canta Yellow?", "opciones": ["Coldplay", "Maroon 5", "U2", "Radiohead"], "correcta": "Coldplay"},
-      {"pregunta": "¿Quién canta Blinding Lights?", "opciones": ["The Weeknd", "Drake", "Post Malone", "Justin Bieber"], "correcta": "The Weeknd"},
-      {"pregunta": "¿Quién canta Like a Prayer?", "opciones": ["Madonna", "Britney Spears", "Cher", "Kylie Minogue"], "correcta": "Madonna"},
-      {"pregunta": "¿Qué artista canta Hello?", "opciones": ["Adele", "Taylor Swift", "Rihanna", "Sia"], "correcta": "Adele"},
-      {"pregunta": "¿Qué banda canta Smells Like Teen Spirit?", "opciones": ["Nirvana", "Metallica", "Green Day", "Pearl Jam"], "correcta": "Nirvana"},
-      {"pregunta": "¿Qué cantante es puertorriqueño?", "opciones": ["Bad Bunny", "Drake", "Ed Sheeran", "Eminem"], "correcta": "Bad Bunny"},
-      {"pregunta": "¿Quién canta Barbie Girl?", "opciones": ["Aqua", "ABBA", "Sabrina", "Kylie"], "correcta": "Aqua"},
-      {"pregunta": "¿Qué grupo canta Wannabe?", "opciones": ["Spice Girls", "Little Mix", "Destiny’s Child", "Blackpink"], "correcta": "Spice Girls"},
-      {"pregunta": "¿Qué cantante es conocida por ser una diva del pop latino?", "opciones": ["Shakira", "Karol G", "Becky G", "Anitta"], "correcta": "Shakira"},
-      {"pregunta": "¿Qué grupo canta In the End?", "opciones": ["Linkin Park", "Green Day", "Coldplay", "Imagine Dragons"], "correcta": "Linkin Park"}
-    ],
-    "media": [
-      {"pregunta": "¿Quién canta Watermelon Sugar?", "opciones": ["Harry Styles", "Zayn", "Shawn Mendes", "Justin Bieber"], "correcta": "Harry Styles"},
-      {"pregunta": "¿Qué grupo canta Hotel California?", "opciones": ["Eagles", "Queen", "U2", "The Beatles"], "correcta": "Eagles"},
-      {"pregunta": "¿Quién compuso la Novena Sinfonía?", "opciones": ["Beethoven", "Mozart", "Bach", "Vivaldi"], "correcta": "Beethoven"},
-      {"pregunta": "¿Qué cantante perteneció a Destiny’s Child?", "opciones": ["Beyoncé", "Rihanna", "Ariana Grande", "SZA"], "correcta": "Beyoncé"},
-      {"pregunta": "¿Qué banco canta Sugar?", "opciones": ["Maroon 5", "Coldplay", "Imagine Dragons", "The Script"], "correcta": "Maroon 5"},
-      {"pregunta": "¿Quién canta Grenade?", "opciones": ["Bruno Mars", "Jason Derulo", "Usher", "The Weeknd"], "correcta": "Bruno Mars"},
-      {"pregunta": "¿Qué DJ hizo Animals?", "opciones": ["Martin Garrix", "David Guetta", "Avicii", "Calvin Harris"], "correcta": "Martin Garrix"},
-      {"pregunta": "¿Qué cantante lideró Queen?", "opciones": ["Freddie Mercury", "Bowie", "Jagger", "Plant"], "correcta": "Freddie Mercury"},
-      {"pregunta": "¿Qué banda canta Viva la Vida?", "opciones": ["Coldplay", "Imagine Dragons", "U2", "Keane"], "correcta": "Coldplay"},
-      {"pregunta": "¿Quién canta Don’t Stop Me Now?", "opciones": ["Queen", "Beatles", "ABBA", "Kiss"], "correcta": "Queen"},
-      {"pregunta": "¿Qué artista canta Levitating?", "opciones": ["Dua Lipa", "Bebe Rexha", "Halsey", "Sia"], "correcta": "Dua Lipa"},
-      {"pregunta": "¿Qué artista fue parte de One Direction?", "opciones": ["Harry Styles", "Adam Levine", "Ed Sheeran", "Justin Timberlake"], "correcta": "Harry Styles"},
-      {"pregunta": "¿Qué cantante española canta Malamente?", "opciones": ["Rosalía", "Aitana", "Lola Índigo", "Amaia"], "correcta": "Rosalía"},
-      {"pregunta": "¿Qué banda canta Radioactive?", "opciones": ["Imagine Dragons", "Coldplay", "Linkin Park", "The Killers"], "correcta": "Imagine Dragons"},
-      {"pregunta": "¿Quién canta Someone Like You?", "opciones": ["Adele", "Taylor Swift", "Sia", "Lana Del Rey"], "correcta": "Adele"}
-    ],
-    "dificil": [
-      {"pregunta": "¿Qué cantante lideró Nirvana?", "opciones": ["Kurt Cobain", "Dave Grohl", "Eddie Vedder", "Billy Corgan"], "correcta": "Kurt Cobain"},
-      {"pregunta": "¿Qué compositor creó El Mesías?", "opciones": ["Haendel", "Bach", "Mozart", "Beethoven"], "correcta": "Haendel"},
-      {"pregunta": "¿Qué obra pertenece a Stravinsky?", "opciones": ["La consagración de la primavera", "El lago de los cisnes", "Carmen", "Bolero"], "correcta": "La consagración de la primavera"},
-      {"pregunta": "¿Qué banda creó The Wall?", "opciones": ["Pink Floyd", "Queen", "U2", "The Rolling Stones"], "correcta": "Pink Floyd"},
-      {"pregunta": "¿Qué cantante compuso Space Oddity?", "opciones": ["David Bowie", "Prince", "Elton John", "George Michael"], "correcta": "David Bowie"},
-      {"pregunta": "¿Qué grupo creó Kid A?", "opciones": ["Radiohead", "The Cure", "Joy Division", "Blur"], "correcta": "Radiohead"},
-      {"pregunta": "¿Quién compuso la ópera La flauta mágica?", "opciones": ["Mozart", "Bach", "Verdi", "Puccini"], "correcta": "Mozart"},
-      {"pregunta": "¿Qué banda publicó The Joshua Tree?", "opciones": ["U2", "The Beatles", "Queen", "Oasis"], "correcta": "U2"},
-      {"pregunta": "¿Qué artista compuso la banda sonora de Interstellar?", "opciones": ["Hans Zimmer", "John Williams", "Howard Shore", "James Horner"], "correcta": "Hans Zimmer"},
-      {"pregunta": "¿Qué cantante lanzó Purple Rain?", "opciones": ["Prince", "Michael Jackson", "David Bowie", "Elvis"], "correcta": "Prince"},
-      {"pregunta": "¿Qué banda creó OK Computer?", "opciones": ["Radiohead", "Coldplay", "The Beatles", "Muse"], "correcta": "Radiohead"},
-      {"pregunta": "¿Quién compuso Rhapsody in Blue?", "opciones": ["Gershwin", "Bernstein", "Stravinsky", "Debussy"], "correcta": "Gershwin"},
-      {"pregunta": "¿Qué artista creó Like a Rolling Stone?", "opciones": ["Bob Dylan", "Bruce Springsteen", "Neil Young", "Van Morrison"], "correcta": "Bob Dylan"},
-      {"pregunta": "¿Qué banda creó London Calling?", "opciones": ["The Clash", "The Sex Pistols", "Ramones", "The Who"], "correcta": "The Clash"},
-      {"pregunta": "¿Qué compositor escribió Carmina Burana?", "opciones": ["Carl Orff", "Wagner", "Mahler", "Holst"], "correcta": "Carl Orff"}
-    ]
-  },
-
-  "Geografía": {
+  "Geografia": {
     "facil": [
       {"pregunta": "¿Cuál es la capital de España?", "opciones": ["Madrid", "Barcelona", "Valencia", "Sevilla"], "correcta": "Madrid"},
       {"pregunta": "¿Qué océano es el más grande?", "opciones": ["Pacífico", "Atlántico", "Índico", "Ártico"], "correcta": "Pacífico"},
@@ -373,60 +319,6 @@
       {"pregunta": "¿Qué guerra enfrentó a Atenas y Esparta?", "opciones": ["Guerra del Peloponeso", "Guerras Médicas", "Guerras Púnicas", "Guerra Social"], "correcta": "Guerra del Peloponeso"},
       {"pregunta": "¿Qué rey fundó la dinastía carolingia?", "opciones": ["Pipino el Breve", "Carlomagno", "Clodoveo", "Carlos Martel"], "correcta": "Pipino el Breve"},
       {"pregunta": "¿Qué tratado dividió América entre España y Portugal?", "opciones": ["Tordesillas", "Versalles", "Potsdam", "Utrecht"], "correcta": "Tordesillas"}
-    ]
-  },
-
-  "Tecnología": {
-    "facil": [
-      {"pregunta": "¿Qué compañía creó Windows?", "opciones": ["Microsoft", "Apple", "Google", "IBM"], "correcta": "Microsoft"},
-      {"pregunta": "¿Qué dispositivo es un iPhone?", "opciones": ["Móvil", "Ordenador", "Tablet", "Reloj"], "correcta": "Móvil"},
-      {"pregunta": "¿Qué navegador creó Google?", "opciones": ["Chrome", "Safari", "Firefox", "Opera"], "correcta": "Chrome"},
-      {"pregunta": "¿Qué consola pertenece a Nintendo?", "opciones": ["Switch", "PlayStation", "Xbox", "Dreamcast"], "correcta": "Switch"},
-      {"pregunta": "¿Qué compañía creó Android?", "opciones": ["Google", "Apple", "Microsoft", "Samsung"], "correcta": "Google"},
-      {"pregunta": "¿Qué es un USB?", "opciones": ["Conector", "Virus", "Programa", "Idioma"], "correcta": "Conector"},
-      {"pregunta": "¿Qué empresa produce los MacBook?", "opciones": ["Apple", "Dell", "HP", "Acer"], "correcta": "Apple"},
-      {"pregunta": "¿Qué red social usa tweets?", "opciones": ["Twitter", "Facebook", "TikTok", "Instagram"], "correcta": "Twitter"},
-      {"pregunta": "¿Qué app es para videos cortos?", "opciones": ["TikTok", "LinkedIn", "WhatsApp", "Telegram"], "correcta": "TikTok"},
-      {"pregunta": "¿Qué consola es de Sony?", "opciones": ["PlayStation", "Xbox", "Switch", "GameCube"], "correcta": "PlayStation"},
-      {"pregunta": "¿Qué significa Wi-Fi?", "opciones": ["Red inalámbrica", "Cable rápido", "Luz roja", "Sonido digital"], "correcta": "Red inalámbrica"},
-      {"pregunta": "¿Qué empresa creó el iPad?", "opciones": ["Apple", "Samsung", "Sony", "LG"], "correcta": "Apple"},
-      {"pregunta": "¿Qué app sirve para videollamadas?", "opciones": ["Zoom", "Spotify", "Maps", "Photoshop"], "correcta": "Zoom"},
-      {"pregunta": "¿Qué empresa crea procesadores Ryzen?", "opciones": ["AMD", "Intel", "Nvidia", "Qualcomm"], "correcta": "AMD"},
-      {"pregunta": "¿Qué empresa creó el buscador Chrome?", "opciones": ["Google", "Apple", "Microsoft", "IBM"], "correcta": "Google"}
-    ],
-    "media": [
-      {"pregunta": "¿Qué lenguaje se usa para páginas web?", "opciones": ["HTML", "Python", "Java", "C"], "correcta": "HTML"},
-      {"pregunta": "¿Qué empresa creó Linux originalmente?", "opciones": ["Ninguna, fue un proyecto libre", "Microsoft", "Apple", "Oracle"], "correcta": "Ninguna, fue un proyecto libre"},
-      {"pregunta": "¿Qué empresa creó Photoshop?", "opciones": ["Adobe", "Microsoft", "Apple", "Google"], "correcta": "Adobe"},
-      {"pregunta": "¿Qué significa CPU?", "opciones": ["Unidad central de procesamiento", "Unidad de memoria", "Tarjeta gráfica", "Sistema óptico"], "correcta": "Unidad central de procesamiento"},
-      {"pregunta": "¿Qué es un algoritmo?", "opciones": ["Conjunto de instrucciones", "Virus", "Tipo de sonido", "Idioma"], "correcta": "Conjunto de instrucciones"},
-      {"pregunta": "¿Qué significa SSD?", "opciones": ["Unidad de estado sólido", "Sistema seguro digital", "Servidor de sonido digital", "Soporte de datos"], "correcta": "Unidad de estado sólido"},
-      {"pregunta": "¿Qué empresa creó Java?", "opciones": ["Sun Microsystems", "Apple", "Microsoft", "IBM"], "correcta": "Sun Microsystems"},
-      {"pregunta": "¿Qué protocolo usa la web?", "opciones": ["HTTP", "SMTP", "FTP", "SSH"], "correcta": "HTTP"},
-      {"pregunta": "¿Qué significa AI?", "opciones": ["Inteligencia artificial", "Acceso interno", "Archivo indexado", "Interfaz activa"], "correcta": "Inteligencia artificial"},
-      {"pregunta": "¿Qué empresa creó GitHub?", "opciones": ["Microsoft (actual)", "Google", "Nvidia", "Apple"], "correcta": "Microsoft (actual)"},
-      {"pregunta": "¿Qué es un firewall?", "opciones": ["Sistema de seguridad", "Tipo de disco", "Lenguaje de programación", "Navegador"], "correcta": "Sistema de seguridad"},
-      {"pregunta": "¿Qué significa API?", "opciones": ["Interfaz de programación de aplicaciones", "Sistema interno", "Acceso privado", "Archivo público"], "correcta": "Interfaz de programación de aplicaciones"},
-      {"pregunta": "¿Qué lenguaje usa .py?", "opciones": ["Python", "Java", "C++", "Ruby"], "correcta": "Python"},
-      {"pregunta": "¿Qué empresa creó la GPU RTX?", "opciones": ["Nvidia", "AMD", "Intel", "Qualcomm"], "correcta": "Nvidia"},
-      {"pregunta": "¿Qué protocolo se usa para correo?", "opciones": ["SMTP", "HTTP", "SSH", "TLS"], "correcta": "SMTP"}
-    ],
-    "dificil": [
-      {"pregunta": "¿Qué significa DNS?", "opciones": ["Sistema de nombres de dominio", "Servidor de datos", "Red de seguridad", "Sistema digital"], "correcta": "Sistema de nombres de dominio"},
-      {"pregunta": "¿Qué significa JSON?", "opciones": ["JavaScript Object Notation", "Java Standard Object Network", "Joint System Object Node", "JQuery Open Network"], "correcta": "JavaScript Object Notation"},
-      {"pregunta": "¿Qué creador inventó Linux?", "opciones": ["Linus Torvalds", "Richard Stallman", "Bill Gates", "Steve Jobs"], "correcta": "Linus Torvalds"},
-      {"pregunta": "¿Qué significa GPU?", "opciones": ["Unidad de procesamiento gráfico", "Unidad general de potencia", "Gestor de procesos únicos", "Procesador de usuario general"], "correcta": "Unidad de procesamiento gráfico"},
-      {"pregunta": "¿Qué protocolo cifra conexiones seguras?", "opciones": ["TLS", "HTTP", "FTP", "SMTP"], "correcta": "TLS"},
-      {"pregunta": "¿Qué empresa creó Kubernetes?", "opciones": ["Google", "Amazon", "IBM", "Oracle"], "correcta": "Google"},
-      {"pregunta": "¿Qué es un contenedor Docker?", "opciones": ["Entorno aislado", "Virus", "Sistema operativo", "Navegador"], "correcta": "Entorno aislado"},
-      {"pregunta": "¿Qué lenguaje usa el framework Angular?", "opciones": ["TypeScript", "Python", "Java", "PHP"], "correcta": "TypeScript"},
-      {"pregunta": "¿Qué sistema usa los paquetes .deb?", "opciones": ["Debian/Ubuntu", "Red Hat", "Windows", "macOS"], "correcta": "Debian/Ubuntu"},
-      {"pregunta": "¿Qué arquitectura usa Apple Silicon?", "opciones": ["ARM", "x86", "RISC-V", "PowerPC"], "correcta": "ARM"},
-      {"pregunta": "¿Qué significa VLAN?", "opciones": ["Red de área local virtual", "Red lan visible", "Sistema lineal", "Acceso de bajo nivel"], "correcta": "Red de área local virtual"},
-      {"pregunta": "¿Qué puerto usa HTTPS?", "opciones": ["443", "80", "22", "21"], "correcta": "443"},
-      {"pregunta": "¿Qué empresa creó el lenguaje Go?", "opciones": ["Google", "Microsoft", "Amazon", "Oracle"], "correcta": "Google"},
-      {"pregunta": "¿Qué base de datos usa SQL?", "opciones": ["Relacionales", "NoSQL", "Grafos", "Documentales"], "correcta": "Relacionales"},
-      {"pregunta": "¿Qué significa CLI?", "opciones": ["Interfaz de línea de comandos", "Capa ligera interna", "Control lógico integrado", "Cliente local integrado"], "correcta": "Interfaz de línea de comandos"}
     ]
   }
 }

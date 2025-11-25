@@ -11,7 +11,7 @@ import { SeleccionService } from '../../servicios/seleccion.service';
   styleUrl: './categoria.component.css'
 })
 export class CategoriaComponent {
-  categorias = ['Arte','Ciencia','Deporte','Cine','Geografia','Historia','Musica','Tecnologia'];
+  categorias = ['Arte','Ciencia','Deporte','Cine','Geografia','Historia'];
 
   constructor(private router: Router, public seleccion: SeleccionService) {}
 

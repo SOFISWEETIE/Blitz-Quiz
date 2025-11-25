@@ -1,8 +1,13 @@
-<div *ngIf="preguntaActual()">
-  <app-pregunta
-    [pregunta]="preguntaActual()"
-    (siguiente)="avanzarPregunta()"
-  ></app-pregunta>
-</div>
+<app-pregunta-rapidas 
+  *ngIf="seleccion.modo === 'rapidas'"
+  [pregunta]="preguntaActualRapida()"
+  [numeroPregunta]="indiceRapida + 1"
+  (siguiente)="avanzarRapida()">
+</app-pregunta-rapidas>
 
-<p>Pregunta {{ numeroPregunta() }} de {{ totalPreguntas() }}</p>
+<!-- MODO CLÁSICO Y ALEATORIO -->
+<app-pregunta 
+  *ngIf="seleccion.modo !== 'rapidas'"
+  [pregunta]="preguntaActual()"
+  (siguiente)="avanzarPregunta()">
+</app-pregunta>

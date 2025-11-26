@@ -1,0 +1,18 @@
+<div class="normal" *ngIf="pregunta">
+  <h2>MODO NORMAL</h2>
+  <p>Pregunta {{ numeroPregunta }} de {{ totalPreguntas }}</p>
+
+  <div class="timer" [class.danger]="tiempoRestante <= 5">
+    {{ tiempoRestante }}
+  </div>
+
+  <h3>{{ pregunta.pregunta }}</h3>
+
+  <div class="puntos" *ngIf="mostrarPuntos">+{{ puntosGanados }}</div>
+
+  <div class="opciones">
+    <button *ngFor="let opcion of opcionesMezcladas" (click)="responder(opcion)">
+      {{ opcion }}
+    </button>
+  </div>
+</div>

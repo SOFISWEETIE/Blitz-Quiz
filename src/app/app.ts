@@ -1,12 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  standalone: true,                // necesario para usar imports
+  imports: [RouterOutlet, CommonModule],
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrls: ['./app.css'] // plural y en array
 })
 export class App {
-protected readonly title = 'Blitz-Quiz';
+  // Título de la app usando signal
+  readonly title = signal('Blitz-Quiz');
 }
+

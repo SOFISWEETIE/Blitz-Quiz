@@ -1,0 +1,23 @@
+<div class="resultados">
+  <h1>¡FIN DEL QUIZ!</h1>
+
+  <!-- TODOS LOS MODOS TIENEN PUNTOS -->
+  <h2>
+    ¡Enhorabuena!<br>
+    Sacaste <strong>{{ puntuacion.puntosTotales }}</strong> puntos
+  </h2>
+
+  <p *ngIf="seleccion.modo === 'rapidas'">
+    <strong>PREGUNTAS RÁPIDAS ⚡</strong><br>
+    Aciertos: {{ puntuacion.correctas }} | Fallos: {{ puntuacion.incorrectas }}
+  </p>
+
+  <p *ngIf="seleccion.modo !== 'rapidas'">
+    {{ puntuacion.correctas }} de {{ puntuacion.totalPreguntas }} aciertos<br>
+    Categoría: {{ seleccion.categoria || 'Aleatoria' }}<br>
+    Dificultad: {{ seleccion.dificultad || 'Aleatoria' }}
+  </p>
+
+  
+</div>
+<button (click)="volverAJugar()">JUGAR OTRA VEZ</button>

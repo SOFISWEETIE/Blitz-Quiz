@@ -22,7 +22,7 @@ export class LoginComponente {
       await this.auth.loginWithGoogle();
       this.error = null;
       // Navega a la pantalla de preguntas después de iniciar sesión para poder jugar al juego
-      await this.router.navigate(['/preguntas']);
+      await this.router.navigate(['/modos']);
     } catch (err) {
       console.error('Error login:', err);
       this.error = (err as any)?.message || String(err);

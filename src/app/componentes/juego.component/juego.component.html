@@ -1,0 +1,13 @@
+<app-pregunta-rapidas 
+  *ngIf="seleccion.modo === 'rapidas'"
+  [pregunta]="preguntaActualRapida()"
+  [numeroPregunta]="indiceRapida + 1"
+  (siguiente)="avanzarRapida()">
+</app-pregunta-rapidas>
+
+<!-- MODO CLÁSICO Y ALEATORIO -->
+<app-pregunta 
+  *ngIf="seleccion.modo !== 'rapidas'"
+  [pregunta]="preguntaActual()"
+  (siguiente)="avanzarPregunta()">
+</app-pregunta>

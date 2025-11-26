@@ -1,0 +1,7 @@
+<h1>Elige la dificultad</h1>
+
+<div *ngFor="let dif of dificultades" style="margin: 8px 0;">
+  <button (click)="elegirDificultad(dif)">
+    {{ dif }}
+  </button>
+</div>

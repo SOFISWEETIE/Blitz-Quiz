@@ -1,0 +1,82 @@
+.layout {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+/* Barra de arriba */
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #682786;
+  color: white;
+  padding: 10px 20px;
+}
+
+.menu a {
+  margin: 0 10px;
+  color: white;
+  text-decoration: none;
+}
+
+.usuario {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: bold;
+}
+
+.btn-salir {
+  padding: 5px 12px;
+  border: none;
+  background-color: #e53935;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.btn-salir:hover {
+  background-color: #c62828;
+}
+
+/* zona principal */
+.contenido {
+  display: flex;
+  flex: 1;
+  padding: 20px;
+  overflow: hidden;
+}
+
+/* zona de juego */
+.pantalla-juego {
+  flex: 3;
+  padding-right: 20px;
+  overflow-y: auto;
+}
+
+/* zona del ranking */
+.ranking-panel {
+  flex: 1;
+  border-left: 2px solid #ccc;
+  padding-left: 20px;
+  background: #f5f5f5;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.ranking-panel h3 {
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.placeholder {
+  margin-top: 20px;
+  font-style: italic;
+  color: #666;
+}
+
+

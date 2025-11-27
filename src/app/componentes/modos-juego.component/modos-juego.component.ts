@@ -15,16 +15,16 @@ export class ModosJuegoComponent {
 
   elegirClasico() {
     this.seleccion.modo = 'clasico';
-    this.router.navigate(['/categoria']);
+    this.router.navigate(['app/categoria']);
   }
 
   elegirAleatorio() {
     this.seleccion.modo = 'aleatorio';
-    this.router.navigate(['/juego']);
+    this.router.navigate(['app/juego']);
   }
 
   elegirRapidas() {
   this.seleccion.establecerModo('rapidas');
-  this.router.navigate(['/juego']);
+  this.router.navigate(['app/juego']);
 }
 }

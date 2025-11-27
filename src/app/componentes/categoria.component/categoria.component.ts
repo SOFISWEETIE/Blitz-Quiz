@@ -17,6 +17,6 @@ export class CategoriaComponent {
 
   elegirCategoria(cat: string) {
     this.seleccion.establecerCategoria(cat);
-    this.router.navigate(['/dificultad']);
+    this.router.navigate(['/app/dificultad']);
   }
 }

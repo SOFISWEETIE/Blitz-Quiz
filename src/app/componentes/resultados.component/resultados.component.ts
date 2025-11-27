@@ -18,6 +18,6 @@ export class ResultadosComponent {
   ) {}
 
   volverAJugar() {
-    this.router.navigate(['/modos']);
+    this.router.navigate(['app/modos']);
   }
 }

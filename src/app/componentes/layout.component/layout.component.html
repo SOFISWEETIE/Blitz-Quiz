@@ -1,0 +1,32 @@
+<div class="layout">
+  <!-- Barra superior -->
+  <header class="top-bar">
+    <!-- <img src="assets/logo.png" alt="Blitz-Quiz" class="logo" />-->
+    <nav class="menu">
+      <!-- en construción   -->
+    </nav>
+
+    <div class="usuario">
+      {{ (auth.user$ | async)?.displayName || 'Invitado' }}
+      <button class="btn-salir" (click)="salir()">Salir</button>
+    </div>
+  </header>
+
+  <!-- Zona principal -->
+  <main class="contenido">
+    <section class="pantalla-juego">
+      <router-outlet></router-outlet>
+    </section>
+
+    <!-- para el ranking -->
+    <aside class="ranking-panel">
+      <h3>Ranking</h3>
+      <div class="placeholder">
+        En contrución :/
+      </div>
+    </aside>
+  </main>
+</div>
+
+
+

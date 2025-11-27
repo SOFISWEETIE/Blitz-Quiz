@@ -58,7 +58,7 @@ export class JuegoComponent implements OnInit {
 
   } catch (error) {
     alert('Error cargando preguntas');
-    this.router.navigate(['/modos']);
+    this.router.navigate(['app/modos']);
   }
 }
 
@@ -85,7 +85,7 @@ export class JuegoComponent implements OnInit {
       this.preguntasRapidas = todas.slice(0, 20);
     } catch (error) {
       alert('Error cargando preguntas rápidas');
-      this.router.navigate(['/modos']);
+      this.router.navigate(['app/modos']);
     }
   }
   
@@ -107,7 +107,7 @@ export class JuegoComponent implements OnInit {
     if (this.puntuacion.indice + 1 < this.puntuacion.totalPreguntas) {
       this.puntuacion.indice++;
     } else {
-      this.router.navigate(['/resultados']);
+      this.router.navigate(['app/resultados']);
     }
   }
 
@@ -119,7 +119,7 @@ export class JuegoComponent implements OnInit {
   avanzarRapida() {
   this.indiceRapida++;
   if (this.indiceRapida >= 20) {
-    this.router.navigate(['/resultados']);
+    this.router.navigate(['app/resultados']);
   }
 }
  

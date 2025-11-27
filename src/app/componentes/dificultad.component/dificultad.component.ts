@@ -17,6 +17,6 @@ export class DificultadComponent {
 
   elegirDificultad(dif: string) {
     this.seleccion.establecerDificultad(dif);
-    this.router.navigate(['/juego']);
+    this.router.navigate(['/app/juego']);
   }
 }

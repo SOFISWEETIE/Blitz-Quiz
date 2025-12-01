@@ -1,0 +1,39 @@
+h1 {
+  text-align: center;
+  color: #4b2dbd;
+  font-size: 28px;
+}
+
+button {
+  width: 100%;              /* ocupa todo el ancho en móvil */
+  max-width: 320px;         /* un poco más ancho en pantallas grandes */
+  padding: 14px 20px;       /* más alto y ancho */
+  margin: 12px auto;        /* centrado horizontal */
+  background: #3a0ca3;
+  color: white;
+  border: none;
+  border-radius: 18px;
+  font-weight: 600;
+  font-size: 16px;          /* texto ligeramente más grande */
+  display: flex;              /* activa flexbox */
+  align-items: center;        /* centra verticalmente */
+  justify-content: center;    /* centra horizontalmente */
+  gap: 10px;                  /* espacio entre icono y texto */
+}
+
+button:hover {
+  background: #f7c646;
+  color: black; /* texto negro al pasar el ratón */
+}
+
+
+/* Responsive: en pantallas grandes los botones se ven más cómodos */
+@media (min-width: 768px) {
+  button {
+    font-size: 18px;
+    padding: 16px 24px;
+    max-width: 360px;       /* aún más grande en desktop */
+  }
+}
+
+

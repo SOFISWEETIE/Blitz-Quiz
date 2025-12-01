@@ -1,0 +1,33 @@
+h1 {
+  text-align: center;
+  color: #4b2dbd;
+  font-size: 28px;
+}
+
+button {
+  display: block;
+  width: 100%;              /* ocupa todo el ancho en móvil */
+  max-width: 320px;         /* límite en pantallas grandes */
+  margin: 12px auto;        /* centrado horizontal */
+  padding: 14px 20px;       /* más alto y ancho */
+  background: #c1cdf9;      /* mantiene tu color */
+  border: none;
+  border-radius: 18px;
+  font-size: 16px;          /* texto ligeramente más grande */
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #f7c646;      /* mantiene tu hover naranjita */
+}
+
+/* Responsive: en pantallas grandes los botones se ven más cómodos */
+@media (min-width: 768px) {
+  button {
+    font-size: 18px;
+    padding: 16px 24px;
+    max-width: 360px;       /* aún más grande en desktop */
+  }
+}
+

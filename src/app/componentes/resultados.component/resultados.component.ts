@@ -8,7 +8,8 @@ import { Router } from '@angular/router';
   selector: 'app-resultados',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './resultados.component.html'
+  templateUrl: './resultados.component.html',
+  styleUrls: ['./resultados.component.css'] 
 })
 export class ResultadosComponent {
   constructor(

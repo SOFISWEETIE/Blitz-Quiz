@@ -17,6 +17,7 @@ export class PuntuacionService {
     this.totalPreguntas = 0;
     this.preguntasActuales = [];
     this.indice = 0;
+    this.puntosTotales = 0; // se reinician los puntos
   }
 
   establecerTotal(total: number) {

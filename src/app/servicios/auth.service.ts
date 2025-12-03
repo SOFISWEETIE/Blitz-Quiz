@@ -1,8 +1,7 @@
 // src/app/servicios/auth.service.ts
-import { Injectable } from '@angular/core';
-import { Auth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged, User } from '@angular/fire/auth';
+import { Injectable, inject } from '@angular/core';
+import { Auth, GoogleAuthProvider, signInWithPopup, signOut, authState, User } from '@angular/fire/auth';
 import { BehaviorSubject } from 'rxjs';
-import { inject } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
@@ -11,11 +10,14 @@ export class AuthService {
   private auth: Auth = inject(Auth);  // ← INYECTAMOS CON inject() EN VEZ DE CONSTRUCTOR
   user$ = new BehaviorSubject<User | null>(null);
 
+
   constructor() {
-    onAuthStateChanged(this.auth, (user) => {
-      this.user$.next(user);
-    });
-  }
+  authState(this.auth).subscribe(user => {
+    this.user$.next(user);
+    console.log("AuthService authState:", user);
+  });
+}
+
 
   async loginWithGoogle() {
     const provider = new GoogleAuthProvider();

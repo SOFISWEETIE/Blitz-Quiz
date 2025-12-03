@@ -5,7 +5,12 @@
     import { ResultadosComponent } from './componentes/resultados.component/resultados.component';
     import { ModosJuegoComponent } from './componentes/modos-juego.component/modos-juego.component';
     import { LoginComponent } from './componentes/login.component/login.component';
-    import { AuthGuard } from '@angular/fire/auth-guard';
+    //import { AuthGuard } from '@angular/fire/auth-guard';
+
+    //nuevo
+    import { canActivate, redirectUnauthorizedTo } from '@angular/fire/auth-guard';
+
+    const redirectToLogin = () => redirectUnauthorizedTo(['login']);
 
 
     export const routes: Routes = [
@@ -17,27 +22,36 @@
     {
         path: 'modos',
         component: ModosJuegoComponent,
-        canActivate: [AuthGuard]
+        //canActivate: [AuthGuard]
+        ...canActivate(() => {
+            console.log("GUARD EJECUTADO");
+            return redirectUnauthorizedTo(['login']);
+})
+
     },
     {
         path: 'categoria',
         component: CategoriaComponent,
-        canActivate: [AuthGuard]
+        //canActivate: [AuthGuard]
+        ...canActivate(redirectToLogin)
     },
     {
         path: 'dificultad',
         component: DificultadComponent,
-        canActivate: [AuthGuard]
+        //canActivate: [AuthGuard]
+        ...canActivate(redirectToLogin)
     },
     {
         path: 'juego',
         component: JuegoComponent,
-        canActivate: [AuthGuard]
+        //canActivate: [AuthGuard]
+        ...canActivate(redirectToLogin)
     },
     {
         path: 'resultados',
         component: ResultadosComponent,
-        canActivate: [AuthGuard]
+        //canActivate: [AuthGuard]
+        ...canActivate(redirectToLogin)
     },
 
     // 4. Por si alguien se pierde

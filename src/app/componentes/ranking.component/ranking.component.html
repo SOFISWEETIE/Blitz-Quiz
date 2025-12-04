@@ -1,0 +1,10 @@
+<h3 class="titulo-ranking">Ranking semanal 🏆</h3>
+
+<ol class="lista-ranking">
+  <li *ngFor="let item of ranking$ | async">
+    <strong>{{ item['jugador'] }}</strong>
+    <span>{{ item['puntuacion']}} pts</span>
+  </li>
+</ol>
+
+

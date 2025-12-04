@@ -6,7 +6,7 @@ h1 {
 
 button {
   display: block;
-  width: 100%;              /* ocupa todo el ancho en móvil */
+  width: 100%;              /* ocupa todo el ancho en movil */
   max-width: 320px;         /* límite en pantallas grandes */
   margin: 12px auto;        /* centrado horizontal */
   padding: 14px 20px;       /* más alto y ancho */

@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "dist/blitz-quiz", 
+    "public": "dist/Blitz-Quiz/browser",
     "ignore": [
       "firebase.json",
       "**/.*",

@@ -1,14 +1,7 @@
 <div class="layout">
-
   <!-- Barra superior -->
   <header class="top-bar">
     <div class="logo">BlitzQuiz</div>
-
-    <nav class="menu">
-      <a routerLink="/modos">Modos</a>
-      <a routerLink="/dificultad">Dificultad</a>
-      <a routerLink="/categoria">Categoría</a>
-    </nav>
 
     <div class="usuario">
       <span class="username">{{ (auth.user$ | async)?.displayName || 'Invitado' }}</span>
@@ -18,7 +11,6 @@
 
   <!-- Zona principal -->
   <main class="contenido">
-
     <!-- PANTALLA DE JUEGO -->
     <section class="pantalla-juego">
       <router-outlet></router-outlet>
@@ -26,16 +18,7 @@
 
     <!-- RANKING -->
     <aside class="ranking-panel">
-      <h3>Ranking</h3>
-
-      <div class="ranking-placeholder">
-        En construcción :/
-      </div>
+      <app-ranking></app-ranking>
     </aside>
-
   </main>
 </div>
-
-
-
-

@@ -6,9 +6,10 @@ import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, CommonModule],
+  imports: [RouterOutlet, CommonModule,HttpClientModule],
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrls: ['./app.css']
+
 })
 export class App {
   protected readonly title = signal('Blitz-Quiz');

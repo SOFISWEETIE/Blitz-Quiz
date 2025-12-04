@@ -1,17 +1,17 @@
-<div class="normal">
+<div class="normal card-pregunta">
   <h2>MODO NORMAL</h2>
-  <p>Pregunta {{ numeroPregunta }} de {{ totalPreguntas }}</p>
+  <p class="meta">Pregunta {{ numeroPregunta }} de {{ totalPreguntas }}</p>
 
   <div class="timer" [class.danger]="tiempoRestante <= 5">
     {{ tiempoRestante }}
   </div>
 
-  <h3>{{ pregunta.pregunta }}</h3>
+  <h3 class="pregunta-text">{{ pregunta.pregunta }}</h3>
 
   <div class="puntos" *ngIf="mostrarPuntos">+{{ puntosGanados }}</div>
 
-  <div class="opciones">
-    <button *ngFor="let opcion of opcionesMezcladas" (click)="responder(opcion)">
+  <div class="opciones-grid">
+    <button *ngFor="let opcion of opcionesMezcladas" (click)="responder(opcion)" class="opcion-btn">
       {{ opcion }}
     </button>
   </div>

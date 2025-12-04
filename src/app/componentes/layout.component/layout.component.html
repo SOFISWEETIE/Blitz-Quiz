@@ -1,32 +1,41 @@
 <div class="layout">
+
   <!-- Barra superior -->
   <header class="top-bar">
-    <!-- <img src="assets/logo.png" alt="Blitz-Quiz" class="logo" />-->
+    <div class="logo">BlitzQuiz</div>
+
     <nav class="menu">
-      <!-- en construción   -->
+      <a routerLink="/modos">Modos</a>
+      <a routerLink="/dificultad">Dificultad</a>
+      <a routerLink="/categoria">Categoría</a>
     </nav>
 
     <div class="usuario">
-      {{ (auth.user$ | async)?.displayName || 'Invitado' }}
+      <span class="username">{{ (auth.user$ | async)?.displayName || 'Invitado' }}</span>
       <button class="btn-salir" (click)="salir()">Salir</button>
     </div>
   </header>
 
   <!-- Zona principal -->
   <main class="contenido">
+
+    <!-- PANTALLA DE JUEGO -->
     <section class="pantalla-juego">
       <router-outlet></router-outlet>
     </section>
 
-    <!-- para el ranking -->
+    <!-- RANKING -->
     <aside class="ranking-panel">
       <h3>Ranking</h3>
-      <div class="placeholder">
-        En contrución :/
+
+      <div class="ranking-placeholder">
+        En construcción :/
       </div>
     </aside>
+
   </main>
 </div>
+
 
 
 

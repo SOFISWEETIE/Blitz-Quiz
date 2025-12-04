@@ -1,6 +1,7 @@
 import { Component, Input, Output, EventEmitter, OnChanges, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PuntuacionService } from '../../servicios/puntuacion.service';
+import { SeleccionService } from '../../servicios/seleccion.service';
 
 @Component({
   selector: 'app-pregunta',
@@ -20,7 +21,7 @@ export class PreguntaComponent implements OnChanges, OnDestroy {
   puntosGanados: number = 0;
   mostrarPuntos: boolean = false;
 
-  constructor(public puntuacion: PuntuacionService) {}
+  constructor(public puntuacion: PuntuacionService, public seleccion: SeleccionService) {}
 
   ngOnChanges() {
     if (this.pregunta) {
@@ -31,10 +32,23 @@ export class PreguntaComponent implements OnChanges, OnDestroy {
   prepararPregunta() {
     clearInterval(this.intervalo);
     this.opcionesMezcladas = [...this.pregunta.opciones].sort(() => Math.random() - 0.5);
-    this.tiempoRestante = 20;
     this.mostrarPuntos = false;
     this.puntosGanados = 0;
+
+    // tiempo aleatorio pero solo en este modo
+    if (this.seleccion.modo === 'aleatorio') {
+      this.tiempoRestante = this.tiempoAleatorio();
+    } else {
+      // modo clásico sigue con el mismo tiempo
+      this.tiempoRestante = 20;
+    }
+    
     this.iniciarTemporizador();
+  }
+
+  // Genera un tiempo aleatorio entre 8 y 20 segundos
+  tiempoAleatorio(): number {
+    return Math.floor(Math.random() * (20 - 8 + 1)) + 8;
   }
 
   iniciarTemporizador() {
@@ -47,21 +61,28 @@ export class PreguntaComponent implements OnChanges, OnDestroy {
   }
 
   responder(opcion: string | null) {
-    clearInterval(this.intervalo);
+  clearInterval(this.intervalo);
 
-    if (opcion === this.pregunta.correcta) {
-      // ¡ACERTÓ! → +100 si responde en los primeros 10 segundos, +50 después
+  if (opcion === this.pregunta.correcta) {
+    if (this.seleccion.modo === 'aleatorio') {
+      // Modo aleatorio debe ser siempre 100 puntos la correcta
+      this.puntuacion.sumarCorrecta();
+      this.puntosGanados = 100;
+    } else {
+      // Modo clásico puede variar la puntuación
       const puntos = this.tiempoRestante >= 10 ? 100 : 50;
-      this.puntosGanados = puntos;
-      this.mostrarPuntos = true;
       this.puntuacion.puntosTotales += puntos;
       this.puntuacion.correctas++;
-    } else {
-      // ¡FALLÓ O SE ACABÓ EL TIEMPO!
-      this.puntosGanados = 0;
-      this.mostrarPuntos = true;
-      this.puntuacion.incorrectas++;
+      this.puntosGanados = puntos;
     }
+
+    this.mostrarPuntos = true;
+  } else {
+    // INCORRECTA
+    this.puntosGanados = 0;
+    this.mostrarPuntos = true;
+    this.puntuacion.incorrectas++;
+  }
 
     // Puntos desaparecen después de 1 segundo
     setTimeout(() => {

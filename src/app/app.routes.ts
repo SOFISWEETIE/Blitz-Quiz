@@ -6,6 +6,8 @@ import { ResultadosComponent } from './componentes/resultados.component/resultad
 import { ModosJuegoComponent } from './componentes/modos-juego.component/modos-juego.component';
 import { LoginComponent } from './componentes/login.component/login.component';
 import { LayoutComponent } from './componentes/layout.component/layout.component';
+import { CrearAliasComponent } from './componentes/crear.alias.component/crear.alias.component';
+import { AliasGuard } from './servicios/alias.guard';
 
 
 import { AuthGuard } from '@angular/fire/auth-guard';
@@ -30,10 +32,11 @@ export const routes: Routes = [
     data: { authGuardPipe: redirectToLogin },  
 
     children: [
+      { path: 'crear-alias', component: CrearAliasComponent },
       { path: 'modos', component: ModosJuegoComponent },
       { path: 'categoria', component: CategoriaComponent },
       { path: 'dificultad', component: DificultadComponent },
-      { path: 'juego', component: JuegoComponent },
+      { path: 'juego', component: JuegoComponent, canActivate: [AliasGuard] },
       { path: 'resultados', component: ResultadosComponent },
       { path: '', redirectTo: 'modos', pathMatch: 'full' }
     ]

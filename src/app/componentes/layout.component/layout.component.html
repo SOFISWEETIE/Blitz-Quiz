@@ -4,7 +4,8 @@
     <div class="logo">BlitzQuiz</div>
 
     <div class="usuario">
-      <span class="username">{{ (auth.user$ | async)?.displayName || 'Invitado' }}</span>
+      {{ (alias$ | async) || 'Invitado' }} 
+      <button class="btn-cambiar" (click)="cambiarAlias()">Cambiar alias</button>
       <button class="btn-salir" (click)="salir()">Salir</button>
     </div>
   </header>

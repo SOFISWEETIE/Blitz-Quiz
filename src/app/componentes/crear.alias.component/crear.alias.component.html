@@ -1,0 +1,15 @@
+<div class="alias-page">
+  <div class="alias-card">
+    <h2>Elige tu alias</h2>
+    <p>Este será tu nombre público.</p>
+
+    <input
+      type="text"
+      [(ngModel)]="alias"
+      placeholder="Tu alias"
+      maxlength="20"
+    />
+
+    <button (click)="guardar()">Guardar</button>
+  </div>
+</div>

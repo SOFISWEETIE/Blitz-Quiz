@@ -1,17 +1,25 @@
-.alias-page {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background: #f4f4f4;
-}
+<div class="alias-container">
 
-.alias-card {
-  padding: 30px;
-  background: white;
-  border-radius: 10px;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
-  text-align: center;
-  width: 90%;
-  max-width: 350px;
-}
+  <h1>Elige tu alias</h1>
+
+  <div class="icon-wrapper">
+    <div class="icon-circle">
+      <span class="material-icons">person</span>
+    </div>
+  </div>
+
+  <p class="sub-text">Este será tu nombre público.</p>
+
+  <input
+    type="text"
+    [(ngModel)]="alias"
+    placeholder="Tu alias"
+    maxlength="20"
+  />
+
+  <button (click)="guardar()">
+    <span class="material-icons">check_circle</span>
+    Guardar alias
+  </button>
+
+</div>

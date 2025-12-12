@@ -1,25 +1,108 @@
-<div class="alias-container">
 
-  <h1>Elige tu alias</h1>
+.alias-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 20px;
+  background: linear-gradient(135deg, #f9f5ff, #ece8ff);
+}
 
-  <div class="icon-wrapper">
-    <div class="icon-circle">
-      <span class="material-icons">person</span>
-    </div>
-  </div>
 
-  <p class="sub-text">Este será tu nombre público.</p>
+h1 {
+  text-align: center;
+  color: #4b2dbd;
+  font-size: 28px;
+  margin-bottom: 10px;
+}
 
-  <input
-    type="text"
-    [(ngModel)]="alias"
-    placeholder="Tu alias"
-    maxlength="20"
-  />
 
-  <button (click)="guardar()">
-    <span class="material-icons">check_circle</span>
-    Guardar alias
-  </button>
+.sub-text {
+  color: #555;
+  margin-bottom: 20px;
+  text-align: center;
+}
 
-</div>
+
+.icon-wrapper {
+  margin: 10px 0 20px 0;
+}
+
+.icon-circle {
+  width: 85px;
+  height: 85px;
+  background: #3a0ca3;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+  animation: float 2s infinite ease-in-out;
+}
+
+.icon-circle .material-icons {
+  color: white;
+  font-size: 40px;
+}
+
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+  100% { transform: translateY(0); }
+}
+
+/* Input */
+input {
+  width: 100%;
+  max-width: 320px;
+  padding: 14px;
+  font-size: 16px;
+  border: 2px solid #c5b8ff;
+  border-radius: 14px;
+  outline: none;
+  margin-bottom: 20px;
+  transition: 0.2s;
+}
+
+input:focus {
+  border-color: #3a0ca3;
+  box-shadow: 0 0 6px rgba(58, 12, 163, 0.4);
+}
+
+
+button {
+  width: 100%;
+  max-width: 320px;
+  padding: 14px 20px;
+  margin: 12px auto;
+  background: #3a0ca3;
+  color: white;
+  border: none;
+  border-radius: 18px;
+  font-weight: 600;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+button:hover {
+  background: #f7c646;
+  color: black;
+}
+
+
+@media (min-width: 768px) {
+  button {
+    font-size: 18px;
+    padding: 16px 24px;
+    max-width: 360px;
+  }
+
+  input {
+    max-width: 360px;
+  }
+}

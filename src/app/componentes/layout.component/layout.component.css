@@ -28,17 +28,6 @@
   font-weight: 700;
 }
 
-.menu a {
-  margin: 0 12px;
-  color: white;
-  font-weight: 500;
-  text-decoration: none;
-}
-
-.menu a:hover {
-  text-decoration: underline;
-}
-
 /* USUARIO */
 .usuario {
   display: flex;
@@ -46,18 +35,46 @@
   gap: 12px;
 }
 
+.alias-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.alias-info .avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid white;
+}
+
 .username {
   font-weight: 600;
 }
 
+.btn-cambiar,
 .btn-salir {
   background: #ff6060;
   border: none;
   padding: 8px 14px;
   border-radius: 12px;
   cursor: pointer;
-  color: white;
   font-weight: 600;
+}
+
+.btn-cambiar {
+  background: #f7c646;
+  color: black;
+}
+
+.btn-cambiar:hover {
+  background: #e6b600;
+}
+
+.btn-salir {
+  background: #ff6060;
+  color: white;
 }
 
 .btn-salir:hover {

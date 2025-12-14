@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { RankingComponent } from '../ranking.component/ranking.component';
 import { Observable, of } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-layout',
@@ -16,28 +17,20 @@ import { switchMap } from 'rxjs/operators';
 })
 export class LayoutComponent {
 
-   alias$: Observable<string | null> = of(null);
+   aliasData$: BehaviorSubject<{ alias: string; mascota: string } | null>;
   
-  constructor(public auth: AuthService, private router: Router) {
-    
-    // obtener el alias al iniciar la aplicación
-    this.alias$ = this.auth.user$.pipe(
-      switchMap(user => {
-        if (!user) return of(null);
-        return this.auth.verificarAlias();
-      })
-    );
-  }
+    constructor(public auth: AuthService, private router: Router) {
+    this.aliasData$ = this.auth.alias$;
+    }
 
-  //metodo para cerrar sesion
-  async salir() {
-    await this.auth.logout();               // cierra sesion en Firebase
-    await this.router.navigate(['/login']);  // redirige al login
-  }
+    async salir() {
+      await this.auth.logout();
+      await this.router.navigate(['/login']);
+    }
 
-  cambiarAlias() {
-    this.router.navigate(['/app/crear-alias']);
-  }
+    cambiarAlias() {
+      this.router.navigate(['/app/crear-alias']);
+    }
 
 }
 

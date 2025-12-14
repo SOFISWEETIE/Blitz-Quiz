@@ -13,9 +13,18 @@ export class AuthService {
   private firestore: Firestore = inject(Firestore); 
   user$ = new BehaviorSubject<User | null>(null);
 
+  // Observable para alias y mascota
+  alias$ = new BehaviorSubject<{ alias: string; mascota: string } | null>(null);
+
   constructor() {
     onAuthStateChanged(this.auth, (user) => {
       this.user$.next(user);
+
+      if (user) {
+        this.loadAlias(user.uid); // cargar alias y mascota
+      } else {
+        this.alias$.next(null);
+      }
     });
   }
 
@@ -29,25 +38,34 @@ export class AuthService {
     return signOut(this.auth);
   }
 
-   verificarAlias() {
-    return this.user$.pipe(
-      switchMap(user => {
-        if (!user) return of(null);
-
-        const ref = doc(this.firestore, 'usuarios', user.uid);
-        return getDoc(ref).then(d => d.exists() ? d.data()['alias'] : null);
-      })
+  // Verificar solo alias
+  verificarAlias() {
+    return this.alias$.pipe(
+      switchMap(data => of(data?.alias || null))
     );
   }
 
-
-   guardarAlias(uid: string, alias: string) {
+  // Cargar alias y mascota desde Firestore
+  async loadAlias(uid: string) {
     const ref = doc(this.firestore, 'usuarios', uid);
-    return setDoc(ref, { alias }, { merge: true }).then(() => {
-      const user = this.user$.value;
-      if (user) this.user$.next(user); // forzar la actualización
-  });
-}
+    const snap = await getDoc(ref);
+    if (snap.exists()) {
+      const data = snap.data() as { alias?: string; mascota?: string };
+      this.alias$.next({
+        alias: data.alias || '',
+        mascota: data.mascota || ''
+      });
+    } else {
+      this.alias$.next(null);
+    }
+  }
 
+  // Guardar alias y mascota y actualizar automáticamente alias$
+  guardarAlias(uid: string, data: { alias: string; mascota: string }) {
+    const ref = doc(this.firestore, 'usuarios', uid);
+    return setDoc(ref, data, { merge: true }).then(() => {
+      this.alias$.next(data); 
+    });
+  }
 
 }

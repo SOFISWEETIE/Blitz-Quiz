@@ -3,8 +3,11 @@
   <header class="top-bar">
     <div class="logo">BlitzQuiz</div>
 
-    <div class="usuario">
-      {{ (alias$ | async) || 'Invitado' }} 
+    <div class="usuario" *ngIf="aliasData$ | async as data">
+      <div class="alias-info">
+        <img *ngIf="data.mascota" [src]="data.mascota" alt="Mascota" class="avatar" />
+        <span class="username">{{ data.alias || 'Invitado' }}</span>
+      </div>
       <button class="btn-cambiar" (click)="cambiarAlias()">Cambiar alias</button>
       <button class="btn-salir" (click)="salir()">Salir</button>
     </div>

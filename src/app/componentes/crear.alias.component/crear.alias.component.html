@@ -2,9 +2,24 @@
 
   <h1>Elige tu alias</h1>
 
+  <div class="credits">Mascotas diseñadas por Freepik</div>
+
+  <!-- Ver de forma clara la mascota seleccionada -->
   <div class="icon-wrapper">
     <div class="icon-circle">
-      <span class="material-icons">person</span>
+      <img [src]="mascotaSeleccionada" alt="Mascota seleccionada" />
+    </div>
+  </div>
+
+  <!-- Selección mascotas -->
+  <h3 class="mascota-title">Elige tu mascota</h3>
+  <div class="mascotas-grid">
+    <div
+      class="mascota"
+      *ngFor="let m of mascotas"
+      [class.activa]="mascotaSeleccionada === m.src"
+      (click)="mascotaSeleccionada = m.src">
+      <img [src]="m.src" [alt]="m.nombre" />
     </div>
   </div>
 
@@ -14,8 +29,7 @@
     type="text"
     [(ngModel)]="alias"
     placeholder="Tu alias"
-    maxlength="20"
-  />
+    maxlength="20"/>
 
   <button (click)="guardar()">
     <span class="material-icons">check_circle</span>

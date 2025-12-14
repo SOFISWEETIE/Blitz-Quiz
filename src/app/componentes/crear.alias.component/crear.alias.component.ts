@@ -17,6 +17,13 @@ export class CrearAliasComponent {
 
   alias = '';
 
+  mascotas = [
+  { src: 'assets/mascotas/leon.png', nombre: 'Leon' },
+  { src: 'assets/mascotas/koala.png', nombre: 'Koala' }
+];
+
+mascotaSeleccionada = this.mascotas[0].src;
+
   constructor(private auth: AuthService, private router: Router) {}
 
   guardar() {
@@ -28,8 +35,12 @@ export class CrearAliasComponent {
     this.auth.user$.pipe(take(1)).subscribe(user => {
       if (!user) return;
 
-      this.auth.guardarAlias(user.uid, this.alias)
-        .then(() => this.router.navigate(['/app/modos']));
+      this.auth.guardarAlias(user.uid, {
+        alias: this.alias,
+        mascota: this.mascotaSeleccionada
+      })
+      .then(() => this.router.navigate(['/app/modos']));
     });
   }
 }
+

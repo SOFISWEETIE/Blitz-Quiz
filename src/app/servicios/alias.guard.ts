@@ -15,7 +15,7 @@ export class AliasGuard implements CanActivate {
       map(alias => {
         if (alias) return true;
 
-        this.router.navigate(['/crear-alias']);
+        this.router.navigate(['/app/crear-alias']);
         return false;
       })
     );

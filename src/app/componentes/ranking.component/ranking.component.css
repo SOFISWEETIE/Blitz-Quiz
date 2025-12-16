@@ -25,30 +25,37 @@
   color: #4b2dbd;
 }
 
-
-ol {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-ol li {
-  font-size: 15px;
-  padding: 6px 0;
-  border-bottom: 1px solid #eee;
-}
-
-ol li:first-child {
+/* Top 3 */
+.oro {
   font-weight: bold;
-  color: #e0b000; /* medalla oro */
+  color: #caa211;
 }
 
-ol li:nth-child(2) {
+.plata {
   font-weight: bold;
-  color: #aaa; /* medalla plata */
+  color: #929090;
 }
 
-ol li:nth-child(3) {
+.bronce {
   font-weight: bold;
-  color: #cd7f32; /* medalla bronce */
+  color: #c97726;
+}
+
+/* Todos los demás */ 
+.lista-ranking li { 
+  color: #363636;  
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;      
+  object-fit: cover;       
+  margin-right: 10px;      
+  border: 2px solid #4b2dbd; 
+}
+
+.avatar {
+  width: 48px;
+  height: 48px;
 }

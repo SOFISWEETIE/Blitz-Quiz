@@ -31,6 +31,7 @@ export class ResultadosComponent {
   async guardarResultadoEnRanking() {
     try {
       const user = await firstValueFrom(this.auth.user$);
+      const aliasData = this.auth.alias$.value;
       if (!user) {
         console.warn('No user logged, skipping ranking save.');
         return;
@@ -38,10 +39,17 @@ export class ResultadosComponent {
 
       const idSemana = this.obtenerSemanaActual();
       const idJugador = user.uid;
-      const nombreJugador = user.displayName || user.email || 'Jugador';
+      const nombreJugador = aliasData?.alias || 'Jugador';
+      const mascotaJugador = aliasData?.mascota || 'assets/mascotas/default.png';
       const puntos = this.puntuacion.puntosTotales || 0;
 
-      await this.servicioRanking.guardarPuntuacionSemanal(idSemana, idJugador, nombreJugador, puntos);
+      await this.servicioRanking.guardarPuntuacionSemanal(
+        idSemana,
+        idJugador,
+        nombreJugador,
+        puntos,
+        mascotaJugador  
+      );    
       console.log('Puntuación guardada en ranking:', { idSemana, idJugador, puntos });
     } catch (err) {
       console.error('Error guardando en ranking:', err);

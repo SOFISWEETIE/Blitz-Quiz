@@ -21,8 +21,7 @@ export class LoginComponent {
     try {
       await this.auth.loginWithGoogle();
       this.error = null;
-      // Navega a la pantalla de app/modos después de iniciar sesión para poder jugar al juego
-      await this.router.navigate(['/app/modos']);
+      
     } catch (err) {
       console.error('Error login:', err);
       this.error = (err as any)?.message || String(err);

@@ -4,6 +4,8 @@ import { Auth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged,
 import { BehaviorSubject, map, switchMap, of } from 'rxjs';
 import { inject } from '@angular/core';
 import { Firestore, doc, getDoc, setDoc } from '@angular/fire/firestore';
+import { Router } from '@angular/router';
+
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +13,8 @@ import { Firestore, doc, getDoc, setDoc } from '@angular/fire/firestore';
 export class AuthService {
   private auth: Auth = inject(Auth);  // ← INYECTAMOS CON inject() EN VEZ DE CONSTRUCTOR
   private firestore: Firestore = inject(Firestore); 
+  private router = inject(Router);
+
   user$ = new BehaviorSubject<User | null>(null);
 
   // Observable para alias y mascota
@@ -29,10 +33,24 @@ export class AuthService {
   }
 
   async loginWithGoogle() {
-    const provider = new GoogleAuthProvider();
-    provider.setCustomParameters({ prompt: 'select_account' });
-    return signInWithPopup(this.auth, provider);
+  const provider = new GoogleAuthProvider();
+  provider.setCustomParameters({ prompt: 'select_account' });
+
+  const cred = await signInWithPopup(this.auth, provider);
+  const uid = cred.user.uid;
+
+  // esto comprueba si ya tiene un alias para ir al juego directamente o crearlo
+  const tieneAlias = await this.comprobarAlias(uid);
+
+  if (tieneAlias) {
+    // si ya tiene alias - ir a modos
+    await this.router.navigate(['/app/modos']);
+  } else {
+    //  Si no lo tiene - ir a crear alias
+    await this.router.navigate(['/app/crear-alias']);
   }
+}
+
 
   async logout() {
     return signOut(this.auth);
@@ -59,6 +77,14 @@ export class AuthService {
       this.alias$.next(null);
     }
   }
+
+  // Comprueba si el usuario tiene alias
+  async comprobarAlias(uid: string): Promise<boolean> {
+  const ref = doc(this.firestore, 'usuarios', uid);
+  const snap = await getDoc(ref);
+  return snap.exists() && !!snap.data()?.['alias'];
+  }
+
 
   // Guardar alias y mascota y actualizar automáticamente alias$
   guardarAlias(uid: string, data: { alias: string; mascota: string }) {

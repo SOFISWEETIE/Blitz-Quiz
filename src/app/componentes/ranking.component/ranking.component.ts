@@ -34,18 +34,31 @@ export class RankingComponent {
         return;
       }
 
+      const aliasData = this.auth.alias$.value; 
+      if (!aliasData) { 
+        console.warn('No hay alias cargado. No se guarda en el ranking.'); 
+        return; 
+      }
+
       const idSemana = this.getSemanaActual();             // ej: "2025_semana_1"
       const idJugador = user.uid;
-      const nombreJugador = user.displayName || user.email || 'Jugador';
+      const nombreJugador = aliasData.alias;
+      const mascotaJugador = aliasData.mascota; 
       const puntos = this.puntuacion.puntosTotales || 0;
 
       // Llamada al servicio que guarda en Firestore (asumo que devuelve Promise)
-      await this.servicioRanking.guardarPuntuacionSemanal(idSemana, idJugador, nombreJugador, puntos);
+      await this.servicioRanking.guardarPuntuacionSemanal( 
+        idSemana, 
+        idJugador, 
+        nombreJugador, 
+        puntos, 
+        mascotaJugador 
+      );
 
       // refresh del ranking para que se vea el nuevo registro en la lista
       this.ranking$ = this.servicioRanking.obtenerRankingSemanal(idSemana);
 
-      console.log(`Guardado ranking: ${nombreJugador} (${idJugador}) — ${puntos} pts en ${idSemana}`);
+      console.log(`Guardado ranking: ${nombreJugador} (${idJugador}) — ${puntos} pts — mascota: ${mascotaJugador}`);
     } catch (err) {
       console.error('Error guardando ranking:', err);
     }

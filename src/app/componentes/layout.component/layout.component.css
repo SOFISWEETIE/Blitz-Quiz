@@ -1,4 +1,3 @@
-/* --------- GENERAL --------- */
 * {
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
@@ -11,7 +10,7 @@
   background: #e6edf5;
 }
 
-/* --------- TOP BAR --------- */
+
 .top-bar {
   height: 65px;
   background: #3a0ca3;
@@ -28,60 +27,96 @@
   font-weight: 700;
 }
 
-/* USUARIO */
-.usuario {
-  display: flex;
-  align-items: center;
-  gap: 12px;
+
+.perfil-wrapper {
+  position: relative;
 }
 
-.alias-info {
+.perfil-trigger {
   display: flex;
   align-items: center;
   gap: 8px;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  transition: background 0.2s;
 }
 
-.alias-info .avatar {
-  width: 40px;
-  height: 40px;
+.perfil-trigger:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   object-fit: cover;
-  border: 2px solid white;
 }
 
-.username {
-  font-weight: 600;
-}
-
-.btn-cambiar,
-.btn-salir {
-  background: #ff6060;
-  border: none;
-  padding: 8px 14px;
-  border-radius: 12px;
-  cursor: pointer;
-  font-weight: 600;
-}
-
-.btn-cambiar {
-  background: #f7c646;
-  color: black;
-}
-
-.btn-cambiar:hover {
-  background: #e6b600;
-}
-
-.btn-salir {
-  background: #ff6060;
+.arrow {
+  font-size: 12px;
   color: white;
 }
 
-.btn-salir:hover {
-  background: #e74c3c;
+.perfil-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: 180px;
+  background: white;
+  border-radius: 12px;
+  padding: 10px;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  z-index: 1000;
 }
 
-/* --------- MAIN LAYOUT --------- */
+.avatar-grande {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #3a0ca3;
+}
+
+.alias-grande {
+  font-weight: 600;
+  color: #3a0ca3;
+}
+
+
+.btn-menu {
+  width: 100%;
+  padding: 6px 0;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.2s;
+  background: #f0ebff;
+  color: #3a0ca3;
+}
+
+.btn-menu:hover {
+  background: #3a0ca3;
+  color: white;
+}
+
+.btn-menu.salir {
+  background: #ffe5e5;
+  color: #d63031;
+}
+
+.btn-menu.salir:hover {
+  background: #d63031;
+  color: white;
+}
+
+
 .contenido {
   flex: 1;
   display: flex;
@@ -89,7 +124,7 @@
   gap: 22px;
 }
 
-/* --------- PANTALLA DEL JUEGO --------- */
+
 .pantalla-juego {
   flex: 1;
   background: #ffffff;
@@ -101,7 +136,7 @@
   justify-content: flex-start;
 }
 
-/* --------- PANEL RANKING --------- */
+
 .ranking-panel {
   width: 270px;
   background: white;
@@ -126,5 +161,3 @@
   border: 2px dashed #d2d2d2;
   border-radius: 16px;
 }
-
-

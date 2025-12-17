@@ -3,13 +3,25 @@
   <header class="top-bar">
     <div class="logo">BlitzQuiz</div>
 
-    <div class="usuario" *ngIf="aliasData$ | async as data">
-      <div class="alias-info">
-        <img *ngIf="data.mascota" [src]="data.mascota" alt="Mascota" class="avatar" />
+    <!-- PERFIL USUARIO -->
+    <div
+      class="perfil-wrapper"
+      *ngIf="aliasData$ | async as data"
+      (click)="$event.stopPropagation()">
+      
+      <div class="perfil-trigger" (click)="toggleMenu()">
+        <img *ngIf="data.mascota" [src]="data.mascota" class="avatar" />
         <span class="username">{{ data.alias || 'Invitado' }}</span>
+        <span class="arrow">{{ menuAbierto ? '▲' : '▼' }}</span>
       </div>
-      <button class="btn-cambiar" (click)="cambiarAlias()">Cambiar alias</button>
-      <button class="btn-salir" (click)="salir()">Salir</button>
+
+      <!-- Menú desplegable -->
+      <div class="perfil-menu" *ngIf="menuAbierto">
+        <img *ngIf="data.mascota" [src]="data.mascota" class="avatar-grande" />
+        <div class="alias-grande">{{ data.alias }}</div>
+        <button class="btn-menu" (click)="cambiarAlias()">Cambiar alias</button>
+        <button class="btn-menu salir" (click)="salir()">Cerrar sesión</button>
+      </div>
     </div>
   </header>
 

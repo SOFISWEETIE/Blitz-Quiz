@@ -2,12 +2,12 @@
   *ngIf="seleccion.modo === 'rapidas'"
   [pregunta]="preguntaActualRapida()"
   [numeroPregunta]="indiceRapida + 1"
-  (siguiente)="avanzarRapida()">
+  (siguiente)="avanzarRapida($event)">
 </app-pregunta-rapidas>
 
 <!-- MODO CLÁSICO Y ALEATORIO -->
 <app-pregunta 
   *ngIf="seleccion.modo !== 'rapidas'"
   [pregunta]="preguntaActual()"
-  (siguiente)="avanzarPregunta()">
+  (siguiente)="avanzarPregunta($event)">
 </app-pregunta>

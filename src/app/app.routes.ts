@@ -13,6 +13,8 @@ import { AliasGuard } from './servicios/alias.guard';
 import { AuthGuard } from '@angular/fire/auth-guard';
 import { redirectUnauthorizedTo } from '@angular/fire/auth-guard';
 
+import { LogrosComponent } from './componentes/logros.component/logros.component';
+
 
 const redirectToLogin = () => redirectUnauthorizedTo(['login']);
 
@@ -34,6 +36,7 @@ export const routes: Routes = [
     children: [
       { path: 'crear-alias', component: CrearAliasComponent },
       { path: 'modos', component: ModosJuegoComponent },
+      { path: 'logros', component: LogrosComponent },
       { path: 'categoria', component: CategoriaComponent },
       { path: 'dificultad', component: DificultadComponent },
       { path: 'juego', component: JuegoComponent, canActivate: [AliasGuard] },

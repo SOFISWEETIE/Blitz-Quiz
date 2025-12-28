@@ -1,0 +1,9 @@
+<div class="logros-container">
+  <div class="logros-grid">
+    <div class="logro" *ngFor="let logro of logros" [class.bloqueado]="!desbloqueado(logro.id)">
+      <div class="icono">{{ desbloqueado(logro.id) ? '🏆' : '🔒' }}</div>
+      <h4>{{ logro.titulo }}</h4>
+      <p>{{ logro.descripcion }}</p>
+    </div>
+  </div>
+</div>

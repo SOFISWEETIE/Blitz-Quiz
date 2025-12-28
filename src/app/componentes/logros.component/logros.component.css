@@ -1,0 +1,103 @@
+.logros-container {
+  min-height: 100vh;
+  padding: 30px 20px;
+  background: linear-gradient(135deg, #f9f5ff, #ece8ff);
+  font-family: 'Poppins', 'Segoe UI', Roboto, sans-serif;
+}
+
+
+.logros-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+
+.logro {
+  border-radius: 20px;
+  padding: 18px 14px;
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+
+.logro:not(.bloqueado) {
+  background: linear-gradient(135deg, #ffffff, #f6f2ff);
+  box-shadow:
+    0 8px 18px rgba(0, 0, 0, 0.12),
+    0 0 14px rgba(247, 198, 70, 0.45);
+}
+
+.logro:not(.bloqueado):hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 12px 26px rgba(0, 0, 0, 0.18),
+    0 0 18px rgba(247, 198, 70, 0.7);
+}
+
+
+.logro.bloqueado {
+  background: linear-gradient(135deg, #f0f0f0, #e0e0e0);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+}
+
+.logro.bloqueado:hover {
+  transform: none;
+}
+
+
+.icono {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+
+.logro.bloqueado .icono {
+  color: #f7c646;
+}
+
+
+.logro:not(.bloqueado) .icono {
+  color: #3a0ca3;
+}
+
+
+.logro h4 {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.logro:not(.bloqueado) h4 {
+  color: #3a0ca3;
+}
+
+.logro.bloqueado h4 {
+  color: #888;
+}
+
+.logro p {
+  font-size: 13px;
+  line-height: 1.3;
+}
+
+.logro:not(.bloqueado) p {
+  color: #555;
+}
+
+.logro.bloqueado p {
+  color: #999;
+}
+
+
+@media (max-width: 480px) {
+  .logros-grid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  }
+
+  .icono {
+    font-size: 32px;
+  }
+}

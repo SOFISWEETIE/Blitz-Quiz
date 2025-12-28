@@ -4,8 +4,6 @@ import { RouterOutlet } from '@angular/router';
 import { AuthService } from '../../servicios/auth.service';
 import { Router } from '@angular/router';
 import { RankingComponent } from '../ranking.component/ranking.component';
-import { Observable, of } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
 import { BehaviorSubject } from 'rxjs';
 
 @Component({
@@ -17,11 +15,22 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class LayoutComponent {
 
-   aliasData$: BehaviorSubject<{ alias: string; mascota: string } | null>;
+  aliasData$: BehaviorSubject<{ alias: string; mascota: string } | null>;
+  menuAbierto = false;
   
     constructor(public auth: AuthService, private router: Router) {
     this.aliasData$ = this.auth.alias$;
     }
+
+    toggleMenu() {
+    this.menuAbierto = !this.menuAbierto;
+    }
+
+    irALogros() {
+    this.menuAbierto = false;
+    this.router.navigate(['/app/logros']);
+  }
+
 
     async salir() {
       await this.auth.logout();
@@ -29,6 +38,7 @@ export class LayoutComponent {
     }
 
     cambiarAlias() {
+      this.menuAbierto = false;
       this.router.navigate(['/app/crear-alias']);
     }
 

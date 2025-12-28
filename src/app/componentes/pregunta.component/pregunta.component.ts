@@ -13,13 +13,15 @@ import { SeleccionService } from '../../servicios/seleccion.service';
 export class PreguntaComponent implements OnChanges, OnDestroy {
   @Input() pregunta: any = null;
 
-  @Output() siguiente = new EventEmitter<void>();
+  @Output() siguiente = new EventEmitter<{ acierto: boolean; tiempo: number }>();
 
   opcionesMezcladas: string[] = [];
   tiempoRestante: number = 20;
   intervalo: any;
   puntosGanados: number = 0;
   mostrarPuntos: boolean = false;
+  tiempoInicio!: number;
+  
 
   constructor(public puntuacion: PuntuacionService, public seleccion: SeleccionService) {}
 
@@ -35,11 +37,13 @@ export class PreguntaComponent implements OnChanges, OnDestroy {
     this.mostrarPuntos = false;
     this.puntosGanados = 0;
 
+    this.tiempoInicio = Date.now();
+
     // tiempo aleatorio pero solo en este modo
     if (this.seleccion.modo === 'aleatorio') {
       this.tiempoRestante = this.tiempoAleatorio();
     } else {
-      // modo clásico sigue con el mismo tiempo
+      // modo clásico se mantiene el mismo tiempo
       this.tiempoRestante = 20;
     }
     
@@ -61,9 +65,17 @@ export class PreguntaComponent implements OnChanges, OnDestroy {
   }
 
   responder(opcion: string | null) {
+
   clearInterval(this.intervalo);
 
+  const tiempoRespuesta = (Date.now() - this.tiempoInicio) / 1000;
+  console.log('Tiempo de respuesta:', tiempoRespuesta.toFixed(2), 's'); // depuración
+
+  let acierto = false;
+
   if (opcion === this.pregunta.correcta) {
+    acierto = true;
+
     if (this.seleccion.modo === 'aleatorio') {
       // Modo aleatorio debe ser siempre 100 puntos la correcta
       this.puntuacion.sumarCorrecta();
@@ -89,9 +101,9 @@ export class PreguntaComponent implements OnChanges, OnDestroy {
       this.mostrarPuntos = false;
     }, 1000);
 
-    // Pasar a la siguiente pregunta
+    // Verificar si fue correcto o incorrecto
     setTimeout(() => {
-      this.siguiente.emit();
+      this.siguiente.emit({ acierto, tiempo: tiempoRespuesta }); // ← AQUÍ está el cambio
     }, 1100);
   }
 

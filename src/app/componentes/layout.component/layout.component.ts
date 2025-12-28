@@ -18,6 +18,7 @@ export class LayoutComponent {
 
   aliasData$: BehaviorSubject<{ alias: string; mascota: string } | null>;
   menuAbierto = false;
+  rankingAbierto = false;
 
   
     constructor(public auth: AuthService, private router: Router) {
@@ -26,6 +27,13 @@ export class LayoutComponent {
 
     toggleMenu() {
     this.menuAbierto = !this.menuAbierto;
+    this.rankingAbierto = false;
+    }
+
+
+    toggleRanking() {             
+    this.rankingAbierto = !this.rankingAbierto;
+    this.menuAbierto = false;    
     }
 
 

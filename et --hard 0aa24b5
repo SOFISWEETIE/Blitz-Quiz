@@ -1,0 +1,61 @@
+[33md27a51b[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m ranking en la barra superior, ya no esta a un lado
+[33m0aa24b5[m login con fondo con animacion version 1
+[33m1172b1d[m He añadido el modo logros dentro del perfil, se ha añadido al archivo de rutas, los logros son funcionales en el modo normal, falta revisar el modo aleatorio y modo rapido. Ahora mismo funcionan los logros de primer juego, primer acierto, rachaPerfecta y velocista. El logro de cincoPartidas y diezVictorias falta ver si se añade finalmente. También se pueden añadir mas logros pero para añadirlos hay que configurarlos.
+[33mb1622d1[m Merge branch 'main' of https://github.com/SOFISWEETIE/Blitz-Quiz
+[33mbd5b658[m Añadir modo logros en el perfil de usuario
+[33m19be023[m Añadir el menú desplegable
+[33m5e6cf4e[m Menú desplegable para el perfil del usuario
+[33m9afc6f5[m Mejorar el estilo para que se pueda desplegar un perfil de usuario, faltan comentarios
+[33mbc7b87b[m Agregar las nuevas mascotas al array
+[33mae44702[m Añadir más mascotas para seleccionar
+[33m2d5cfdc[m Todo Arreglado
+[33m8d88e6b[m[33m ([m[1;31morigin/AjustesRutas[m[33m)[m Ahora las rutas están bien, y el alias te lo preguntas solo si no lo has guardado todavía. Y a de paso arreglé (creo) lo de las semnas del ranking. Me faltaría ver porque el nombre en el ranking no sale con los colores y eso. Y en principio ya no sale el borde blanco al rededor
+[33me34741f[m Carpeta con los animales del alias
+[33md0b6249[m Aspecto visual, falta añadir comentarios
+[33med207d5[m Organizar orden en la creación del alias y la selección de mascotas
+[33m5820076[m Agregar carpeta de mascotas y utilizarlas, faltan añadir mas mascotas ya iré añadiendo
+[33m263594e[m Mejorar aspecto visual
+[33m4eea0a8[m Agregar mascota de forma visual
+[33m9d71f46[m Modificar para que aparezca las mascotas con el alias en el menu
+[33m0f68688[m Añadir mascotas al alias
+[33mc0c8281[m Agregar elementos de material icons
+[33mb843ec5[m Mejorar estilo pantalla de cambio de alias
+[33m465063d[m Mejorar estilo pantalla de cambio de alias
+[33m6b54947[m Mejorar estilo pantalla de cambio de alias
+[33m55dcb22[m Agregar la ruta para que funcione el cambio de nombre para jugar con el alias
+[33mf1f7a8b[m Componente para que funcione el alias
+[33m283f713[m Implementar verificación del alias
+[33mea34a4b[m Implementar AliasGuard
+[33me4713ec[m Implementar alias
+[33ma2e72d0[m Boton de cambiar el alias para poder jugar
+[33m8433c0a[m hosting arreglado, mejoras css (falta ponerle fuente al texto) y ranking funcioanndo, pero hay que hacer que se vaya sumando, pase el error por whatsapp
+[33mf85de71[m Merge pull request #3 from SOFISWEETIE/cssejemplo
+[33m1ce2166[m Integrate SeleccionService for random timing mode
+[33m0176d32[m Reset puntosTotales in PuntuacionService constructor
+[33ma3a042a[m Refactor Firebase initialization with environment config
+[33mda5a84a[m Update package-lock.json
+[33m442457a[m Add env-to-ts script to package.json
+[33m2b1668a[m Add Firebase configuration to environment.ts
+[33m6b107f6[m Delete src/environments/env-to-ts
+[33m028460f[m[33m ([m[1;31morigin/cssejemplo[m[33m)[m css general para todo, si os gusta se sube a main y se cambian los colores y ya, cree las carpetas para el ranking, estaré trabajndo en ellas no las usen, tenkiu
+[33m7002433[m lo de las rutas corregido
+[33m2267485[m puse el favicon, añadi codigo al firebase jason para arreglar el hosting y spa
+[33m21da9fc[m creación de la barra supeior fija. Cambios de ruta para navegar dentro de la pantalla. Salir del juego, dejé espacio para el ranking para cuando me funcione :)
+[33mc6c166e[m juego y login funcionandoooo
+[33m7faa5f4[m el juego con el login
+[33m3b74a5e[m todos los modos con puntuacion(solo suma)
+[33m8e6bd3c[m modo preguntas rapidas añadidas
+[33ma3ca725[m demo juego con cronometro-
+[33m0dc2233[m demo juego con cronometro
+[33m034e631[m esto es cosa mia que tengo que revisarrrr NO LO TOQUEISSS NO LO TOQUEIS DESCARGAR LA VERSION ANTERIOR
+[33mb55ec13[m modos de juego
+[33mccae91e[m Merge branch 'main' of https://github.com/SOFISWEETIE/Blitz-Quiz
+[33mb0a7a0b[m comentarios añadidos
+[33mc05a8c1[m Merge pull request #2 from SOFISWEETIE/mini-arreglo
+[33m51e274e[m[33m ([m[1;31morigin/mini-arreglo[m[33m)[m Mini arreglo en pregunta
+[33m14d72f2[m Script para detectar variables de entorno
+[33mee6eac1[m Update .gitignore
+[33meb46210[m primera prueba
+[33m2334890[m[33m ([m[1;32mbackup-main[m[33m)[m Cree la carpeta environment con la conexion a firebase
+[33m7c169b8[m Eliminar contenido que se crea por defecto al crear el proyecto y dejar el proyecto vacio
+[33m9f528a3[m initial commit

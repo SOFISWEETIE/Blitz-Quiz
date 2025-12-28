@@ -4,10 +4,12 @@
     <div class="logo">BlitzQuiz</div>
 
     <!-- PERFIL USUARIO -->
+
     <div class="perfil-wrapper"*ngIf="aliasData$ | async as data"(click)="$event.stopPropagation()">
       <!-- Trigger: la parte visible siempre -->
       <div class="perfil-trigger" (click)="toggleMenu()">
         <img *ngIf="data.mascota" [src]="data.mascota" class="avatar"/>
+
         <span class="username">{{ data.alias || 'Invitado' }}</span>
         <span class="arrow">{{ menuAbierto ? '▲' : '▼' }}</span>
       </div>

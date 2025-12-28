@@ -52,3 +52,4 @@ mascotaSeleccionada = this.mascotas[0].src;
   }
 }
 
+

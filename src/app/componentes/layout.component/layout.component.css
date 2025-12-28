@@ -73,6 +73,7 @@
   align-items: center;
   gap: 8px;
   z-index: 1000;
+
 }
 
 .avatar-grande {
@@ -114,9 +115,13 @@
 .btn-menu.salir:hover {
   background: #d63031;
   color: white;
+
 }
 
-/* --------- MAIN LAYOUT --------- */
+
+
+
+
 .contenido {
   flex: 1;
   display: flex;
@@ -124,7 +129,7 @@
   gap: 22px;
 }
 
-/* --------- PANTALLA DEL JUEGO --------- */
+
 .pantalla-juego {
   flex: 1;
   background: #ffffff;
@@ -136,7 +141,7 @@
   justify-content: flex-start;
 }
 
-/* --------- PANEL RANKING --------- */
+
 .ranking-panel {
   width: 270px;
   background: white;

@@ -15,8 +15,10 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class LayoutComponent {
 
+
   aliasData$: BehaviorSubject<{ alias: string; mascota: string } | null>;
   menuAbierto = false;
+
   
     constructor(public auth: AuthService, private router: Router) {
     this.aliasData$ = this.auth.alias$;
@@ -25,6 +27,7 @@ export class LayoutComponent {
     toggleMenu() {
     this.menuAbierto = !this.menuAbierto;
     }
+
 
     irALogros() {
     this.menuAbierto = false;

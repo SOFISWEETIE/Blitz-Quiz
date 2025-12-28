@@ -12,12 +12,12 @@ export const LOGROS_DEF = [
 {
     id: 'cincoPartidas',
     titulo: 'Jugador activo ',
-    descripcion: 'Juega 5 partidas'
+    descripcion: 'Juega 5 partidas' // revisar si se añade este logro o no
 },
 {
     id: 'diezVictorias',
     titulo: 'Dominador ',
-    descripcion: 'Gana 10 partidas'
+    descripcion: 'Gana 10 partidas' // revisar si se añade este logro o no
 },
 {
     id: 'rachaPerfecta',

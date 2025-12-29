@@ -6,6 +6,7 @@ import { inject } from '@angular/core';
 import { Firestore, doc, getDoc, setDoc } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 
+import { runTransaction } from '@angular/fire/firestore';
 
 @Injectable({
   providedIn: 'root'
@@ -86,12 +87,28 @@ export class AuthService {
   }
 
 
-  // Guardar alias y mascota y actualizar automáticamente alias$
-  guardarAlias(uid: string, data: { alias: string; mascota: string }) {
-    const ref = doc(this.firestore, 'usuarios', uid);
-    return setDoc(ref, data, { merge: true }).then(() => {
-      this.alias$.next(data); 
-    });
-  }
+  async guardarAliasUnico(uid: string, data: { alias: string; mascota: string }) {
+    
+  const alias = data.alias;
+
+  const aliasRef = doc(this.firestore, 'aliases', alias);
+  const userRef  = doc(this.firestore, 'usuarios', uid);
+
+  return runTransaction(this.firestore, async (transaction) => {
+  const aliasSnap = await transaction.get(aliasRef);
+
+    if (aliasSnap.exists()) {
+      throw new Error('ALIAS_EXISTE');
+    }
+
+    // Reservar alias
+    transaction.set(aliasRef, { uid });
+
+    // Guardar usuario
+    transaction.set(userRef, { alias, mascota: data.mascota }, { merge: true });
+  }).then(() => {
+    this.alias$.next(data);
+  });
+}
 
 }

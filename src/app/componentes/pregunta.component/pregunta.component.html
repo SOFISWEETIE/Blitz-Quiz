@@ -1,5 +1,9 @@
-<div class="normal card-pregunta">
-  <h2>MODO NORMAL</h2>
+<div class="card-pregunta" 
+     [class.clasico]="seleccion.modo === 'clasico'" 
+     [class.aleatorio]="seleccion.modo === 'aleatorio'">
+  <h2>
+    {{ seleccion.modo === 'aleatorio' ? 'MODO ALEATORIO' : 'MODO CLÁSICO' }}
+  </h2>
   <p class="meta">Pregunta {{ numeroPregunta }} de {{ totalPreguntas }}</p>
 
   <div class="timer" [class.danger]="tiempoRestante <= 5">

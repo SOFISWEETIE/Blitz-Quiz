@@ -77,7 +77,7 @@ export class PreguntaComponent implements OnChanges, OnDestroy {
     acierto = true;
 
     if (this.seleccion.modo === 'aleatorio') {
-      // Modo aleatorio debe ser siempre 100 puntos la correcta
+      
       this.puntuacion.sumarCorrecta();
       this.puntosGanados = 100;
     } else {
@@ -103,7 +103,7 @@ export class PreguntaComponent implements OnChanges, OnDestroy {
 
     // Verificar si fue correcto o incorrecto
     setTimeout(() => {
-      this.siguiente.emit({ acierto, tiempo: tiempoRespuesta }); // ← AQUÍ está el cambio
+      this.siguiente.emit({ acierto, tiempo: tiempoRespuesta }); 
     }, 1100);
   }
 

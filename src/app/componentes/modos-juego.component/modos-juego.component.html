@@ -1,13 +1,26 @@
-<h1>Selecciona el modo de juego</h1>
+<h1>¿Preparado para jugar?<br><span class="subtitle">¡Escoge tu modo!</span></h1>
 
-<button (click)="elegirClasico()">
-  <span class="icon">🎯</span> Modo Clásico
-</button>
+<!-- Fila para Clásico y Aleatorio -->
+<div class="fila-superior">
+  <div class="modo-card" (click)="elegirClasico()">
+    <div class="inner">
+      <h2 class="modo-titulo">Modo Clásico</h2>
+      <p class="modo-desc">Tú eliges categoría y dificultad.<br>20 segundos por pregunta para brillar con calma </p>
+    </div>
+  </div>
 
-<button (click)="elegirAleatorio()">
-  <span class="icon">🎲</span> Modo Aleatorio
-</button>
+  <div class="modo-card" (click)="elegirAleatorio()">
+    <div class="inner">
+      <h2 class="modo-titulo">Modo Aleatorio</h2>
+      <p class="modo-desc">¡Sorpresa total! Categoría, dificultad y tiempo aleatorios.<br>¿Te atreves al caos? </p>
+    </div>
+  </div>
+</div>
 
-<button (click)="elegirRapidas()">
-  <span class="icon">⚡</span> PREGUNTAS BLITZ
-</button>
+<!-- Blitz solo y más grande debajo -->
+<div class="modo-card blitz" (click)="elegirRapidas()">
+  <div class="inner">
+    <h2 class="modo-titulo blitz">PREGUNTAS BLITZ</h2>
+    <p class="modo-desc blitz">Velocidad pura: solo 4 segundos por pregunta.<br>Inteligencia + reflejos = leyenda </p>
+  </div>
+</div>

@@ -1,39 +1,120 @@
 h1 {
   text-align: center;
   color: #4b2dbd;
-  font-size: 28px;
+  font-size: 36px;
+  font-weight: 800;
+  margin: 20px 0 40px 0; 
 }
 
-button {
-  width: 100%;              /* ocupa todo el ancho en móvil */
-  max-width: 320px;         /* un poco más ancho en pantallas grandes */
-  padding: 14px 20px;       /* más alto y ancho */
-  margin: 12px auto;        /* centrado horizontal */
+h1 .subtitle {
+  font-size: 24px;
+  font-weight: 500;
+  color: #7209b7;
+  display: block;
+}
+
+
+:host {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; 
+  align-items: center;
+  min-height: 100vh;
+  padding: 40px 20px 60px; 
+  box-sizing: border-box;
+  background: white;
+  overflow: hidden;
+}
+
+
+.fila-superior {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  width: 100%;
+  max-width: 800px;
+  margin-bottom: 50px;
+}
+
+
+.modo-card {
   background: #3a0ca3;
+  border-radius: 28px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  box-shadow: 0 8px 25px rgba(58, 12, 163, 0.3);
+  max-width: 360px;
+  margin: 0 auto; 
+}
+
+.modo-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(58, 12, 163, 0.5);
+}
+
+.modo-card .inner {
+  padding: 28px 20px; 
+  text-align: center;
   color: white;
-  border: none;
-  border-radius: 18px;
+}
+
+.modo-titulo {
+  font-size: 23px;
+  font-weight: 800;
+  margin: 0 0 10px 0;
+}
+
+.modo-desc {
+  font-size: 16px;
+  margin: 0;
+  opacity: 0.9;
+  line-height: 1.4;
+}
+
+
+.modo-card.blitz {
+  max-width: 420px; 
+  width: 100%;
+  background: linear-gradient(135deg, #4b2dbd, #7209b7);
+  border: 3px solid #f7c646;
+  animation: pulse 2.5s infinite;
+  box-shadow: 0 10px 35px rgba(114, 9, 183, 0.5);
+}
+
+.modo-card.blitz:hover {
+  transform: translateY(-10px) scale(1.02);
+}
+
+.modo-titulo.blitz {
+  font-size: 28px; 
+  font-weight: 900;
+}
+
+.modo-desc.blitz {
+  font-size: 17px;
   font-weight: 600;
-  font-size: 16px;          /* texto ligeramente más grande */
-  display: flex;              /* activa flexbox */
-  align-items: center;        /* centra verticalmente */
-  justify-content: center;    /* centra horizontalmente */
-  gap: 10px;                  /* espacio entre icono y texto */
 }
 
-button:hover {
-  background: #f7c646;
-  color: black; /* texto negro al pasar el ratón */
+/* Pulso */
+@keyframes pulse {
+  0% { box-shadow: 0 10px 35px rgba(114, 9, 183, 0.5); }
+  50% { box-shadow: 0 10px 45px rgba(114, 9, 183, 0.8); }
+  100% { box-shadow: 0 10px 35px rgba(114, 9, 183, 0.5); }
 }
 
 
-/* Responsive: en pantallas grandes los botones se ven más cómodos */
 @media (min-width: 768px) {
-  button {
-    font-size: 18px;
-    padding: 16px 24px;
-    max-width: 360px;       /* aún más grande en desktop */
+  .fila-superior {
+    flex-direction: row;
+    justify-content: center;
+    gap: 40px;
   }
+  
+  .modo-card {
+    margin: 0;
+  }
+  
+  h1 { font-size: 40px; margin-bottom: 50px; }
+  h1 .subtitle { font-size: 26px; }
 }
-
-

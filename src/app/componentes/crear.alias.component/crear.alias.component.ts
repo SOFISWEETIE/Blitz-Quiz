@@ -34,22 +34,37 @@ mascotaSeleccionada = this.mascotas[0].src;
 
   constructor(private auth: AuthService, private router: Router) {}
 
-  guardar() {
-    if (this.alias.trim().length < 3) {
-      alert('El alias debe tener  3 caracteres');
-      return;
-    }
+  async guardar() {
 
-    this.auth.user$.pipe(take(1)).subscribe(user => {
-      if (!user) return;
+  const aliasLimpio = this.alias.trim().toLowerCase();
 
-      this.auth.guardarAlias(user.uid, {
-        alias: this.alias,
-        mascota: this.mascotaSeleccionada
-      })
-      .then(() => this.router.navigate(['/app/modos']));
-    });
+  if (aliasLimpio.length < 3) {
+    alert('El alias debe tener al menos 3 caracteres');
+    return;
   }
+
+  this.auth.user$.pipe(take(1)).subscribe(async user => {
+    if (!user) return;
+
+    try {
+      await this.auth.guardarAliasUnico(user.uid, {
+        alias: aliasLimpio,
+        mascota: this.mascotaSeleccionada
+      });
+
+      await this.router.navigate(['/app/modos']);
+
+    } catch (e: any) {
+      if (e.message === 'ALIAS_EXISTE') {
+        alert('Ese alias ya está en uso, escribe uno diferente');
+      } else {
+        alert('Error al guardar alias');
+        console.error(e);
+      }
+    }
+  });
 }
+}
+
 
 

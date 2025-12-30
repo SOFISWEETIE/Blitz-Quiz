@@ -21,7 +21,9 @@ export class PreguntaComponent implements OnChanges, OnDestroy {
   puntosGanados: number = 0;
   mostrarPuntos: boolean = false;
   tiempoInicio!: number;
-  
+  respuestaSeleccionada: string | null = null;
+  bloquearOpciones: boolean = false;
+
 
   constructor(public puntuacion: PuntuacionService, public seleccion: SeleccionService) {}
 
@@ -66,7 +68,11 @@ export class PreguntaComponent implements OnChanges, OnDestroy {
 
   responder(opcion: string | null) {
 
-  clearInterval(this.intervalo);
+  if (this.bloquearOpciones) return;
+
+  this.respuestaSeleccionada = opcion;
+  this.bloquearOpciones = true;
+
 
   const tiempoRespuesta = (Date.now() - this.tiempoInicio) / 1000;
   console.log('Tiempo de respuesta:', tiempoRespuesta.toFixed(2), 's'); // depuración
@@ -104,6 +110,9 @@ export class PreguntaComponent implements OnChanges, OnDestroy {
     // Verificar si fue correcto o incorrecto
     setTimeout(() => {
       this.siguiente.emit({ acierto, tiempo: tiempoRespuesta }); 
+      this.bloquearOpciones = false;
+      this.respuestaSeleccionada = null;
+
     }, 1100);
   }
 

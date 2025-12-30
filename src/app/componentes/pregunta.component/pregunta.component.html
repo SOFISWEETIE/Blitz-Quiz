@@ -15,8 +15,32 @@
   <div class="puntos" *ngIf="mostrarPuntos">+{{ puntosGanados }}</div>
 
   <div class="opciones-grid">
-    <button *ngFor="let opcion of opcionesMezcladas" (click)="responder(opcion)" class="opcion-btn">
+    <button *ngFor="let opcion of opcionesMezcladas" 
+    (click)="responder(opcion)" 
+    class="opcion-btn"
+    [class.correcta]="respuestaSeleccionada && opcion === pregunta.correcta"
+    [class.incorrecta]="respuestaSeleccionada === opcion && opcion !== pregunta.correcta"
+    [class.correcta-borde]="respuestaSeleccionada && opcion === pregunta.correcta"
+    [disabled]="bloquearOpciones">
       {{ opcion }}
     </button>
   </div>
 </div>
+
+<div class="bloque-estadisticas">
+  <div class="barra-progreso">
+    <div class="barra-relleno" [style.width.%]="(puntuacion.indice + 1) / puntuacion.totalPreguntas * 100"></div>
+  </div>
+
+  <div class="bloques-contador">
+    <div class="bloque verde">
+      <div class="numero">{{ puntuacion.correctas }}</div>
+      <div class="texto">acertadas</div>
+    </div>
+    <div class="bloque rojo">
+      <div class="numero">{{ puntuacion.incorrectas }}</div>
+      <div class="texto">incorrectas</div>
+    </div>
+  </div>
+</div>
+

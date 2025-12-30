@@ -1,8 +1,7 @@
 <h3 class="titulo-ranking">Ranking semanal 🏆</h3>
 
 <ul class="lista-ranking">
-  <li *ngFor="let jugador of ranking$ | async; let i = index"
-      [ngClass]="{ oro: i === 0, plata: i === 1, bronce: i === 2 }">
+  <li *ngFor="let jugador of ranking$ | async">
 
     <div style="display: flex; align-items: center;">
       <img [src]="jugador.mascota" class="avatar">

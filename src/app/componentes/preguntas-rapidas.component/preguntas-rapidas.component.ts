@@ -21,7 +21,7 @@ export class PreguntaRapidasComponent implements OnChanges, OnDestroy {
   puntosGanados: number = 0;
   mostrarPuntos: boolean = false;
 
-  // ¡NUEVA VARIABLE PARA CONTROLAR LOS COLORES!
+  
   respuestaSeleccionada: string | null = null;
 
   constructor(public puntuacion: PuntuacionService) {}
@@ -53,8 +53,8 @@ export class PreguntaRapidasComponent implements OnChanges, OnDestroy {
 
       if (this.tiempoRestante <= 0) {
         clearInterval(this.intervalo);
-        // No respondió → -30 puntos y NO pintamos colores
-        this.respuestaSeleccionada = null; // ← Importante: no colorea botones
+        
+        this.respuestaSeleccionada = null; 
         this.puntosGanados = -30;
         this.puntuacion.puntosTotales -= 30;
         this.puntuacion.incorrectas++;
@@ -70,7 +70,7 @@ export class PreguntaRapidasComponent implements OnChanges, OnDestroy {
   responder(opcion: string) {
     clearInterval(this.intervalo);
 
-    // Guardamos la opción que pulsó el usuario
+    
     this.respuestaSeleccionada = opcion;
 
     let acierto = false;

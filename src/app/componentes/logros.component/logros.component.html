@@ -1,9 +1,51 @@
 <div class="logros-container">
-  <div class="logros-grid">
-    <div class="logro" *ngFor="let logro of logros" [class.bloqueado]="!desbloqueado(logro.id)">
-      <div class="icono">{{ desbloqueado(logro.id) ? '🏆' : '🔒' }}</div>
-      <h4>{{ logro.titulo }}</h4>
-      <p>{{ logro.descripcion }}</p>
+  <h1 class="titulo-principal">Tus Logros 🏆</h1>
+
+  <!-- BRONCE -->
+  <div class="seccion-logros">
+    <h2 class="titulo-nivel">Bronce 🥉</h2>
+    <div class="logros-grid">
+      <div class="logro" *ngFor="let logro of getLogrosPorNivel('bronce')" [class.desbloqueado]="desbloqueado(logro.id)">
+        <div class="icono">{{ desbloqueado(logro.id) ? '🥉' : '🔒' }}</div>
+        <h4>{{ logro.titulo }}</h4>
+        <p>{{ logro.descripcion }}</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- PLATA -->
+  <div class="seccion-logros">
+    <h2 class="titulo-nivel">Plata 🥈</h2>
+    <div class="logros-grid">
+      <div class="logro" *ngFor="let logro of getLogrosPorNivel('plata')" [class.desbloqueado]="desbloqueado(logro.id)">
+        <div class="icono">{{ desbloqueado(logro.id) ? '🥈' : '🔒' }}</div>
+        <h4>{{ logro.titulo }}</h4>
+        <p>{{ logro.descripcion }}</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ORO -->
+  <div class="seccion-logros">
+    <h2 class="titulo-nivel">Oro 🥇</h2>
+    <div class="logros-grid">
+      <div class="logro" *ngFor="let logro of getLogrosPorNivel('oro')" [class.desbloqueado]="desbloqueado(logro.id)">
+        <div class="icono">{{ desbloqueado(logro.id) ? '🥇' : '🔒' }}</div>
+        <h4>{{ logro.titulo }}</h4>
+        <p>{{ logro.descripcion }}</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- DIAMANTE -->
+  <div class="seccion-logros">
+    <h2 class="titulo-nivel">Diamante 💎</h2>
+    <div class="logros-grid">
+      <div class="logro" *ngFor="let logro of getLogrosPorNivel('diamante')" [class.desbloqueado]="desbloqueado(logro.id)">
+        <div class="icono">{{ desbloqueado(logro.id) ? '💎' : '🔒' }}</div>
+        <h4>{{ logro.titulo }}</h4>
+        <p>{{ logro.descripcion }}</p>
+      </div>
     </div>
   </div>
 </div>

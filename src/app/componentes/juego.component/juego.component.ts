@@ -38,6 +38,11 @@ export class JuegoComponent implements OnInit {
     this.puntuacion.reiniciar();
     await this.logrosService.inicializarLogros();
 
+    // Reset maratón si cambiamos de modo
+    if (this.seleccion.modo !== 'rapidas') {
+      this.puntuacion.blitzConsecutivas = 0;
+    }
+
     if (this.seleccion.modo === 'rapidas') {
       await this.cargarPreguntasRapidas();
     } else {
@@ -91,72 +96,154 @@ export class JuegoComponent implements OnInit {
     }
   }
 
-  // MODO CLÁSICO
+  // MODO CLÁSICO / ALEATORIO
   preguntaActual() { return this.puntuacion.preguntasActuales[this.puntuacion.indice]; }
   numeroPregunta() { return this.puntuacion.indice + 1; }
   totalPreguntas() { return this.puntuacion.totalPreguntas; }
 
+  async avanzarPregunta(evento: { acierto: boolean; tiempo: number }) {
+    console.log('Evento recibido:', evento);
 
-async avanzarPregunta(evento: { acierto: boolean; tiempo: number }) {
-  console.log('Evento recibido:', evento);
+    const logros = await this.logrosService.obtenerLogros();
 
-  const logros = await this.logrosService.obtenerLogros();
+    // Primer acierto
+    if (evento.acierto && !logros['primerAcierto']) {
+      await this.logrosService.desbloquear('primerAcierto');
+    }
 
-  // Primer acierto, si no estaba desbloqueado
-  if (evento.acierto && !logros['primerAcierto']) {
-    await this.logrosService.desbloquear('primerAcierto');
+    // Velocista
+    if (evento.acierto && evento.tiempo <= 3 && !logros['rapido']) {
+      await this.logrosService.desbloquear('rapido');
+    }
+
+    // Racha general
+    if (evento.acierto) {
+      if (this.puntuacion.rachaActual >= 5 && !logros['rachaCinco']) {
+        await this.logrosService.desbloquear('rachaCinco');
+      }
+      if (this.puntuacion.rachaActual >= 10 && !logros['rachaDiez']) {
+        await this.logrosService.desbloquear('rachaDiez');
+      }
+    }
+
+    if (this.puntuacion.indice + 1 < this.puntuacion.totalPreguntas) {
+      this.puntuacion.indice++;
+    } else {
+      await this.finalizarPartida();
+      this.router.navigate(['app/resultados']);
+    }
   }
-
-  // Velocista, acierto en menos de 3 segundos
-  if (evento.acierto && evento.tiempo <= 3 && !logros['rapido']) {
-    await this.logrosService.desbloquear('rapido');
-  }
-
-  if (this.puntuacion.indice + 1 < this.puntuacion.totalPreguntas) {
-    this.puntuacion.indice++;
-  } else {
-    await this.finalizarPartida();
-    this.router.navigate(['app/resultados']);
-  }
-}
-
 
   private async finalizarPartida() {
-  // Desbloquear primer juego solo si es la primera vez
-  const logros = await this.logrosService.obtenerLogros();
-  if (!logros['primerJuego']) {
-    await this.logrosService.desbloquear('primerJuego');
+    const logros = await this.logrosService.obtenerLogros();
+
+    if (!logros['primerJuego']) {
+      await this.logrosService.desbloquear('primerJuego');
+    }
+
+    if (!logros['clasicoIniciado']) {
+      await this.logrosService.desbloquear('clasicoIniciado');
+    }
+
+    if (this.puntuacion.correctas === this.puntuacion.totalPreguntas) {
+      await this.logrosService.desbloquear('perfectoClasico');
+    }
+
+    if (this.puntuacion.puntosTotales >= 500 && !logros['puntos500']) {
+      await this.logrosService.desbloquear('puntos500');
+    }
+
+    this.puntuacion.incrementarPartidasJugadas();
+    this.puntuacion.añadirModoJugado(this.seleccion.modo);
+
+    if (this.puntuacion.partidasJugadas >= 10 && !logros['partidasDiez']) {
+      await this.logrosService.desbloquear('partidasDiez');
+    }
+    if (this.puntuacion.partidasJugadas >= 50 && !logros['partidasCincuenta']) {
+      await this.logrosService.desbloquear('partidasCincuenta');
+    }
+
+    if (this.puntuacion.modosJugados.size >= 3 && !logros['multiModo']) {
+      await this.logrosService.desbloquear('multiModo');
+    }
   }
 
-  // Desbloquear racha perfecta solo si todas las respuestas son correctas
-  if (this.puntuacion.correctas === this.puntuacion.totalPreguntas) {
-    await this.logrosService.desbloquear('rachaPerfecta');
-  }
-}
-
-  //MODO RÁPIDAS
+  // MODO BLITZ
   preguntaActualRapida() { return this.preguntasRapidas[this.indiceRapida]; }
 
   async avanzarRapida(evento: { acierto: boolean; tiempo: number }) {
-  console.log('Evento rápido recibido:', evento);
+    console.log('Evento rápido recibido:', evento);
 
-  if (evento.acierto) {
-    await this.logrosService.desbloquear('primerAcierto');
+    const logros = await this.logrosService.obtenerLogros();
+
+    if (evento.acierto) {
+      if (!logros['primerAcierto']) {
+        await this.logrosService.desbloquear('primerAcierto');
+      }
+
+      if (this.puntuacion.rachaActual >= 5 && !logros['rachaCinco']) {
+        await this.logrosService.desbloquear('rachaCinco');
+      }
+      if (this.puntuacion.rachaActual >= 10 && !logros['rachaDiez']) {
+        await this.logrosService.desbloquear('rachaDiez');
+      }
+
+      if (this.puntuacion.correctas >= 5 && !logros['blitzAciertosCinco']) {
+        await this.logrosService.desbloquear('blitzAciertosCinco');
+      }
+    }
+
+    this.indiceRapida++;
+
+    if (this.indiceRapida >= 20) {
+      await this.finalizarPartidaRapidas();
+      this.router.navigate(['app/resultados']);
+    }
   }
-
-  this.indiceRapida++;
-
-  if (this.indiceRapida >= 20) {
-    await this.finalizarPartidaRapidas();
-    this.router.navigate(['app/resultados']);
-  }
-}
 
   private async finalizarPartidaRapidas() {
-    await this.logrosService.desbloquear('primerJuego');
+    const logros = await this.logrosService.obtenerLogros();
+
+    if (!logros['primerJuego']) {
+      await this.logrosService.desbloquear('primerJuego');
+    }
+
+    if (!logros['blitzValiente']) {
+      await this.logrosService.desbloquear('blitzValiente');
+    }
 
     if (this.puntuacion.correctas === 20) {
-      await this.logrosService.desbloquear('rachaPerfecta');
+      await this.logrosService.desbloquear('perfectoBlitz');
+    }
+
+    if (this.puntuacion.puntosTotales >= 800 && !logros['blitz800']) {
+      await this.logrosService.desbloquear('blitz800');
+    }
+    if (this.puntuacion.puntosTotales >= 1500 && !logros['puntos1500']) {
+      await this.logrosService.desbloquear('puntos1500');
+    }
+    if (this.puntuacion.puntosTotales <= -100 && !logros['kamikazeBlitz']) {
+      await this.logrosService.desbloquear('kamikazeBlitz');
+    }
+
+    
+    this.puntuacion.blitzConsecutivas++;
+    if (this.puntuacion.blitzConsecutivas >= 5 && !logros['blitzMaraton']) {
+      await this.logrosService.desbloquear('blitzMaraton');
+    }
+
+    this.puntuacion.incrementarPartidasJugadas();
+    this.puntuacion.añadirModoJugado('rapidas');
+
+    if (this.puntuacion.partidasJugadas >= 10 && !logros['partidasDiez']) {
+      await this.logrosService.desbloquear('partidasDiez');
+    }
+    if (this.puntuacion.partidasJugadas >= 50 && !logros['partidasCincuenta']) {
+      await this.logrosService.desbloquear('partidasCincuenta');
+    }
+
+    if (this.puntuacion.modosJugados.size >= 3 && !logros['multiModo']) {
+      await this.logrosService.desbloquear('multiModo');
     }
   }
 }

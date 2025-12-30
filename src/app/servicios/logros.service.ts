@@ -29,24 +29,35 @@ export class LogrosService {
   }
 
   async inicializarLogros() {
-    if (!this.ref) return;
+  if (!this.ref) return;
 
-    const snap = await getDoc(this.ref);
-    if (!snap.exists()) {
-      const inicial = {
-        primerJuego: false,
-        primerAcierto: false,
-        cincoPartidas: false,
-        diezVictorias: false,
-        rachaPerfecta: false,
-        rapido: false
-      };
-      await setDoc(this.ref, inicial);
-      this.logros$.next(inicial);
-    } else {
-      this.logros$.next(snap.data() as any);
-    }
+  const snap = await getDoc(this.ref);
+  if (!snap.exists()) {
+    const inicial = {
+      primerJuego: false,
+      primerAcierto: false,
+      clasicoIniciado: false,
+      blitzValiente: false,
+      rachaCinco: false,
+      blitzRapido: false,
+      puntos500: false,
+      multiModo: false,
+      rachaDiez: false,
+      blitzSobreviviente: false,
+      partidasDiez: false,
+      rachaPerfectaClasico: false,
+      blitzPerfecto: false,
+      puntos1500: false,
+      partidasCincuenta: false,
+      blitzMaraton: false
+      
+    };
+    await setDoc(this.ref, inicial);
+    this.logros$.next(inicial);
+  } else {
+    this.logros$.next(snap.data() as any);
   }
+}
 
   async obtenerLogros(): Promise<Record<string, boolean>> {
     if (!this.ref) return {};

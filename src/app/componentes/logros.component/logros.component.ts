@@ -24,4 +24,8 @@ export class LogrosComponent implements OnInit {
   desbloqueado(id: string) {
     return !!this.estado[id];
   }
+
+  getLogrosPorNivel(nivel: string) {
+  return this.logros.filter(l => l.nivel === nivel);
+  }
 }

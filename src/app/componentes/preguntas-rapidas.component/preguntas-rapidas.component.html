@@ -1,18 +1,44 @@
-<div class="rapidas">
-  <h2>PREGUNTAS RÁPIDAS</h2>
-  <p>Pregunta {{ numeroPregunta }} de 20</p>
+<div class="card-pregunta">
+  <h2>MODO BLITZ</h2>
+  
+  <p class="meta">Pregunta {{ numeroPregunta }} de 20</p>
 
   <div class="timer" [class.danger]="tiempoRestante <= 2">
     {{ tiempoRestante }}
   </div>
 
-  <h3>{{ pregunta.pregunta }}</h3>
+  <h3 class="pregunta-text">{{ pregunta.pregunta }}</h3>
 
-  <div class="puntos" *ngIf="mostrarPuntos">+{{ puntosGanados }}</div>
+  <div class="puntos" *ngIf="mostrarPuntos">
+    {{ puntosGanados > 0 ? '+' : '' }}{{ puntosGanados }}
+  </div>
 
-  <div class="opciones">
-    <button *ngFor="let opcion of opcionesMezcladas" (click)="responder(opcion)">
+  <div class="opciones-grid">
+    <button 
+      *ngFor="let opcion of opcionesMezcladas" 
+      (click)="responder(opcion)" 
+      class="opcion-btn"
+      [class.correcta]="respuestaSeleccionada && opcion === pregunta.correcta"
+      [class.incorrecta]="respuestaSeleccionada === opcion && opcion !== pregunta.correcta"
+      [class.correcta-borde]="respuestaSeleccionada && opcion === pregunta.correcta">
       {{ opcion }}
     </button>
+  </div>
+</div>
+
+<div class="bloque-estadisticas">
+  <div class="barra-progreso">
+    <div class="barra-relleno" [style.width.%]="(numeroPregunta / 20) * 100"></div>
+  </div>
+
+  <div class="bloques-contador">
+    <div class="bloque verde">
+      <div class="numero">{{ puntuacion.correctas }}</div>
+      <div class="texto">acertadas</div>
+    </div>
+    <div class="bloque rojo">
+      <div class="numero">{{ puntuacion.incorrectas }}</div>
+      <div class="texto">incorrectas</div>
+    </div>
   </div>
 </div>

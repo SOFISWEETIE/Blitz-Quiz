@@ -13,13 +13,16 @@ export class PreguntaRapidasComponent implements OnChanges, OnDestroy {
   @Input() pregunta: any = null;
   @Input() numeroPregunta: number = 1;
   @Output() siguiente = new EventEmitter<{ acierto: boolean; tiempo: number }>();
-  
 
   opcionesMezcladas: string[] = [];
   tiempoRestante: number = 4;
+  tiempoTotal: number = 4;
   intervalo: any;
   puntosGanados: number = 0;
   mostrarPuntos: boolean = false;
+
+  // ¡NUEVA VARIABLE PARA CONTROLAR LOS COLORES!
+  respuestaSeleccionada: string | null = null;
 
   constructor(public puntuacion: PuntuacionService) {}
 
@@ -32,43 +35,64 @@ export class PreguntaRapidasComponent implements OnChanges, OnDestroy {
   prepararPregunta() {
     clearInterval(this.intervalo);
     this.opcionesMezcladas = [...this.pregunta.opciones].sort(() => Math.random() - 0.5);
-    this.tiempoRestante = 4;
+
+    // Tiempo aleatorio 3-6 segundos
+    this.tiempoTotal = Math.floor(Math.random() * (6 - 3 + 1)) + 3;
+    this.tiempoRestante = this.tiempoTotal;
+
     this.mostrarPuntos = false;
+    this.puntosGanados = 0;
+    this.respuestaSeleccionada = null; // ← Reset colores
+
     this.iniciarTemporizador();
   }
 
   iniciarTemporizador() {
     this.intervalo = setInterval(() => {
       this.tiempoRestante--;
+
       if (this.tiempoRestante <= 0) {
-        this.puntuacion.sumarIncorrecta();
         clearInterval(this.intervalo);
+        // No respondió → -30 puntos y NO pintamos colores
+        this.respuestaSeleccionada = null; // ← Importante: no colorea botones
+        this.puntosGanados = -30;
+        this.puntuacion.puntosTotales -= 30;
+        this.puntuacion.incorrectas++;
+        this.mostrarPuntos = true;
+
+        setTimeout(() => {
+          this.siguiente.emit({ acierto: false, tiempo: this.tiempoTotal });
+        }, 800);
       }
     }, 1000);
   }
 
   responder(opcion: string) {
-  clearInterval(this.intervalo);
+    clearInterval(this.intervalo);
 
-  if (opcion === this.pregunta.correcta) {
-    // ¡ACERTÓ!
-    const puntos = this.tiempoRestante >= 3 ? 50 : 35;
-    this.puntosGanados = puntos;
+    // Guardamos la opción que pulsó el usuario
+    this.respuestaSeleccionada = opcion;
+
+    let acierto = false;
+    if (opcion === this.pregunta.correcta) {
+      const puntos = this.tiempoRestante >= 3 ? 130 : 70;
+      this.puntosGanados = puntos;
+      this.puntuacion.puntosTotales += puntos;
+      this.puntuacion.correctas++;
+      acierto = true;
+    } else {
+      this.puntosGanados = -15;
+      this.puntuacion.puntosTotales -= 15;
+      this.puntuacion.incorrectas++;
+    }
+
     this.mostrarPuntos = true;
-    this.puntuacion.puntosTotales += puntos;
-    this.puntuacion.correctas++;
-  } else {
-    // ¡FALLÓ! → No pasa nada, solo 0 puntos
-    this.puntuacion.incorrectas++;
-    this.puntosGanados = 0;
-    this.mostrarPuntos = true; // opcional: mostrar "+0" o nada
-  }
 
-  // SIEMPRE pasa a la siguiente (¡nunca game over!)
-  setTimeout(() => {
-    this.siguiente.emit();
-  }, 800);
-}
+    setTimeout(() => {
+      const tiempoUsado = this.tiempoTotal - this.tiempoRestante;
+      this.siguiente.emit({ acierto, tiempo: tiempoUsado });
+    }, 800);
+  }
 
   ngOnDestroy() {
     clearInterval(this.intervalo);

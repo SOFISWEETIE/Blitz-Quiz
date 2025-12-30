@@ -190,3 +190,49 @@
   z-index: 999;
 }
 
+/* responsive */
+
+@media (max-width: 768px) {
+
+  .top-bar {
+    height: 58px;
+    padding: 0 14px;
+    gap: 10px;
+  }
+
+  .top-bar .logo {
+    font-size: 20px;
+  }
+
+  .ranking-trigger,
+  .perfil-trigger {
+    padding: 4px 6px;
+    gap: 6px;
+    font-size: 14px;
+  }
+
+  .avatar {
+    width: 26px;
+    height: 26px;
+  }
+
+  .ranking-menu {
+    width: 260px;
+    right: 0;
+  }
+
+  .perfil-menu {
+    width: 160px;
+    right: 0;
+  }
+
+  .contenido {
+    padding: 12px;
+  }
+
+  .pantalla-juego {
+    padding: 18px;
+    border-radius: 18px;
+  }
+}
+

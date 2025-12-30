@@ -8,7 +8,8 @@
   background: #c1cdf9;
   align-items: center;   /* centra horizontalmente */
   justify-content: center; /* centra verticalmente */
-  text-align: center;    /* asegura que el texto se centre */
+  text-align: center; 
+  padding-bottom: 60px;   
 }
 
 .normal h2 {
@@ -68,18 +69,20 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 14px;
-  margin-top: 6px;
-  width: 100%; /* ocupa todo el ancho */
+  margin-top: 12px;
+  width: 100%;
+  padding: 0 10px; /* ocupa todo el ancho */
 }
 
 .opcion-btn {
-  padding: 14px 16px;
+  padding: 18px 20px;
   border-radius: 16px;
   background: white;
   border: 2px solid #f7c646; 
   font-size: 16px;
   font-weight: 700;
   cursor: pointer;
+  width: 100%;
   transition: transform .12s, box-shadow .12s, background-color .2s;
   text-align: center;
 }
@@ -102,4 +105,112 @@
   outline: none;
 }
 
+/* 
+  uso !important porque si no el boton pasa de mi y se queda con los estilos
+  del hover y demas cosas. basicamente esto es para que cuando elijas una opcion
+  se ponga verde o roja si o si y no lo pisen otros estilos raros.
+  no tocar esto que si no se rompe lo de los colores
+*/
 
+.opcion-btn.correcta {
+  background-color: #4CAF50 !important;
+  color: white !important;
+  border-color: #2e7d32 !important;
+}
+
+.opcion-btn.incorrecta {
+  background-color: #e74c3c !important;
+  color: white !important;
+  border-color: #c0392b !important;
+}
+
+.opcion-btn.correcta-borde {
+  border: 3px solid #2ecc71 !important;
+}
+
+.opcion-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.8;
+  transform: none !important;
+  box-shadow: none !important;
+}
+/* ///////////////////////////////////////////////////////// */
+
+
+.bloque-estadisticas { display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  gap: 26px; 
+  margin-top: 32px; 
+  width: 100%; }
+
+/* Barra de progreso */
+.barra-progreso {
+  width: 100%;
+  max-width: 420px;
+  height: 22px;
+  background-color: #e0e7ff; 
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.barra-relleno {
+  height: 100%;
+  background-color: #f7c646;; 
+  transition: width 0.6s cubic-bezier(0.25, 0.8, 0.25, 1); /* animacion barra */ 
+}
+
+/* Bloques de contador */ 
+.bloques-contador { 
+  display: flex; 
+  gap: 30px; 
+  flex-wrap: wrap; 
+  justify-content: center; }
+
+.bloque {
+  width: 160px;
+  height: 120px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+  text-align: center;
+}
+
+.bloque.verde {
+  background-color: #d6f5d6; 
+  color: #2e7d32;
+}
+
+.bloque.rojo {
+  background-color: #ffe0e0; 
+  color: #c0392b;
+}
+
+.numero {
+  font-size: 40px;
+  line-height: 1;
+}
+
+.texto {
+  font-size: 18px;
+  margin-top: 6px;
+  text-transform: lowercase;
+}
+
+/* Responsive */ 
+@media (max-width: 480px) { 
+  .bloque { 
+  width: 140px; 
+  height: 110px; 
+} 
+  
+.numero { font-size: 34px; } 
+    
+.texto { font-size: 16px; }
+
+.barra-progreso { max-width: 300px; height: 18px; } }

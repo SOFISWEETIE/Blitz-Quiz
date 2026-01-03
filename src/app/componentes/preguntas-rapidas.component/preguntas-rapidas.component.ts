@@ -75,7 +75,7 @@ export class PreguntaRapidasComponent implements OnChanges, OnDestroy {
 
     let acierto = false;
     if (opcion === this.pregunta.correcta) {
-      const puntos = this.tiempoRestante >= 3 ? 130 : 70;
+      const puntos = this.tiempoRestante >= 3 ? 70 : 30;
       this.puntosGanados = puntos;
       this.puntuacion.puntosTotales += puntos;
       this.puntuacion.correctas++;

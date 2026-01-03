@@ -1,4 +1,12 @@
-<h1>Elige una categoría</h1>
-<div *ngFor="let cat of categorias">
-  <button (click)="elegirCategoria(cat)">{{ cat }}</button>
+<h1 class="titulo-categorias">Elige una categoría</h1>
+
+<div class="categorias-container">
+  <div class="categorias-grid">
+    <div 
+      class="categoria-card" 
+      *ngFor="let cat of categorias" 
+      (click)="elegirCategoria(cat)">
+      <span class="categoria-texto">{{ cat }}</span>
+    </div>
+  </div>
 </div>

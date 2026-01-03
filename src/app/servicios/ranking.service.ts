@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Firestore, doc, setDoc, collection, query, orderBy, limit, serverTimestamp, increment } from '@angular/fire/firestore';
 import { collectionData } from 'rxfire/firestore';
+import { increment } from '@angular/fire/firestore';
 
 @Injectable({
   providedIn: 'root'

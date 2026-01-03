@@ -1,21 +1,46 @@
-<div class="resultados">
-  <h1>¡FIN DEL QUIZ!</h1>
+<div class="fin-quiz">
 
-  <h2>
-    ¡Enhorabuena!<br>
-    Sacaste <strong>{{ puntuacion.puntosTotales }}</strong> puntos
-  </h2>
+  <!-- RESULTADOS -->
+  <div class="resultados">
+    <h1>¡FIN DEL QUIZ!</h1>
 
-  <p *ngIf="seleccion.modo === 'rapidas'">
-    <strong>PREGUNTAS BLITZ</strong><br>
-    Aciertos: {{ puntuacion.correctas }} | Fallos: {{ puntuacion.incorrectas }}
+    <h2>
+      ¡Enhorabuena!<br>
+      Sacaste <strong>{{ puntuacion.puntosTotales }}</strong> puntos
+    </h2>
+
+    <p *ngIf="seleccion.modo === 'rapidas'">
+      <strong>PREGUNTAS BLITZ</strong><br>
+      Aciertos: {{ puntuacion.correctas }} | Fallos: {{ puntuacion.incorrectas }}
+    </p>
+
+    <p *ngIf="seleccion.modo !== 'rapidas'">
+      {{ puntuacion.correctas }} de {{ puntuacion.totalPreguntas }} aciertos<br>
+      Categoría: {{ seleccion.categoria || 'Aleatoria' }}<br>
+      Dificultad: {{ seleccion.dificultad || 'Aleatoria' }}
+    </p>
+  </div>
+
+  <button (click)="volverAJugar()">JUGAR OTRA VEZ</button>
+
+  <!-- RANKING ABAJO -->
+  <div class="ranking-final">
+
+  <h3 class="titulo-ranking-final">
+    ¡Tu posición esta semana! 
+  </h3>
+
+  <p class="puesto-jugador" *ngIf="puestoJugador">
+    Estás en el <strong>#{{ puestoJugador }}</strong> puesto
   </p>
 
-  <p *ngIf="seleccion.modo !== 'rapidas'">
-    {{ puntuacion.correctas }} de {{ puntuacion.totalPreguntas }} aciertos<br>
-    Categoría: {{ seleccion.categoria || 'Aleatoria' }}<br>
-    Dificultad: {{ seleccion.dificultad || 'Aleatoria' }}
+  <p class="puesto-jugador" *ngIf="!puestoJugador">
+    Aún no apareces en el ranking… ¡pero puedes lograrlo! 💪
   </p>
+
+  <app-ranking></app-ranking>
+
 </div>
 
-<button (click)="volverAJugar()">JUGAR OTRA VEZ</button>
+
+</div>

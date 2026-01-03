@@ -6,15 +6,18 @@ import { Router } from '@angular/router';
 import { ServicioRanking } from '../../servicios/ranking.service';
 import { AuthService } from '../../servicios/auth.service';
 import { firstValueFrom } from 'rxjs';
+import { RankingComponent } from '../ranking.component/ranking.component';
+
 
 @Component({
   selector: 'app-resultados',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RankingComponent],
   templateUrl: './resultados.component.html',
   styleUrls: ['./resultados.component.css'] 
 })
 export class ResultadosComponent {
+  puestoJugador: number | null = null;
   constructor(
     public seleccion: SeleccionService,
     public puntuacion: PuntuacionService,
@@ -26,6 +29,7 @@ export class ResultadosComponent {
   async ngOnInit() {
     // Guardar resultado automáticamente al entrar en la pantalla de resultados
     await this.guardarResultadoEnRanking();
+    await this.calcularPuestoJugador();
   }
 
   async guardarResultadoEnRanking() {
@@ -55,6 +59,27 @@ export class ResultadosComponent {
       console.error('Error guardando en ranking:', err);
     }
   }
+
+  async calcularPuestoJugador() {
+  const aliasData = this.auth.alias$.value;
+  const alias = aliasData?.alias;
+
+  if (!alias) {
+    this.puestoJugador = null;
+    return;
+  }
+
+  const idSemana = this.obtenerSemanaActual();
+  const ranking = await firstValueFrom(
+  this.servicioRanking.obtenerRankingSemanal(idSemana)
+  ) as any[];
+
+  const index = ranking.findIndex(j => j.jugador === alias);
+
+
+  this.puestoJugador = index !== -1 ? index + 1 : null;
+  }
+
 
   volverAJugar() {
     this.router.navigate(['app/modos']);

@@ -167,6 +167,11 @@
   color: white;
 }
 
+.ranking-trigger.desactivado {
+  opacity: 0.4;
+  cursor: default;
+  pointer-events: none;
+}
 
 .ranking-menu {
   position: absolute;
@@ -211,14 +216,14 @@
     font-size: 14px;
   }
 
-  .avatar {
-    width: 26px;
-    height: 26px;
-  }
-
   .ranking-menu {
-    width: 260px;
-    right: 0;
+    width: calc(100% - 32px);
+    position: fixed;
+    top: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    max-height: 70vh;
+    border-radius: 18px;
   }
 
   .perfil-menu {

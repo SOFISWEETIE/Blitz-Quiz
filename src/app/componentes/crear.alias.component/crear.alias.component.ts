@@ -28,6 +28,8 @@ export class CrearAliasComponent {
   { src: 'assets/mascotas/cerdo.png', nombre: 'Cerdo' },
   { src: 'assets/mascotas/perro.png', nombre: 'Perro' },
   { src: 'assets/mascotas/gato.png', nombre: 'Gato' },
+  { src: 'assets/mascotas/cerdo2.jpg', nombre: 'cerdo2' },
+  { src: 'assets/mascotas/serpiente.jpg', nombre: 'serpiente' },
 ];
 
 mascotaSeleccionada = this.mascotas[0].src;

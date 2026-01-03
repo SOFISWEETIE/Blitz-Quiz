@@ -24,7 +24,6 @@ export class PreguntaComponent implements OnChanges, OnDestroy {
   respuestaSeleccionada: string | null = null;
   bloquearOpciones: boolean = false;
 
-
   constructor(public puntuacion: PuntuacionService, public seleccion: SeleccionService) {}
 
   ngOnChanges() {
@@ -41,18 +40,15 @@ export class PreguntaComponent implements OnChanges, OnDestroy {
 
     this.tiempoInicio = Date.now();
 
-    // tiempo aleatorio pero solo en este modo
     if (this.seleccion.modo === 'aleatorio') {
       this.tiempoRestante = this.tiempoAleatorio();
     } else {
-      // modo clásico se mantiene el mismo tiempo
       this.tiempoRestante = 20;
     }
     
     this.iniciarTemporizador();
   }
 
-  // Genera un tiempo aleatorio entre 8 y 20 segundos
   tiempoAleatorio(): number {
     return Math.floor(Math.random() * (20 - 8 + 1)) + 8;
   }
@@ -61,58 +57,68 @@ export class PreguntaComponent implements OnChanges, OnDestroy {
     this.intervalo = setInterval(() => {
       this.tiempoRestante--;
       if (this.tiempoRestante <= 0) {
-        this.responder(null); // Se acabó el tiempo
+        this.responder(null);
       }
     }, 1000);
   }
 
   responder(opcion: string | null) {
+    if (this.bloquearOpciones) return;
 
-  if (this.bloquearOpciones) return;
+    this.respuestaSeleccionada = opcion;
+    this.bloquearOpciones = true;
 
-  this.respuestaSeleccionada = opcion;
-  this.bloquearOpciones = true;
+    const tiempoRespuesta = (Date.now() - this.tiempoInicio) / 1000;
+    console.log('Tiempo de respuesta:', tiempoRespuesta.toFixed(2), 's');
 
+    let acierto = false;
 
-  const tiempoRespuesta = (Date.now() - this.tiempoInicio) / 1000;
-  console.log('Tiempo de respuesta:', tiempoRespuesta.toFixed(2), 's'); // depuración
+    if (opcion === this.pregunta.correcta) {
+      acierto = true;
+      let puntos = 0;
 
-  let acierto = false;
+      if (this.seleccion.modo === 'clasico') {
+        
+        const dif = this.seleccion.dificultad.toLowerCase();
 
-  if (opcion === this.pregunta.correcta) {
-    acierto = true;
+        switch (dif) {
+          case 'facil':
+            puntos = 5;
+            break;
+          case 'media':
+            puntos = 10;  
+            break;
+          case 'dificil':
+            puntos = 15;
+            break;
+          default:
+            console.warn('Dificultad desconocida:', this.seleccion.dificultad);
+            puntos = 5; 
+        }
+      } else if (this.seleccion.modo === 'aleatorio') {
+        puntos = this.tiempoRestante >= 10 ? 25 : 20;
+        this.puntuacion.sumarCorrecta();
+      }
 
-    if (this.seleccion.modo === 'aleatorio') {
-      
-      this.puntuacion.sumarCorrecta();
-      this.puntosGanados = 100;
-    } else {
-      // Modo clásico puede variar la puntuación
-      const puntos = this.tiempoRestante >= 10 ? 100 : 50;
       this.puntuacion.puntosTotales += puntos;
       this.puntuacion.correctas++;
       this.puntosGanados = puntos;
+      this.mostrarPuntos = true;
+
+    } else {
+      this.puntosGanados = 0;
+      this.mostrarPuntos = true;
+      this.puntuacion.incorrectas++;
     }
 
-    this.mostrarPuntos = true;
-  } else {
-    // INCORRECTA
-    this.puntosGanados = 0;
-    this.mostrarPuntos = true;
-    this.puntuacion.incorrectas++;
-  }
-
-    // Puntos desaparecen después de 1 segundo
     setTimeout(() => {
       this.mostrarPuntos = false;
     }, 1000);
 
-    // Verificar si fue correcto o incorrecto
     setTimeout(() => {
-      this.siguiente.emit({ acierto, tiempo: tiempoRespuesta }); 
+      this.siguiente.emit({ acierto, tiempo: tiempoRespuesta });
       this.bloquearOpciones = false;
       this.respuestaSeleccionada = null;
-
     }, 1100);
   }
 
@@ -120,7 +126,6 @@ export class PreguntaComponent implements OnChanges, OnDestroy {
     clearInterval(this.intervalo);
   }
 
-  // Para el contador
   get numeroPregunta() {
     return this.puntuacion.indice + 1;
   }

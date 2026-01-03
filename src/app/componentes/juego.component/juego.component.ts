@@ -51,28 +51,42 @@ export class JuegoComponent implements OnInit {
   }
 
   private async cargarPreguntasClasicas() {
-    try {
-      let categoria: string;
-      let dificultad: string;
+  try {
+    let categoria: string;
+    let dificultad: string;
 
-      if (this.seleccion.modo === 'clasico') {
-        categoria = this.seleccion.categoria;
-        dificultad = this.seleccion.dificultad;
-      } else {
-        categoria = this.seleccion.establecerCategoriaAleatoria();
-        dificultad = this.seleccion.establecerDificultadAleatoria();
-      }
-
-      const preguntas = await this.preguntasService.obtenerPreguntas(categoria, dificultad);
-      this.puntuacion.establecerTotal(preguntas.length);
-      this.puntuacion.preguntasActuales = preguntas;
-
-    } catch (error) {
-      alert('Error cargando preguntas');
-      this.router.navigate(['app/modos']);
+    if (this.seleccion.modo === 'clasico') {
+      categoria = this.seleccion.categoria;
+      dificultad = this.seleccion.dificultad;
+    } else {
+      categoria = this.seleccion.establecerCategoriaAleatoria();
+      dificultad = this.seleccion.establecerDificultadAleatoria();
     }
-  }
 
+    
+    const todasLasPreguntas = await this.preguntasService.obtenerPreguntas(categoria, dificultad);
+
+    
+    const preguntasMezcladas = [...todasLasPreguntas]; 
+    for (let i = preguntasMezcladas.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [preguntasMezcladas[i], preguntasMezcladas[j]] = [preguntasMezcladas[j], preguntasMezcladas[i]];
+    }
+
+    
+    const preguntasParaJugar = preguntasMezcladas.slice(0, 20);
+
+    
+    this.puntuacion.establecerTotal(preguntasParaJugar.length);
+    this.puntuacion.preguntasActuales = preguntasParaJugar;
+
+  } catch (error) {
+    alert('Error cargando preguntas');
+    this.router.navigate(['app/modos']);
+  }
+}
+
+  
   private async cargarPreguntasRapidas() {
     try {
       const data: any = await firstValueFrom(this.http.get('assets/preguntas.json'));

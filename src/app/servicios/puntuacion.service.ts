@@ -10,6 +10,10 @@ export class PuntuacionService {
   preguntasActuales: any[] = [];
   indice: number = 0;
   puntosTotales: number = 0;
+  rachaActual: number = 0;
+  partidasJugadas: number = 0; 
+  modosJugados: Set<string> = new Set(); 
+  blitzConsecutivas: number = 0
 
   reiniciar() {
     this.correctas = 0;
@@ -18,6 +22,9 @@ export class PuntuacionService {
     this.preguntasActuales = [];
     this.indice = 0;
     this.puntosTotales = 0; // se reinician los puntos
+    this.rachaActual = 0;
+    this.modosJugados = new Set();
+    this.blitzConsecutivas = 0
   }
 
   establecerTotal(total: number) {
@@ -27,11 +34,13 @@ export class PuntuacionService {
   
   sumarCorrecta() {
     this.correctas++;
-    this.puntosTotales += 100;  // o lo que tengas ahora
+    this.puntosTotales += 100;  
+    this.rachaActual++;
   }
 
   sumarIncorrecta() {
     this.incorrectas++;
+    this.rachaActual = 0;
     
   }
 
@@ -40,6 +49,7 @@ export class PuntuacionService {
   
   sumarCorrectaRapida(tiempoRestante: number) {
     this.correctas++;
+    this.rachaActual++;
 
     let puntos = 0;
     if (tiempoRestante >= 3) {
@@ -50,12 +60,20 @@ export class PuntuacionService {
     // Si responde en 0 → ya es fallo por tiempo, no llega aquí
 
     this.puntosTotales += puntos;
-    return puntos;  // Devuelve los puntos ganados para animaciones chulas
+    return puntos;  
+    
   }
 
   sumarIncorrectaRapida() {
   this.incorrectas++;
+  this.rachaActual = 0;
   }
 
-  
+  incrementarPartidasJugadas() {
+  this.partidasJugadas++;
+  }
+
+  añadirModoJugado(modo: string) {
+  this.modosJugados.add(modo);
+  }
 }

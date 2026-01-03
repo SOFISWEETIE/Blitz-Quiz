@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Firestore, doc, setDoc, collection, query, orderBy, limit, serverTimestamp } from '@angular/fire/firestore';
+import { Firestore, doc, setDoc, collection, query, orderBy, limit, serverTimestamp, increment } from '@angular/fire/firestore';
 import { collectionData } from 'rxfire/firestore';
 import { increment } from '@angular/fire/firestore';
 
@@ -9,7 +9,7 @@ import { increment } from '@angular/fire/firestore';
 export class ServicioRanking {
   constructor(private firestore: Firestore) {}
 
-  // Guarda la puntuacion semanal de un jugador
+  
   async guardarPuntuacionSemanal(
     idSemana: string,
     idJugador: string,
@@ -17,7 +17,7 @@ export class ServicioRanking {
     puntos: number,
     mascota: string
   ) {
-    // mira si la semana existe
+    
     const refSemana = doc(this.firestore, `intentos/${idSemana}`);
     await setDoc(
       refSemana,
@@ -26,24 +26,26 @@ export class ServicioRanking {
         semana: Number(idSemana.split('_').pop()),
         fecha_inicio: serverTimestamp()
       },
-      { merge: true } 
+      { merge: true }
     );
 
     const refPuntuacion = doc(
-      this.firestore,
+      this.firestore, 
       `intentos/${idSemana}/puntuaciones/${idJugador}`
     );
 
+    
     await setDoc(refPuntuacion, {
       jugador: nombreJugador,
-      puntuacion: puntos,
+      puntuacion: increment(puntos),  
       mascota: mascota,
-      fecha: serverTimestamp()
-    },{ merge: true });
+      fecha: serverTimestamp() 
+    }, { merge: true }); 
+
+    console.log('Puntos sumados al acumulado semanal:', puntos);
   }
 
-
-  //ranking semanal (top 10)
+ 
   obtenerRankingSemanal(idSemana: string) {
     const referencia = collection(
       this.firestore,

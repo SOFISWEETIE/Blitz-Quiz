@@ -1,98 +1,84 @@
-.logros-container {
-  min-height: 100vh;
-  padding: 30px 20px;
-  background: linear-gradient(135deg, #f9f5ff, #ece8ff);
-  font-family: 'Poppins', 'Segoe UI', Roboto, sans-serif;
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden; 
 }
 
+.logros-container {
+  padding: 10px;
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.titulo-principal {
+  text-align: center;
+  font-size: 32px;
+  color: #4b2dbd;
+  margin: 10px 0 20px;
+  font-weight: 800;
+}
+
+.seccion-logros {
+  margin-bottom: 20px;
+}
+
+.titulo-nivel {
+  text-align: center;
+  font-size: 26px;
+  margin-bottom: 10px;
+  font-weight: 800;
+  color: #4b2dbd;
+}
 
 .logros-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-  gap: 20px;
-  max-width: 900px;
-  margin: 0 auto;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  justify-items: center;
 }
-
 
 .logro {
-  border-radius: 20px;
-  padding: 18px 14px;
+  background: #c1cdf9;
+  border-radius: 12px;
+  padding: 10px;
   text-align: center;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  width: 100%;
+  max-width: 200px;
+  min-height: 130px;
 }
 
-
-.logro:not(.bloqueado) {
-  background: linear-gradient(135deg, #ffffff, #f6f2ff);
-  box-shadow:
-    0 8px 18px rgba(0, 0, 0, 0.12),
-    0 0 14px rgba(247, 198, 70, 0.45);
+.logro.desbloqueado {
+  background: linear-gradient(135deg, #f7c646, #ffd06a);
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(247, 198, 70, 0.4);
 }
 
-.logro:not(.bloqueado):hover {
-  transform: translateY(-4px);
-  box-shadow:
-    0 12px 26px rgba(0, 0, 0, 0.18),
-    0 0 18px rgba(247, 198, 70, 0.7);
+.logro .icono {
+  font-size: 40px;
+  margin-bottom: 6px;
 }
-
-
-.logro.bloqueado {
-  background: linear-gradient(135deg, #f0f0f0, #e0e0e0);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
-}
-
-.logro.bloqueado:hover {
-  transform: none;
-}
-
-
-.icono {
-  font-size: 36px;
-  margin-bottom: 10px;
-}
-
-
-.logro.bloqueado .icono {
-  color: #f7c646;
-}
-
-
-.logro:not(.bloqueado) .icono {
-  color: #3a0ca3;
-}
-
 
 .logro h4 {
-  font-size: 15px;
-  font-weight: 700;
+  font-size: 16px;
+  color: #4b2dbd;
   margin-bottom: 4px;
-}
-
-.logro:not(.bloqueado) h4 {
-  color: #3a0ca3;
-}
-
-.logro.bloqueado h4 {
-  color: #888;
+  font-weight: 700;
 }
 
 .logro p {
   font-size: 13px;
-  line-height: 1.3;
-}
-
-.logro:not(.bloqueado) p {
-  color: #555;
-}
-
-.logro.bloqueado p {
-  color: #999;
+  color: #4b2dbd;
+  line-height: 1.2;
 }
 
 
-@media (max-width: 480px) {
+
   /* ───────── MÓVIL ───────── */
 @media (max-width: 480px) {
   .logros-container {
@@ -106,7 +92,11 @@
 
   .logro {
     padding: 14px 10px;
+@media (max-width: 1000px) {
+  .logros-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
+}
 
   .icono {
     font-size: 30px;
@@ -118,7 +108,10 @@
 
   .logro p {
     font-size: 12px;
+@media (max-width: 600px) {
+  .logros-grid {
+    grid-template-columns: 1fr;
   }
 }
-}
+
 

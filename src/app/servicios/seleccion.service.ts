@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class SeleccionService {
-  // ← AQUÍ SOLO AÑADIMOS 'rapidas' al tipo, el resto igualito que tenías tú
+  
   modo: 'clasico' | 'aleatorio' | 'rapidas' = 'clasico';
 
   categoria: string = '';

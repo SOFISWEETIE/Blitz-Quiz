@@ -15,7 +15,27 @@
       {"pregunta": "¿Quién pintó El jardín de las delicias?", "opciones": ["El Bosco", "Tintoretto", "Greco", "Velázquez"], "correcta": "El Bosco"},
       {"pregunta": "¿Qué artista hizo murales en México?", "opciones": ["Diego Rivera", "Frida Kahlo", "Siqueiros", "Orozco"], "correcta": "Diego Rivera"},
       {"pregunta": "¿Quién pintó Girasoles?", "opciones": ["Van Gogh", "Cézanne", "Monet", "Renoir"], "correcta": "Van Gogh"},
-      {"pregunta": "¿Qué artista es símbolo del cubismo?", "opciones": ["Picasso", "Kandinsky", "Sorolla", "Velázquez"], "correcta": "Picasso"}
+      {"pregunta": "¿Qué artista es símbolo del cubismo?", "opciones": ["Picasso", "Kandinsky", "Sorolla", "Velázquez"], "correcta": "Picasso"},
+       {"pregunta": "¿Quién pintó El almuerzo de los remeros?", "opciones": ["Renoir", "Monet", "Manet", "Degas"], "correcta": "Renoir"},
+      {"pregunta": "¿Qué artista pintó Impresión, sol naciente?", "opciones": ["Monet", "Renoir", "Pissarro", "Sisley"], "correcta": "Monet"},
+      {"pregunta": "¿Quién pintó El columpio?", "opciones": ["Fragonard", "Boucher", "David", "Ingres"], "correcta": "Fragonard"},
+      {"pregunta": "¿Quién es el autor de Los girasoles (serie)?", "opciones": ["Van Gogh", "Monet", "Cézanne", "Gauguin"], "correcta": "Van Gogh"},
+      {"pregunta": "¿Qué artista pintó Mujeres tahitianas?", "opciones": ["Gauguin", "Van Gogh", "Matisse", "Picasso"], "correcta": "Gauguin"},
+      {"pregunta": "¿Quién pintó El hijo del hombre?", "opciones": ["Magritte", "Dalí", "Miró", "Klee"], "correcta": "Magritte"},
+      {"pregunta": "¿Qué artista es famoso por pintar bailarinas?", "opciones": ["Degas", "Renoir", "Manet", "Monet"], "correcta": "Degas"},
+      {"pregunta": "¿Quién pintó El sueño?", "opciones": ["Picasso", "Miró", "Dalí", "Matisse"], "correcta": "Picasso"},
+      {"pregunta": "¿Qué pintor es clave del surrealismo?", "opciones": ["Dalí", "Picasso", "Kandinsky", "Monet"], "correcta": "Dalí"},
+      {"pregunta": "¿Quién pintó La habitación de Arlés?", "opciones": ["Van Gogh", "Gauguin", "Monet", "Cézanne"], "correcta": "Van Gogh"},
+      {"pregunta": "¿Qué artista hizo esculturas móviles (cinéticas)?", "opciones": ["Calder", "Rodin", "Moore", "Brancusi"], "correcta": "Calder"},
+      {"pregunta": "¿Quién pintó Nenúfares?", "opciones": ["Monet", "Manet", "Renoir", "Sisley"], "correcta": "Monet"},
+      {"pregunta": "¿Quién pintó El beso (escultura)?", "opciones": ["Rodin", "Bernini", "Canova", "Miguel Ángel"], "correcta": "Rodin"},
+      {"pregunta": "¿Qué artista español pintó escenas de playa?", "opciones": ["Sorolla", "Picasso", "Dalí", "Miró"], "correcta": "Sorolla"},
+      {"pregunta": "¿Quién pintó Muchacha leyendo una carta?", "opciones": ["Vermeer", "Rembrandt", "Rubens", "Velázquez"], "correcta": "Vermeer"},
+      {"pregunta": "¿Qué artista es famoso por sus autorretratos?", "opciones": ["Frida Kahlo", "Georgia O'Keeffe", "Cassatt", "Kollwitz"], "correcta": "Frida Kahlo"},
+      {"pregunta": "¿Quién pintó El dormitorio en Arlés?", "opciones": ["Van Gogh", "Gauguin", "Cézanne", "Monet"], "correcta": "Van Gogh"},
+      {"pregunta": "¿Qué pintor pertenece al romanticismo?", "opciones": ["Delacroix", "Monet", "Manet", "Degas"], "correcta": "Delacroix"},
+      {"pregunta": "¿Quién pintó El violinista verde?", "opciones": ["Chagall", "Klee", "Kandinsky", "Miró"], "correcta": "Chagall"},
+      {"pregunta": "¿Qué artista es clave del modernismo?", "opciones": ["Klimt", "Picasso", "Dalí", "Rodin"], "correcta": "Klimt"}
     ],
     "media": [
       {"pregunta": "¿Quién pintó El beso?", "opciones": ["Klimt", "Schiele", "Monet", "Matisse"], "correcta": "Klimt"},
@@ -32,7 +52,27 @@
       {"pregunta": "¿Quién pintó La libertad guiando al pueblo?", "opciones": ["Delacroix", "Ingres", "David", "Manet"], "correcta": "Delacroix"},
       {"pregunta": "¿Qué pintor fue maestro del barroco español?", "opciones": ["Velázquez", "Murillo", "Zurbarán", "Ribera"], "correcta": "Velázquez"},
       {"pregunta": "¿Qué artista creó Composición VIII?", "opciones": ["Kandinsky", "Mondrian", "Klee", "Picasso"], "correcta": "Kandinsky"},
-      {"pregunta": "¿Quién pintó La maja desnuda?", "opciones": ["Goya", "Velázquez", "Greco", "Murillo"], "correcta": "Goya"}
+      {"pregunta": "¿Quién pintó La maja desnuda?", "opciones": ["Goya", "Velázquez", "Greco", "Murillo"], "correcta": "Goya"},
+      {"pregunta": "¿Quién pintó El juramento de los Horacios?", "opciones": ["David", "Ingres", "Delacroix", "Goya"], "correcta": "David"},
+      {"pregunta": "¿Qué artista realizó El baño turco?", "opciones": ["Ingres", "Delacroix", "David", "Manet"], "correcta": "Ingres"},
+      {"pregunta": "¿Quién pintó Olimpia?", "opciones": ["Manet", "Monet", "Renoir", "Degas"], "correcta": "Manet"},
+      {"pregunta": "¿Qué pintor es clave del neoclasicismo?", "opciones": ["David", "Goya", "Ingres", "Delacroix"], "correcta": "David"},
+      {"pregunta": "¿Quién pintó La balsa de la Medusa?", "opciones": ["Géricault", "Delacroix", "David", "Ingres"], "correcta": "Géricault"},
+      {"pregunta": "¿Qué artista creó Broadway Boogie Woogie?", "opciones": ["Mondrian", "Kandinsky", "Klee", "Malevich"], "correcta": "Mondrian"},
+      {"pregunta": "¿Quién pintó El ángelus?", "opciones": ["Millet", "Courbet", "Daumier", "Manet"], "correcta": "Millet"},
+      {"pregunta": "¿Qué pintor hizo El origen del cubismo?", "opciones": ["Cézanne", "Picasso", "Braque", "Gris"], "correcta": "Cézanne"},
+      {"pregunta": "¿Quién pintó La danza?", "opciones": ["Matisse", "Picasso", "Kandinsky", "Miró"], "correcta": "Matisse"},
+      {"pregunta": "¿Qué artista creó El hijo del hombre?", "opciones": ["Magritte", "Dalí", "Ernst", "Tanguy"], "correcta": "Magritte"},
+      {"pregunta": "¿Quién pintó El perro semihundido?", "opciones": ["Goya", "Velázquez", "Greco", "Murillo"], "correcta": "Goya"},
+      {"pregunta": "¿Qué artista hizo La torre Eiffel (serie)?", "opciones": ["Delaunay", "Picasso", "Braque", "Gris"], "correcta": "Delaunay"},
+      {"pregunta": "¿Quién pintó El bar del Folies-Bergère?", "opciones": ["Manet", "Degas", "Monet", "Renoir"], "correcta": "Manet"},
+      {"pregunta": "¿Qué escultor es clave del neoclasicismo?", "opciones": ["Canova", "Rodin", "Bernini", "Donatello"], "correcta": "Canova"},
+      {"pregunta": "¿Quién pintó La muerte de Marat?", "opciones": ["David", "Géricault", "Ingres", "Delacroix"], "correcta": "David"},
+      {"pregunta": "¿Qué pintor es representante del fauvismo?", "opciones": ["Matisse", "Derain", "Vlaminck", "Rouault"], "correcta": "Matisse"},
+      {"pregunta": "¿Quién pintó La habitación roja?", "opciones": ["Matisse", "Klimt", "Bonnard", "Vuillard"], "correcta": "Matisse"},
+      {"pregunta": "¿Qué artista hizo El gran vidrio?", "opciones": ["Duchamp", "Picabia", "Man Ray", "Ernst"], "correcta": "Duchamp"},
+      {"pregunta": "¿Quién pintó Mujeres de Argel?", "opciones": ["Delacroix", "Ingres", "Manet", "Géricault"], "correcta": "Delacroix"},
+      {"pregunta": "¿Qué pintor es clave del realismo?", "opciones": ["Courbet", "Manet", "Millet", "Daumier"], "correcta": "Courbet"}
     ],
     "dificil": [
       {"pregunta": "¿Quién pintó El triunfo de la muerte?", "opciones": ["Brueghel el Viejo", "Rubens", "El Bosco", "Caravaggio"], "correcta": "Brueghel el Viejo"},
@@ -49,7 +89,27 @@
       {"pregunta": "¿Qué artista barroco pintó Judith y Holofernes?", "opciones": ["Caravaggio", "Gentileschi", "Rubens", "Ribera"], "correcta": "Caravaggio"},
       {"pregunta": "¿Quién pintó El cazador de plata?", "opciones": ["Brueghel", "Rubens", "Goya", "Sorolla"], "correcta": "Brueghel"},
       {"pregunta": "¿Qué artista creó Las señoritas en baño?", "opciones": ["Degas", "Renoir", "Manet", "Cézanne"], "correcta": "Degas"},
-      {"pregunta": "¿Quién pintó La fragua de Vulcano?", "opciones": ["Velázquez", "Murillo", "Goya", "Zurbarán"], "correcta": "Velázquez"}
+      {"pregunta": "¿Quién pintó La fragua de Vulcano?", "opciones": ["Velázquez", "Murillo", "Goya", "Zurbarán"], "correcta": "Velázquez"},
+      {"pregunta": "¿Quién pintó El jardín del amor?", "opciones": ["Rubens", "Velázquez", "Tiziano", "Veronese"], "correcta": "Rubens"},
+      {"pregunta": "¿Qué artista creó El matrimonio Arnolfini?", "opciones": ["Jan van Eyck", "Van der Weyden", "Memling", "Bosch"], "correcta": "Jan van Eyck"},
+      {"pregunta": "¿Quién pintó Cristo muerto en la tumba?", "opciones": ["Holbein el Joven", "Durero", "Grünewald", "Cranach"], "correcta": "Holbein el Joven"},
+      {"pregunta": "¿Qué pintor realizó El retablo de Isenheim?", "opciones": ["Grünewald", "Durero", "Holbein", "Cranach"], "correcta": "Grünewald"},
+      {"pregunta": "¿Quién pintó El carro de heno?", "opciones": ["El Bosco", "Brueghel", "Van Eyck", "Memling"], "correcta": "El Bosco"},
+      {"pregunta": "¿Qué artista creó La novia del viento?", "opciones": ["Kokoschka", "Schiele", "Klimt", "Munch"], "correcta": "Kokoschka"},
+      {"pregunta": "¿Quién pintó El molino de Wijk?", "opciones": ["Ruisdael", "Hobbema", "Cuyp", "Van Goyen"], "correcta": "Ruisdael"},
+      {"pregunta": "¿Qué pintor realizó La joven enferma?", "opciones": ["Munch", "Klimt", "Schiele", "Ensor"], "correcta": "Munch"},
+      {"pregunta": "¿Quién pintó El sueño del doctor?", "opciones": ["Goya", "Füssli", "Blake", "Turner"], "correcta": "Füssli"},
+      {"pregunta": "¿Qué artista creó El caballo azul?", "opciones": ["Franz Marc", "Kandinsky", "Klee", "Macke"], "correcta": "Franz Marc"},
+      {"pregunta": "¿Quién pintó El Cristo amarillo?", "opciones": ["Gauguin", "Van Gogh", "Bernard", "Cézanne"], "correcta": "Gauguin"},
+      {"pregunta": "¿Qué pintor realizó La muerte de Sardanápalo?", "opciones": ["Delacroix", "Ingres", "Géricault", "David"], "correcta": "Delacroix"},
+      {"pregunta": "¿Quién creó Suprematismo: Cuadrado negro?", "opciones": ["Malevich", "Kandinsky", "Mondrian", "Tatlin"], "correcta": "Malevich"},
+      {"pregunta": "¿Qué artista pintó El jinete azul?", "opciones": ["Kandinsky", "Marc", "Klee", "Macke"], "correcta": "Kandinsky"},
+      {"pregunta": "¿Quién pintó La rendición de Breda?", "opciones": ["Velázquez", "Rubens", "Zurbarán", "Ribera"], "correcta": "Velázquez"},
+      {"pregunta": "¿Qué artista creó El gran mastodonte?", "opciones": ["Goya", "Füssli", "Blake", "Turner"], "correcta": "Goya"},
+      {"pregunta": "¿Quién pintó El triunfo de Galatea?", "opciones": ["Raphael", "Miguel Ángel", "Giulio Romano", "Perugino"], "correcta": "Raphael"},
+      {"pregunta": "¿Qué pintor realizó Las tentaciones de San Antonio?", "opciones": ["El Bosco", "Dalí", "Grünewald", "Brueghel"], "correcta": "El Bosco"},
+      {"pregunta": "¿Quién pintó Vista de Delft?", "opciones": ["Vermeer", "De Hooch", "Rembrandt", "Cuyp"], "correcta": "Vermeer"},
+      {"pregunta": "¿Qué artista creó El perro andaluz?", "opciones": ["Dalí", "Buñuel", "Miró", "Ernst"], "correcta": "Dalí"}
     ]
   },
 
@@ -69,7 +129,22 @@
       {"pregunta": "¿Qué animal pone huevos?", "opciones": ["Gallina", "Perro", "Gato", "Cabra"], "correcta": "Gallina"},
       {"pregunta": "¿De qué está hecha mayormente la Tierra?", "opciones": ["Agua", "Fuego", "Aire", "Piedra"], "correcta": "Agua"},
       {"pregunta": "¿Qué gas necesitan las plantas para vivir?", "opciones": ["CO2", "O2", "N2", "H"], "correcta": "CO2"},
-      {"pregunta": "¿Qué órgano controla el cuerpo?", "opciones": ["Cerebro", "Corazón", "Hígado", "Páncreas"], "correcta": "Cerebro"}
+      {"pregunta": "¿Qué órgano controla el cuerpo?", "opciones": ["Cerebro", "Corazón", "Hígado", "Páncreas"], "correcta": "Cerebro"},
+      {"pregunta": "¿Qué planeta es el más cercano al Sol?", "opciones": ["Mercurio", "Venus", "Tierra", "Marte"], "correcta": "Mercurio"},
+      {"pregunta": "¿Qué órgano usamos para respirar?", "opciones": ["Pulmones", "Riñones", "Corazón", "Estómago"], "correcta": "Pulmones"},
+      {"pregunta": "¿Qué estado del agua es el hielo?", "opciones": ["Sólido", "Líquido", "Gas", "Plasma"], "correcta": "Sólido"},
+      {"pregunta": "¿Qué animal es un reptil?", "opciones": ["Serpiente", "Perro", "Ballena", "Águila"], "correcta": "Serpiente"},
+      {"pregunta": "¿Qué parte de la planta absorbe el agua?", "opciones": ["Raíz", "Tallo", "Hoja", "Flor"], "correcta": "Raíz"},
+      {"pregunta": "¿Qué sentido usamos para oír?", "opciones": ["Oído", "Vista", "Tacto", "Olfato"], "correcta": "Oído"},
+      {"pregunta": "¿Qué astro gira alrededor de la Tierra?", "opciones": ["Luna", "Sol", "Marte", "Venus"], "correcta": "Luna"},
+      {"pregunta": "¿Qué animal es herbívoro?", "opciones": ["Vaca", "León", "Tigre", "Lobo"], "correcta": "Vaca"},
+      {"pregunta": "¿Qué gas exhalamos al respirar?", "opciones": ["CO2", "Oxígeno", "Nitrógeno", "Helio"], "correcta": "CO2"},
+      {"pregunta": "¿Qué aparato usamos para ver objetos lejanos?", "opciones": ["Telescopio", "Microscopio", "Termómetro", "Barómetro"], "correcta": "Telescopio"},
+      {"pregunta": "¿Qué tipo de animal es una rana?", "opciones": ["Anfibio", "Reptil", "Mamífero", "Ave"], "correcta": "Anfibio"},
+      {"pregunta": "¿Qué órgano protege el cráneo?", "opciones": ["Cerebro", "Pulmón", "Corazón", "Riñón"], "correcta": "Cerebro"},
+      {"pregunta": "¿Qué líquido es esencial para la vida?", "opciones": ["Agua", "Aceite", "Alcohol", "Gasolina"], "correcta": "Agua"},
+      {"pregunta": "¿Qué animal puede volar?", "opciones": ["Murciélago", "Perro", "Gato", "Elefante"], "correcta": "Murciélago"},
+      {"pregunta": "¿Qué parte del cuerpo usamos para ver?", "opciones": ["Ojos", "Oídos", "Nariz", "Boca"], "correcta": "Ojos"}
     ],
     "media": [
       {"pregunta": "¿Cuál es la velocidad de la luz?", "opciones": ["300,000 km/s", "150,000 km/s", "450,000 km/s", "600,000 km/s"], "correcta": "300,000 km/s"},
@@ -86,7 +161,22 @@
       {"pregunta": "¿Qué célula del sistema nervioso transmite impulsos?", "opciones": ["Neurona", "Plaqueta", "Fibroblasto", "Osteocito"], "correcta": "Neurona"},
       {"pregunta": "¿Qué rama estudia la materia?", "opciones": ["Química", "Física", "Biología", "Geología"], "correcta": "Química"},
       {"pregunta": "¿Qué unidad mide la energía?", "opciones": ["Joule", "Newton", "Watt", "Volt"], "correcta": "Joule"},
-      {"pregunta": "¿Qué órgano produce insulina?", "opciones": ["Páncreas", "Hígado", "Riñón", "Bazo"], "correcta": "Páncreas"}
+      {"pregunta": "¿Qué órgano produce insulina?", "opciones": ["Páncreas", "Hígado", "Riñón", "Bazo"], "correcta": "Páncreas"},
+      {"pregunta": "¿Qué planeta es conocido como el planeta azul?", "opciones": ["Tierra", "Neptuno", "Urano", "Venus"], "correcta": "Tierra"},
+      {"pregunta": "¿Qué sistema controla las hormonas?", "opciones": ["Endocrino", "Nervioso", "Digestivo", "Respiratorio"], "correcta": "Endocrino"},
+      {"pregunta": "¿Qué gas es más abundante en el universo?", "opciones": ["Hidrógeno", "Oxígeno", "Helio", "Nitrógeno"], "correcta": "Hidrógeno"},
+      {"pregunta": "¿Qué tipo de sangre es donante universal?", "opciones": ["O-", "O+", "AB+", "A-"], "correcta": "O-"},
+      {"pregunta": "¿Qué órgano almacena la bilis?", "opciones": ["Vesícula biliar", "Hígado", "Páncreas", "Estómago"], "correcta": "Vesícula biliar"},
+      {"pregunta": "¿Qué tipo de energía produce el Sol?", "opciones": ["Solar", "Eólica", "Térmica", "Nuclear"], "correcta": "Solar"},
+      {"pregunta": "¿Qué científico desarrolló la teoría de la evolución?", "opciones": ["Darwin", "Newton", "Einstein", "Galileo"], "correcta": "Darwin"},
+      {"pregunta": "¿Qué órgano forma la orina?", "opciones": ["Riñones", "Pulmones", "Hígado", "Intestino"], "correcta": "Riñones"},
+      {"pregunta": "¿Qué célula se encarga de la defensa del cuerpo?", "opciones": ["Glóbulo blanco", "Glóbulo rojo", "Plaqueta", "Neurona"], "correcta": "Glóbulo blanco"},
+      {"pregunta": "¿Qué unidad mide la potencia?", "opciones": ["Watt", "Joule", "Newton", "Volt"], "correcta": "Watt"},
+      {"pregunta": "¿Qué planeta tiene el día más largo?", "opciones": ["Venus", "Marte", "Mercurio", "Júpiter"], "correcta": "Venus"},
+      {"pregunta": "¿Qué aparato mide la temperatura?", "opciones": ["Termómetro", "Barómetro", "Voltímetro", "Amperímetro"], "correcta": "Termómetro"},
+      {"pregunta": "¿Qué órgano conecta el cerebro con el cuerpo?", "opciones": ["Médula espinal", "Cerebelo", "Hipotálamo", "Tronco"], "correcta": "Médula espinal"},
+      {"pregunta": "¿Qué tipo de energía tiene el viento?", "opciones": ["Eólica", "Solar", "Química", "Térmica"], "correcta": "Eólica"},
+      {"pregunta": "¿Qué gas se usa para inflar globos que flotan?", "opciones": ["Helio", "Oxígeno", "Hidrógeno", "CO2"], "correcta": "Helio"}
     ],
     "dificil": [
       {"pregunta": "¿Qué partícula tiene carga positiva?", "opciones": ["Protón", "Neutrón", "Electrón", "Positrón"], "correcta": "Protón"},
@@ -103,7 +193,22 @@
       {"pregunta": "¿Qué científico propuso la selección natural?", "opciones": ["Darwin", "Wallace", "Lamarck", "Huxley"], "correcta": "Darwin"},
       {"pregunta": "¿Qué órgano produce bilis?", "opciones": ["Hígado", "Páncreas", "Estómago", "Intestino"], "correcta": "Hígado"},
       {"pregunta": "¿Qué tipo de radiación tiene la mayor energía?", "opciones": ["Gamma", "UV", "Infrarrojo", "Microondas"], "correcta": "Gamma"},
-      {"pregunta": "¿Qué científico descubrió los anillos de Saturno?", "opciones": ["Huygens", "Galileo", "Cassini", "Kepler"], "correcta": "Huygens"}
+      {"pregunta": "¿Qué científico descubrió los anillos de Saturno?", "opciones": ["Huygens", "Galileo", "Cassini", "Kepler"], "correcta": "Huygens"},
+      {"pregunta": "¿Qué tipo de enlace comparte electrones?", "opciones": ["Covalente", "Iónico", "Metálico", "Puente de hidrógeno"], "correcta": "Covalente"},
+      {"pregunta": "¿Qué órgano regula la temperatura corporal?", "opciones": ["Hipotálamo", "Cerebelo", "Bulbo raquídeo", "Tálamo"], "correcta": "Hipotálamo"},
+      {"pregunta": "¿Qué partícula subatómica no tiene carga?", "opciones": ["Neutrón", "Protón", "Electrón", "Positrón"], "correcta": "Neutrón"},
+      {"pregunta": "¿Qué ley explica la conservación de la energía?", "opciones": ["Primera ley de la termodinámica", "Ley de Ohm", "Ley de Newton", "Ley de Coulomb"], "correcta": "Primera ley de la termodinámica"},
+      {"pregunta": "¿Qué vitamina es liposoluble?", "opciones": ["Vitamina A", "Vitamina C", "Vitamina B12", "Vitamina B6"], "correcta": "Vitamina A"},
+      {"pregunta": "¿Qué tipo de célula no tiene núcleo?", "opciones": ["Procariota", "Eucariota", "Neurona", "Célula madre"], "correcta": "Procariota"},
+      {"pregunta": "¿Qué órgano produce la hormona adrenalina?", "opciones": ["Glándulas suprarrenales", "Páncreas", "Tiroides", "Hipófisis"], "correcta": "Glándulas suprarrenales"},
+      {"pregunta": "¿Qué escala mide la dureza de los minerales?", "opciones": ["Mohs", "Richter", "Kelvin", "Celsius"], "correcta": "Mohs"},
+      {"pregunta": "¿Qué tipo de sangre es receptor universal?", "opciones": ["AB+", "O-", "A+", "B-"], "correcta": "AB+"},
+      {"pregunta": "¿Qué científico formuló la teoría heliocéntrica?", "opciones": ["Copérnico", "Galileo", "Kepler", "Newton"], "correcta": "Copérnico"},
+      {"pregunta": "¿Qué estructura celular produce proteínas?", "opciones": ["Ribosomas", "Mitocondrias", "Lisosomas", "Núcleo"], "correcta": "Ribosomas"},
+      {"pregunta": "¿Qué tipo de radiación es ionizante?", "opciones": ["Gamma", "Microondas", "Radio", "Infrarrojo"], "correcta": "Gamma"},
+      {"pregunta": "¿Qué fenómeno provoca las mareas?", "opciones": ["Gravedad lunar", "Viento", "Rotación terrestre", "Presión atmosférica"], "correcta": "Gravedad lunar"},
+      {"pregunta": "¿Qué órgano forma parte del sistema linfático?", "opciones": ["Bazo", "Hígado", "Riñón", "Páncreas"], "correcta": "Bazo"},
+      {"pregunta": "¿Qué científico descubrió el electrón?", "opciones": ["Thomson", "Rutherford", "Bohr", "Fermi"], "correcta": "Thomson"}
     ]
   },
 
@@ -123,7 +228,22 @@
       {"pregunta": "¿Qué deporte se juega con red y balón?", "opciones": ["Voleibol", "Rugby", "Críquet", "Golf"], "correcta": "Voleibol"},
       {"pregunta": "¿Cómo se llama el deporte sobre hielo con patines?", "opciones": ["Hockey sobre hielo", "Curling", "Patinaje", "Trineo"], "correcta": "Hockey sobre hielo"},
       {"pregunta": "¿Qué deporte corre 100 metros?", "opciones": ["Atletismo", "Natación", "Tenis", "Balonmano"], "correcta": "Atletismo"},
-      {"pregunta": "¿Qué deporte usa guantes grandes?", "opciones": ["Boxeo", "Tenis", "Fútbol", "Ciclismo"], "correcta": "Boxeo"}
+      {"pregunta": "¿Qué deporte usa guantes grandes?", "opciones": ["Boxeo", "Tenis", "Fútbol", "Ciclismo"], "correcta": "Boxeo"},
+      {"pregunta": "¿Qué deporte se juega con un balón ovalado?", "opciones": ["Rugby", "Fútbol", "Baloncesto", "Voleibol"], "correcta": "Rugby"},
+      {"pregunta": "¿Qué deporte practica Rafa Nadal?", "opciones": ["Tenis", "Golf", "Pádel", "Squash"], "correcta": "Tenis"},
+      {"pregunta": "¿En qué deporte se usa un casco y una moto?", "opciones": ["Motociclismo", "Ciclismo", "Automovilismo", "Karting"], "correcta": "Motociclismo"},
+      {"pregunta": "¿Qué deporte se juega en un ring?", "opciones": ["Boxeo", "Judo", "Karate", "Taekwondo"], "correcta": "Boxeo"},
+      {"pregunta": "¿Qué deporte se practica con una pelota pequeña y una pala?", "opciones": ["Pádel", "Rugby", "Golf", "Hockey"], "correcta": "Pádel"},
+      {"pregunta": "¿Qué deporte se juega en una pista de hielo?", "opciones": ["Hockey", "Baloncesto", "Curling", "Béisbol"], "correcta": "Hockey"},
+      {"pregunta": "¿Qué deporte consiste en pedalear?", "opciones": ["Ciclismo", "Atletismo", "Natación", "Remo"], "correcta": "Ciclismo"},
+      {"pregunta": "¿Qué deporte usa una red alta y se juega con las manos?", "opciones": ["Voleibol", "Tenis", "Bádminton", "Balonmano"], "correcta": "Voleibol"},
+      {"pregunta": "¿Qué deporte se practica en la nieve con tablas?", "opciones": ["Snowboard", "Surf", "Skate", "Wakeboard"], "correcta": "Snowboard"},
+      {"pregunta": "¿Qué deporte tiene porterías?", "opciones": ["Fútbol", "Tenis", "Golf", "Natación"], "correcta": "Fútbol"},
+      {"pregunta": "¿Qué deporte se juega con un frisbee?", "opciones": ["Ultimate", "Rugby", "Béisbol", "Hockey"], "correcta": "Ultimate"},
+      {"pregunta": "¿Qué deporte usa casco y espada?", "opciones": ["Esgrima", "Judo", "Karate", "Boxeo"], "correcta": "Esgrima"},
+      {"pregunta": "¿Qué deporte se practica en el agua con una tabla y una vela?", "opciones": ["Windsurf", "Surf", "Vela", "Kayak"], "correcta": "Windsurf"},
+      {"pregunta": "¿Qué deporte es famoso por los triples?", "opciones": ["Baloncesto", "Fútbol", "Tenis", "Voleibol"], "correcta": "Baloncesto"},
+      {"pregunta": "¿Qué deporte se juega con un palo y una bola pequeña?", "opciones": ["Golf", "Hockey", "Béisbol", "Críquet"], "correcta": "Golf"}
     ],
     "media": [
       {"pregunta": "¿En qué deporte se usa un aro en el suelo?", "opciones": ["Gimnasia rítmica", "Baloncesto", "Hípica", "Judo"], "correcta": "Gimnasia rítmica"},
@@ -140,7 +260,22 @@
       {"pregunta": "¿Dónde se celebraron los JJOO 1992?", "opciones": ["Barcelona", "Seúl", "Atlanta", "Sídney"], "correcta": "Barcelona"},
       {"pregunta": "¿Quién es apodado La Pulga?", "opciones": ["Messi", "Maradona", "Neymar", "Pelé"], "correcta": "Messi"},
       {"pregunta": "¿Qué deporte usa clavos en los zapatos?", "opciones": ["Atletismo", "Golf", "Tenis", "Fútbol"], "correcta": "Atletismo"},
-      {"pregunta": "¿Qué deporte incluye scrum?", "opciones": ["Rugby", "Fútbol", "Balonmano", "Hockey"], "correcta": "Rugby"}
+      {"pregunta": "¿Qué deporte incluye scrum?", "opciones": ["Rugby", "Fútbol", "Balonmano", "Hockey"], "correcta": "Rugby"},
+      {"pregunta": "¿Qué país ganó el Mundial femenino 2023?", "opciones": ["España", "Inglaterra", "EE.UU.", "Suecia"], "correcta": "España"},
+      {"pregunta": "¿Qué deporte practica Fernando Alonso?", "opciones": ["Fórmula 1", "Motociclismo", "Rally", "Karting"], "correcta": "Fórmula 1"},
+      {"pregunta": "¿Qué jugador ganó el Balón de Oro 2023?", "opciones": ["Messi", "Haaland", "Mbappé", "Modric"], "correcta": "Messi"},
+      {"pregunta": "¿Qué selección ganó el Mundial 2018?", "opciones": ["Francia", "Croacia", "Brasil", "Alemania"], "correcta": "Francia"},
+      {"pregunta": "¿En qué deporte destaca Carlos Alcaraz?", "opciones": ["Tenis", "Pádel", "Golf", "Atletismo"], "correcta": "Tenis"},
+      {"pregunta": "¿Qué deporte combina natación, ciclismo y carrera?", "opciones": ["Triatlón", "Pentatlón", "Ironman", "Atletismo"], "correcta": "Triatlón"},
+      {"pregunta": "¿Qué equipo tiene más Champions League?", "opciones": ["Real Madrid", "Milan", "Liverpool", "Barcelona"], "correcta": "Real Madrid"},
+      {"pregunta": "¿Qué deporte usa una tabla y olas?", "opciones": ["Surf", "Kitesurf", "Windsurf", "Wakeboard"], "correcta": "Surf"},
+      {"pregunta": "¿Qué deportista es conocido como CR7?", "opciones": ["Cristiano Ronaldo", "Messi", "Neymar", "Mbappé"], "correcta": "Cristiano Ronaldo"},
+      {"pregunta": "¿Qué deporte se practica en el Tour de Francia?", "opciones": ["Ciclismo", "Atletismo", "Motociclismo", "Rally"], "correcta": "Ciclismo"},
+      {"pregunta": "¿Qué selección ganó la Eurocopa 2012?", "opciones": ["España", "Italia", "Alemania", "Portugal"], "correcta": "España"},
+      {"pregunta": "¿Qué deporte usa un tatami?", "opciones": ["Judo", "Karate", "Taekwondo", "Aikido"], "correcta": "Judo"},
+      {"pregunta": "¿Qué jugador es conocido como King James?", "opciones": ["LeBron James", "Jordan", "Curry", "Durant"], "correcta": "LeBron James"},
+      {"pregunta": "¿Qué país es famoso por el sumo?", "opciones": ["Japón", "China", "Corea", "Tailandia"], "correcta": "Japón"},
+      {"pregunta": "¿Qué deporte se juega con sticks y un disco?", "opciones": ["Hockey sobre hielo", "Hockey hierba", "Lacrosse", "Curling"], "correcta": "Hockey sobre hielo"}
     ],
     "dificil": [
       {"pregunta": "¿Quién ganó el Balón de Oro en 1997?", "opciones": ["Ronaldo Nazario", "Zidane", "Figo", "Shevchenko"], "correcta": "Ronaldo Nazario"},
@@ -157,7 +292,22 @@
       {"pregunta": "¿Quién ganó la Eurocopa 2004?", "opciones": ["Grecia", "Portugal", "España", "Italia"], "correcta": "Grecia"},
       {"pregunta": "¿Qué ciclista ganó el Giro 2019?", "opciones": ["Carapaz", "Nibali", "Froome", "Roglic"], "correcta": "Carapaz"},
       {"pregunta": "¿Qué deportista tiene el apodo Black Mamba?", "opciones": ["Kobe Bryant", "Jordan", "LeBron", "Durant"], "correcta": "Kobe Bryant"},
-      {"pregunta": "¿Qué selección ganó el Mundial 1950?", "opciones": ["Uruguay", "Brasil", "Italia", "Alemania"], "correcta": "Uruguay"}
+      {"pregunta": "¿Qué selección ganó el Mundial 1950?", "opciones": ["Uruguay", "Brasil", "Italia", "Alemania"], "correcta": "Uruguay"},
+      {"pregunta": "¿Qué país ganó el primer Mundial de fútbol?", "opciones": ["Uruguay", "Brasil", "Argentina", "Italia"], "correcta": "Uruguay"},
+      {"pregunta": "¿Quién tiene más Balones de Oro?", "opciones": ["Messi", "Cristiano Ronaldo", "Cruyff", "Platini"], "correcta": "Messi"},
+      {"pregunta": "¿Qué atleta tiene el récord de 100m lisos?", "opciones": ["Usain Bolt", "Tyson Gay", "Blake", "Gatlin"], "correcta": "Usain Bolt"},
+      {"pregunta": "¿Qué país ganó el Mundial de baloncesto 2019?", "opciones": ["España", "Argentina", "EE.UU.", "Francia"], "correcta": "España"},
+      {"pregunta": "¿Qué piloto ganó el mundial de F1 2021?", "opciones": ["Verstappen", "Hamilton", "Bottas", "Leclerc"], "correcta": "Verstappen"},
+      {"pregunta": "¿Qué equipo protagonizó el Maracanazo?", "opciones": ["Uruguay", "Brasil", "Italia", "Argentina"], "correcta": "Uruguay"},
+      {"pregunta": "¿Qué tenista ganó más Roland Garros?", "opciones": ["Nadal", "Federer", "Djokovic", "Borg"], "correcta": "Nadal"},
+      {"pregunta": "¿Qué país ganó la Copa Davis 2023?", "opciones": ["Italia", "Australia", "España", "Canadá"], "correcta": "Italia"},
+      {"pregunta": "¿Qué atleta español ganó oro en triple salto en 1992?", "opciones": ["Fermín Cacho", "Jonathan Edwards", "Nelson Évora", "Christian Taylor"], "correcta": "Fermín Cacho"},
+      {"pregunta": "¿Qué selección ganó el Mundial 2006?", "opciones": ["Italia", "Francia", "Brasil", "Alemania"], "correcta": "Italia"},
+      {"pregunta": "¿Qué piloto español ganó dos mundiales de F1?", "opciones": ["Fernando Alonso", "Carlos Sainz", "Marc Márquez", "Pedrosa"], "correcta": "Fernando Alonso"},
+      {"pregunta": "¿Qué país tiene más oros olímpicos históricos?", "opciones": ["EE.UU.", "China", "Rusia", "Reino Unido"], "correcta": "EE.UU."},
+      {"pregunta": "¿Qué deporte mezcla esquí y tiro?", "opciones": ["Biathlon", "Esquí alpino", "Cross country", "Nordic"], "correcta": "Biathlon"},
+      {"pregunta": "¿Qué selección ganó la Eurocopa 2016?", "opciones": ["Portugal", "Francia", "Alemania", "España"], "correcta": "Portugal"},
+      {"pregunta": "¿Qué jugador marcó el gol del siglo en 1986?", "opciones": ["Maradona", "Pelé", "Zidane", "Ronaldinho"], "correcta": "Maradona"}
     ]
   },
 
@@ -177,7 +327,22 @@
       {"pregunta": "¿Qué serie trata de zombis?", "opciones": ["The Walking Dead", "Friends", "Lost", "Riverdale"], "correcta": "The Walking Dead"},
       {"pregunta": "¿Qué película incluye un parque con dinosaurios?", "opciones": ["Jurassic Park", "Avatar", "King Kong", "Titanic"], "correcta": "Jurassic Park"},
       {"pregunta": "¿Qué personaje es un ogro verde?", "opciones": ["Shrek", "Hulk", "Fiona", "Mike Wazowski"], "correcta": "Shrek"},
-      {"pregunta": "¿En qué película canta 'Let It Go'?", "opciones": ["Frozen", "Moana", "Encanto", "Coco"], "correcta": "Frozen"}
+      {"pregunta": "¿En qué película canta 'Let It Go'?", "opciones": ["Frozen", "Moana", "Encanto", "Coco"], "correcta": "Frozen"},
+      {"pregunta": "¿Quién interpreta a Spider-Man en el Universo Cinematográfico Marvel?", "opciones": ["Tom Holland", "Tobey Maguire", "Andrew Garfield", "Chris Pratt"], "correcta": "Tom Holland"},
+      {"pregunta": "¿En qué película aparece el personaje 'Deadpool'?", "opciones": ["Deadpool", "X-Men", "Avengers", "Guardians of the Galaxy"], "correcta": "Deadpool"},
+      {"pregunta": "¿Qué película es famosa por la frase 'May the Force be with you'?", "opciones": ["Star Wars", "Star Trek", "Guardianes de la Galaxia", "Avatar"], "correcta": "Star Wars"},
+      {"pregunta": "¿Qué actor es conocido como 'El hombre de acero'?", "opciones": ["Henry Cavill", "Chris Evans", "Robert Downey Jr.", "Chris Hemsworth"], "correcta": "Henry Cavill"},
+      {"pregunta": "¿En qué película aparece el personaje 'Elsa'?", "opciones": ["Frozen", "Moana", "La Sirenita", "Tiana"], "correcta": "Frozen"},
+      {"pregunta": "¿Quién protagoniza la película 'La La Land'?", "opciones": ["Ryan Gosling", "Bradley Cooper", "Leonardo DiCaprio", "Chris Evans"], "correcta": "Ryan Gosling"},
+      {"pregunta": "¿Qué película ganó el Óscar a Mejor Película en 2022?", "opciones": ["CODA", "Dune", "El poder del perro", "Belfast"], "correcta": "CODA"},
+      {"pregunta": "¿Qué personaje es conocido como 'Capitán América'?", "opciones": ["Steve Rogers", "Tony Stark", "Bruce Banner", "Thor"], "correcta": "Steve Rogers"},
+      {"pregunta": "¿En qué saga aparece el personaje 'Katniss Everdeen'?", "opciones": ["Los Juegos del Hambre", "Divergente", "Maze Runner", "Crepúsculo"], "correcta": "Los Juegos del Hambre"},
+      {"pregunta": "¿Qué película es famosa por el robot WALL-E?", "opciones": ["WALL-E", "Big Hero 6", "Robots", "Transformers"], "correcta": "WALL-E"},
+      {"pregunta": "¿Qué película tiene como protagonista a Tony Stark?", "opciones": ["Iron Man", "Spider-Man", "Ant-Man", "Doctor Strange"], "correcta": "Iron Man"},
+      {"pregunta": "¿Qué película de Pixar trata sobre la amistad entre un robot y una niña?", "opciones": ["WALL-E", "Up", "Toy Story", "Inside Out"], "correcta": "WALL-E"},
+      {"pregunta": "¿Quién dirige las películas de 'El Padrino'?", "opciones": ["Francis Ford Coppola", "Martin Scorsese", "Steven Spielberg", "Quentin Tarantino"], "correcta": "Francis Ford Coppola"},
+      {"pregunta": "¿Qué película protagoniza Leonardo DiCaprio como un hombre atrapado en una isla?", "opciones": ["La Playa", "Titanic", "El Gran Gatsby", "Origen"], "correcta": "La Playa"},
+      {"pregunta": "¿Cuál es la película más taquillera de todos los tiempos?", "opciones": ["Avatar", "Avengers: Endgame", "Titanic", "Star Wars: El despertar de la fuerza"], "correcta": "Avengers: Endgame"}
     ],
     "media": [
       {"pregunta": "¿Quién dirigió Inception?", "opciones": ["Christopher Nolan", "Spielberg", "Tarantino", "Scorsese"], "correcta": "Christopher Nolan"},
@@ -194,7 +359,22 @@
       {"pregunta": "¿Qué serie ocurre en un mundo post-apocalíptico con infectados?", "opciones": ["The Last of Us", "The Walking Dead", "Dark", "Snowpiercer"], "correcta": "The Last of Us"},
       {"pregunta": "¿Qué película introdujo a Thanos?", "opciones": ["Guardianes de la Galaxia", "Avengers", "Iron Man", "Thor"], "correcta": "Guardianes de la Galaxia"},
       {"pregunta": "¿Qué director hizo Pulp Fiction?", "opciones": ["Tarantino", "Nolan", "Spielberg", "Fincher"], "correcta": "Tarantino"},
-      {"pregunta": "¿Qué serie popular tiene a Daenerys Targaryen?", "opciones": ["Juego de Tronos", "The Witcher", "Vikingos", "The Rings of Power"], "correcta": "Juego de Tronos"}
+      {"pregunta": "¿Qué serie popular tiene a Daenerys Targaryen?", "opciones": ["Juego de Tronos", "The Witcher", "Vikingos", "The Rings of Power"], "correcta": "Juego de Tronos"},
+      {"pregunta": "¿Quién es el director de 'Dune' (2021)?", "opciones": ["Denis Villeneuve", "Christopher Nolan", "James Cameron", "Ridley Scott"], "correcta": "Denis Villeneuve"},
+      {"pregunta": "¿Qué actriz protagoniza la película 'La La Land' junto a Ryan Gosling?", "opciones": ["Emma Stone", "Jennifer Lawrence", "Scarlett Johansson", "Natalie Portman"], "correcta": "Emma Stone"},
+      {"pregunta": "¿En qué película aparece el personaje 'Black Panther'?", "opciones": ["Black Panther", "Avengers: Infinity War", "Capitán América: Civil War", "Todas las anteriores"], "correcta": "Todas las anteriores"},
+      {"pregunta": "¿Qué actor interpreta a Deadpool?", "opciones": ["Ryan Reynolds", "Hugh Jackman", "Chris Evans", "Tom Hardy"], "correcta": "Ryan Reynolds"},
+      {"pregunta": "¿Qué película ganó el Óscar a Mejor Director en 2020?", "opciones": ["Parásitos", "1917", "Joker", "Érase una vez en Hollywood"], "correcta": "Parásitos"},
+      {"pregunta": "¿En qué película aparece el villano Thanos?", "opciones": ["Avengers: Infinity War", "Guardians of the Galaxy", "Thor: Ragnarok", "Doctor Strange"], "correcta": "Avengers: Infinity War"},
+      {"pregunta": "¿Qué película protagonizó Margot Robbie como Harley Quinn?", "opciones": ["Escuadrón Suicida", "Birds of Prey", "Aves de Presa", "Todas las anteriores"], "correcta": "Todas las anteriores"},
+      {"pregunta": "¿Qué actor interpreta a Loki en las películas de Marvel?", "opciones": ["Tom Hiddleston", "Chris Hemsworth", "Mark Ruffalo", "Paul Bettany"], "correcta": "Tom Hiddleston"},
+      {"pregunta": "¿Qué película de Christopher Nolan trata sobre sueños dentro de sueños?", "opciones": ["Inception", "Interstellar", "Memento", "Dunkirk"], "correcta": "Inception"},
+      {"pregunta": "¿Qué serie de Netflix trata sobre un grupo que realiza un atraco?", "opciones": ["La Casa de Papel", "Breaking Bad", "Narcos", "El Ministerio del Tiempo"], "correcta": "La Casa de Papel"},
+      {"pregunta": "¿En qué película aparece el personaje 'Joker' interpretado por Heath Ledger?", "opciones": ["The Dark Knight", "Joker", "Batman Begins", "Suicide Squad"], "correcta": "The Dark Knight"},
+      {"pregunta": "¿Qué actriz protagoniza 'Black Widow'?", "opciones": ["Scarlett Johansson", "Emily Blunt", "Brie Larson", "Elizabeth Olsen"], "correcta": "Scarlett Johansson"},
+      {"pregunta": "¿Qué película animada ganó el Óscar en 2019?", "opciones": ["Spider-Man: Un nuevo universo", "Toy Story 4", "Los Increíbles 2", "Coco"], "correcta": "Spider-Man: Un nuevo universo"},
+      {"pregunta": "¿Qué director es famoso por sus películas de terror y suspenso como 'Psicosis'?", "opciones": ["Alfred Hitchcock", "Stanley Kubrick", "John Carpenter", "Wes Craven"], "correcta": "Alfred Hitchcock"},
+      {"pregunta": "¿Qué película es famosa por la frase 'Here's Johnny!'?", "opciones": ["El Resplandor", "El Padrino", "Tiburón", "Psicosis"], "correcta": "El Resplandor"}
     ],
     "dificil": [
       {"pregunta": "¿Qué director hizo El viaje de Chihiro?", "opciones": ["Hayao Miyazaki", "Takahata", "Shinkai", "Oshii"], "correcta": "Hayao Miyazaki"},
@@ -211,7 +391,23 @@
       {"pregunta": "¿Qué serie incluye la isla Dharma?", "opciones": ["Lost", "Dark", "The 100", "Westworld"], "correcta": "Lost"},
       {"pregunta": "¿Qué director creó Mulholland Drive?", "opciones": ["David Lynch", "Fincher", "Scott", "Kubrick"], "correcta": "David Lynch"},
       {"pregunta": "¿Quién interpretó a V en V de Vendetta?", "opciones": ["Hugo Weaving", "Tom Hardy", "Christian Bale", "Cumberbatch"], "correcta": "Hugo Weaving"},
-      {"pregunta": "¿Qué película es de Kubrick?", "opciones": ["El Resplandor", "Alien", "Seven", "Matrix"], "correcta": "El Resplandor"}
+      {"pregunta": "¿Qué película es de Kubrick?", "opciones": ["El Resplandor", "Alien", "Seven", "Matrix"], "correcta": "El Resplandor"},
+      {"pregunta": "¿Quién dirigió la trilogía original de 'Star Wars'?", "opciones": ["George Lucas", "Steven Spielberg", "James Cameron", "Peter Jackson"], "correcta": "George Lucas"},
+      {"pregunta": "¿En qué año se estrenó la película 'Ciudadano Kane'?", "opciones": ["1941", "1939", "1950", "1945"], "correcta": "1941"},
+      {"pregunta": "¿Qué actor protagonizó 'Taxi Driver'?", "opciones": ["Robert De Niro", "Al Pacino", "Jack Nicholson", "Dustin Hoffman"], "correcta": "Robert De Niro"},
+      {"pregunta": "¿Qué director está detrás de 'La lista de Schindler'?", "opciones": ["Steven Spielberg", "Martin Scorsese", "Ridley Scott", "Clint Eastwood"], "correcta": "Steven Spielberg"},
+      {"pregunta": "¿Qué película ganó el Óscar a Mejor Película en 1972?", "opciones": ["El Padrino", "Apocalypse Now", "Taxi Driver", "Chinatown"], "correcta": "El Padrino"},
+      {"pregunta": "¿Qué película presenta al personaje Norman Bates?", "opciones": ["Psicosis", "El Resplandor", "El Padrino", "Seven"], "correcta": "Psicosis"},
+      {"pregunta": "¿Qué actriz protagonizó la película 'La Bella y la Bestia' (2017)?", "opciones": ["Emma Watson", "Jennifer Lawrence", "Anne Hathaway", "Lily Collins"], "correcta": "Emma Watson"},
+      {"pregunta": "¿Qué película de Quentin Tarantino presenta el personaje 'Mr. Blonde'?", "opciones": ["Reservoir Dogs", "Pulp Fiction", "Kill Bill", "Django Unchained"], "correcta": "Reservoir Dogs"},
+      {"pregunta": "¿Qué actor interpreta a 'Jules Winnfield' en 'Pulp Fiction'?", "opciones": ["Samuel L. Jackson", "John Travolta", "Bruce Willis", "Harvey Keitel"], "correcta": "Samuel L. Jackson"},
+      {"pregunta": "¿Qué director hizo la película 'El Gran Hotel Budapest'?", "opciones": ["Wes Anderson", "Tim Burton", "Spike Jonze", "Paul Thomas Anderson"], "correcta": "Wes Anderson"},
+      {"pregunta": "¿Qué actriz protagoniza la serie 'The Crown' como la reina Isabel II en las primeras temporadas?", "opciones": ["Claire Foy", "Olivia Colman", "Helena Bonham Carter", "Vanessa Kirby"], "correcta": "Claire Foy"},
+      {"pregunta": "¿Qué película ganó el Óscar a Mejor Película de Animación en 2020?", "opciones": ["Toy Story 4", "Coco", "Spider-Man: Un nuevo universo", "Los Increíbles 2"], "correcta": "Toy Story 4"},
+      {"pregunta": "¿Qué actor interpreta a 'John Wick'?", "opciones": ["Keanu Reeves", "Jason Statham", "Tom Hardy", "Chris Evans"], "correcta": "Keanu Reeves"},
+      {"pregunta": "¿Qué película protagoniza Joaquin Phoenix como un payaso?", "opciones": ["Joker", "It", "The Dark Knight", "Suicide Squad"], "correcta": "Joker"},
+      {"pregunta": "¿Qué película de terror presenta la muñeca Annabelle?", "opciones": ["Annabelle", "El Conjuro", "Insidious", "Saw"], "correcta": "Annabelle"}
+      
     ]
   },
   "Geografia": {
@@ -230,7 +426,18 @@
       {"pregunta": "¿Qué país tiene como capital Berlín?", "opciones": ["Alemania", "Austria", "Suecia", "Suiza"], "correcta": "Alemania"},
       {"pregunta": "¿En qué continente está Egipto?", "opciones": ["África", "Asia", "Europa", "Oceanía"], "correcta": "África"},
       {"pregunta": "¿Qué mar está junto a España?", "opciones": ["Mediterráneo", "Caribe", "Báltico", "Rojo"], "correcta": "Mediterráneo"},
-      {"pregunta": "¿Qué isla pertenece a España?", "opciones": ["Mallorca", "Cerdeña", "Sicilia", "Creta"], "correcta": "Mallorca"}
+      {"pregunta": "¿Qué isla pertenece a España?", "opciones": ["Mallorca", "Cerdeña", "Sicilia", "Creta"], "correcta": "Mallorca"},
+      {"pregunta": "¿Cuál es la capital de Portugal?", "opciones": ["Lisboa", "Madrid", "Oporto", "Barcelona"], "correcta": "Lisboa"},
+      {"pregunta": "¿Cuál es el país más grande del mundo?", "opciones": ["Rusia", "Canadá", "China", "Estados Unidos"], "correcta": "Rusia"},
+      {"pregunta": "¿En qué continente está Egipto?", "opciones": ["África", "Asia", "Europa", "Oceanía"], "correcta": "África"},
+      {"pregunta": "¿Qué río pasa por Londres?", "opciones": ["Tímesis", "Danubio", "Rin", "Sena"], "correcta": "Tímesis"},
+      {"pregunta": "¿En qué continente está Argentina?", "opciones": ["América", "Europa", "África", "Asia"], "correcta": "América"},
+      {"pregunta": "¿Cuál es el mar más pequeño del mundo?", "opciones": ["Mar Muerto", "Mar Mediterráneo", "Mar Caribe", "Mar Báltico"], "correcta": "Mar Muerto"},
+      {"pregunta": "¿Qué país tiene la ciudad de Estambul?", "opciones": ["Turquía", "Grecia", "Bulgaria", "Chipre"], "correcta": "Turquía"},
+      {"pregunta": "¿Qué país tiene forma de zapato?", "opciones": ["Italia", "Grecia", "España", "Francia"], "correcta": "Italia"},
+      {"pregunta": "¿Cuál es el continente más pequeño?", "opciones": ["Oceanía", "Europa", "Antártida", "Asia"], "correcta": "Oceanía"},
+      {"pregunta": "¿Qué país tiene la ciudad de Dubái?", "opciones": ["Emiratos Árabes Unidos", "Arabia Saudí", "Qatar", "Kuwait"], "correcta": "Emiratos Árabes Unidos"}
+      
     ],
     "media": [
       {"pregunta": "¿Cuál es la capital de Canadá?", "opciones": ["Ottawa", "Toronto", "Vancouver", "Montreal"], "correcta": "Ottawa"},
@@ -247,7 +454,17 @@
       {"pregunta": "¿Qué país tiene la ciudad de Cracovia?", "opciones": ["Polonia", "Alemania", "Austria", "Bélgica"], "correcta": "Polonia"},
       {"pregunta": "¿Qué río cruza París?", "opciones": ["Sena", "Danubio", "Tíber", "Loira"], "correcta": "Sena"},
       {"pregunta": "¿Qué país tiene el monte Fuji?", "opciones": ["Japón", "China", "Corea", "Filipinas"], "correcta": "Japón"},
-      {"pregunta": "¿En qué país está Praga?", "opciones": ["República Checa", "Eslovaquia", "Polonia", "Austria"], "correcta": "República Checa"}
+      {"pregunta": "¿En qué país está Praga?", "opciones": ["República Checa", "Eslovaquia", "Polonia", "Austria"], "correcta": "República Checa"},
+      {"pregunta": "¿Cuál es la capital de Sudáfrica?", "opciones": ["Pretoria", "Johannesburgo", "Ciudad del Cabo", "Durban"], "correcta": "Pretoria"},
+      {"pregunta": "¿Qué país tiene la cordillera de los Andes?", "opciones": ["Chile", "Brasil", "Argentina", "Perú"], "correcta": "Chile"},
+      {"pregunta": "¿Cuál es el país más poblado del mundo?", "opciones": ["China", "India", "Estados Unidos", "Indonesia"], "correcta": "China"},
+      {"pregunta": "¿Qué país tiene el río Congo?", "opciones": ["República Democrática del Congo", "Congo", "Ghana", "Nigeria"], "correcta": "República Democrática del Congo"},
+      {"pregunta": "¿En qué país está la ciudad de Varanasi?", "opciones": ["India", "Nepal", "Pakistán", "Bangladesh"], "correcta": "India"},
+      {"pregunta": "¿Cuál es la capital de Nueva Zelanda?", "opciones": ["Wellington", "Auckland", "Christchurch", "Hamilton"], "correcta": "Wellington"},
+      {"pregunta": "¿Qué país tiene las Cataratas Victoria?", "opciones": ["Zambia", "Zimbabue", "Botsuana", "Tanzania"], "correcta": "Zambia"},
+      {"pregunta": "¿Cuál es la isla más grande del mundo?", "opciones": ["Groenlandia", "Madagascar", "Islandia", "Borneo"], "correcta": "Groenlandia"},
+      {"pregunta": "¿Qué desierto está en Mongolia?", "opciones": ["Gobi", "Sahara", "Kalahari", "Atacama"], "correcta": "Gobi"},
+      {"pregunta": "¿Cuál es la capital de Bangladesh?", "opciones": ["Daca", "Katmandú", "Dhaka", "Islamaabad"], "correcta": "Daca"}
     ],
     "dificil": [
       {"pregunta": "¿Cuál es la capital de Kazajistán?", "opciones": ["Astaná", "Almaty", "Tashkent", "Bishkek"], "correcta": "Astaná"},
@@ -264,7 +481,17 @@
       {"pregunta": "¿Dónde está la ciudad de Stavanger?", "opciones": ["Noruega", "Suecia", "Finlandia", "Dinamarca"], "correcta": "Noruega"},
       {"pregunta": "¿Dónde está el río Mekong?", "opciones": ["Sudeste Asiático", "Europa", "África", "América"], "correcta": "Sudeste Asiático"},
       {"pregunta": "¿Qué país tiene la región de Cornualles?", "opciones": ["Reino Unido", "Irlanda", "Francia", "España"], "correcta": "Reino Unido"},
-      {"pregunta": "¿Qué país tiene la capital Sucre?", "opciones": ["Bolivia", "Ecuador", "Perú", "Paraguay"], "correcta": "Bolivia"}
+      {"pregunta": "¿Qué país tiene la capital Sucre?", "opciones": ["Bolivia", "Ecuador", "Perú", "Paraguay"], "correcta": "Bolivia"},
+       {"pregunta": "¿Qué país tiene la ciudad de Timbuktu?", "opciones": ["Malí", "Níger", "Sudán", "Chad"], "correcta": "Malí"},
+      {"pregunta": "¿Dónde está el cabo de Hornos?", "opciones": ["Chile", "Argentina", "Uruguay", "Brasil"], "correcta": "Chile"},
+      {"pregunta": "¿Qué país tiene la ciudad de Samarcanda?", "opciones": ["Uzbekistán", "Kazajistán", "Turkmenistán", "Kirguistán"], "correcta": "Uzbekistán"},
+      {"pregunta": "¿Qué país tiene la península de Kamchatka?", "opciones": ["Rusia", "Japón", "Canadá", "Estados Unidos"], "correcta": "Rusia"},
+      {"pregunta": "¿Dónde está la ciudad de Lviv?", "opciones": ["Ucrania", "Polonia", "Bielorrusia", "Rusia"], "correcta": "Ucrania"},
+      {"pregunta": "¿Cuál es el país más pequeño del mundo?", "opciones": ["Vaticano", "Mónaco", "Nauru", "San Marino"], "correcta": "Vaticano"},
+      {"pregunta": "¿Qué país tiene la isla de Socotra?", "opciones": ["Yemen", "Somalia", "Omán", "Arabia Saudí"], "correcta": "Yemen"},
+      {"pregunta": "¿Cuál es la capital de Turkmenistán?", "opciones": ["Asjabad", "Taschkent", "Dushanbe", "Bishkek"], "correcta": "Asjabad"},
+      {"pregunta": "¿Dónde está el monte Elbrús?", "opciones": ["Rusia", "Georgia", "Turquía", "Kazajistán"], "correcta": "Rusia"},
+      {"pregunta": "¿Qué mar baña la costa oeste de Grecia?", "opciones": ["Mar Jónico", "Mar Egeo", "Mar Mediterráneo", "Mar Adriático"], "correcta": "Mar Jónico"}
     ]
   },
 
@@ -284,7 +511,17 @@
       {"pregunta": "¿Qué inventó Gutenberg?", "opciones": ["La imprenta", "La brújula", "La pólvora", "El teléfono"], "correcta": "La imprenta"},
       {"pregunta": "¿Quién fue el primer emperador romano?", "opciones": ["Augusto", "Nerón", "Tiberio", "Trajano"], "correcta": "Augusto"},
       {"pregunta": "¿Qué guerra enfrentó a EEUU y la URSS sin combate directo?", "opciones": ["Guerra Fría", "Guerra de Vietnam", "Guerra Civil", "Guerra del Golfo"], "correcta": "Guerra Fría"},
-      {"pregunta": "¿Qué civilización construyó templos en Atenas?", "opciones": ["Griegos", "Romanos", "Fenicios", "Sumerios"], "correcta": "Griegos"}
+      {"pregunta": "¿Qué civilización construyó templos en Atenas?", "opciones": ["Griegos", "Romanos", "Fenicios", "Sumerios"], "correcta": "Griegos"},
+      {"pregunta": "¿Quién fue Cristóbal Colón?", "opciones": ["Explorador", "Rey", "Inventor", "Pintor"], "correcta": "Explorador"},
+      {"pregunta": "¿En qué año terminó la Primera Guerra Mundial?", "opciones": ["1918", "1939", "1945", "1914"], "correcta": "1918"},
+      {"pregunta": "¿Quién fue Napoleón Bonaparte?", "opciones": ["Emperador francés", "Rey de España", "Presidente de EEUU", "César romano"], "correcta": "Emperador francés"},
+      {"pregunta": "¿En qué país nació Adolf Hitler?", "opciones": ["Austria", "Alemania", "Suiza", "Polonia"], "correcta": "Austria"},
+      {"pregunta": "¿Qué imperio fue conocido por sus legiones?", "opciones": ["Imperio Romano", "Imperio Griego", "Imperio Persa", "Imperio Otomano"], "correcta": "Imperio Romano"},
+      {"pregunta": "¿Quién pintó la Mona Lisa?", "opciones": ["Da Vinci", "Picasso", "Van Gogh", "Michelangelo"], "correcta": "Da Vinci"},
+      {"pregunta": "¿Qué guerra terminó con el tratado de Versalles?", "opciones": ["Primera Guerra Mundial", "Segunda Guerra Mundial", "Guerra Fría", "Guerra Civil Española"], "correcta": "Primera Guerra Mundial"},
+      {"pregunta": "¿Quién fue Julio César?", "opciones": ["General romano", "Rey de Egipto", "Emperador chino", "Faraón"], "correcta": "General romano"},
+      {"pregunta": "¿Dónde estaba la antigua ciudad de Troya?", "opciones": ["Turquía", "Grecia", "Italia", "Egipto"], "correcta": "Turquía"},
+      {"pregunta": "¿Qué presidente estadounidense abolió la esclavitud?", "opciones": ["Abraham Lincoln", "George Washington", "Theodore Roosevelt", "Thomas Jefferson"], "correcta": "Abraham Lincoln"}
     ],
     "media": [
       {"pregunta": "¿Quién unificó China?", "opciones": ["Qin Shi Huang", "Sun Tzu", "Confucio", "Wudi"], "correcta": "Qin Shi Huang"},
@@ -301,7 +538,19 @@
       {"pregunta": "¿Qué país colonizó México?", "opciones": ["España", "Francia", "Portugal", "Inglaterra"], "correcta": "España"},
       {"pregunta": "¿Qué conflicto enfrentó a EEUU y Vietnam?", "opciones": ["Guerra de Vietnam", "Guerra Fría", "Guerra del Golfo", "Primera Guerra"], "correcta": "Guerra de Vietnam"},
       {"pregunta": "¿Quién lideró la independencia de India?", "opciones": ["Gandhi", "Nehru", "Bose", "Patel"], "correcta": "Gandhi"},
-      {"pregunta": "¿Qué civilización construyó Tikal?", "opciones": ["Mayas", "Incas", "Aztecas", "Olmecas"], "correcta": "Mayas"}
+      {"pregunta": "¿Qué civilización construyó Tikal?", "opciones": ["Mayas", "Incas", "Aztecas", "Olmecas"], "correcta": "Mayas"},
+      {"pregunta": "¿Quién fue el líder de la Revolución Cubana?", "opciones": ["Fidel Castro", "Che Guevara", "Raúl Castro", "Hugo Chávez"], "correcta": "Fidel Castro"},
+      {"pregunta": "¿Qué evento inició la Segunda Guerra Mundial?", "opciones": ["Invasión de Polonia", "Bombardeo de Hiroshima", "Tratado de Versalles", "Revolución Rusa"], "correcta": "Invasión de Polonia"},
+      {"pregunta": "¿Qué imperio construyó la ciudad de Tenochtitlán?", "opciones": ["Azteca", "Maya", "Inca", "Olmeca"], "correcta": "Azteca"},
+      {"pregunta": "¿Quién fue Genghis Khan?", "opciones": ["Líder mongol", "Rey chino", "Emperador persa", "General romano"], "correcta": "Líder mongol"},
+      {"pregunta": "¿En qué año comenzó la Revolución Francesa?", "opciones": ["1789", "1776", "1804", "1799"], "correcta": "1789"},
+      {"pregunta": "¿Quién fue el primer ministro británico durante la Segunda Guerra Mundial?", "opciones": ["Winston Churchill", "Neville Chamberlain", "Margaret Thatcher", "Tony Blair"], "correcta": "Winston Churchill"},
+      {"pregunta": "¿Qué tratado puso fin a la Guerra de los Cien Años?", "opciones": ["Tratado de Picquigny", "Tratado de Versalles", "Tratado de Utrecht", "Tratado de Tordesillas"], "correcta": "Tratado de Picquigny"},
+      {"pregunta": "¿Quién fue la reina Isabel I?", "opciones": ["Reina de Inglaterra", "Reina de España", "Reina de Francia", "Reina de Portugal"], "correcta": "Reina de Inglaterra"},
+      {"pregunta": "¿Qué civilización creó el Código de Hammurabi?", "opciones": ["Babilonia", "Egipto", "Roma", "Mesopotamia"], "correcta": "Babilonia"},
+      {"pregunta": "¿Quién fue Nelson Mandela?", "opciones": ["Líder anti-apartheid", "Presidente de Nigeria", "Dictador de Sudán", "Primer ministro de Kenya"], "correcta": "Líder anti-apartheid"}
+   
+      
     ],
     "dificil": [
       {"pregunta": "¿Quién gobernó el Imperio Persa en las Guerras Médicas?", "opciones": ["Jerjes I", "Darío I", "Ciro", "Artajerjes"], "correcta": "Jerjes I"},
@@ -318,7 +567,18 @@
       {"pregunta": "¿Quién fue el primer emperador japonés?", "opciones": ["Jimmu", "Meiji", "Hirohito", "Taisho"], "correcta": "Jimmu"},
       {"pregunta": "¿Qué guerra enfrentó a Atenas y Esparta?", "opciones": ["Guerra del Peloponeso", "Guerras Médicas", "Guerras Púnicas", "Guerra Social"], "correcta": "Guerra del Peloponeso"},
       {"pregunta": "¿Qué rey fundó la dinastía carolingia?", "opciones": ["Pipino el Breve", "Carlomagno", "Clodoveo", "Carlos Martel"], "correcta": "Pipino el Breve"},
-      {"pregunta": "¿Qué tratado dividió América entre España y Portugal?", "opciones": ["Tordesillas", "Versalles", "Potsdam", "Utrecht"], "correcta": "Tordesillas"}
+      {"pregunta": "¿Qué tratado dividió América entre España y Portugal?", "opciones": ["Tordesillas", "Versalles", "Potsdam", "Utrecht"], "correcta": "Tordesillas"},
+      {"pregunta": "¿Quién fue el último zar de Rusia?", "opciones": ["Nicolás II", "Pedro el Grande", "Alejandro III", "Iván el Terrible"], "correcta": "Nicolás II"},
+      {"pregunta": "¿Qué dinastía gobernó China durante la mayor parte del siglo XIX?", "opciones": ["Qing", "Ming", "Tang", "Han"], "correcta": "Qing"},
+      {"pregunta": "¿Quién fue Sun Tzu?", "opciones": ["Autor de 'El arte de la guerra'", "Emperador chino", "General romano", "Filósofo griego"], "correcta": "Autor de 'El arte de la guerra'"},
+      {"pregunta": "¿Cuál fue la capital del Imperio Bizantino?", "opciones": ["Constantinopla", "Roma", "Atenas", "Alejandría"], "correcta": "Constantinopla"},
+      {"pregunta": "¿Qué guerra terminó con el Tratado de Tordesillas?", "opciones": ["Ninguna, fue un acuerdo para dividir territorios", "Guerra de los Cien Años", "Guerra de Sucesión Española", "Guerra Napoleónica"], "correcta": "Ninguna, fue un acuerdo para dividir territorios"},
+      {"pregunta": "¿Quién fue Otón I?", "opciones": ["Emperador del Sacro Imperio Romano Germánico", "Rey de Francia", "Faraón egipcio", "César romano"], "correcta": "Emperador del Sacro Imperio Romano Germánico"},
+      {"pregunta": "¿Qué ocurrió durante el Edicto de Nantes?", "opciones": ["Garantizó libertad religiosa en Francia", "Inició la Revolución Francesa", "Fundó la ciudad de Nantes", "Terminó la Guerra de los Cien Años"], "correcta": "Garantizó libertad religiosa en Francia"},
+      {"pregunta": "¿Qué batalla fue decisiva en la guerra de independencia de Estados Unidos?", "opciones": ["Batalla de Yorktown", "Batalla de Gettysburg", "Batalla de Bunker Hill", "Batalla de Saratoga"], "correcta": "Batalla de Yorktown"},
+      {"pregunta": "¿Quién fue Hernán Cortés?", "opciones": ["Conquistador español de México", "Rey de España", "Explorador portugués", "Pirata inglés"], "correcta": "Conquistador español de México"},
+      {"pregunta": "¿Qué evento marcó el inicio de la Edad Moderna?", "opciones": ["Caída de Constantinopla", "Descubrimiento de América", "Revolución Francesa", "Invención de la imprenta"], "correcta": "Caída de Constantinopla"}
+
     ]
   }
 }

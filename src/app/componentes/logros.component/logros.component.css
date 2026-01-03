@@ -90,13 +90,9 @@ html, body {
     gap: 14px;
   }
 
-  .logro {
+ .logro {
     padding: 14px 10px;
-@media (max-width: 1000px) {
-  .logros-grid {
-    grid-template-columns: repeat(2, 1fr);
   }
-}
 
   .icono {
     font-size: 30px;
@@ -108,10 +104,19 @@ html, body {
 
   .logro p {
     font-size: 12px;
+  }
+}
+
+/* ───────── TABLET / MEDIO ───────── */
+@media (max-width: 1000px) {
+  .logros-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ───────── MÓVIL PEQUEÑO ───────── */
 @media (max-width: 600px) {
   .logros-grid {
     grid-template-columns: 1fr;
   }
 }
-
-

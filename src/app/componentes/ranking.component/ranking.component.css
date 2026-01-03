@@ -46,6 +46,17 @@
 
 /* responsive */ 
 @media (max-width: 480px) {
-  .titulo-ranking { font-size: 18px; margin-bottom: 10px; } 
-  .lista-ranking li { padding: 8px 10px; font-size: 14px; border-radius: 12px; margin-bottom: 8px; gap: 8px; } 
-  .avatar { width: 36px; height: 36px; margin-right: 8px; } }
+  .titulo-ranking { 
+    font-size: 18px;
+     margin-bottom: 10px; } 
+
+  .lista-ranking li { 
+    padding: 8px 10px; 
+    font-size: 14px; 
+    border-radius: 12px; 
+    margin-bottom: 8px; gap: 8px; } 
+    
+  .avatar {
+    width: 36px; 
+    height: 36px; 
+    margin-right: 8px; } }

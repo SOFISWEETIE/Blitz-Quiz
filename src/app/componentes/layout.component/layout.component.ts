@@ -19,10 +19,19 @@ export class LayoutComponent {
   aliasData$: BehaviorSubject<{ alias: string; mascota: string } | null>;
   menuAbierto = false;
   rankingAbierto = false;
-
+  desactivarRanking = false;
   
     constructor(public auth: AuthService, private router: Router) {
     this.aliasData$ = this.auth.alias$;
+
+      this.router.events.subscribe(() => { 
+        this.desactivarRanking = this.router.url.includes('resultados');
+
+        // Si estamos en resultados cerramos ranking si estaba abierto para que no se vea 2 veces
+        if (this.desactivarRanking) { 
+          this.rankingAbierto = false; 
+        } 
+      });
     }
 
     toggleMenu() {
@@ -31,7 +40,10 @@ export class LayoutComponent {
     }
 
 
-    toggleRanking() {             
+    toggleRanking() {   
+    // bloquear ranking si estamos en resultados 
+    if (this.desactivarRanking) return;  
+    
     this.rankingAbierto = !this.rankingAbierto;
     this.menuAbierto = false;    
     }

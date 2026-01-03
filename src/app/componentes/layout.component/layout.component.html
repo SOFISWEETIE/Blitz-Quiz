@@ -5,7 +5,10 @@
 
     <!-- BOTÓN RANKING -->
     <div class="ranking-wrapper" (click)="$event.stopPropagation()">
-      <div class="ranking-trigger" (click)="toggleRanking()">
+      <div class="ranking-trigger"
+     [class.desactivado]="desactivarRanking"
+     (click)="toggleRanking()">
+
         <span>Ranking </span>
         <span class="arrow">{{ rankingAbierto ? '▲' : '▼' }}</span>
       </div>

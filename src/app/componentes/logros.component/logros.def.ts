@@ -35,7 +35,7 @@ export const LOGROS_DEF = [
   {
     id: 'blitzRapido',
     titulo: 'Blitz velocista',
-    descripcion: 'Acierta 5 seguidas preguntas en Modo Blitz',
+    descripcion: 'Acierta 5  preguntas en Modo Blitz',
     nivel: 'plata'
   },
   {
@@ -61,7 +61,7 @@ export const LOGROS_DEF = [
   {
     id: 'blitzSobreviviente',
     titulo: 'Superviviente Blitz',
-    descripcion: 'Consigue 300 puntos o más en Modo Blitz',
+    descripcion: 'Consigue 150 puntos o más en Modo Blitz',
     nivel: 'oro'
   },
   {
@@ -85,9 +85,9 @@ export const LOGROS_DEF = [
     nivel: 'diamante'
   },
   {
-    id: 'puntos800',
+    id: 'puntos300',
     titulo: 'Millonario de puntos ',
-    descripcion: 'Consigue 800 puntos o más en una partida',
+    descripcion: 'Consigue 300 puntos o más en una partida',
     nivel: 'diamante'
   },
   {

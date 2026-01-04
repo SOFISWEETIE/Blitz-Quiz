@@ -157,8 +157,8 @@ export class JuegoComponent implements OnInit {
     }
 
     // Puntos diamante (para cualquier modo, aunque sea difícil)
-    if (this.puntuacion.puntosTotales >= 800 && !logros['puntos800']) {
-      await this.logrosService.desbloquear('puntos800');
+    if (this.puntuacion.puntosTotales >= 300 && !logros['puntos300']) {
+      await this.logrosService.desbloquear('puntos300');
     }
 
     this.puntuacion.incrementarPartidasJugadas();
@@ -222,13 +222,13 @@ export class JuegoComponent implements OnInit {
     }
 
     // Superviviente Blitz (oro)
-    if (this.puntuacion.puntosTotales >= 300 && !logros['blitzSobreviviente']) {
+    if (this.puntuacion.puntosTotales >= 150 && !logros['blitzSobreviviente']) {
       await this.logrosService.desbloquear('blitzSobreviviente');
     }
 
     // Millonario diamante
-    if (this.puntuacion.puntosTotales >= 800 && !logros['puntos800']) {
-      await this.logrosService.desbloquear('puntos800');
+    if (this.puntuacion.puntosTotales >= 300 && !logros['puntos300']) {
+      await this.logrosService.desbloquear('puntos300');
     }
 
     // Maratón Blitz

@@ -38,7 +38,6 @@ export class JuegoComponent implements OnInit {
     this.puntuacion.reiniciar();
     await this.logrosService.inicializarLogros();
 
-    // Reset maratón si cambiamos de modo
     if (this.seleccion.modo !== 'rapidas') {
       this.puntuacion.blitzConsecutivas = 0;
     }
@@ -51,42 +50,37 @@ export class JuegoComponent implements OnInit {
   }
 
   private async cargarPreguntasClasicas() {
-  try {
-    let categoria: string;
-    let dificultad: string;
+    try {
+      let categoria: string;
+      let dificultad: string;
 
-    if (this.seleccion.modo === 'clasico') {
-      categoria = this.seleccion.categoria;
-      dificultad = this.seleccion.dificultad;
-    } else {
-      categoria = this.seleccion.establecerCategoriaAleatoria();
-      dificultad = this.seleccion.establecerDificultadAleatoria();
+      if (this.seleccion.modo === 'clasico') {
+        categoria = this.seleccion.categoria;
+        dificultad = this.seleccion.dificultad;
+      } else {
+        categoria = this.seleccion.establecerCategoriaAleatoria();
+        dificultad = this.seleccion.establecerDificultadAleatoria();
+      }
+
+      const todasLasPreguntas = await this.preguntasService.obtenerPreguntas(categoria, dificultad);
+
+      const preguntasMezcladas = [...todasLasPreguntas];
+      for (let i = preguntasMezcladas.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [preguntasMezcladas[i], preguntasMezcladas[j]] = [preguntasMezcladas[j], preguntasMezcladas[i]];
+      }
+
+      const preguntasParaJugar = preguntasMezcladas.slice(0, 20);
+
+      this.puntuacion.establecerTotal(preguntasParaJugar.length);
+      this.puntuacion.preguntasActuales = preguntasParaJugar;
+
+    } catch (error) {
+      alert('Error cargando preguntas');
+      this.router.navigate(['app/modos']);
     }
-
-    
-    const todasLasPreguntas = await this.preguntasService.obtenerPreguntas(categoria, dificultad);
-
-    
-    const preguntasMezcladas = [...todasLasPreguntas]; 
-    for (let i = preguntasMezcladas.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [preguntasMezcladas[i], preguntasMezcladas[j]] = [preguntasMezcladas[j], preguntasMezcladas[i]];
-    }
-
-    
-    const preguntasParaJugar = preguntasMezcladas.slice(0, 20);
-
-    
-    this.puntuacion.establecerTotal(preguntasParaJugar.length);
-    this.puntuacion.preguntasActuales = preguntasParaJugar;
-
-  } catch (error) {
-    alert('Error cargando preguntas');
-    this.router.navigate(['app/modos']);
   }
-}
 
-  
   private async cargarPreguntasRapidas() {
     try {
       const data: any = await firstValueFrom(this.http.get('assets/preguntas.json'));
@@ -116,18 +110,11 @@ export class JuegoComponent implements OnInit {
   totalPreguntas() { return this.puntuacion.totalPreguntas; }
 
   async avanzarPregunta(evento: { acierto: boolean; tiempo: number }) {
-    console.log('Evento recibido:', evento);
-
     const logros = await this.logrosService.obtenerLogros();
 
     // Primer acierto
     if (evento.acierto && !logros['primerAcierto']) {
       await this.logrosService.desbloquear('primerAcierto');
-    }
-
-    // Velocista
-    if (evento.acierto && evento.tiempo <= 3 && !logros['rapido']) {
-      await this.logrosService.desbloquear('rapido');
     }
 
     // Racha general
@@ -159,12 +146,19 @@ export class JuegoComponent implements OnInit {
       await this.logrosService.desbloquear('clasicoIniciado');
     }
 
+    // Perfecto clásico/aleatorio
     if (this.puntuacion.correctas === this.puntuacion.totalPreguntas) {
-      await this.logrosService.desbloquear('perfectoClasico');
+      await this.logrosService.desbloquear('rachaPerfectaClasico');
     }
 
-    if (this.puntuacion.puntosTotales >= 500 && !logros['puntos500']) {
-      await this.logrosService.desbloquear('puntos500');
+    // Puntos generales (plata)
+    if (this.puntuacion.puntosTotales >= 150 && !logros['puntos150']) {
+      await this.logrosService.desbloquear('puntos150');
+    }
+
+    // Puntos diamante (para cualquier modo, aunque sea difícil)
+    if (this.puntuacion.puntosTotales >= 800 && !logros['puntos800']) {
+      await this.logrosService.desbloquear('puntos800');
     }
 
     this.puntuacion.incrementarPartidasJugadas();
@@ -186,15 +180,10 @@ export class JuegoComponent implements OnInit {
   preguntaActualRapida() { return this.preguntasRapidas[this.indiceRapida]; }
 
   async avanzarRapida(evento: { acierto: boolean; tiempo: number }) {
-    console.log('Evento rápido recibido:', evento);
-
     const logros = await this.logrosService.obtenerLogros();
 
     if (evento.acierto) {
-      if (!logros['primerAcierto']) {
-        await this.logrosService.desbloquear('primerAcierto');
-      }
-
+      // Racha general (también cuenta en blitz)
       if (this.puntuacion.rachaActual >= 5 && !logros['rachaCinco']) {
         await this.logrosService.desbloquear('rachaCinco');
       }
@@ -202,8 +191,9 @@ export class JuegoComponent implements OnInit {
         await this.logrosService.desbloquear('rachaDiez');
       }
 
-      if (this.puntuacion.correctas >= 5 && !logros['blitzAciertosCinco']) {
-        await this.logrosService.desbloquear('blitzAciertosCinco');
+      // Blitz velocista (5 aciertos en blitz)
+      if (this.puntuacion.correctas >= 5 && !logros['blitzRapido']) {
+        await this.logrosService.desbloquear('blitzRapido');
       }
     }
 
@@ -218,29 +208,30 @@ export class JuegoComponent implements OnInit {
   private async finalizarPartidaRapidas() {
     const logros = await this.logrosService.obtenerLogros();
 
-    if (!logros['primerJuego']) {
-      await this.logrosService.desbloquear('primerJuego');
-    }
+    if (!logros['primerJuego']) await this.logrosService.desbloquear('primerJuego');
+    if (!logros['blitzValiente']) await this.logrosService.desbloquear('blitzValiente');
 
-    if (!logros['blitzValiente']) {
-      await this.logrosService.desbloquear('blitzValiente');
-    }
-
+    // Perfecto Blitz
     if (this.puntuacion.correctas === 20) {
-      await this.logrosService.desbloquear('perfectoBlitz');
+      await this.logrosService.desbloquear('blitzPerfecto');
     }
 
-    if (this.puntuacion.puntosTotales >= 800 && !logros['blitz800']) {
-      await this.logrosService.desbloquear('blitz800');
-    }
-    if (this.puntuacion.puntosTotales >= 1500 && !logros['puntos1500']) {
-      await this.logrosService.desbloquear('puntos1500');
-    }
-    if (this.puntuacion.puntosTotales <= -100 && !logros['kamikazeBlitz']) {
-      await this.logrosService.desbloquear('kamikazeBlitz');
+    // Puntos plata general
+    if (this.puntuacion.puntosTotales >= 150 && !logros['puntos150']) {
+      await this.logrosService.desbloquear('puntos150');
     }
 
-    
+    // Superviviente Blitz (oro)
+    if (this.puntuacion.puntosTotales >= 300 && !logros['blitzSobreviviente']) {
+      await this.logrosService.desbloquear('blitzSobreviviente');
+    }
+
+    // Millonario diamante
+    if (this.puntuacion.puntosTotales >= 800 && !logros['puntos800']) {
+      await this.logrosService.desbloquear('puntos800');
+    }
+
+    // Maratón Blitz
     this.puntuacion.blitzConsecutivas++;
     if (this.puntuacion.blitzConsecutivas >= 5 && !logros['blitzMaraton']) {
       await this.logrosService.desbloquear('blitzMaraton');

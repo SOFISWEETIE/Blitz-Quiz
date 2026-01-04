@@ -35,13 +35,13 @@ export const LOGROS_DEF = [
   {
     id: 'blitzRapido',
     titulo: 'Blitz velocista',
-    descripcion: 'Acierta 5 preguntas en Modo Blitz',
+    descripcion: 'Acierta 5 seguidas preguntas en Modo Blitz',
     nivel: 'plata'
   },
   {
-    id: 'puntos500',
-    titulo: '500 puntos',
-    descripcion: 'Consigue 500 puntos o más en una partida',
+    id: 'puntos150',
+    titulo: '150 puntos',
+    descripcion: 'Consigue 150 puntos o más en una partida',
     nivel: 'plata'
   },
   {
@@ -55,13 +55,13 @@ export const LOGROS_DEF = [
   {
     id: 'rachaDiez',
     titulo: 'Racha imparable',
-    descripcion: 'Acierta 10 preguntas seguidas (cualquier modo)',
+    descripcion: 'Acierta 10 preguntas seguidas',
     nivel: 'oro'
   },
   {
     id: 'blitzSobreviviente',
     titulo: 'Superviviente Blitz',
-    descripcion: 'Consigue 800 puntos o más en Modo Blitz',
+    descripcion: 'Consigue 300 puntos o más en Modo Blitz',
     nivel: 'oro'
   },
   {
@@ -85,9 +85,9 @@ export const LOGROS_DEF = [
     nivel: 'diamante'
   },
   {
-    id: 'puntos1500',
+    id: 'puntos800',
     titulo: 'Millonario de puntos ',
-    descripcion: 'Consigue 1800 puntos o más en una partida Blitz',
+    descripcion: 'Consigue 800 puntos o más en una partida',
     nivel: 'diamante'
   },
   {
@@ -99,7 +99,7 @@ export const LOGROS_DEF = [
   {
   id: 'blitzMaraton',
   titulo: 'Maratoniano Blitz',
-  descripcion: 'Juega 5 partidas seguidas en Modo Blitz (sin salir, puro vicio)',
+  descripcion: 'Juega 5 partidas seguidas en Modo Blitz ',
   nivel: 'diamante'
   } 
 ];

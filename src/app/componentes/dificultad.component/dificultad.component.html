@@ -1,4 +1,13 @@
-<h1>Elige la dificultad</h1>
-<div *ngFor="let dif of dificultades">
-  <button (click)="elegirDificultad(dif)">{{ dif }}</button>
+<h1 class="titulo-categorias">Elige la dificultad</h1>
+
+<div class="categorias-container">
+  <div class="categorias-grid dificultades-grid">
+    <div 
+      class="categoria-card" 
+      [ngClass]="'dificultad-' + dif.toLowerCase()"  
+      *ngFor="let dif of dificultades" 
+      (click)="elegirDificultad(dif)">
+      <span class="categoria-texto">{{ dif }}</span>
+    </div>
+  </div>
 </div>

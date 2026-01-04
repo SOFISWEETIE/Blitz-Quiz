@@ -102,6 +102,70 @@ body {
   pointer-events: none; /* para que no interfiera con clicks */
 }
 
+/* Modal overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+/* Contenido del modal */
+.modal-content {
+  background: white;
+  padding: 30px;
+  border-radius: 16px;
+  max-width: 90%;
+  width: 400px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.modal-content h2 {
+  margin-top: 0;
+  color: #3a0ca3;
+}
+
+.modal-content p {
+  margin: 20px 0;
+  line-height: 1.5;
+}
+
+.modal-content a {
+  color: #3a0ca3;
+  text-decoration: underline;
+}
+
+.modal-buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin-top: 24px;
+}
+
+.btn-cancelar, .btn-aceptar {
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+}
+
+.btn-cancelar {
+  background: #ddd;
+  color: #333;
+}
+
+.btn-aceptar {
+  background: #3a0ca3;
+  color: white;
+}
+
+.btn-aceptar:hover { background: #f7c646; color: black; }
+
 
 
 

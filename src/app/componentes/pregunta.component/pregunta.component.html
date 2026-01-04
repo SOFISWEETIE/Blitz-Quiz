@@ -1,35 +1,35 @@
-<div class="card-pregunta" 
-     [class.clasico]="seleccion.modo === 'clasico'" 
-     [class.aleatorio]="seleccion.modo === 'aleatorio'">
-  <h2>
+<div class="card-pregunta">
+
+  <h2 class="modo">
     {{ seleccion.modo === 'aleatorio' ? 'MODO ALEATORIO' : 'MODO CLÁSICO' }}
   </h2>
+
+  <h3 class="pregunta-text">{{ pregunta.pregunta }}</h3>
+
   <p class="meta">Pregunta {{ numeroPregunta }} de {{ totalPreguntas }}</p>
+
+  <div class="barra-progreso">
+    <div class="barra-relleno"
+      [style.width.%]="(puntuacion.indice + 1) / puntuacion.totalPreguntas * 100">
+    </div>
+  </div>
 
   <div class="timer" [class.danger]="tiempoRestante <= 5">
     {{ tiempoRestante }}
   </div>
 
-  <h3 class="pregunta-text">{{ pregunta.pregunta }}</h3>
-
   <div class="puntos" *ngIf="mostrarPuntos">+{{ puntosGanados }}</div>
 
   <div class="opciones-grid">
-    <button *ngFor="let opcion of opcionesMezcladas" 
-    (click)="responder(opcion)" 
-    class="opcion-btn"
-    [class.correcta]="respuestaSeleccionada && opcion === pregunta.correcta"
-    [class.incorrecta]="respuestaSeleccionada === opcion && opcion !== pregunta.correcta"
-    [class.correcta-borde]="respuestaSeleccionada && opcion === pregunta.correcta"
-    [disabled]="bloquearOpciones">
+    <button
+      *ngFor="let opcion of opcionesMezcladas"
+      (click)="responder(opcion)"
+      class="opcion-btn"
+      [class.correcta]="respuestaSeleccionada && opcion === pregunta.correcta"
+      [class.incorrecta]="respuestaSeleccionada === opcion && opcion !== pregunta.correcta"
+      [disabled]="bloquearOpciones">
       {{ opcion }}
     </button>
-  </div>
-</div>
-
-<div class="bloque-estadisticas">
-  <div class="barra-progreso">
-    <div class="barra-relleno" [style.width.%]="(puntuacion.indice + 1) / puntuacion.totalPreguntas * 100"></div>
   </div>
 
   <div class="bloques-contador">
@@ -37,10 +37,13 @@
       <div class="numero">{{ puntuacion.correctas }}</div>
       <div class="texto">acertadas</div>
     </div>
+
     <div class="bloque rojo">
       <div class="numero">{{ puntuacion.incorrectas }}</div>
       <div class="texto">incorrectas</div>
     </div>
   </div>
+
 </div>
+
 

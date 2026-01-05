@@ -7,9 +7,28 @@
   display: flex;
   flex-direction: column;
   height: 100vh;
-  background: #e6edf5;
+  background: rgba(230, 237, 245, 0.6);
 }
 
+.fondo-mosaico { 
+  position: absolute; 
+  top: 0; 
+  left: 0; 
+  right: 0; 
+  bottom: 0; 
+  background-image: url('../../../assets/LOGOBORDES.png'); 
+  background-repeat: repeat; 
+  background-size: 180px; 
+  opacity: 0.09; 
+  pointer-events: none; 
+  z-index: 0; 
+  animation: moverFondo 60s linear infinite, pulsoFondo 8s ease-in-out infinite;
+
+} 
+.contenido { 
+  position: relative; 
+  z-index: 1; 
+}
 
 .top-bar {
   height: 65px;
@@ -141,6 +160,10 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  max-width: 1700px;
+  margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .ranking-wrapper {
@@ -199,6 +222,25 @@
   background: transparent;
   z-index: 999;
 }
+
+@keyframes moverFondo {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -180px -180px;
+  }
+}
+
+@keyframes pulsoFondo {
+  0%, 100% {
+    opacity: 0.12;
+  }
+  50% {
+    opacity: 0.18;
+  }
+}
+
 
 /* responsive */
 

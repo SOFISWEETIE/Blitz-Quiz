@@ -48,4 +48,32 @@ export class SeleccionService {
     this.dificultad = dif;
     return dif;
   }
+
+  resetSeleccion() {
+  this.modo = 'clasico';
+  this.categoria = '';
+  this.dificultad = '';
+  this.reiniciarVidas();
+  }
+
+  prepararNuevaPartida() {
+  switch (this.modo) {
+    case 'clasico':
+      // Mantiene la categoria y dificultad seleccionada anteriormente por el usuario
+      this.reiniciarVidas();
+      break;
+    case 'aleatorio':
+      // Al seleccionar el modo aleatorio, todo cambia tanto la categoria como la dificultad
+      this.establecerCategoriaAleatoria();
+      this.establecerDificultadAleatoria();
+      this.reiniciarVidas();
+      break;
+    case 'rapidas':
+      // Se mantiene todo aleatorio
+      this.establecerCategoriaAleatoria();
+      this.establecerDificultadAleatoria();
+      this.reiniciarVidas();
+      break;
+  }
+    
 }

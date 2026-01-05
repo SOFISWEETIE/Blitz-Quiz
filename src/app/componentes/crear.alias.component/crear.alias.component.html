@@ -30,9 +30,16 @@
     placeholder="Tu alias"
     maxlength="20"/>
 
-  <button (click)="guardar()">
-    <span class="material-icons">check_circle</span>
-    Guardar alias
-  </button>
+  <div class="botones-acciones">
+    <button class="btn-guardar" (click)="guardar()">
+      <span class="material-icons">check_circle</span>
+      Guardar alias
+    </button>
+
+    <button class="btn-back" (click)="volverAtras()">
+      ⬅
+    </button>
+  </div>
+
 
 </div>

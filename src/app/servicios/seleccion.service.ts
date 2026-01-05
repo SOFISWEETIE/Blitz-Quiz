@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class SeleccionService {
-  
   modo: 'clasico' | 'aleatorio' | 'rapidas' = 'clasico';
 
   categoria: string = '';
@@ -36,7 +35,7 @@ export class SeleccionService {
   }
 
   establecerCategoriaAleatoria(): string {
-    const categorias = ['Arte','Ciencia','Deporte','Cine','Geografia','Historia'];
+    const categorias = ['Arte', 'Ciencia', 'Deporte', 'Cine', 'Geografia', 'Historia'];
     const cat = categorias[Math.floor(Math.random() * categorias.length)];
     this.categoria = cat;
     return cat;
@@ -50,30 +49,30 @@ export class SeleccionService {
   }
 
   resetSeleccion() {
-  this.modo = 'clasico';
-  this.categoria = '';
-  this.dificultad = '';
-  this.reiniciarVidas();
+    this.modo = 'clasico';
+    this.categoria = '';
+    this.dificultad = '';
+    this.reiniciarVidas();
   }
 
   prepararNuevaPartida() {
-  switch (this.modo) {
-    case 'clasico':
-      // Mantiene la categoria y dificultad seleccionada anteriormente por el usuario
-      this.reiniciarVidas();
-      break;
-    case 'aleatorio':
-      // Al seleccionar el modo aleatorio, todo cambia tanto la categoria como la dificultad
-      this.establecerCategoriaAleatoria();
-      this.establecerDificultadAleatoria();
-      this.reiniciarVidas();
-      break;
-    case 'rapidas':
-      // Se mantiene todo aleatorio
-      this.establecerCategoriaAleatoria();
-      this.establecerDificultadAleatoria();
-      this.reiniciarVidas();
-      break;
+    switch (this.modo) {
+      case 'clasico':
+        // Mantiene la categoria y dificultad seleccionada anteriormente por el usuario
+        this.reiniciarVidas();
+        break;
+      case 'aleatorio':
+        // Al seleccionar el modo aleatorio, todo cambia tanto la categoria como la dificultad
+        this.establecerCategoriaAleatoria();
+        this.establecerDificultadAleatoria();
+        this.reiniciarVidas();
+        break;
+      case 'rapidas':
+        // Se mantiene todo aleatorio
+        this.establecerCategoriaAleatoria();
+        this.establecerDificultadAleatoria();
+        this.reiniciarVidas();
+        break;
+    }
   }
-    
 }

@@ -18,17 +18,17 @@ export class CrearAliasComponent {
   alias = '';
 
   mascotas = [
-  { src: 'assets/mascotas/leon.png', nombre: 'Leon' },
-  { src: 'assets/mascotas/koala.png', nombre: 'Koala' },
-  { src: 'assets/mascotas/elefante.png', nombre: 'Elefante' },
-  { src: 'assets/mascotas/tigre.png', nombre: 'Tigre' },
-  { src: 'assets/mascotas/jirafa.png', nombre: 'Jirafa' },
-  { src: 'assets/mascotas/zorro.png', nombre: 'Zorro' },
-  { src: 'assets/mascotas/vaca.png', nombre: 'Vaca' },
-  { src: 'assets/mascotas/cerdo.png', nombre: 'Cerdo' },
-  { src: 'assets/mascotas/perro.png', nombre: 'Perro' },
-  { src: 'assets/mascotas/gato.png', nombre: 'Gato' },
-  { src: 'assets/mascotas/cerdo2.jpg', nombre: 'cerdo2' },
+  { src: 'assets/mascotas/caballo.png', nombre: 'Caballo' },
+  { src: 'assets/mascotas/mapache.png', nombre: 'Mapache' },
+  { src: 'assets/mascotas/conejo.jpg', nombre: 'Conejo' },
+  { src: 'assets/mascotas/tigre.jpg', nombre: 'Tigre' },
+  { src: 'assets/mascotas/pinguino.jpg', nombre: 'Jirafa' },
+  { src: 'assets/mascotas/zorro.jpg', nombre: 'Zorro' },
+  { src: 'assets/mascotas/gallina.jpg', nombre: 'Gallina' },
+  { src: 'assets/mascotas/oso.jpg', nombre: 'Oso' },
+  { src: 'assets/mascotas/perro.jpg', nombre: 'Perro' },
+  { src: 'assets/mascotas/gato.jpg', nombre: 'Gato' },
+  { src: 'assets/mascotas/cerdo3.jpg', nombre: 'Cerdo' },
   { src: 'assets/mascotas/serpiente.jpg', nombre: 'serpiente' },
 ];
 
@@ -66,6 +66,11 @@ mascotaSeleccionada = this.mascotas[0].src;
     }
   });
 }
+
+  volverAtras() {
+  this.router.navigate(['/app/modos']);
+}
+
 }
 
 

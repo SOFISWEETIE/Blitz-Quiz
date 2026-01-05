@@ -65,5 +65,9 @@ export class LayoutComponent {
       this.router.navigate(['/app/crear-alias']);
     }
 
+    irAlInicio() {
+    this.router.navigate(['/app/modos']);
+    }
+
 }
 

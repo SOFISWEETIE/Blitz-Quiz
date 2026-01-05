@@ -25,8 +25,13 @@
 .top-bar .logo {
   font-size: 26px;
   font-weight: 700;
+  cursor: pointer;
 }
 
+.top-bar .logo:hover { 
+  color: #f7c646; 
+  text-shadow: 0 0 6px rgba(247, 198, 70, 0.6); 
+}
 
 .perfil-wrapper {
   position: relative;

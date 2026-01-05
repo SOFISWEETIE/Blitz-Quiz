@@ -2,6 +2,7 @@ import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LogrosService } from '../../servicios/logros.service';
 import { LOGROS_DEF } from './logros.def';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-logros',
@@ -17,6 +18,8 @@ export class LogrosComponent implements OnInit {
   logros = LOGROS_DEF;
   estado: Record<string, boolean> = {};
 
+  constructor(private router: Router) {}
+
   async ngOnInit() {
     this.estado = await this.logrosService.obtenerLogros();
   }
@@ -28,4 +31,8 @@ export class LogrosComponent implements OnInit {
   getLogrosPorNivel(nivel: string) {
   return this.logros.filter(l => l.nivel === nivel);
   }
+
+  volverAtras() {
+  this.router.navigate(['/app/modos']);
+}
 }

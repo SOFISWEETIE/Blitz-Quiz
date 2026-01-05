@@ -81,8 +81,15 @@ export class ResultadosComponent {
   }
 
 
-  volverAJugar() {
+  irInicio() {
     this.router.navigate(['app/modos']);
+  }
+
+  jugarOtraVez() {
+    
+  this.puntuacion.resetPuntuacion();
+  this.seleccion.prepararNuevaPartida();
+  this.router.navigate(['app/juego']); 
   }
 
    // puedes reutilizar la misma lógica para obtener semana actual

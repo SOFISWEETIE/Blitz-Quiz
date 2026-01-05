@@ -43,10 +43,15 @@ export class PuntuacionService {
     this.rachaActual = 0;
     
   }
-
   
+  resetPuntuacion() {
+  this.puntosTotales = 0;
+  this.correctas = 0;
+  this.incorrectas = 0;
+  this.totalPreguntas = 0;
+  }
 
-  
+
   sumarCorrectaRapida(tiempoRestante: number) {
     this.correctas++;
     this.rachaActual++;

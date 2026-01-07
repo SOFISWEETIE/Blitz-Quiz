@@ -97,7 +97,6 @@ export class PreguntaComponent implements OnChanges, OnDestroy {
         }
       } else if (this.seleccion.modo === 'aleatorio') {
         puntos = this.tiempoRestante >= 10 ? 25 : 20;
-        this.puntuacion.sumarCorrecta();
       }
 
       this.puntuacion.puntosTotales += puntos;

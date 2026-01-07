@@ -13,6 +13,50 @@
 }
 
 /* ===============================
+  INFORMACIÓN EXTRA PARA EL JUGADOR (CATEGORÍA / DIFICULTAD) 
+================================ */
+
+.info-aleatorio {
+  display: flex;
+  gap: 16px; 
+  justify-content: center;
+  margin-top: 18px;
+}
+
+.info-aleatorio .badge {
+  padding: 12px 24px;        
+  border-radius: 20px;     
+  font-size: 18px;           
+  font-weight: 800;
+  background: linear-gradient(180deg, #c1cdf9, #a18fff);
+  color: white;             
+  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+  transition: all 0.3s ease;
+  text-transform: capitalize;
+}
+
+/* Cambia el color con la dificultad */
+.info-aleatorio .badge.facil {
+  background: linear-gradient(180deg, #d4f7d4, #a8e6a3); 
+  color: #2e7d32;
+}
+
+.info-aleatorio .badge.media {
+  background: linear-gradient(180deg, #fff6c0, #ffde78); 
+  color: #b58900;
+}
+
+.info-aleatorio .badge.dificil {
+  background: linear-gradient(180deg, #ffd2d2, #ff9f9f); 
+  color: #c0392b;
+}
+
+.info-aleatorio .badge:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+/* ===============================
    MODO CLÁSICO / ALEATORIO
 ================================ */
 

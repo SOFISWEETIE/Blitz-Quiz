@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
@@ -13,6 +13,8 @@ import { PreguntaRapidasComponent } from '../preguntas-rapidas.component/pregunt
 
 import { LogrosService } from '../../servicios/logros.service';
 
+import { JuegoGuard } from '../../servicios/juego.guard';
+
 @Component({
   selector: 'app-juego',
   standalone: true,
@@ -20,10 +22,15 @@ import { LogrosService } from '../../servicios/logros.service';
   templateUrl: './juego.component.html',
   styleUrl: './juego.component.css'
 })
-export class JuegoComponent implements OnInit {
+export class JuegoComponent implements OnInit, JuegoGuard {
 
   preguntasRapidas: any[] = [];
   indiceRapida = 0;
+
+  partidaTerminada = false; 
+  mostrarModalSalir = false; 
+
+  private _resolverSalir?: (valor: boolean) => void;
 
   constructor(
     public puntuacion: PuntuacionService,
@@ -46,6 +53,48 @@ export class JuegoComponent implements OnInit {
       await this.cargarPreguntasRapidas();
     } else {
       await this.cargarPreguntasClasicas();
+    }
+  }
+
+   // BLOQUEO DE SALIDA
+  
+  puedeSalir(): Promise<boolean> {
+    return new Promise(resolve => {
+      if (this.partidaTerminada) {
+        resolve(true);
+        return;
+      }
+
+      this._resolverSalir = (valor: boolean) => {
+        resolve(valor);            
+        this._resolverSalir = undefined;
+      };
+
+      this.mostrarModalSalir = true;
+    });
+  }
+
+  confirmarSalir() {
+    this.partidaTerminada = true;
+    this.mostrarModalSalir = false;
+    if (this._resolverSalir) {
+      this._resolverSalir(true);
+    }
+    this.router.navigate(['app/modos']);
+  }
+
+  cancelarSalir() {
+    this.mostrarModalSalir = false;
+    if (this._resolverSalir) {
+      this._resolverSalir(false);
+    }
+  }
+
+  @HostListener('window:beforeunload', ['$event'])
+  bloquearRecarga(event: BeforeUnloadEvent) {
+    if (!this.partidaTerminada) {
+      event.preventDefault();
+      event.returnValue = '';
     }
   }
 
@@ -130,6 +179,7 @@ export class JuegoComponent implements OnInit {
     if (this.puntuacion.indice + 1 < this.puntuacion.totalPreguntas) {
       this.puntuacion.indice++;
     } else {
+      this.partidaTerminada = true;
       await this.finalizarPartida();
       this.router.navigate(['app/resultados']);
     }
@@ -200,6 +250,7 @@ export class JuegoComponent implements OnInit {
     this.indiceRapida++;
 
     if (this.indiceRapida >= 20) {
+      this.partidaTerminada = true;
       await this.finalizarPartidaRapidas();
       this.router.navigate(['app/resultados']);
     }

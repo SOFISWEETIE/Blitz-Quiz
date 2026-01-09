@@ -13,3 +13,24 @@
   [numeroPregunta]="indiceRapida + 1"
   (siguiente)="avanzarRapida($event)">
 </app-pregunta-rapidas>
+
+<!-- MODAL DE CONFIRMACIÓN DE SALIDA -->
+<div class="modal-salir" *ngIf="mostrarModalSalir">
+  <div class="modal-contenido">
+    <h3>¿Seguro que quieres salir?</h3>
+    <p>Si sales ahora, perderás el progreso: {{ numeroPregunta() - 1 }} de {{ totalPreguntas() }} preguntas respondidas</p>
+    
+    <!-- Barra de progreso para el jugador -->
+    <div class="progreso-salir">
+      <div class="barra-fondo-modal">
+        <div class="barra-llenado-modal" [style.width.%]="(puntuacion.correctas / puntuacion.totalPreguntas) * 100"></div>
+      </div>
+      <p>{{ puntuacion.correctas }} de {{ puntuacion.totalPreguntas }} correctas</p>
+    </div>
+
+    <div class="modal-botones">
+      <button class="btn-confirmar" (click)="confirmarSalir()">Sí, salir</button>
+      <button class="btn-cancelar" (click)="cancelarSalir()">Cancelar</button>
+    </div>
+  </div>
+</div>

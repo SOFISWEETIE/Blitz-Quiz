@@ -18,6 +18,8 @@ import { LogrosComponent } from './componentes/logros.component/logros.component
 
 const redirectToLogin = () => redirectUnauthorizedTo(['login']);
 
+import { JuegoGuardService } from './servicios/juego.guard';
+
 
 export const routes: Routes = [
   // 1. Entrada vacía → login
@@ -39,7 +41,7 @@ export const routes: Routes = [
       { path: 'logros', component: LogrosComponent },
       { path: 'categoria', component: CategoriaComponent },
       { path: 'dificultad', component: DificultadComponent },
-      { path: 'juego', component: JuegoComponent, canActivate: [AliasGuard] },
+      { path: 'juego', component: JuegoComponent, canActivate: [AliasGuard], canDeactivate: [JuegoGuardService] },
       { path: 'resultados', component: ResultadosComponent },
       { path: '', redirectTo: 'modos', pathMatch: 'full' }
     ]

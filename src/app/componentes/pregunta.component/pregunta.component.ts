@@ -23,6 +23,7 @@ export class PreguntaComponent implements OnChanges, OnDestroy {
   tiempoInicio!: number;
   respuestaSeleccionada: string | null = null;
   bloquearOpciones: boolean = false;
+  tiempoInicial: number = 20;
 
   constructor(public puntuacion: PuntuacionService, public seleccion: SeleccionService) {}
 
@@ -41,8 +42,10 @@ export class PreguntaComponent implements OnChanges, OnDestroy {
     this.tiempoInicio = Date.now();
 
     if (this.seleccion.modo === 'aleatorio') {
-      this.tiempoRestante = this.tiempoAleatorio();
+      this.tiempoInicial = this.tiempoAleatorio();
+      this.tiempoRestante = this.tiempoInicial;
     } else {
+      this.tiempoInicial = 20;
       this.tiempoRestante = 20;
     }
     
@@ -63,6 +66,7 @@ export class PreguntaComponent implements OnChanges, OnDestroy {
   }
 
   responder(opcion: string | null) {
+    clearInterval(this.intervalo);
     if (this.bloquearOpciones) return;
 
     this.respuestaSeleccionada = opcion;
@@ -96,7 +100,8 @@ export class PreguntaComponent implements OnChanges, OnDestroy {
             puntos = 5; 
         }
       } else if (this.seleccion.modo === 'aleatorio') {
-        puntos = this.tiempoRestante >= 10 ? 25 : 20;
+        const porcentajeRestante = this.tiempoRestante / this.tiempoInicial;
+        puntos = porcentajeRestante >= 0.5 ? 25 : 20;
       }
 
       this.puntuacion.puntosTotales += puntos;

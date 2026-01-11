@@ -7,7 +7,7 @@ import { ServicioRanking } from '../../servicios/ranking.service';
 import { AuthService } from '../../servicios/auth.service';
 import { firstValueFrom } from 'rxjs';
 import { RankingComponent } from '../ranking.component/ranking.component';
-
+import { frasesMotivadoras } from './frases-motivadoras';
 
 @Component({
   selector: 'app-resultados',
@@ -18,19 +18,30 @@ import { RankingComponent } from '../ranking.component/ranking.component';
 })
 export class ResultadosComponent {
   puestoJugador: number | null = null;
+  frase: string = '';
+  
   constructor(
     public seleccion: SeleccionService,
     public puntuacion: PuntuacionService,
     private router: Router,
     private servicioRanking: ServicioRanking,
     private auth: AuthService
-  ) {}
+  ) {}  
+
+
+  
+
 
   async ngOnInit() {
     // Guardar resultado automáticamente al entrar en la pantalla de resultados
     await this.guardarResultadoEnRanking();
     await this.calcularPuestoJugador();
+    const randomIndex = Math.floor(Math.random() * frasesMotivadoras.length);
+    this.frase = frasesMotivadoras[randomIndex];
   }
+
+  
+
 
   async guardarResultadoEnRanking() {
     try {
@@ -107,4 +118,7 @@ export class ResultadosComponent {
     const weekNo = Math.ceil(((tmp.getTime() - yearStart.getTime()) / 86400000 + 1) / 7);
     return weekNo;
   }
+
+
+  
 }

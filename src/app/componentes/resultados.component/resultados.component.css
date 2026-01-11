@@ -108,6 +108,21 @@ button:active { transform: translateY(0); box-shadow: 0 4px 12px rgba(255, 179, 
   text-align: center;
   margin-bottom: 20px;
 }
+.frase-motivadora {
+  text-align: center;
+  font-size: 22px;
+  font-weight: 700;
+  color: #f7c646;  /* Amarillo chulo para que resalte */
+  margin: 25px 0;
+  font-style: italic;  /* Toque cute */
+  text-shadow: 0 2px 4px rgba(0,0,0,0.1);  /* Sombrita suave */
+  animation: fadeIn 1.5s ease-out;  /* Aparece suave al cargar */
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 
 
 /* Responsive ajuste */

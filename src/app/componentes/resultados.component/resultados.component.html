@@ -11,7 +11,7 @@
 
     <p *ngIf="seleccion.modo === 'rapidas'">
       <strong>PREGUNTAS BLITZ</strong><br>
-      Aciertos: {{ puntuacion.correctas }} | Fallos: {{ puntuacion.incorrectas }}
+      {{ puntuacion.correctas }} de  20 aciertos<br>
     </p>
 
     <p *ngIf="seleccion.modo !== 'rapidas'">

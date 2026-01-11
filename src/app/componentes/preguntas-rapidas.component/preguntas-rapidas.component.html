@@ -1,44 +1,52 @@
 <div class="card-pregunta">
-  <h2>MODO BLITZ</h2>
-  
-  <p class="meta">Pregunta {{ numeroPregunta }} de 20</p>
 
-  <div class="timer" [class.danger]="tiempoRestante <= 2">
+
+  <h2 class="modo">MODO BLITZ</h2>
+ 
+  <h3 class="pregunta-text">
+    {{ pregunta?.pregunta || 'Cargando pregunta rapidísima...' }}
+  </h3>
+
+  <p class="meta">
+    Pregunta {{ numeroPregunta }} de 20
+  </p>
+  
+  <div class="barra-progreso">
+    <div class="barra-relleno"
+         [style.width.%]="(numeroPregunta / 20) * 100">
+    </div>
+  </div>
+  
+  <div class="timer" [class.danger]="tiempoRestante <= 3">
     {{ tiempoRestante }}
   </div>
-
-  <h3 class="pregunta-text">{{ pregunta.pregunta }}</h3>
-
+ 
   <div class="puntos" *ngIf="mostrarPuntos">
-    {{ puntosGanados > 0 ? '+' : '' }}{{ puntosGanados }}
+    {{ puntosGanados >= 0 ? '+' : '' }}{{ puntosGanados }}
   </div>
-
+  
   <div class="opciones-grid">
     <button 
       *ngFor="let opcion of opcionesMezcladas" 
-      (click)="responder(opcion)" 
+      (click)="responder(opcion)"
       class="opcion-btn"
-      [class.correcta]="respuestaSeleccionada && opcion === pregunta.correcta"
-      [class.incorrecta]="respuestaSeleccionada === opcion && opcion !== pregunta.correcta"
-      [class.correcta-borde]="respuestaSeleccionada && opcion === pregunta.correcta">
+      [class.correcta]="respuestaSeleccionada && opcion === pregunta?.correcta"
+      [class.incorrecta]="respuestaSeleccionada === opcion && opcion !== pregunta?.correcta"
+      [disabled]="respuestaSeleccionada !== null || tiempoRestante <= 0">
       {{ opcion }}
     </button>
   </div>
-</div>
-
-<div class="bloque-estadisticas">
-  <div class="barra-progreso">
-    <div class="barra-relleno" [style.width.%]="(numeroPregunta / 20) * 100"></div>
-  </div>
-
+ 
   <div class="bloques-contador">
     <div class="bloque verde">
       <div class="numero">{{ puntuacion.correctas }}</div>
       <div class="texto">acertadas</div>
     </div>
+
     <div class="bloque rojo">
       <div class="numero">{{ puntuacion.incorrectas }}</div>
       <div class="texto">incorrectas</div>
     </div>
   </div>
+
 </div>

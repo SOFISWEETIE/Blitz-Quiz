@@ -1,40 +1,97 @@
-* {
-  font-family: 'Roboto', sans-serif;
-}
+/* ===============================
+   CARD PREGUNTA (FONDO MORADO)
+================================ */
 
 .card-pregunta {
   display: flex;
   flex-direction: column;
-  gap: 14px;
-  padding: 22px;
-  border-radius: 20px;
-  background: #c1cdf9;
-  align-items: center;
-  justify-content: center;
-  text-align: center; 
-  padding-bottom: px;   
+  gap: 18px;
+  padding: 30px;
+  border-radius: 24px;
+  background: white;
+  width: 100%;
 }
 
-h2 {
-  color: var(--purple-dark);
-  font-size: 20px;
-  margin: 0;
-  font-weight: 700;
-  text-align: center;
+/* ===============================
+  INFORMACIÓN EXTRA PARA EL JUGADOR (CATEGORÍA / DIFICULTAD) 
+================================ */
+
+.info-aleatorio {
+  display: flex;
+  gap: 16px; 
+  justify-content: center;
+  margin-top: 18px;
 }
+
+.info-aleatorio .badge {
+  padding: 12px 24px;        
+  border-radius: 20px;     
+  font-size: 18px;           
+  font-weight: 800;
+  background: linear-gradient(180deg, #c1cdf9, #a18fff);
+  color: white;             
+  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+  transition: all 0.3s ease;
+  text-transform: capitalize;
+}
+
+/* Cambia el color con la dificultad */
+.info-aleatorio .badge.facil {
+  background: linear-gradient(180deg, #d4f7d4, #a8e6a3); 
+  color: #2e7d32;
+}
+
+.info-aleatorio .badge.media {
+  background: linear-gradient(180deg, #fff6c0, #ffde78); 
+  color: #b58900;
+}
+
+.info-aleatorio .badge.dificil {
+  background: linear-gradient(180deg, #ffd2d2, #ff9f9f); 
+  color: #c0392b;
+}
+
+.info-aleatorio .badge:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+/* ===============================
+   MODO CLÁSICO / ALEATORIO
+================================ */
+
+.modo {
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--purple-dark);
+  text-align: center;
+  margin: 0;
+}
+
+/* ===============================
+   TEXTO META (Pregunta X de Y)
+================================ */
 
 .meta {
-  color: #666;
-  font-weight: 500;
+  font-size: 16px;
+  font-weight: 600;
+  color: #555;
   text-align: center;
+  margin-bottom: 6px;
 }
 
+/* ===============================
+   TIMER
+================================ */
+
 .timer {
-  width: 92px;
-  margin: 6px auto;
+  width: 140px;
+  height: 50px;
+  margin: 10px auto;
   padding: 8px;
-  border-radius: 20px;
+  border-radius: 30px;
   text-align: center;
+  font-size: 30px;
   background: linear-gradient(180deg, #fff6e0, #fff1c2);
   color: var(--purple-dark);
   font-weight: 700;
@@ -47,45 +104,87 @@ h2 {
   border-color: #ff6b6b;
 }
 
+/* ===============================
+   PREGUNTA
+================================ */
+
 .pregunta-text {
-  font-size: 15px;
-  color: #4b2dbd; 
+  font-size: 30px;
+  font-weight: 800;
+  color: #4b2dbd;
   text-align: center;
-  margin: 12px 0;
-  font-weight: 700;
+  margin: 10px 0;
 }
+
+/* ===============================
+   PUNTOS
+================================ */
 
 .puntos {
   position: relative;
   align-self: center;
-  background: linear-gradient(90deg, var(--yellow), #ffd06a);
-  padding: 8px 14px;
-  border-radius: 20px;
-  font-weight: 700;
+  background: linear-gradient(90deg, #f7c646, #ffd06a);  /* Degradado alegre */
+  padding: 16px 32px;  /* <<-- Un poquito más grande (de 8px/14px a 16px/32px) */
+  border-radius: 30px;  /* Más redondito */
+  font-size: 48px;  /* <<-- Un poquito más grande (de ~20px a 48px, visible pero no monstruo) */
+  font-weight: 900;
   color: #1a1a1a;
-  box-shadow: 0 8px 18px rgba(255, 179, 0, 0.12);
+  box-shadow: 0 12px 30px rgba(255, 179, 0, 0.3);  /* Sombra suave */
+  animation: popSuave 0.5s ease-out;  /* Animación pop suave y corta */
+  z-index: 10;
 }
+
+@keyframes popSuave {
+  0% { transform: scale(0); opacity: 0; }
+  80% { transform: scale(1.1); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* ===============================
+   BARRA DE PROGRESO (MÁS LARGA)
+================================ */
+
+.barra-progreso {
+  width: 100%;
+  max-width: 600px;
+  height: 22px;
+  margin: 0 auto;
+  background-color: #e0e7ff;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.barra-relleno {
+  height: 100%;
+  background-color: #f7c646;
+  transition: width 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* ===============================
+   OPCIONES
+================================ */
 
 .opciones-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 14px;
-  margin-top: 12px;
+  gap: 16px;
   width: 100%;
-  padding: 0 10px;
 }
 
 .opcion-btn {
-  padding: 18px 20px;
-  border-radius: 16px;
-  background: white;
-  border: 2px solid #f7c646; 
-  font-size: 16px;
+  padding: 22px 24px;
+  border-radius: 18px;
+  background: #c1cdf9;  
+  border: none; 
+  font-size: 18px;
   font-weight: 700;
   cursor: pointer;
   width: 100%;
-  transition: transform .12s, box-shadow .12s, background-color .2s;
+  transition: all 0.2s ease;
   text-align: center;
+  color: #4b2dbd;  
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
 
 .opcion-btn:hover {
@@ -116,10 +215,6 @@ h2 {
   border-color: #c0392b !important;
 }
 
-.opcion-btn.correcta-borde {
-  border: 3px solid #2ecc71 !important;
-}
-
 .opcion-btn:disabled {
   cursor: not-allowed;
   opacity: 0.8;
@@ -127,41 +222,21 @@ h2 {
   box-shadow: none !important;
 }
 
-.bloque-estadisticas { 
-  display: flex; 
-  flex-direction: column; 
-  align-items: center; 
-  gap: 26px; 
-  margin-top: 32px; 
-  width: 100%; 
-}
+/* ===============================
+   BLOQUES ACERTADAS / INCORRECTAS
+   (DENTRO DEL MORADO)
+================================ */
 
-.barra-progreso {
-  width: 70%; 
-  max-width: none;  
-  height: 25px;  
-  background-color: #e0e7ff; 
-  border-radius: 14px;
-  overflow: hidden;
-  box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
-}
-
-.barra-relleno {
-  height: 100%;
-  background-color: #f7c646;
-  transition: width 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
-}
-
-.bloques-contador { 
-  display: flex; 
-  gap: 20px; 
-  flex-wrap: wrap; 
-  justify-content: center; 
+.bloques-contador {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  margin-top: 10px;
 }
 
 .bloque {
-  width: 130px; 
-  height: 100px;  
+  width: 170px;
+  height: 120px;
   border-radius: 20px;
   display: flex;
   flex-direction: column;
@@ -169,35 +244,50 @@ h2 {
   align-items: center;
   font-weight: 700;
   box-shadow: 0 6px 16px rgba(0,0,0,0.08);
-  text-align: center;
 }
 
 .bloque.verde {
-  background-color: #d6f5d6; 
+  background-color: #d6f5d6;
   color: #2e7d32;
 }
 
 .bloque.rojo {
-  background-color: #ffe0e0; 
+  background-color: #ffe0e0;
   color: #c0392b;
 }
 
 .numero {
-  font-size: 32px;  
+  font-size: 40px;
   line-height: 1;
 }
 
 .texto {
-  font-size: 16px; 
+  font-size: 18px;
   margin-top: 6px;
   text-transform: lowercase;
 }
 
+/* ===============================
+   RESPONSIVE
+================================ */
 
+@media (max-width: 480px) {
+  .pregunta-text {
+    font-size: 24px;
+  }
 
-@media (max-width: 480px) { 
-  .bloque { width: 140px; height: 110px; } 
-  .numero { font-size: 34px; } 
-  .texto { font-size: 16px; }
-  .barra-progreso { max-width: 300px; height: 18px; } 
+  .opcion-btn {
+    font-size: 16px;
+    padding: 18px;
+  }
+
+  .bloque {
+    width: 140px;
+    height: 110px;
+  }
+
+  .barra-progreso {
+    max-width: 320px;
+    height: 18px;
+  }
 }

@@ -1,12 +1,20 @@
+<!-- Título principal de la sección -->
 <h1 class="titulo-categorias">Elige la dificultad</h1>
 
+<!-- Contenedor principal que centra el grid de tarjetas de dificultad -->
 <div class="categorias-container">
+
+  <!-- Grid que organiza las tarjetas de dificultades -->
   <div class="categorias-grid dificultades-grid">
+
+    <!-- Bucle que genera una tarjeta por cada dificultad del array dificultades -->
     <div 
       class="categoria-card" 
       [ngClass]="'dificultad-' + dif.toLowerCase()"  
       *ngFor="let dif of dificultades" 
       (click)="elegirDificultad(dif)">
+
+      <!-- Texto que muestra el nombre de la dificultad dentro de la tarjeta -->
       <span class="categoria-texto">{{ dif }}</span>
     </div>
   </div>

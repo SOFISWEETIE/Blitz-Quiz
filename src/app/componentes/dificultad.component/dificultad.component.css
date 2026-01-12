@@ -1,7 +1,9 @@
+/* Estilos globales: fuente principal para toda la aplicación */
 * {
   font-family: 'Roboto', sans-serif;
 }
 
+/* Título principal de la sección (elige categoría o dificultad) */
 .titulo-categorias {
   text-align: center;
   font-size: 48px;
@@ -10,6 +12,7 @@
   font-weight: 800;
 }
 
+/* Contenedor flex que centra el grid en la pantalla */
 .categorias-container {
   display: flex;
   justify-content: center;
@@ -17,6 +20,7 @@
   max-width: 100vw;
 }
 
+/* Grid principal para las tarjetas (categorías o dificultades) */
 .categorias-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);   
@@ -29,6 +33,7 @@
   grid-template-rows: 1fr;  
 }
 
+/* Tarjeta base (usada tanto para categorías como para dificultades) */
 .categoria-card {
   width: 100%;
   height: 280px;                           
@@ -44,12 +49,14 @@
   box-sizing: border-box;
 }
 
+/* Efecto hover genérico para las tarjetas */
 .categoria-card:hover {
   transform: translateY(-25px) scale(1.03);
   background: #f7c646;  
   box-shadow: 0 35px 70px rgba(247, 198, 70, 0.45);
 }
 
+/* Texto dentro de las tarjetas */
 .categoria-texto {
   font-size: 44px;               
   font-weight: 800;
@@ -59,13 +66,14 @@
   word-wrap: break-word;
 }
 
+/* Cambio de color del texto en hover genérico */
 .categoria-card:hover .categoria-texto {
   color: black; 
 }
 
 
 
-
+/* Hover específico para dificultad fácil (verde) */
 .dificultad-facil:hover,
 .dificultad-fácil:hover {
   background: #4caf50;  
@@ -77,7 +85,7 @@
   color: white; 
 }
 
-
+/* Hover específico para dificultad media (naranja) */
 .dificultad-media:hover {
   background: #f7c646;
   box-shadow: 0 35px 70px rgba(247, 198, 70, 0.45);
@@ -87,7 +95,7 @@
   color: black;
 }
 
-
+/* Hover específico para dificultad difícil (rojo) */
 .dificultad-dificil:hover,
 .dificultad-difícil:hover {
   background: #f44336;  
@@ -99,7 +107,7 @@
   color: white;
 }
 
-
+/* Responsive: tablet y móvil */
 @media (max-width: 1100px) {
   .categorias-grid {
     gap: 40px;

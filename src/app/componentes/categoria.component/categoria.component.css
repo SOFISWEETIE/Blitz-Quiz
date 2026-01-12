@@ -1,7 +1,9 @@
+/* Estilos globales: reset de fuente para toda la app */
 * {
   font-family: 'Roboto', sans-serif;
 }
 
+/* Estilo del título principal de categorías */
 .titulo-categorias {
   text-align: center;
   font-size: 48px;
@@ -10,6 +12,7 @@
   font-weight: 800;
 }
 
+/* Contenedor flex para centrar el grid de categorías */
 .categorias-container {
   display: flex;
   justify-content: center;
@@ -17,6 +20,7 @@
   max-width: 100vw;
 }
 
+/* Grid principal para las tarjetas de categorías: 3 columnas */
 .categorias-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);   
@@ -26,7 +30,7 @@
   max-width: 1600px;                                    
 }
 
-
+/* Tarjeta individual de categoría: diseño base y efectos */
 .categoria-card {
   width: 100%;
   height: 220px;                           
@@ -42,13 +46,14 @@
   box-sizing: border-box;
 }
 
+/* Efecto hover para las tarjetas: animación y cambio de color */
 .categoria-card:hover {
   transform: translateY(-25px) scale(1.03);
   background: #f7c646;
   box-shadow: 0 35px 70px rgba(247, 198, 70, 0.45);
 }
 
-
+/* Texto dentro de las tarjetas de categorías */
 .categoria-texto {
   font-size: 44px;               
   font-weight: 800;
@@ -58,6 +63,7 @@
   word-wrap: break-word;
 }
 
+/* Cambio de color del texto en hover para mejor contraste */
 .categoria-card:hover .categoria-texto {
   color: black;
 }

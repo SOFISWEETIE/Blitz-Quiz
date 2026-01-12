@@ -1,11 +1,17 @@
+<!-- Título principal de la sección-->
 <h1 class="titulo-categorias">Elige una categoría</h1>
 
+<!-- Contenedor principal que centra el grid de categorías en la pantalla -->
 <div class="categorias-container">
+
+  <!-- Grid que organiza las tarjetas de categorías en filas y columnas -->
   <div class="categorias-grid">
+    <!-- Bucle que genera una tarjeta por cada categoría del array 'categorias' -->
     <div 
       class="categoria-card" 
       *ngFor="let cat of categorias" 
       (click)="elegirCategoria(cat)">
+      <!-- Texto que muestra el nombre de la categoría dentro de la tarjeta -->
       <span class="categoria-texto">{{ cat }}</span>
     </div>
   </div>

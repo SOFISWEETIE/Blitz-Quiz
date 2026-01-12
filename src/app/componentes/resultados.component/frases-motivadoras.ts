@@ -1,12 +1,17 @@
 export const frasesMotivadoras: string[] = [
-  '¡Eres un crack total! 🔥',
-  '¡La próxima lo petas aún más! 💪',
-  '¡Sigue así, máquina! 🚀',
-  '¡BlitzQuiz te quiere, crack! 😍',
-  '¡Has dejado huella en el ranking! 🌟',
-  '¡Otro quiz dominado, qué bestia! 🏆',
-  '¡Tú puedes con todo, sigue brillando! ✨',
-  '¡A por más, que esto es solo el principio! 😈',
-  '¡Qué nivelazo, no hay quien te pare! ⚡',
-  '¡Hoy has sido imparable! 🎉'
-];
+  '¡Gracias por jugar! ',
+  '¡Otra ronda, cuando quieras! ',
+  '¡Buen intento, lo importante es divertirse! ',
+  '¡Cada pregunta cuenta! ',
+  '¡Nada mal, seguimos aprendiendo! ',
+  '¡A veces se acierta, a veces se aprende! ',
+  '¡Fin del quiz! ¿Te animas a otro? ',
+  '¡Lo importante es jugar! ',
+  '¡Buen viaje por las preguntas! ',
+  '¡Esperamos que te lo hayas pasado bien! ',
+  '¡Cada partida es distinta! ',
+  '¡Gracias por estar aquí! ',
+  '¡Seguimos sumando experiencias! ',
+  '¡Un pasito más en el camino del saber! ',
+  '¡Hasta la próxima ronda! '
+]

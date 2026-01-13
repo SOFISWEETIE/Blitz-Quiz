@@ -1,12 +1,15 @@
+<!-- ───────── COMPONENTES DE PREGUNTA SEGÚN EL MODO ───────── -->
 
-<!-- MODO CLÁSICO Y ALEATORIO -->
+<!-- Componente para el modo Clásico y Aleatorio -->
+<!-- Solo se muestra si el modo no es rápidas -->
 <app-pregunta 
-  *ngIf="seleccion.modo !== 'rapidas'"
-  [pregunta]="preguntaActual()"
+  *ngIf="seleccion.modo !== 'rapidas'" 
+  [pregunta]="preguntaActual()" 
   (siguiente)="avanzarPregunta($event)">
 </app-pregunta>
 
-<!-- MODO RÁPIDAS -->
+<!-- Componente para el modo Rápidas -->
+<!-- Solo se muestra si el modo de juego es rápidas -->
 <app-pregunta-rapidas 
   *ngIf="seleccion.modo === 'rapidas'"
   [pregunta]="preguntaActualRapida()"
@@ -15,26 +18,37 @@
 </app-pregunta-rapidas>
 
 <!-- MODAL DE CONFIRMACIÓN DE SALIDA -->
+<!-- Se muestra cuando el jugador intenta salir del juego -->
 <div class="modal-salir" *ngIf="mostrarModalSalir">
+
+  <!-- Contenido central del modal -->
   <div class="modal-contenido">
+    <!-- Título del modal -->
     <h3>¿Seguro que quieres salir?</h3>
+    <!-- Información del progreso actual del jugador -->
     <p>Si sales ahora, perderás el progreso: {{ numeroPregunta() - 1 }} de {{ totalPreguntas() }} preguntas respondidas</p>
     
-    <!-- Barra de progreso para el jugador -->
+    <!-- Barra de progreso visual dentro del modal -->
     <div class="progreso-salir">
       <div class="barra-fondo-modal">
+        <!-- Barra que se llena proporcional al número de respuestas correctas -->
         <div class="barra-llenado-modal" [style.width.%]="(puntuacion.correctas / puntuacion.totalPreguntas) * 100"></div>
       </div>
+      <!-- Texto que indica el número de aciertos -->
       <p>{{ puntuacion.correctas }} de {{ puntuacion.totalPreguntas }} correctas</p>
     </div>
-
+    
+    <!-- Botones de acción del modal -->
     <div class="modal-botones">
+      <!-- Confirma la salida del juego -->
       <button class="btn-confirmar" (click)="confirmarSalir()">Sí, salir</button>
+      <!-- Cancela la salida y mantiene el jugador en el juego -->
       <button class="btn-cancelar" (click)="cancelarSalir()">Cancelar</button>
     </div>
   </div>
 </div>
 
+<!-- Notificación tipo toast que aparece al desbloquear un logro -->
 <div class="toast-logro" *ngIf="logroDesbloqueado">
   🎉 ¡Logro desbloqueado! <br>
   <strong>{{ logroDesbloqueado }}</strong>

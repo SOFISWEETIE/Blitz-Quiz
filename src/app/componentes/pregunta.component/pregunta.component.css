@@ -123,14 +123,14 @@
 .puntos {
   position: relative;
   align-self: center;
-  background: linear-gradient(90deg, #f7c646, #ffd06a);  /* Degradado alegre */
-  padding: 16px 32px;  /* <<-- Un poquito más grande (de 8px/14px a 16px/32px) */
-  border-radius: 30px;  /* Más redondito */
-  font-size: 48px;  /* <<-- Un poquito más grande (de ~20px a 48px, visible pero no monstruo) */
+  background: linear-gradient(90deg, #f7c646, #ffd06a);
+  padding: 10px 20px;
+  border-radius: 24px;
+  font-size: 32px;
   font-weight: 900;
   color: #1a1a1a;
-  box-shadow: 0 12px 30px rgba(255, 179, 0, 0.3);  /* Sombra suave */
-  animation: popSuave 0.5s ease-out;  /* Animación pop suave y corta */
+  box-shadow: 0 10px 24px rgba(255, 179, 0, 0.3);
+  animation: popSuave 0.5s ease-out;
   z-index: 10;
 }
 

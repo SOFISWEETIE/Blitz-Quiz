@@ -1,8 +1,9 @@
+/* Establecimiento de la tipografía principal para toda la aplicación */
 * {
   font-family: 'Roboto', sans-serif;
 }
 
-
+/* Contenedor principal del módulo de selección de alias y mascotas */
 .alias-container {
   display: flex;
   flex-direction: column;
@@ -17,6 +18,7 @@
   overflow: hidden;  
 }
 
+/* Título principal de la sección */
 h1 {
   text-align: center;
   color: #4b2dbd;
@@ -24,13 +26,14 @@ h1 {
   margin: 10px 0 20px 0;  
 }
 
+/* Subtítulo explicativo de la sección */
 .sub-text {
   color: #555;
   margin: 0 0 16px 0; 
   text-align: center;
 }
 
-
+/* Contenedor que organiza las mascotas en formato de cuadrícula */
 .mascotas-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(68px, 1fr));
@@ -40,6 +43,7 @@ h1 {
   max-width: 306px;
 }
 
+/* Tarjeta individual que representa cada mascota disponible */
 .mascota {
   background: #f0ebff;
   border-radius: 14px;
@@ -51,6 +55,7 @@ h1 {
   transition: 0.2s ease, transform 0.2s ease;
 }
 
+/* Imagen de la mascota dentro de la tarjeta */
 .mascota img {
   width: 85px;
   height: 85px;
@@ -58,26 +63,31 @@ h1 {
   border-radius: 50%;
 }
 
+/* Efecto visual al pasar el cursor sobre la mascota */
 .mascota:hover {
   transform: translateY(-3.4px);
   box-shadow: 0 3.4px 8.5px rgba(0,0,0,0.15);
 }
 
+/* Estilo de la mascota activa / seleccionada */
 .mascota.activa {
   border: 2.55px solid #3a0ca3;
   background: #e0d8ff;
 }
 
+/* Imagen de la mascota activa sin filtro */
 .mascota.activa img {
   filter: none; 
 }
 
+/* Contenedor para el ícono circular decorativo */
 .icon-wrapper {
   display: flex;
   justify-content: center;
   margin-bottom: 10px;  
 }
 
+/* Icono de mascota en formato circular con sombra */
 .icon-circle {
   width: 85px;
   height: 85px;
@@ -90,12 +100,14 @@ h1 {
   overflow: hidden;
 }
 
+/* Imagen dentro del icono circular */
 .icon-circle img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
+/* Campo de entrada para el alias del usuario */
 input {
   width: 100%;
   max-width: 400px;
@@ -109,11 +121,13 @@ input {
   transition: 0.2s;
 }
 
+/* Efecto de enfoque al seleccionar el campo de alias */
 input:focus {
   border-color: #3a0ca3;
   box-shadow: 0 0 5.1px rgba(58, 12, 163, 0.4);
 }
 
+/* Contenedor de botones de acción guardar, cancelar, etc... */
 .botones-acciones {
   display: flex;
   gap: 10.2px;
@@ -124,6 +138,7 @@ input:focus {
 }
 
 
+/* Botón principal para guardar el alias o selección */
 .btn-guardar {
   background: #4b2dbd;
   color: white;
@@ -138,6 +153,7 @@ input:focus {
   transition: 0.2s ease;
 }
 
+/* Efecto visual al pasar el cursor sobre el botón guardar */
 .btn-guardar:hover {
   background: #f7c646;
   color: black;
@@ -145,19 +161,25 @@ input:focus {
 
 /* ───────── MÓVIL ───────── */
 @media (max-width: 480px) { 
+
+  /* Ajustes de contenedor y padding para dispositivos pequeños */
   .alias-container {
     padding: 15px 15px 30px;  
   }
+
+  /* Ajuste de tamaño del título principal */
   h1 { 
     font-size: 24px; 
     margin: 5px 0 16px 0;  
   } 
-    
+
+  /* Ajuste de subtítulo */
   .sub-text { 
     font-size: 14px; 
     margin-bottom: 12px; 
   } 
-    
+
+  /* Ajuste de tamaño del icono circular */
   .icon-circle { 
     width: 119px;  
     height: 119px;
@@ -169,11 +191,13 @@ input:focus {
     object-fit: cover; 
   } 
 
+  /* Ajuste de la cuadrícula de mascotas */
   .mascotas-grid { 
     gap: 13.6px; 
     max-width: 340px; 
   } 
-  
+
+  /* Ajuste del tamaño de imagen de mascota */
   .mascota img { 
     width: 61.2px; 
     height: 61.2px; 
@@ -184,15 +208,18 @@ input:focus {
     padding: 10.2px; 
     margin-bottom: 8px; 
   } 
-  
+
+  /* Ajuste de botones de acción */
   .botones-acciones { 
     gap: 8.5px; 
     margin-top: 10px; 
     margin-bottom: 0; 
   } 
-  
+
+  /* Ajuste de botón guardar */
   .btn-guardar { 
     font-size: 11.9px; 
     padding: 8.5px 11.9px; 
   } 
+
 }

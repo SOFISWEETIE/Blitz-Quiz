@@ -30,6 +30,8 @@
     "@angular/forms": "^20.3.0",
     "@angular/platform-browser": "^20.3.0",
     "@angular/router": "^20.3.0",
+    "@emailjs/browser": "^4.4.1",
+    "angularx-qrcode": "^20.0.0",
     "canvas-confetti": "^1.9.4",
     "gsap": "^3.14.2",
     "rxjs": "~7.8.0",

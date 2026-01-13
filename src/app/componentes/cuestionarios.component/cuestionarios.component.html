@@ -1,0 +1,126 @@
+<div class="contenedor">
+
+    <h2>Mis cuestionarios</h2>
+
+    <div class="acciones">
+        <button class="btn-primary" (click)="nuevo()">➕ Nuevo cuestionario</button>
+    </div>
+
+    <!-- LISTADO -->
+    <div *ngIf="!creando" class="lista">
+        <div class="card" *ngFor="let c of cuestionarios">
+            <h3>{{ c.titulo }}</h3>
+            <p>{{ c.descripcion }}</p>
+            <small>{{ c.preguntas?.length || 0 }} preguntas</small>
+
+            <div class="acciones">
+                <button class="btn-secondary" (click)="editar(c)">Editar</button>
+                <button class="danger" (click)="eliminar(c.id)">Eliminar</button>
+                <button class="btn-secondary" (click)="abrirInvitar(c)">Invitar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- EDITOR -->
+    <div *ngIf="creando" class="editor">
+
+        <input placeholder="Título del cuestionario" [(ngModel)]="formulario.titulo">
+
+        <textarea placeholder="Descripción del cuestionario" [(ngModel)]="formulario.descripcion"></textarea>
+
+        <h3>Preguntas</h3>
+
+        <div class="pregunta" *ngFor="let p of formulario.preguntas; let i = index">
+
+            <input class="enunciado" placeholder="Enunciado de la pregunta" [(ngModel)]="p.enunciado">
+
+            <div class="opciones">
+                <div class="opcion" *ngFor="let op of p.opciones; let j = index; trackBy: trackByIndex"
+                    [class.correcta]="p.correcta === j">
+
+                    <input class="radio-correcta" type="radio" [name]="'correcta' + i" [checked]="p.correcta === j"
+                        (change)="p.correcta = j">
+
+                    <input class="texto-respuesta" type="text" placeholder="Respuesta {{ j + 1 }}"
+                        [(ngModel)]="p.opciones[j]" (click)="$event.stopPropagation()"
+                        (keydown)="$event.stopPropagation()">
+
+                </div>
+            </div>
+
+
+            <div class="acciones">
+                <button class="danger small" (click)="eliminarPregunta(i)">
+                    Eliminar pregunta
+                </button>
+            </div>
+
+        </div>
+
+        <div class="acciones">
+            <button class="btn-secondary" (click)="anadirPregunta()">
+                ➕ Añadir pregunta
+            </button>
+        </div>
+
+        <div class="acciones">
+            <button class="btn-primary" (click)="guardar()">Guardar</button>
+            <button class="btn-secondary" (click)="cancelar()">Cancelar</button>
+        </div>
+
+    </div>
+
+</div>
+<div class="modal" *ngIf="mostrarInvitar">
+
+  <div class="modal-backdrop" (click)="cerrarInvitar()"></div>
+
+  <div class="modal-card">
+
+    <h3>Invitar a jugar</h3>
+
+    <p class="muted">
+      Cuestionario: <b>{{ cuestionarioSeleccionado?.titulo }}</b>
+    </p>
+
+    <!-- QR REAL -->
+    <div class="qr-wrapper">
+      <qrcode
+        [qrdata]="enlaceInvitacion"
+        [width]="220"
+        [errorCorrectionLevel]="'M'">
+      </qrcode>
+    </div>
+
+    <p class="muted small">
+      Escanea este QR para jugar el cuestionario
+    </p>
+<div class="email-box">
+  <input
+    class="email-input"
+    type="email"
+    placeholder="Email del invitado"
+    [(ngModel)]="emailInvitado"
+    name="emailInvitado"
+  >
+
+  <button
+    class="btn-primary"
+    [disabled]="enviandoEmail"
+    (click)="enviarInvitacionEmail()"
+  >
+    Enviar invitación
+  </button>
+</div>
+
+<p class="muted small" *ngIf="estadoEmail">
+  {{ estadoEmail }}
+</p>
+
+    <div class="modal-footer">
+      <button class="btn-secondary" (click)="cerrarInvitar()">Cerrar</button>
+    </div>
+
+  </div>
+
+</div>

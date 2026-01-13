@@ -1,4 +1,4 @@
-<div class="card-pregunta">
+<div class="card-pregunta" *ngIf="pregunta as p">
 
   <h2 class="modo">
     {{ seleccion.modo === 'aleatorio' ? 'MODO ALEATORIO' : 'MODO CLÁSICO' }}
@@ -9,7 +9,7 @@
   <span class="badge" [ngClass]="seleccion.dificultad.toLowerCase()">{{ seleccion.dificultad }}</span>
   </div>
 
-  <h3 class="pregunta-text">{{ pregunta.pregunta }}</h3>
+<h3 class="pregunta-text">{{ p.pregunta }}</h3>
 
   <p class="meta">Pregunta {{ numeroPregunta }} de {{ totalPreguntas }}</p>
 
@@ -50,5 +50,3 @@
   </div>
 
 </div>
-
-

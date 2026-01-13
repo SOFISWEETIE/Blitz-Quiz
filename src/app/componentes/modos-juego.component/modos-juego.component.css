@@ -91,6 +91,14 @@ h1 {
 .modo-card.blitz .modo-desc {
   font-size: 22px;
 }
+.modo-card.crear {
+  border: 2px dashed #6a5acd;
+  background: rgba(106, 90, 205, 0.08);
+}
+
+.modo-card.crear:hover {
+  background: rgba(106, 90, 205, 0.15);
+}
 
 
 .modo-card.blitz::before {

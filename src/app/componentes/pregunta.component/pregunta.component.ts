@@ -43,24 +43,30 @@ export class PreguntaComponent implements OnChanges, OnDestroy {
     }
   }
 
-  prepararPregunta() {
-    clearInterval(this.intervalo);
-    this.opcionesMezcladas = [...this.pregunta.opciones].sort(() => Math.random() - 0.5);
-    this.mostrarPuntos = false;
-    this.puntosGanados = 0;
+ prepararPregunta() {
+  clearInterval(this.intervalo)
 
-    this.tiempoInicio = Date.now();
+  this.opcionesMezcladas = [...this.pregunta.opciones].sort(() => Math.random() - 0.5)
 
-    if (this.seleccion.modo === 'aleatorio') {
-      this.tiempoInicial = this.tiempoAleatorio();
-      this.tiempoRestante = this.tiempoInicial;
-    } else {
-      this.tiempoInicial = 20;
-      this.tiempoRestante = 20;
-    }
-    
-    this.iniciarTemporizador();
+  this.respuestaSeleccionada = null
+  this.bloquearOpciones = false
+
+  this.mostrarPuntos = false
+  this.puntosGanados = 0
+
+  this.tiempoInicio = Date.now()
+
+  if (this.seleccion.modo === 'aleatorio') {
+    this.tiempoInicial = this.tiempoAleatorio()
+    this.tiempoRestante = this.tiempoInicial
+  } else {
+    this.tiempoInicial = 20
+    this.tiempoRestante = 20
   }
+
+  this.iniciarTemporizador()
+}
+
 
   tiempoAleatorio(): number {
     return Math.floor(Math.random() * (20 - 8 + 1)) + 8;

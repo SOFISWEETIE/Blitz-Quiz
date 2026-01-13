@@ -27,4 +27,7 @@ export class ModosJuegoComponent {
   this.seleccion.establecerModo('rapidas');
   this.router.navigate(['app/juego']);
 }
-}
+  crearCuestionario() {
+  this.router.navigate(['app/cuestionarios'])
+  }
+}   

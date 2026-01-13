@@ -15,6 +15,7 @@ import { LogrosService } from '../../servicios/logros.service';
 
 import { JuegoGuard } from '../../servicios/juego.guard';
 
+/* Componente principal que gestiona la partida en todos los modos */
 @Component({
   selector: 'app-juego',
   standalone: true,
@@ -24,20 +25,24 @@ import { JuegoGuard } from '../../servicios/juego.guard';
 })
 export class JuegoComponent implements OnInit, JuegoGuard {
 
+  /*  Preguntas para modo rápido y su índice actual */
   preguntasRapidas: any[] = [];
   indiceRapida = 0;
 
+  /* Estados generales de la partida */
   partidaTerminada = false; 
   mostrarModalSalir = false;
 
+  /* Gestión de logros desbloqueados y cola de notificaciones */
   logroDesbloqueado: string | null = null;
   colaLogros: string[] = [];
   mostrandoLogro = false;
 
  
-
+  /* Resolver para bloqueo de salida */
   private _resolverSalir?: (valor: boolean) => void;
 
+  /* Constructor con inyección de servicios */
   constructor(
     public puntuacion: PuntuacionService,
     public seleccion: SeleccionService,
@@ -47,14 +52,17 @@ export class JuegoComponent implements OnInit, JuegoGuard {
     private logrosService: LogrosService
   ) {}
 
+  /* Inicializa la partida */
   async ngOnInit() {
     this.puntuacion.reiniciar();
     await this.logrosService.inicializarLogros();
 
+    /* Reinicia rachas blitz si no es modo rápidas */
     if (this.seleccion.modo !== 'rapidas') {
       this.puntuacion.blitzConsecutivas = 0;
     }
 
+    /* Carga preguntas según el modo seleccionado */
     if (this.seleccion.modo === 'rapidas') {
       await this.cargarPreguntasRapidas();
     } else {
@@ -63,7 +71,8 @@ export class JuegoComponent implements OnInit, JuegoGuard {
   }
 
    // BLOQUEO DE SALIDA
-  
+
+  /* Se llama al intentar salir del juego. Devuelve promesa que se resuelve cuando el jugador confirma o cancela */
   puedeSalir(): Promise<boolean> {
     return new Promise(resolve => {
       if (this.partidaTerminada) {
@@ -80,6 +89,7 @@ export class JuegoComponent implements OnInit, JuegoGuard {
     });
   }
 
+  /* Confirma la salida y navega a selección de modos */
   confirmarSalir() {
     this.partidaTerminada = true;
     this.mostrarModalSalir = false;
@@ -89,6 +99,7 @@ export class JuegoComponent implements OnInit, JuegoGuard {
     this.router.navigate(['app/modos']);
   }
 
+  /* Cancela la salida, mantiene la partida activa */
   cancelarSalir() {
     this.mostrarModalSalir = false;
     if (this._resolverSalir) {
@@ -96,6 +107,7 @@ export class JuegoComponent implements OnInit, JuegoGuard {
     }
   }
 
+  /* Bloquea recarga de página si la partida no terminó */
   @HostListener('window:beforeunload', ['$event'])
   bloquearRecarga(event: BeforeUnloadEvent) {
     if (!this.partidaTerminada) {
@@ -103,7 +115,10 @@ export class JuegoComponent implements OnInit, JuegoGuard {
       event.returnValue = '';
     }
   }
+  
+  /* ─── CARGA DE PREGUNTAS ─── */
 
+  /* Carga preguntas clásicas o aleatorias según el modo */
   private async cargarPreguntasClasicas() {
     try {
       let categoria: string;
@@ -136,6 +151,7 @@ export class JuegoComponent implements OnInit, JuegoGuard {
     }
   }
 
+  /* Carga preguntas rápidas desde JSON local */
   private async cargarPreguntasRapidas() {
     try {
       const data: any = await firstValueFrom(this.http.get('assets/preguntas.json'));
@@ -159,21 +175,26 @@ export class JuegoComponent implements OnInit, JuegoGuard {
     }
   }
 
-  // MODO CLÁSICO / ALEATORIO
+  /* ─── FUNCIONES DE PARTIDA ─── */
+
+  /* Obtiene la pregunta actual en modo clásico/aleatorio */
   preguntaActual() { return this.puntuacion.preguntasActuales[this.puntuacion.indice]; }
+  /* Devuelve número de pregunta actual */
   numeroPregunta() { return this.puntuacion.indice + 1; }
+  /* Devuelve total de preguntas en la partida */
   totalPreguntas() { return this.puntuacion.totalPreguntas; }
 
+  /* Avanza a la siguiente pregunta en modo clásico/aleatorio */
   async avanzarPregunta(evento: { acierto: boolean; tiempo: number }) {
     const logros  = await this.logrosService.obtenerLogros();
 
-    // Primer acierto
+    /* Primer acierto */
     if (evento.acierto && !logros['primerAcierto']) {
       const logro: string = await this.logrosService.desbloquear('primerAcierto');
       this.mostrarNotificacionLogro(logro);
     }
 
-    // Racha general
+    /* Racha general */
     if (evento.acierto) {
       if (this.puntuacion.rachaActual >= 5 && !logros['rachaCinco']) {
         const logro: string = await this.logrosService.desbloquear('rachaCinco');
@@ -194,6 +215,7 @@ export class JuegoComponent implements OnInit, JuegoGuard {
     }
   }
 
+  /* Finaliza partida clásica/aleatoria y desbloquea logros según progreso */
   private async finalizarPartida() {
     const logros = await this.logrosService.obtenerLogros();
 
@@ -207,19 +229,19 @@ export class JuegoComponent implements OnInit, JuegoGuard {
       this.mostrarNotificacionLogro(logro);
     }
 
-    // Perfecto clásico/aleatorio
+    /*  Perfecto clásico/aleatorio */
     if (this.puntuacion.correctas === this.puntuacion.totalPreguntas) {
       const logro: string = await this.logrosService.desbloquear('rachaPerfectaClasico');
       this.mostrarNotificacionLogro(logro);
     }
 
-    // Puntos generales (plata)
+    /* Puntos generales (plata) */
     if (this.puntuacion.puntosTotales >= 150 && !logros['puntos150']) {
       const logro: string = await this.logrosService.desbloquear('puntos150');
       this.mostrarNotificacionLogro(logro);
     }
 
-    // Puntos diamante (para cualquier modo, aunque sea difícil)
+    /* Puntos diamante (para cualquier modo, aunque sea difícil) */
     if (this.puntuacion.puntosTotales >= 300 && !logros['puntos300']) {
       const logro: string = await this.logrosService.desbloquear('puntos300');
       this.mostrarNotificacionLogro(logro);
@@ -243,14 +265,17 @@ export class JuegoComponent implements OnInit, JuegoGuard {
     }
   }
 
-  // MODO BLITZ
+  /* ─── MODO BLITZ / RÁPIDAS ─── */
+  
+  /* Devuelve la pregunta actual en modo rápidas */
   preguntaActualRapida() { return this.preguntasRapidas[this.indiceRapida]; }
 
+  /* Avanza a la siguiente pregunta en modo blitz */
   async avanzarRapida(evento: { acierto: boolean; tiempo: number }) {
     const logros = await this.logrosService.obtenerLogros();
 
     if (evento.acierto) {
-      // Racha general (también cuenta en blitz)
+      /* Racha general (también cuenta en blitz) */
       if (this.puntuacion.rachaActual >= 5 && !logros['rachaCinco']) {
         const logro: string = await this.logrosService.desbloquear('rachaCinco');
         this.mostrarNotificacionLogro(logro);
@@ -260,7 +285,7 @@ export class JuegoComponent implements OnInit, JuegoGuard {
         this.mostrarNotificacionLogro(logro);
       }
 
-      // Blitz velocista (5 aciertos en blitz)
+      /* Blitz velocista (5 aciertos en blitz) */
       if (this.puntuacion.correctas >= 5 && !logros['blitzRapido']) {
         const logro: string = await this.logrosService.desbloquear('blitzRapido');
         this.mostrarNotificacionLogro(logro);
@@ -276,6 +301,7 @@ export class JuegoComponent implements OnInit, JuegoGuard {
     }
   }
 
+  /* Finaliza partida rápidas y desbloquea logros */
   private async finalizarPartidaRapidas() {
     const logros = await this.logrosService.obtenerLogros();
 
@@ -289,31 +315,31 @@ export class JuegoComponent implements OnInit, JuegoGuard {
       this.mostrarNotificacionLogro(logro);
     }
 
-    // Perfecto Blitz
+    /* Perfecto Blitz */
     if (this.puntuacion.correctas === 20) {
       const logro: string = await this.logrosService.desbloquear('blitzPerfecto');
       this.mostrarNotificacionLogro(logro);
     }
 
-    // Puntos plata general
+    /* Puntos plata general */
     if (this.puntuacion.puntosTotales >= 150 && !logros['puntos150']) {
       const logro: string = await this.logrosService.desbloquear('puntos150');
       this.mostrarNotificacionLogro(logro);
     }
 
-    // Superviviente Blitz (oro)
+    /* Superviviente Blitz (oro) */
     if (this.puntuacion.puntosTotales >= 150 && !logros['blitzSobreviviente']) {
       const logro: string = await this.logrosService.desbloquear('blitzSobreviviente');
       this.mostrarNotificacionLogro(logro);
     }
 
-    // Millonario diamante
+    /* Millonario diamante */
     if (this.puntuacion.puntosTotales >= 300 && !logros['puntos300']) {
       const logro: string = await this.logrosService.desbloquear('puntos300');
       this.mostrarNotificacionLogro(logro);
     }
 
-    // Maratón Blitz
+    /* Maratón Blitz */
     this.puntuacion.blitzConsecutivas++;
     if (this.puntuacion.blitzConsecutivas >= 5 && !logros['blitzMaraton']) {
       const logro: string = await this.logrosService.desbloquear('blitzMaraton');
@@ -338,11 +364,15 @@ export class JuegoComponent implements OnInit, JuegoGuard {
     }
   }
 
+  /* ─── GESTIÓN DE LOGROS ─── */
+  
+  /* Muestra notificación de logro desbloqueado */
   mostrarNotificacionLogro(id: string) {
     this.colaLogros.push(id);
     this.procesarColaLogros();
   }
 
+  /* Procesa la cola de logros para mostrar uno a la vez */
   private procesarColaLogros() {
     if (this.mostrandoLogro || this.colaLogros.length === 0) return;
 

@@ -2,9 +2,13 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AuthService } from '../../servicios/auth.service';
 import { Router } from '@angular/router';
-import { gsap } from 'gsap';
 
-/* Componente responsable de la gestión de la vista de autenticación */
+/**
+ * Componente principal de la pantalla de login.
+ * Gestiona el inicio de sesión con Google a través de Firebase Authentication,
+ * muestra un modal de consentimiento previo al login,
+ * maneja estados de carga y errores, y proporciona feedback al usuario.
+ */
 @Component({
   selector: 'app-login',
   standalone: true,
@@ -14,35 +18,54 @@ import { gsap } from 'gsap';
 })
 export class LoginComponent {
 
-  /* Indica si el proceso de autenticación está en curso */
+  /**
+   * Flag que indica si hay una operación de autenticación en curso.
+   * Se usa para deshabilitar botones y mostrar "Cargando..." en el modal.
+   */
   loading = false;
 
-  /* Almacena el mensaje de error en caso de fallo */
+  /**
+   * Mensaje de error a mostrar en la interfaz.
+   * Puede ser null (sin error) o un string con la descripción del problema.
+   */
   error: string | null = null;
 
-  /* Controla la visualización del modal de confirmación */
-  mostrarDialogo = false; 
+  /**
+   * Controla la visibilidad del modal de consentimiento antes de iniciar el login.
+   * true → muestra el modal; false → lo oculta.
+   */
+  mostrarDialogo = false;  
 
-  /* Inyección de dependencias: servicio de autenticación y enrutador */
+  /**
+   * Constructor del componente.
+   * Inyecta los servicios necesarios para autenticación y navegación.
+   * 
+   * @param auth Servicio personalizado que encapsula la lógica de Firebase Auth
+   * @param router Servicio nativo de Angular para manejar la navegación entre rutas
+   */
   constructor(private auth: AuthService, private router: Router) { }
 
-  /* Abre el diálogo de confirmación antes de iniciar el login */
+  /**
+   * Abre el modal de consentimiento cuando el usuario pulsa el botón "Registrate con Google".
+   * No inicia el login hasta que se acepte explícitamente.
+   */
   abrirDialogo() {
     this.mostrarDialogo = true;
   }
 
-  /* Confirma el consentimiento y ejecuta el proceso de autenticación */
   async confirmarAceptar() {
     this.mostrarDialogo = false;
     await this.ejecutarLogin();
   }
 
-  /* Cancela el proceso y cierra el diálogo */
   cancelarDialogo() {
     this.mostrarDialogo = false;
   }
 
-  /* Ejecuta el login con Google a través del servicio de autenticación */
+  /**
+   * Método privado que realiza el proceso real de autenticación con Google.
+   * Gestiona el estado de loading, captura errores y limpia el estado al finalizar. 
+   */
   private async ejecutarLogin() {
     this.loading = true;
     try {
@@ -55,41 +78,4 @@ export class LoginComponent {
       this.loading = false;
     }
   }
-
-  /* Inicializa animaciones tras la carga completa de la vista */
-  ngAfterViewInit() {
-
-  /* Referencia al logo de la aplicación */
-  const logo = document.querySelector('.logo-login');
-
-  /* Animación inicial de entrada del logo */
-  gsap.from(".logo-login", { 
-    scale: 0.7, 
-    opacity: 0, 
-    duration: 0.6, 
-    ease: "back.out(1.7)" 
-  }); 
-
-  /* Efecto visual al pasar el cursor sobre el logo */
-  logo?.addEventListener('mouseenter', () => {
-    gsap.to(logo, {
-      scale: 1.1,
-      y: -6,
-      duration: 0.25,
-      ease: "back.out(2)"
-    });
-  });
-
-  /* Restauración del estado inicial al retirar el cursor */
-  logo?.addEventListener('mouseleave', () => {
-    gsap.to(logo, {
-      scale: 1,
-      y: 0,
-      duration: 0.25,
-      ease: "back.out(2)"
-    });
-  });
-}
-
-
 }

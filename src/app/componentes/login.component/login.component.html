@@ -20,7 +20,6 @@
     
     <!-- Nombre de la aplicación -->
     <h1 class="brand">Blitz-Quiz</h1>
-    <!-- Texto descriptivo -->
     <p class="subtitle">Inicia sesión para entrar en el juego</p>
 
     <!-- Botón de autenticación con Google -->
@@ -49,11 +48,9 @@
         <br><br>
           Tus datos se almacenan de forma segura y no se comparten con terceros.
       </p>
-      <!-- Botones de acción del modal -->
+      <!-- Botones de acción del modal para aceptar o cancelar -->
       <div class="modal-buttons">
-        <!-- Botón para cancelar el proceso -->
         <button class="btn-cancelar" (click)="cancelarDialogo()">Cancelar</button>
-        <!-- Botón para aceptar y continuar -->
         <button class="btn-aceptar" (click)="confirmarAceptar()" [disabled]="loading">
           {{ loading ? 'Cargando...' : 'Aceptar y continuar' }}
         </button>
@@ -61,7 +58,7 @@
     </div>
   </div>
 
-  <!-- Footer inferior de la página -->
+  <!-- Footer inferior -->
   <footer class="login-footer">
     <span>© 2026 Blitz-Quiz</span>
   </footer>

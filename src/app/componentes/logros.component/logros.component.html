@@ -1,4 +1,3 @@
-<!-- Vista encargada de mostrar los logros del usuario clasificados por nivel -->
 
 <!-- Contenedor principal de la vista de logros -->
 <div class="logros-container">
@@ -8,18 +7,14 @@
 
   <!-- Sección de logros de nivel Bronce -->
   <div class="seccion-logros">
-    <!-- Título del nivel Bronce -->
     <h2 class="titulo-nivel">Bronce 🥉</h2>
-    <!-- Contenedor de logros del nivel Bronce -->
     <div class="logros-grid">
       
       <!-- Logro individual se genera dinámicamente -->
       <div class="logro" *ngFor="let logro of getLogrosPorNivel('bronce')" [class.desbloqueado]="desbloqueado(logro.id)">
         <!-- Icono del logro según su estado -->
         <div class="icono">{{ desbloqueado(logro.id) ? '🥉' : '🔒' }}</div>
-        <!-- Título del logro -->
         <h4>{{ logro.titulo }}</h4>
-        <!-- Descripción del logro -->
         <p>{{ logro.descripcion }}</p>
       </div>
     </div>
@@ -27,9 +22,7 @@
 
   <!-- Sección de logros de nivel Plata -->
   <div class="seccion-logros">
-    <!-- Título del nivel Plata -->
     <h2 class="titulo-nivel">Plata 🥈</h2>
-    <!-- Contenedor de logros del nivel Plata -->
     <div class="logros-grid">
       
       <!-- Logro individual se genera dinámicamente -->
@@ -74,9 +67,9 @@
       <div class="logro" *ngFor="let logro of getLogrosPorNivel('diamante')" [class.desbloqueado]="desbloqueado(logro.id)">
         <!-- Icono del logro según su estado -->
         <div class="icono">{{ desbloqueado(logro.id) ? '💎' : '🔒' }}</div>
-        <!-- Título del logro -->
+       
         <h4>{{ logro.titulo }}</h4>
-        <!-- Descripción del logro -->
+        
         <p>{{ logro.descripcion }}</p>
       </div>
     </div>

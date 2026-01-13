@@ -1,38 +1,49 @@
+<!-- Contenedor principal del módulo de selección de alias y mascotas -->
 <div class="alias-container">
 
+  <!-- Título principal de la sección -->
   <h1>Elige tu alias</h1>
 
-  <!-- Ver de forma clara la mascota seleccionada -->
+  <!-- Visualización destacada de la mascota actualmente seleccionada -->
   <div class="icon-wrapper">
     <div class="icon-circle">
       <img [src]="mascotaSeleccionada" alt="Mascota seleccionada" />
     </div>
   </div>
 
-  <!-- Selección mascotas -->
+  <!-- Subtítulo indicativo para la selección de mascotas -->
   <h3 class="mascota-title">Elige tu mascota:</h3>
   <br>
+  
+  <!-- Contenedor de las mascotas disponibles, presentado en cuadrícula responsiva -->
   <div class="mascotas-grid">
+    <!-- Iteración sobre la lista de mascotas para generar cada tarjeta individual -->
     <div
       class="mascota"
       *ngFor="let m of mascotas"
       [class.activa]="mascotaSeleccionada === m.src"
       (click)="mascotaSeleccionada = m.src">
+      <!-- Imagen representativa de la mascota -->
       <img [src]="m.src" [alt]="m.nombre" />
     </div>
   </div>
 
+  <!-- Texto explicativo sobre la función del alias -->
   <p class="sub-text">Este será tu nombre público.</p>
 
+  <!-- Campo de entrada para que el usuario introduzca su alias -->
   <input
     type="text"
     [(ngModel)]="alias"
     placeholder="Tu alias"
     maxlength="20"/>
 
+  <!-- Contenedor de botones de acción para confirmar la selección -->
   <div class="botones-acciones">
+    <!-- Botón para guardar el alias y la mascota seleccionada -->
     <button class="btn-guardar" (click)="guardar()">
       Guardar alias
     </button>
   </div>
+
 </div>

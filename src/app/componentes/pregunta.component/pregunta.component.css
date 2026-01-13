@@ -272,22 +272,66 @@
 ================================ */
 
 @media (max-width: 480px) {
+
+  /* CARD */
+  .card-pregunta {
+    padding: 20px;
+    gap: 14px;
+  }
+
+  /* BADGES MÁS PEQUEÑOS */
+  .info-aleatorio {
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .info-aleatorio .badge {
+    font-size: 13px;
+    padding: 8px 14px;
+    border-radius: 14px;
+  }
+
+  /* PREGUNTA */
   .pregunta-text {
-    font-size: 24px;
+    font-size: 22px;
+  }
+
+  /* OPCIONES MÁS ANCHAS (2 EN 2) */
+  .opciones-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
   }
 
   .opcion-btn {
-    font-size: 16px;
-    padding: 18px;
+    padding: 18px 14px;
+    font-size: 15px;
+    border-radius: 14px;
+  }
+
+  /* BLOQUES ACIERTOS / ERRORES MÁS PEQUEÑOS */
+  .bloques-contador {
+    gap: 12px;
+    flex-wrap: wrap;
   }
 
   .bloque {
-    width: 140px;
-    height: 110px;
+    width: 130px;
+    height: 90px;
+    border-radius: 14px;
   }
 
-  .barra-progreso {
-    max-width: 320px;
-    height: 18px;
+  .numero {
+    font-size: 26px;
   }
+
+  .texto {
+    font-size: 14px;
+  }
+
+  .puntos { 
+    padding: 8px 16px; 
+    font-size: 16px; 
+    border-radius: 18px; 
+    box-shadow: 0 6px 16px rgba(255, 179, 0, 0.25); }
 }
+

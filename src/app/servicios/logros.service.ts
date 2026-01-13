@@ -67,11 +67,11 @@ export class LogrosService {
     return data;
   }
 
-  async desbloquear(id: string) {
-    if (!this.ref) return;
+  async desbloquear(id: string): Promise<string> {
+    if (!this.ref) return id;
 
     const snap = await getDoc(this.ref);
-    if (snap.exists() && snap.data()?.[id]) return;
+    if (snap.exists() && snap.data()?.[id]) return id;
 
     console.log('Desbloqueando logro:', id);
 
@@ -80,5 +80,7 @@ export class LogrosService {
     
     const newData = snap.exists() ? { ...snap.data(), [id]: true } : { [id]: true };
     this.logros$.next(newData);
+    return id;
+
   }
 }

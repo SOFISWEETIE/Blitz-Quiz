@@ -4,6 +4,7 @@ import { ServicioRanking } from '../../servicios/ranking.service';
 import { AuthService } from '../../servicios/auth.service';
 import { PuntuacionService } from '../../servicios/puntuacion.service';
 import { firstValueFrom } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-ranking',
@@ -22,7 +23,14 @@ export class RankingComponent {
   ) {
     // cargar ranking de la semana actual al iniciar el componente
     const semana = this.getSemanaActual();
-    this.ranking$ = this.servicioRanking.obtenerRankingSemanal(semana);
+    this.ranking$ = this.servicioRanking
+    .obtenerRankingSemanal(semana)
+    .pipe(
+      map((ranking: any[]) =>
+        ranking.filter(jugador => jugador.puntuacion > 0)
+      )
+    );
+
   }
 
   // metodo que guarda la puntuacion del usuario actual en la semana actual
@@ -44,7 +52,7 @@ export class RankingComponent {
       const idJugador = user.uid;
       const nombreJugador = aliasData.alias;
       const mascotaJugador = aliasData.mascota; 
-      const puntos = this.puntuacion.puntosTotales || 0;
+      const puntos = this.puntuacion.puntosTotales ?? 0;
 
       // Llamada al servicio que guarda en Firestore (asumo que devuelve Promise)
       await this.servicioRanking.guardarPuntuacionSemanal( 
@@ -56,7 +64,14 @@ export class RankingComponent {
       );
 
       // refresh del ranking para que se vea el nuevo registro en la lista
-      this.ranking$ = this.servicioRanking.obtenerRankingSemanal(idSemana);
+      this.ranking$ = this.servicioRanking
+      .obtenerRankingSemanal(idSemana)
+      .pipe(
+        map((ranking: any[]) =>
+          ranking.filter(jugador => jugador.puntuacion > 0)
+        )
+      );
+
 
       console.log(`Guardado ranking: ${nombreJugador} (${idJugador}) — ${puntos} pts — mascota: ${mascotaJugador}`);
     } catch (err) {

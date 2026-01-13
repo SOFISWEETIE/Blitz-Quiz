@@ -8,6 +8,8 @@ import { AuthService } from '../../servicios/auth.service';
 import { firstValueFrom } from 'rxjs';
 import { RankingComponent } from '../ranking.component/ranking.component';
 import { frasesMotivadoras } from './frases-motivadoras';
+import confetti from 'canvas-confetti';
+
 
 @Component({
   selector: 'app-resultados',
@@ -19,6 +21,7 @@ import { frasesMotivadoras } from './frases-motivadoras';
 export class ResultadosComponent {
   puestoJugador: number | null = null;
   frase: string = '';
+  puntosAnimados = 0;
   
   constructor(
     public seleccion: SeleccionService,
@@ -29,8 +32,6 @@ export class ResultadosComponent {
   ) {}  
 
 
-  
-
 
   async ngOnInit() {
     // Guardar resultado automáticamente al entrar en la pantalla de resultados
@@ -38,10 +39,15 @@ export class ResultadosComponent {
     await this.calcularPuestoJugador();
     const randomIndex = Math.floor(Math.random() * frasesMotivadoras.length);
     this.frase = frasesMotivadoras[randomIndex];
+    // Se lanza confeti si la puntuación es mayor que 0 
+    if (this.puntuacion.puntosTotales > 0) {
+    this.lanzarConfeti();
+    } 
+    // Se ve como se van sumando los puntos
+    this.animarPuntos();
   }
 
   
-
 
   async guardarResultadoEnRanking() {
     try {
@@ -119,6 +125,55 @@ export class ResultadosComponent {
     return weekNo;
   }
 
+  // función para lanzar confeti
+  private lanzarConfeti() {
+    const duration = 1500; // duración total
+    const end = Date.now() + duration;
 
-  
+    const frame = () => {
+      // Lado izquierdo
+      confetti({
+        particleCount: 8,
+        angle: 60,
+        spread: 55,
+        origin: { x: 0, y: 0.6 }
+      });
+
+      // Lado derecho
+      confetti({
+        particleCount: 8,
+        angle: 120,
+        spread: 55,
+        origin: { x: 1, y: 0.6 }
+      });
+
+      if (Date.now() < end) {
+        requestAnimationFrame(frame);
+      }
+    };
+
+    frame();
+  }
+
+
+  // Animación de los puntos al final
+  private animarPuntos() {
+    const total = this.puntuacion.puntosTotales;
+    let current = 0;
+
+    // velocidad (más pequeño = más lento)
+    const step = Math.ceil(total / 40);
+
+    const interval = setInterval(() => {
+      current += step;
+
+      if (current >= total) {
+        this.puntosAnimados = total;
+        clearInterval(interval);
+      } else {
+        this.puntosAnimados = current;
+      }
+    }, 20); 
+  }
+
 }

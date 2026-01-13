@@ -28,7 +28,13 @@ export class JuegoComponent implements OnInit, JuegoGuard {
   indiceRapida = 0;
 
   partidaTerminada = false; 
-  mostrarModalSalir = false; 
+  mostrarModalSalir = false;
+
+  logroDesbloqueado: string | null = null;
+  colaLogros: string[] = [];
+  mostrandoLogro = false;
+
+ 
 
   private _resolverSalir?: (valor: boolean) => void;
 
@@ -159,20 +165,23 @@ export class JuegoComponent implements OnInit, JuegoGuard {
   totalPreguntas() { return this.puntuacion.totalPreguntas; }
 
   async avanzarPregunta(evento: { acierto: boolean; tiempo: number }) {
-    const logros = await this.logrosService.obtenerLogros();
+    const logros  = await this.logrosService.obtenerLogros();
 
     // Primer acierto
     if (evento.acierto && !logros['primerAcierto']) {
-      await this.logrosService.desbloquear('primerAcierto');
+      const logro: string = await this.logrosService.desbloquear('primerAcierto');
+      this.mostrarNotificacionLogro(logro);
     }
 
     // Racha general
     if (evento.acierto) {
       if (this.puntuacion.rachaActual >= 5 && !logros['rachaCinco']) {
-        await this.logrosService.desbloquear('rachaCinco');
+        const logro: string = await this.logrosService.desbloquear('rachaCinco');
+        this.mostrarNotificacionLogro(logro);
       }
       if (this.puntuacion.rachaActual >= 10 && !logros['rachaDiez']) {
-        await this.logrosService.desbloquear('rachaDiez');
+        const logro: string = await this.logrosService.desbloquear('rachaDiez');
+        this.mostrarNotificacionLogro(logro);
       }
     }
 
@@ -189,40 +198,48 @@ export class JuegoComponent implements OnInit, JuegoGuard {
     const logros = await this.logrosService.obtenerLogros();
 
     if (!logros['primerJuego']) {
-      await this.logrosService.desbloquear('primerJuego');
+      const logro: string = await this.logrosService.desbloquear('primerJuego');
+      this.mostrarNotificacionLogro(logro);
     }
 
     if (!logros['clasicoIniciado']) {
-      await this.logrosService.desbloquear('clasicoIniciado');
+      const logro: string = await this.logrosService.desbloquear('clasicoIniciado');
+      this.mostrarNotificacionLogro(logro);
     }
 
     // Perfecto clásico/aleatorio
     if (this.puntuacion.correctas === this.puntuacion.totalPreguntas) {
-      await this.logrosService.desbloquear('rachaPerfectaClasico');
+      const logro: string = await this.logrosService.desbloquear('rachaPerfectaClasico');
+      this.mostrarNotificacionLogro(logro);
     }
 
     // Puntos generales (plata)
     if (this.puntuacion.puntosTotales >= 150 && !logros['puntos150']) {
-      await this.logrosService.desbloquear('puntos150');
+      const logro: string = await this.logrosService.desbloquear('puntos150');
+      this.mostrarNotificacionLogro(logro);
     }
 
     // Puntos diamante (para cualquier modo, aunque sea difícil)
     if (this.puntuacion.puntosTotales >= 300 && !logros['puntos300']) {
-      await this.logrosService.desbloquear('puntos300');
+      const logro: string = await this.logrosService.desbloquear('puntos300');
+      this.mostrarNotificacionLogro(logro);
     }
 
     this.puntuacion.incrementarPartidasJugadas();
     this.puntuacion.añadirModoJugado(this.seleccion.modo);
 
     if (this.puntuacion.partidasJugadas >= 10 && !logros['partidasDiez']) {
-      await this.logrosService.desbloquear('partidasDiez');
+      const logro: string = await this.logrosService.desbloquear('partidasDiez');
+      this.mostrarNotificacionLogro(logro);
     }
     if (this.puntuacion.partidasJugadas >= 50 && !logros['partidasCincuenta']) {
-      await this.logrosService.desbloquear('partidasCincuenta');
+      const logro: string = await this.logrosService.desbloquear('partidasCincuenta');
+      this.mostrarNotificacionLogro(logro);
     }
 
     if (this.puntuacion.modosJugados.size >= 3 && !logros['multiModo']) {
-      await this.logrosService.desbloquear('multiModo');
+      const logro: string = await this.logrosService.desbloquear('multiModo');
+      this.mostrarNotificacionLogro(logro);
     }
   }
 
@@ -235,15 +252,18 @@ export class JuegoComponent implements OnInit, JuegoGuard {
     if (evento.acierto) {
       // Racha general (también cuenta en blitz)
       if (this.puntuacion.rachaActual >= 5 && !logros['rachaCinco']) {
-        await this.logrosService.desbloquear('rachaCinco');
+        const logro: string = await this.logrosService.desbloquear('rachaCinco');
+        this.mostrarNotificacionLogro(logro);
       }
       if (this.puntuacion.rachaActual >= 10 && !logros['rachaDiez']) {
-        await this.logrosService.desbloquear('rachaDiez');
+        const logro: string = await this.logrosService.desbloquear('rachaDiez');
+        this.mostrarNotificacionLogro(logro);
       }
 
       // Blitz velocista (5 aciertos en blitz)
       if (this.puntuacion.correctas >= 5 && !logros['blitzRapido']) {
-        await this.logrosService.desbloquear('blitzRapido');
+        const logro: string = await this.logrosService.desbloquear('blitzRapido');
+        this.mostrarNotificacionLogro(logro);
       }
     }
 
@@ -259,47 +279,82 @@ export class JuegoComponent implements OnInit, JuegoGuard {
   private async finalizarPartidaRapidas() {
     const logros = await this.logrosService.obtenerLogros();
 
-    if (!logros['primerJuego']) await this.logrosService.desbloquear('primerJuego');
-    if (!logros['blitzValiente']) await this.logrosService.desbloquear('blitzValiente');
+    if (!logros['primerJuego']) {
+      const logro: string = await this.logrosService.desbloquear('primerJuego');
+      this.mostrarNotificacionLogro(logro);
+    }
+
+    if (!logros['blitzValiente']) {
+      const logro: string = await this.logrosService.desbloquear('blitzValiente');
+      this.mostrarNotificacionLogro(logro);
+    }
 
     // Perfecto Blitz
     if (this.puntuacion.correctas === 20) {
-      await this.logrosService.desbloquear('blitzPerfecto');
+      const logro: string = await this.logrosService.desbloquear('blitzPerfecto');
+      this.mostrarNotificacionLogro(logro);
     }
 
     // Puntos plata general
     if (this.puntuacion.puntosTotales >= 150 && !logros['puntos150']) {
-      await this.logrosService.desbloquear('puntos150');
+      const logro: string = await this.logrosService.desbloquear('puntos150');
+      this.mostrarNotificacionLogro(logro);
     }
 
     // Superviviente Blitz (oro)
     if (this.puntuacion.puntosTotales >= 150 && !logros['blitzSobreviviente']) {
-      await this.logrosService.desbloquear('blitzSobreviviente');
+      const logro: string = await this.logrosService.desbloquear('blitzSobreviviente');
+      this.mostrarNotificacionLogro(logro);
     }
 
     // Millonario diamante
     if (this.puntuacion.puntosTotales >= 300 && !logros['puntos300']) {
-      await this.logrosService.desbloquear('puntos300');
+      const logro: string = await this.logrosService.desbloquear('puntos300');
+      this.mostrarNotificacionLogro(logro);
     }
 
     // Maratón Blitz
     this.puntuacion.blitzConsecutivas++;
     if (this.puntuacion.blitzConsecutivas >= 5 && !logros['blitzMaraton']) {
-      await this.logrosService.desbloquear('blitzMaraton');
+      const logro: string = await this.logrosService.desbloquear('blitzMaraton');
+      this.mostrarNotificacionLogro(logro);
     }
 
     this.puntuacion.incrementarPartidasJugadas();
     this.puntuacion.añadirModoJugado('rapidas');
 
     if (this.puntuacion.partidasJugadas >= 10 && !logros['partidasDiez']) {
-      await this.logrosService.desbloquear('partidasDiez');
+      const logro: string = await this.logrosService.desbloquear('partidasDiez');
+      this.mostrarNotificacionLogro(logro);
     }
     if (this.puntuacion.partidasJugadas >= 50 && !logros['partidasCincuenta']) {
-      await this.logrosService.desbloquear('partidasCincuenta');
+      const logro: string = await this.logrosService.desbloquear('partidasCincuenta');
+      this.mostrarNotificacionLogro(logro);
     }
 
     if (this.puntuacion.modosJugados.size >= 3 && !logros['multiModo']) {
-      await this.logrosService.desbloquear('multiModo');
+      const logro: string = await this.logrosService.desbloquear('multiModo');
+      this.mostrarNotificacionLogro(logro);
     }
   }
+
+  mostrarNotificacionLogro(id: string) {
+    this.colaLogros.push(id);
+    this.procesarColaLogros();
+  }
+
+  private procesarColaLogros() {
+    if (this.mostrandoLogro || this.colaLogros.length === 0) return;
+
+    this.mostrandoLogro = true;
+    this.logroDesbloqueado = this.colaLogros.shift()!;
+
+    setTimeout(() => {
+      this.logroDesbloqueado = null;
+      this.mostrandoLogro = false;
+      this.procesarColaLogros();
+    }, 4500);
+  }
+
+
 }

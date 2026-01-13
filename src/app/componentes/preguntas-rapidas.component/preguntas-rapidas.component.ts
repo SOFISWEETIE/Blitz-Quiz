@@ -7,7 +7,7 @@ import { PuntuacionService } from '../../servicios/puntuacion.service';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './preguntas-rapidas.component.html',
-  styleUrl: './preguntas-rapidas.component.css'
+  styleUrl: './preguntas-rapidas.component.css',
 })
 export class PreguntaRapidasComponent implements OnChanges, OnDestroy {
   @Input() pregunta: any = null;
@@ -21,7 +21,6 @@ export class PreguntaRapidasComponent implements OnChanges, OnDestroy {
   puntosGanados: number = 0;
   mostrarPuntos: boolean = false;
 
-  
   respuestaSeleccionada: string | null = null;
 
   constructor(public puntuacion: PuntuacionService) {}
@@ -36,13 +35,13 @@ export class PreguntaRapidasComponent implements OnChanges, OnDestroy {
     clearInterval(this.intervalo);
     this.opcionesMezcladas = [...this.pregunta.opciones].sort(() => Math.random() - 0.5);
 
-    // Tiempo aleatorio 3-6 segundos
-    this.tiempoTotal = Math.floor(Math.random() * (6 - 3 + 1)) + 3;
+    // Tiempo aleatorio 5-8 segundos
+    this.tiempoTotal = Math.floor(Math.random() * (7 - 4 + 1)) + 4;
     this.tiempoRestante = this.tiempoTotal;
 
     this.mostrarPuntos = false;
     this.puntosGanados = 0;
-    this.respuestaSeleccionada = null; // ← Reset colores
+    this.respuestaSeleccionada = null;
 
     this.iniciarTemporizador();
   }
@@ -53,8 +52,8 @@ export class PreguntaRapidasComponent implements OnChanges, OnDestroy {
 
       if (this.tiempoRestante <= 0) {
         clearInterval(this.intervalo);
-        
-        this.respuestaSeleccionada = null; 
+
+        this.respuestaSeleccionada = null;
         this.puntosGanados = -30;
         this.puntuacion.puntosTotales -= 30;
         this.puntuacion.incorrectas++;
@@ -70,7 +69,6 @@ export class PreguntaRapidasComponent implements OnChanges, OnDestroy {
   responder(opcion: string) {
     clearInterval(this.intervalo);
 
-    
     this.respuestaSeleccionada = opcion;
 
     let acierto = false;

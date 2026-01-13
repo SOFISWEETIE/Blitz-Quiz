@@ -4,10 +4,16 @@
   <div class="resultados">
     <h1>¡FIN DEL QUIZ!</h1>
 
-    <h2>
-      ¡Enhorabuena!<br>
-      Sacaste <strong>{{ puntuacion.puntosTotales }}</strong> puntos
+    <h2 *ngIf="puntuacion.puntosTotales >= 0">
+    ¡Enhorabuena!<br>
+    Sacaste <strong>{{ puntosAnimados }}</strong> puntos
     </h2>
+
+    <h2 *ngIf="puntuacion.puntosTotales < 0">
+      ¡Ups!<br>
+      Sacaste <strong>{{ puntosAnimados }}</strong> puntos...
+    </h2>
+
 
     <p *ngIf="seleccion.modo === 'rapidas'">
       <strong>PREGUNTAS BLITZ</strong><br>

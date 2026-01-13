@@ -2,6 +2,7 @@ import { Component, Input, Output, EventEmitter, OnChanges, OnDestroy } from '@a
 import { CommonModule } from '@angular/common';
 import { PuntuacionService } from '../../servicios/puntuacion.service';
 import { SeleccionService } from '../../servicios/seleccion.service';
+import { gsap } from 'gsap';
 
 @Component({
   selector: 'app-pregunta',
@@ -30,6 +31,15 @@ export class PreguntaComponent implements OnChanges, OnDestroy {
   ngOnChanges() {
     if (this.pregunta) {
       this.prepararPregunta();
+
+      // Animación GSAP al cargar nueva pregunta 
+      gsap.from(".pregunta-text", { 
+        scale: 0.85, 
+        opacity: 0, 
+        duration: 0.35, 
+        ease: "power2.out" 
+      });
+
     }
   }
 

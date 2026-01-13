@@ -26,7 +26,6 @@ body {
 .logo-login {
   width: 180px;
   margin-bottom: 12px;
-  animation: aparecerLogo 1s ease-out;
 }
 
 /* Card central de login: contiene logo, título, subtítulo y botón Google */
@@ -323,4 +322,11 @@ body {
 }
 
 /*Responsive*/
-@media (max-width: 768px) { .card { max-width: 380px; padding: 32px; } .logo-login { width: 160px; } .brand { font-size: 32px; } .google-btn { font-size: 17px; } .circle { filter: blur(70px); } .circle1, .circle2, .circle3, .circle4, .circle5, .circle6 { width: 260px; height: 260px; } }
+@media (max-width: 768px) { 
+  .card { max-width: 380px; padding: 32px; } 
+  .logo-login { width: 160px; } 
+  .brand { font-size: 32px; } 
+  .google-btn { font-size: 17px; } 
+  .circle { filter: blur(70px); } 
+  .circle1, .circle2, .circle3, .circle4, .circle5, .circle6 { width: 260px; height: 260px; } 
+}

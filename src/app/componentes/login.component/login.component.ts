@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AuthService } from '../../servicios/auth.service';
 import { Router } from '@angular/router';
+import { gsap } from 'gsap';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,7 @@ import { Router } from '@angular/router';
 export class LoginComponent {
   loading = false;
   error: string | null = null;
-  mostrarDialogo = false;  // <<-- NUEVO: controla el modal
+  mostrarDialogo = false; 
 
   constructor(private auth: AuthService, private router: Router) { }
 
@@ -46,4 +47,37 @@ export class LoginComponent {
       this.loading = false;
     }
   }
+
+  ngAfterViewInit() {
+  const logo = document.querySelector('.logo-login');
+
+  // animación inicial 
+  gsap.from(".logo-login", { 
+    scale: 0.7, 
+    opacity: 0, 
+    duration: 0.6, 
+    ease: "back.out(1.7)" 
+  }); 
+
+  //Rebote al pasar el ratón
+  logo?.addEventListener('mouseenter', () => {
+    gsap.to(logo, {
+      scale: 1.1,
+      y: -6,
+      duration: 0.25,
+      ease: "back.out(2)"
+    });
+  });
+
+  logo?.addEventListener('mouseleave', () => {
+    gsap.to(logo, {
+      scale: 1,
+      y: 0,
+      duration: 0.25,
+      ease: "back.out(2)"
+    });
+  });
+}
+
+
 }

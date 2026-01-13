@@ -32,19 +32,23 @@
 
 .top-bar {
   height: 65px;
-  background: #3a0ca3;
+  background: linear-gradient(180deg, #3a0ca3, #6b00c2);
   color: white;
   display: flex;
   align-items: center;
   padding: 0 24px;
   justify-content: space-between;
-  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1), 0 0 8px rgba(255, 255, 255, 0.2);
+  z-index: 10;
 }
 
 .top-bar .logo {
   font-size: 26px;
   font-weight: 700;
   cursor: pointer;
+  font-family: 'Fugaz One', sans-serif; 
+  font-size: 32px; 
+  letter-spacing: 1px;
 }
 
 .top-bar .logo:hover { 
@@ -168,7 +172,7 @@
 
 .ranking-wrapper {
   position: relative;
-  margin-right: 20px; 
+  
   
 }
 
@@ -220,7 +224,7 @@
   position: fixed;
   inset: 0;
   background: transparent;
-  z-index: 999;
+  z-index: 5;
 }
 
 @keyframes moverFondo {

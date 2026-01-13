@@ -40,8 +40,8 @@ mascotaSeleccionada = this.mascotas[0].src;
 
   const aliasLimpio = this.alias.trim().toLowerCase();
 
-  if (aliasLimpio.length < 3) {
-    alert('El alias debe tener al menos 3 caracteres');
+  if (aliasLimpio.length < 3 || aliasLimpio.length > 20) {
+    alert('El alias debe tener al menos 3 caracteres y no más de 20');
     return;
   }
 

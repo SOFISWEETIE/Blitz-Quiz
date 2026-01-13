@@ -1,7 +1,9 @@
+/* Definición global de la tipografía base de la aplicación */
 * {
   font-family: 'Roboto', sans-serif;
 }
 
+/* Ajustes generales del documento para evitar scroll no deseado */
 html, body {
   height: 100%;
   margin: 0;
@@ -9,6 +11,7 @@ html, body {
   overflow: hidden; 
 }
 
+/* Contenedor principal de la vista de logros */
 .logros-container {
   padding: 10px;
   max-width: 1000px;
@@ -19,6 +22,7 @@ html, body {
   position: relative;
 }
 
+/* Título principal de la sección de logros */
 .titulo-principal {
   text-align: center;
   font-size: 32px;
@@ -27,10 +31,12 @@ html, body {
   font-weight: 800;
 }
 
+/* Contenedor individual de cada nivel de logros */
 .seccion-logros {
   margin-bottom: 20px;
 }
 
+/* Título correspondiente a cada nivel de logros */
 .titulo-nivel {
   text-align: center;
   font-size: 26px;
@@ -39,6 +45,7 @@ html, body {
   color: #4b2dbd;
 }
 
+/* Contenedor de presentación de los logros de cada nivel */
 .logros-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -47,6 +54,7 @@ html, body {
 }
 
 
+/* Estilos base de cada tarjeta de logro */
 .logro {
   background: #c1cdf9;
   border-radius: 16px;  
@@ -63,17 +71,20 @@ html, body {
   align-items: center;
 }
 
+/* Estilos aplicados a los logros desbloqueados */
 .logro.desbloqueado {
   background: linear-gradient(135deg, #f7c646, #ffd06a);
   transform: translateY(-6px);
   box-shadow: 0 12px 24px rgba(247, 198, 70, 0.4);
 }
 
+/* Icono representativo del logro */
 .logro .icono {
   font-size: 36px;  
   margin-bottom: 6px;
 }
 
+/* Título del logro */
 .logro h4 {
   font-size: 16px;
   color: #4b2dbd;
@@ -81,6 +92,7 @@ html, body {
   font-weight: 700;
 }
 
+/* Información detallada sobre el logro */
 .logro p {
   font-size: 13px;
   color: #4b2dbd;
@@ -89,29 +101,36 @@ html, body {
 
 /* ───────── MÓVIL ───────── */
 @media (max-width: 480px) {
+  
+  /* Ajuste del contenedor principal en pantallas reducidas */
   .logros-container {
     padding: 20px 14px;
   }
 
+  /* Reorganización del listado de logros en dos columnas */
   .logros-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 14px;
   }
 
+  /* Reducción del tamaño de las tarjetas */
   .logro {
     padding: 14px 16px;  
     max-width: none;  
     min-height: 80px;  
   }
 
+  /* Ajuste del tamaño del icono */
   .icono {
     font-size: 30px;
   }
 
+  /* Ajuste tipográfico del título del logro */
   .logro h4 {
     font-size: 14px;
   }
 
+  /* Ajuste tipográfico de la descripción */
   .logro p {
     font-size: 12px;
   }
@@ -119,10 +138,13 @@ html, body {
 
 /* ───────── MÓVIL PEQUEÑO ───────── */
 @media (max-width: 600px) {
+
+  /* Visualización de los logros en una única columna */
   .logros-grid {
     grid-template-columns: 1fr;
   }
 
+  /* Ajustes de tamaño de las tarjetas */
   .logro {
     max-width: none;  
     min-height: 90px;

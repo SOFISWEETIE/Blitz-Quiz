@@ -1,31 +1,36 @@
 <div class="layout">
-  <!-- Barra superior -->
+  <!-- ───────── BARRA SUPERIOR ───────── -->
   <header class="top-bar">
+    <!-- Logo de la app -->
     <div class="logo" (click)="irAlInicio()">BLITZ-QUIZ</div>
 
-    <!-- BOTÓN RANKING -->
+    <!-- ───────── BOTÓN RANKING ───────── -->
     <div class="ranking-wrapper" (click)="$event.stopPropagation()">
       <div class="ranking-trigger"
      [class.desactivado]="desactivarRanking"
      (click)="toggleRanking()">
 
+        <!-- Texto y flecha del ranking -->
         <span>Ranking </span>
         <span class="arrow">{{ rankingAbierto ? '▲' : '▼' }}</span>
       </div>
 
+      <!-- Menú desplegable del ranking -->
       <div class="ranking-menu" *ngIf="rankingAbierto">
         <app-ranking></app-ranking>
       </div>
     </div>
 
-    <!-- PERFIL USUARIO -->
+    <!-- ───────── PERFIL USUARIO ───────── -->
     <div class="perfil-wrapper" *ngIf="aliasData$ | async as data" (click)="$event.stopPropagation()">
+      <!-- Botón disparador del menú de perfil -->
       <div class="perfil-trigger" (click)="toggleMenu()">
         <img *ngIf="data.mascota" [src]="data.mascota" class="avatar"/>
         <span class="username">{{ data.alias || 'Invitado' }}</span>
         <span class="arrow">{{ menuAbierto ? '▲' : '▼' }}</span>
       </div>
 
+      <!-- Menú desplegable del perfil -->
       <div class="perfil-menu" *ngIf="menuAbierto">
         <img *ngIf="data.mascota" [src]="data.mascota" class="avatar-grande" />
         <div class="alias-grande">{{ data.alias }}</div>
@@ -36,15 +41,17 @@
     </div>
   </header>
 
+  <!-- Fondo mosaico animado -->
   <div class="fondo-mosaico"></div>
 
-  <!-- Zona principal -->
+  <!-- ───────── ZONA PRINCIPAL ───────── -->
   <main class="contenido">
     <section class="pantalla-juego">
+      <!-- Contenedor para cargar los componentes de cada ruta hija -->
       <router-outlet></router-outlet>
     </section>
   </main>
 
-  <!--  clicando fuera se cierra -->
+  <!-- Overlay para cerrar menús al clicar fuera -->
   <div class="overlay" *ngIf="menuAbierto || rankingAbierto" (click)="menuAbierto = false; rankingAbierto = false"></div>
 </div>

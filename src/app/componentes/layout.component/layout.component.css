@@ -1,8 +1,10 @@
+/* ───────── ESTILOS GENERALES ───────── */
 * {
   box-sizing: border-box;
   font-family: 'Roboto', sans-serif;
 }
 
+/* Layout principal */
 .layout {
   display: flex;
   flex-direction: column;
@@ -10,6 +12,7 @@
   background: rgba(230, 237, 245, 0.6);
 }
 
+/* Fondo de mosaico animado */
 .fondo-mosaico { 
   position: absolute; 
   top: 0; 
@@ -25,11 +28,14 @@
   animation: moverFondo 60s linear infinite, pulsoFondo 8s ease-in-out infinite;
 
 } 
+
+/* Contenido por encima del fondo */
 .contenido { 
   position: relative; 
   z-index: 1; 
 }
 
+/* ───────── TOP BAR ───────── */
 .top-bar {
   height: 65px;
   background: linear-gradient(180deg, #3a0ca3, #6b00c2);
@@ -42,6 +48,7 @@
   z-index: 10;
 }
 
+/* Logo de la top bar */
 .top-bar .logo {
   font-size: 26px;
   font-weight: 700;
@@ -51,15 +58,18 @@
   letter-spacing: 1px;
 }
 
+/* Efecto hover del logo */
 .top-bar .logo:hover { 
   color: #f7c646; 
   text-shadow: 0 0 6px rgba(247, 198, 70, 0.6); 
 }
 
+/* ───────── PERFIL ───────── */
 .perfil-wrapper {
   position: relative;
 }
 
+/* Botón disparador del menú de perfil */
 .perfil-trigger {
   display: flex;
   align-items: center;
@@ -75,6 +85,7 @@
   background: rgba(255, 255, 255, 0.2);
 }
 
+/* Avatar pequeño */
 .avatar {
   width: 32px;
   height: 32px;
@@ -82,11 +93,13 @@
   object-fit: cover;
 }
 
+/* Flecha del menú */
 .arrow {
   font-size: 12px;
   color: white;
 }
 
+/* Menú desplegable de perfil */
 .perfil-menu {
   position: absolute;
   top: 100%;
@@ -101,9 +114,9 @@
   align-items: center;
   gap: 8px;
   z-index: 1000;
-
 }
 
+/* Avatar grande dentro del menú */
 .avatar-grande {
   width: 56px;
   height: 56px;
@@ -112,12 +125,14 @@
   border: 2px solid #3a0ca3;
 }
 
+/* Alias grande */
 .alias-grande {
   font-weight: 600;
   color: #3a0ca3;
 }
 
 
+/* Botones dentro del menú */
 .btn-menu {
   width: 100%;
   padding: 6px 0;
@@ -135,6 +150,7 @@
   color: white;
 }
 
+/* Botón de salir */
 .btn-menu.salir {
   background: #ffe5e5;
   color: #d63031;
@@ -147,6 +163,7 @@
 }
 
 
+/* ───────── CONTENIDO ───────── */
 .contenido {
   flex: 1;
   display: flex;
@@ -155,6 +172,7 @@
 }
 
 
+/* Pantalla del juego */
 .pantalla-juego {
   flex: 1;
   background: #ffffff;
@@ -170,12 +188,12 @@
   margin-bottom: 20px;
 }
 
+/* ───────── RANKING ───────── */
 .ranking-wrapper {
   position: relative;
-  
-  
 }
 
+/* Botón disparador ranking */
 .ranking-trigger {
   display: flex;
   align-items: center;
@@ -205,6 +223,7 @@
   pointer-events: none;
 }
 
+/* Menú desplegable ranking */
 .ranking-menu {
   position: absolute;
   top: 100%;
@@ -220,6 +239,7 @@
   overflow-y: auto;
 }
 
+/* Overlay transparente */
 .overlay {
   position: fixed;
   inset: 0;
@@ -227,6 +247,7 @@
   z-index: 5;
 }
 
+/* ───────── ANIMACIONES ───────── */
 @keyframes moverFondo {
   0% {
     background-position: 0 0;
@@ -246,8 +267,7 @@
 }
 
 
-/* responsive */
-
+/* ───────── RESPONSIVE ───────── */
 @media (max-width: 768px) {
 
   .top-bar {
@@ -260,6 +280,7 @@
     font-size: 20px;
   }
 
+  /* Ajuste botones ranking y perfil */
   .ranking-trigger,
   .perfil-trigger {
     padding: 4px 6px;
@@ -267,6 +288,7 @@
     font-size: 14px;
   }
 
+  /* Menú ranking responsive */
   .ranking-menu {
     width: calc(100% - 32px);
     position: fixed;
@@ -277,11 +299,13 @@
     border-radius: 18px;
   }
 
+  /* Menú perfil responsive */
   .perfil-menu {
     width: 160px;
     right: 0;
   }
 
+  /* Contenido general responsive */
   .contenido {
     padding: 12px;
   }

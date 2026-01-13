@@ -4,6 +4,7 @@ import { AuthService } from '../../servicios/auth.service';
 import { Router } from '@angular/router';
 import { gsap } from 'gsap';
 
+/* Componente responsable de la gestión de la vista de autenticación */
 @Component({
   selector: 'app-login',
   standalone: true,
@@ -12,29 +13,36 @@ import { gsap } from 'gsap';
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
+
+  /* Indica si el proceso de autenticación está en curso */
   loading = false;
+
+  /* Almacena el mensaje de error en caso de fallo */
   error: string | null = null;
+
+  /* Controla la visualización del modal de confirmación */
   mostrarDialogo = false; 
 
+  /* Inyección de dependencias: servicio de autenticación y enrutador */
   constructor(private auth: AuthService, private router: Router) { }
 
-  // Al pulsar el botón grande mostramos el dialog primero
+  /* Abre el diálogo de confirmación antes de iniciar el login */
   abrirDialogo() {
     this.mostrarDialogo = true;
   }
 
-  // Si acepta en el dialog → login real
+  /* Confirma el consentimiento y ejecuta el proceso de autenticación */
   async confirmarAceptar() {
     this.mostrarDialogo = false;
     await this.ejecutarLogin();
   }
 
-  // Si cancela → cierra dialog y se queda en login
+  /* Cancela el proceso y cierra el diálogo */
   cancelarDialogo() {
     this.mostrarDialogo = false;
   }
 
-  // El login real (lo que antes tenías en login())
+  /* Ejecuta el login con Google a través del servicio de autenticación */
   private async ejecutarLogin() {
     this.loading = true;
     try {
@@ -48,10 +56,13 @@ export class LoginComponent {
     }
   }
 
+  /* Inicializa animaciones tras la carga completa de la vista */
   ngAfterViewInit() {
+
+  /* Referencia al logo de la aplicación */
   const logo = document.querySelector('.logo-login');
 
-  // animación inicial 
+  /* Animación inicial de entrada del logo */
   gsap.from(".logo-login", { 
     scale: 0.7, 
     opacity: 0, 
@@ -59,7 +70,7 @@ export class LoginComponent {
     ease: "back.out(1.7)" 
   }); 
 
-  //Rebote al pasar el ratón
+  /* Efecto visual al pasar el cursor sobre el logo */
   logo?.addEventListener('mouseenter', () => {
     gsap.to(logo, {
       scale: 1.1,
@@ -69,6 +80,7 @@ export class LoginComponent {
     });
   });
 
+  /* Restauración del estado inicial al retirar el cursor */
   logo?.addEventListener('mouseleave', () => {
     gsap.to(logo, {
       scale: 1,

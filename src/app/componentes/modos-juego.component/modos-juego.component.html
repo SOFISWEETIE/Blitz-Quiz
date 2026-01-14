@@ -1,7 +1,11 @@
+<!-- Título principal de la pantalla de selección de modo -->
 <h1>¿Preparado para jugar?</h1>
+<!-- Subtítulo -->
 <h2 class="subtitle">¡Escoge tu modo!</h2>
 
+<!-- Contenedor de los modos Clásico y Aleatorio -->
 <div class="fila-superior">
+  <!-- Tarjeta del Modo Clásico -->
   <div class="modo-card" (click)="elegirClasico()">
     <div class="inner">
       <h3 class="modo-titulo">Modo Clásico</h3>
@@ -9,6 +13,7 @@
     </div>
   </div>
 
+  <!-- Tarjeta del Modo Aleatorio -->
   <div class="modo-card" (click)="elegirAleatorio()">
     <div class="inner">
       <h3 class="modo-titulo">Modo Aleatorio</h3>
@@ -17,6 +22,7 @@
   </div>
 </div>
 
+<!-- Tarjeta destacada del Modo Blitz -->
 <div class="modo-card blitz" (click)="elegirRapidas()">
   <div class="inner">
     <h3 class="modo-titulo">MODO BLITZ</h3>

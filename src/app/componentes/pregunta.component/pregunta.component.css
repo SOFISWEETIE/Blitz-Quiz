@@ -1,7 +1,3 @@
-/* ===============================
-   CARD PREGUNTA (FONDO MORADO)
-================================ */
-
 .card-pregunta {
   display: flex;
   flex-direction: column;
@@ -12,53 +8,49 @@
   width: 100%;
 }
 
-/* ===============================
-  INFORMACIÓN EXTRA PARA EL JUGADOR (CATEGORÍA / DIFICULTAD) 
-================================ */
+
 
 .info-aleatorio {
   display: flex;
-  gap: 16px; 
+  gap: 16px;
   justify-content: center;
   margin-top: 18px;
 }
 
 .info-aleatorio .badge {
-  padding: 12px 24px;        
-  border-radius: 20px;     
-  font-size: 18px;           
+  padding: 12px 24px;
+  border-radius: 20px;
+  font-size: 18px;
   font-weight: 800;
   background: linear-gradient(180deg, #c1cdf9, #a18fff);
-  color: white;             
-  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+  color: white;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
   transition: all 0.3s ease;
   text-transform: capitalize;
 }
 
 /* Cambia el color con la dificultad */
 .info-aleatorio .badge.facil {
-  background: linear-gradient(180deg, #d4f7d4, #a8e6a3); 
+  background: linear-gradient(180deg, #d4f7d4, #a8e6a3);
   color: #2e7d32;
 }
 
 .info-aleatorio .badge.media {
-  background: linear-gradient(180deg, #fff6c0, #ffde78); 
+  background: linear-gradient(180deg, #fff6c0, #ffde78);
   color: #b58900;
 }
 
 .info-aleatorio .badge.dificil {
-  background: linear-gradient(180deg, #ffd2d2, #ff9f9f); 
+  background: linear-gradient(180deg, #ffd2d2, #ff9f9f);
   color: #c0392b;
 }
 
 .info-aleatorio .badge:hover {
   transform: translateY(-4px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
 }
 
-/* ===============================
-   MODO CLÁSICO / ALEATORIO
-================================ */
+
 
 .modo {
   font-size: 26px;
@@ -68,9 +60,6 @@
   margin: 0;
 }
 
-/* ===============================
-   TEXTO META (Pregunta X de Y)
-================================ */
 
 .meta {
   font-size: 16px;
@@ -80,9 +69,6 @@
   margin-bottom: 6px;
 }
 
-/* ===============================
-   TIMER
-================================ */
 
 .timer {
   width: 140px;
@@ -104,9 +90,7 @@
   border-color: #ff6b6b;
 }
 
-/* ===============================
-   PREGUNTA
-================================ */
+
 
 .pregunta-text {
   font-size: 30px;
@@ -116,9 +100,6 @@
   margin: 10px 0;
 }
 
-/* ===============================
-   PUNTOS
-================================ */
 
 .puntos {
   position: relative;
@@ -135,14 +116,21 @@
 }
 
 @keyframes popSuave {
-  0% { transform: scale(0); opacity: 0; }
-  80% { transform: scale(1.1); }
-  100% { transform: scale(1); opacity: 1; }
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+
+  80% {
+    transform: scale(1.1);
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
-/* ===============================
-   BARRA DE PROGRESO (MÁS LARGA)
-================================ */
 
 .barra-progreso {
   width: 100%;
@@ -152,7 +140,7 @@
   background-color: #e0e7ff;
   border-radius: 14px;
   overflow: hidden;
-  box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .barra-relleno {
@@ -161,9 +149,6 @@
   transition: width 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-/* ===============================
-   OPCIONES
-================================ */
 
 .opciones-grid {
   display: grid;
@@ -175,16 +160,16 @@
 .opcion-btn {
   padding: 22px 24px;
   border-radius: 18px;
-  background: #c1cdf9;  
-  border: none; 
+  background: #c1cdf9;
+  border: none;
   font-size: 18px;
   font-weight: 700;
   cursor: pointer;
   width: 100%;
   transition: all 0.2s ease;
   text-align: center;
-  color: #4b2dbd;  
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  color: #4b2dbd;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 .opcion-btn:hover {
@@ -222,10 +207,7 @@
   box-shadow: none !important;
 }
 
-/* ===============================
-   BLOQUES ACERTADAS / INCORRECTAS
-   (DENTRO DEL MORADO)
-================================ */
+
 
 .bloques-contador {
   display: flex;
@@ -243,7 +225,7 @@
   justify-content: center;
   align-items: center;
   font-weight: 700;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
 }
 
 .bloque.verde {
@@ -267,19 +249,15 @@
   text-transform: lowercase;
 }
 
-/* ===============================
-   RESPONSIVE
-================================ */
+
 
 @media (max-width: 480px) {
 
-  /* CARD */
   .card-pregunta {
     padding: 20px;
     gap: 14px;
   }
 
-  /* BADGES MÁS PEQUEÑOS */
   .info-aleatorio {
     gap: 10px;
     flex-wrap: wrap;
@@ -291,12 +269,10 @@
     border-radius: 14px;
   }
 
-  /* PREGUNTA */
   .pregunta-text {
     font-size: 22px;
   }
 
-  /* OPCIONES MÁS ANCHAS (2 EN 2) */
   .opciones-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 12px;
@@ -308,7 +284,6 @@
     border-radius: 14px;
   }
 
-  /* BLOQUES ACIERTOS / ERRORES MÁS PEQUEÑOS */
   .bloques-contador {
     gap: 12px;
     flex-wrap: wrap;
@@ -328,10 +303,10 @@
     font-size: 14px;
   }
 
-  .puntos { 
-    padding: 8px 16px; 
-    font-size: 16px; 
-    border-radius: 18px; 
-    box-shadow: 0 6px 16px rgba(255, 179, 0, 0.25); }
+  .puntos {
+    padding: 8px 16px;
+    font-size: 16px;
+    border-radius: 18px;
+    box-shadow: 0 6px 16px rgba(255, 179, 0, 0.25);
+  }
 }
-

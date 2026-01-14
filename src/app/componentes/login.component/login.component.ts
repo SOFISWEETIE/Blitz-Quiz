@@ -34,7 +34,7 @@ export class LoginComponent {
    * Controla la visibilidad del modal de consentimiento antes de iniciar el login.
    * true → muestra el modal; false → lo oculta.
    */
-  mostrarDialogo = false;  
+  mostrarDialogo = false;
 
   /**
    * Constructor del componente.

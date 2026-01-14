@@ -13,7 +13,7 @@ import { SeleccionService } from '../../servicios/seleccion.service';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './modos-juego.component.html',
-styleUrl: './modos-juego.component.css'
+  styleUrl: './modos-juego.component.css'
 })
 export class ModosJuegoComponent {
 
@@ -22,7 +22,7 @@ export class ModosJuegoComponent {
   * Inyecta el servicio de enrutamiento para la navegación
   * y el servicio de selección para almacenar el modo elegido
   */
-  constructor(private router: Router, public seleccion: SeleccionService) {}
+  constructor(private router: Router, public seleccion: SeleccionService) { }
 
   /* Selecciona el modo Clásico. El usuario podrá elegir categoría y dificultad antes de iniciar la partida */
   elegirClasico() {
@@ -35,10 +35,10 @@ export class ModosJuegoComponent {
     this.seleccion.modo = 'aleatorio';
     this.router.navigate(['app/juego']);
   }
-  
+
   /* Selecciona el modo Blitz Rápidas. Se activa un modo de juego con preguntas y tiempos aleatorios */
   elegirRapidas() {
-  this.seleccion.establecerModo('rapidas');
-  this.router.navigate(['app/juego']);
-}
+    this.seleccion.establecerModo('rapidas');
+    this.router.navigate(['app/juego']);
+  }
 }

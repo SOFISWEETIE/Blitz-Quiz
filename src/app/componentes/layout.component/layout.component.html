@@ -6,9 +6,7 @@
 
     <!-- ───────── BOTÓN RANKING ───────── -->
     <div class="ranking-wrapper" (click)="$event.stopPropagation()">
-      <div class="ranking-trigger"
-     [class.desactivado]="desactivarRanking"
-     (click)="toggleRanking()">
+      <div class="ranking-trigger" [class.desactivado]="desactivarRanking" (click)="toggleRanking()">
 
         <!-- Texto y flecha del ranking -->
         <span>Ranking </span>
@@ -25,7 +23,7 @@
     <div class="perfil-wrapper" *ngIf="aliasData$ | async as data" (click)="$event.stopPropagation()">
       <!-- Botón disparador del menú de perfil -->
       <div class="perfil-trigger" (click)="toggleMenu()">
-        <img *ngIf="data.mascota" [src]="data.mascota" class="avatar"/>
+        <img *ngIf="data.mascota" [src]="data.mascota" class="avatar" />
         <span class="username">{{ data.alias || 'Invitado' }}</span>
         <span class="arrow">{{ menuAbierto ? '▲' : '▼' }}</span>
       </div>
@@ -53,5 +51,6 @@
   </main>
 
   <!-- Overlay para cerrar menús al clicar fuera -->
-  <div class="overlay" *ngIf="menuAbierto || rankingAbierto" (click)="menuAbierto = false; rankingAbierto = false"></div>
+  <div class="overlay" *ngIf="menuAbierto || rankingAbierto" (click)="menuAbierto = false; rankingAbierto = false">
+  </div>
 </div>

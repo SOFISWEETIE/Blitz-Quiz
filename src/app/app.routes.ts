@@ -8,32 +8,24 @@ import { LoginComponent } from './componentes/login.component/login.component';
 import { LayoutComponent } from './componentes/layout.component/layout.component';
 import { CrearAliasComponent } from './componentes/crear.alias.component/crear.alias.component';
 import { AliasGuard } from './servicios/alias.guard';
-
-
 import { AuthGuard } from '@angular/fire/auth-guard';
 import { redirectUnauthorizedTo } from '@angular/fire/auth-guard';
-
 import { LogrosComponent } from './componentes/logros.component/logros.component';
-
+import { JuegoGuardService } from './servicios/juego.guard';
 
 const redirectToLogin = () => redirectUnauthorizedTo(['login']);
 
-import { JuegoGuardService } from './servicios/juego.guard';
-
 
 export const routes: Routes = [
-  // 1. Entrada vacía → login
   { path: '', redirectTo: 'login', pathMatch: 'full' },
 
-  // 2. Login público
   { path: 'login', component: LoginComponent },
 
-  // 3. TODAS LAS RUTAS PROTEGIDAS con Layout
   {
     path: 'app',
     component: LayoutComponent,
-    canActivate: [AuthGuard],           
-    data: { authGuardPipe: redirectToLogin },  
+    canActivate: [AuthGuard],
+    data: { authGuardPipe: redirectToLogin },
 
     children: [
       { path: 'crear-alias', component: CrearAliasComponent },
@@ -47,6 +39,6 @@ export const routes: Routes = [
     ]
   },
 
-  // 4. Cualquier otra cosa → login
+
   { path: '**', redirectTo: 'login' }
 ];

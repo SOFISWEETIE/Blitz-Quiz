@@ -1,5 +1,5 @@
 export const LOGROS_DEF = [
-    // BRONCE
+  // BRONCE
   {
     id: 'primerJuego',
     titulo: 'Primeros pasos',
@@ -97,9 +97,9 @@ export const LOGROS_DEF = [
     nivel: 'diamante'
   },
   {
-  id: 'blitzMaraton',
-  titulo: 'Maratoniano Blitz',
-  descripcion: 'Juega 5 partidas seguidas en Modo Blitz ',
-  nivel: 'diamante'
-  } 
+    id: 'blitzMaraton',
+    titulo: 'Maratoniano Blitz',
+    descripcion: 'Juega 5 partidas seguidas en Modo Blitz ',
+    nivel: 'diamante'
+  }
 ];

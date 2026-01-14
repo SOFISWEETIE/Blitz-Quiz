@@ -9,7 +9,7 @@
   color: #4b2dbd;
   margin-bottom: 14px;
   text-align: center;
-  display: block;  
+  display: block;
 }
 
 .lista-ranking {
@@ -30,18 +30,18 @@
   color: #4b2dbd;
 }
 
-/* Todos los demás */ 
-.lista-ranking li { 
-  color: #363636;  
+/* Todos los demás */
+.lista-ranking li {
+  color: #363636;
 }
 
 .avatar {
   width: 40px;
   height: 40px;
-  border-radius: 50%;      
-  object-fit: cover;       
-  margin-right: 10px;      
-  border: 2px solid #4b2dbd; 
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 10px;
+  border: 2px solid #4b2dbd;
 }
 
 .avatar {
@@ -49,19 +49,24 @@
   height: 48px;
 }
 
-/* responsive */ 
+/* responsive */
 @media (max-width: 480px) {
-  .titulo-ranking { 
+  .titulo-ranking {
     font-size: 18px;
-     margin-bottom: 10px; } 
+    margin-bottom: 10px;
+  }
 
-  .lista-ranking li { 
-    padding: 8px 10px; 
-    font-size: 14px; 
-    border-radius: 12px; 
-    margin-bottom: 8px; gap: 8px; } 
-    
+  .lista-ranking li {
+    padding: 8px 10px;
+    font-size: 14px;
+    border-radius: 12px;
+    margin-bottom: 8px;
+    gap: 8px;
+  }
+
   .avatar {
-    width: 36px; 
-    height: 36px; 
-    margin-right: 8px; } }
+    width: 36px;
+    height: 36px;
+    margin-right: 8px;
+  }
+}

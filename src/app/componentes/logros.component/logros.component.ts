@@ -27,20 +27,20 @@ export class LogrosComponent implements OnInit {
   /**
    * Array estático con la definición completa de todos los logros de la app.
    * Importado desde logros.def.ts para mantener la configuración separada y reusable.
-   */  
+   */
   logros = LOGROS_DEF;
 
   /**
    * Objeto que almacena el estado de desbloqueo de cada logro.
    * Clave: ID del logro (string) → Valor: true si desbloqueado, false/undefined si no.
-   */  
+   */
   estado: Record<string, boolean> = {};
 
   /**
    * Inyección del Router para manejar la navegación interna.
    * @param router Servicio de Angular para redirigir al usuario
    */
-  constructor(private router: Router) {}
+  constructor(private router: Router) { }
 
   async ngOnInit() {
     this.estado = await this.logrosService.obtenerLogros();
@@ -64,7 +64,7 @@ export class LogrosComponent implements OnInit {
    * @returns Array de logros que coinciden con el nivel especificado
    */
   getLogrosPorNivel(nivel: string) {
-  return this.logros.filter(l => l.nivel === nivel);
+    return this.logros.filter(l => l.nivel === nivel);
   }
 
   /**
@@ -72,6 +72,6 @@ export class LogrosComponent implements OnInit {
    * Usado en el botón "Volver atrás" o similar.
    */
   volverAtras() {
-  this.router.navigate(['/app/modos']);
+    this.router.navigate(['/app/modos']);
   }
 }

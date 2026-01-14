@@ -21,14 +21,14 @@ export class CategoriaComponent {
    * Array estático con las categorías disponibles en la aplicación.
    * Estas categorías se muestran como tarjetas clicables en la vista.
    */
-  categorias = ['Arte','Ciencia','Deporte','Cine','Geografia','Historia'];
+  categorias = ['Arte', 'Ciencia', 'Deporte', 'Cine', 'Geografia', 'Historia'];
 
   /**
    * Constructor del componente.
    * @param router Servicio de Angular para la navegación entre rutas
    * @param seleccion Servicio compartido que almacena la categoría y dificultad seleccionadas
    */
-  constructor(private router: Router, public seleccion: SeleccionService) {}
+  constructor(private router: Router, public seleccion: SeleccionService) { }
 
   /**
    * Método llamado al hacer clic en una tarjeta de categoría.

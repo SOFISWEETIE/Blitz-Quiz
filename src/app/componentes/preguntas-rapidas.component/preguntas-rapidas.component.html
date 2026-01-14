@@ -2,7 +2,7 @@
 
 
   <h2 class="modo">MODO BLITZ</h2>
- 
+
   <h3 class="pregunta-text">
     {{ pregunta?.pregunta || 'Cargando pregunta rapidísima...' }}
   </h3>
@@ -10,33 +10,29 @@
   <p class="meta">
     Pregunta {{ numeroPregunta }} de 20
   </p>
-  
+
   <div class="barra-progreso">
-    <div class="barra-relleno"
-         [style.width.%]="(numeroPregunta / 20) * 100">
+    <div class="barra-relleno" [style.width.%]="(numeroPregunta / 20) * 100">
     </div>
   </div>
-  
+
   <div class="timer" [class.danger]="tiempoRestante <= 3">
     {{ tiempoRestante }}
   </div>
- 
+
   <div class="puntos" *ngIf="mostrarPuntos">
     {{ puntosGanados >= 0 ? '+' : '' }}{{ puntosGanados }}
   </div>
-  
+
   <div class="opciones-grid">
-    <button 
-      *ngFor="let opcion of opcionesMezcladas" 
-      (click)="responder(opcion)"
-      class="opcion-btn"
+    <button *ngFor="let opcion of opcionesMezcladas" (click)="responder(opcion)" class="opcion-btn"
       [class.correcta]="respuestaSeleccionada && opcion === pregunta?.correcta"
       [class.incorrecta]="respuestaSeleccionada === opcion && opcion !== pregunta?.correcta"
       [disabled]="respuestaSeleccionada !== null || tiempoRestante <= 0">
       {{ opcion }}
     </button>
   </div>
- 
+
   <div class="bloques-contador">
     <div class="bloque verde">
       <div class="numero">{{ puntuacion.correctas }}</div>

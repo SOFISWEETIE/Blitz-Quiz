@@ -24,12 +24,12 @@ export class RankingComponent {
     // cargar ranking de la semana actual al iniciar el componente
     const semana = this.getSemanaActual();
     this.ranking$ = this.servicioRanking
-    .obtenerRankingSemanal(semana)
-    .pipe(
-      map((ranking: any[]) =>
-        ranking.filter(jugador => jugador.puntuacion > 0)
-      )
-    );
+      .obtenerRankingSemanal(semana)
+      .pipe(
+        map((ranking: any[]) =>
+          ranking.filter(jugador => jugador.puntuacion > 0)
+        )
+      );
 
   }
 
@@ -42,35 +42,35 @@ export class RankingComponent {
         return;
       }
 
-      const aliasData = this.auth.alias$.value; 
-      if (!aliasData) { 
-        console.warn('No hay alias cargado. No se guarda en el ranking.'); 
-        return; 
+      const aliasData = this.auth.alias$.value;
+      if (!aliasData) {
+        console.warn('No hay alias cargado. No se guarda en el ranking.');
+        return;
       }
 
       const idSemana = this.getSemanaActual();             // ej: "2025_semana_1"
       const idJugador = user.uid;
       const nombreJugador = aliasData.alias;
-      const mascotaJugador = aliasData.mascota; 
+      const mascotaJugador = aliasData.mascota;
       const puntos = this.puntuacion.puntosTotales ?? 0;
 
       // Llamada al servicio que guarda en Firestore (asumo que devuelve Promise)
-      await this.servicioRanking.guardarPuntuacionSemanal( 
-        idSemana, 
-        idJugador, 
-        nombreJugador, 
-        puntos, 
-        mascotaJugador 
+      await this.servicioRanking.guardarPuntuacionSemanal(
+        idSemana,
+        idJugador,
+        nombreJugador,
+        puntos,
+        mascotaJugador
       );
 
       // refresh del ranking para que se vea el nuevo registro en la lista
       this.ranking$ = this.servicioRanking
-      .obtenerRankingSemanal(idSemana)
-      .pipe(
-        map((ranking: any[]) =>
-          ranking.filter(jugador => jugador.puntuacion > 0)
-        )
-      );
+        .obtenerRankingSemanal(idSemana)
+        .pipe(
+          map((ranking: any[]) =>
+            ranking.filter(jugador => jugador.puntuacion > 0)
+          )
+        );
 
 
       console.log(`Guardado ranking: ${nombreJugador} (${idJugador}) — ${puntos} pts — mascota: ${mascotaJugador}`);

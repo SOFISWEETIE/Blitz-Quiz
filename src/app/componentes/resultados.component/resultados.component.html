@@ -5,8 +5,8 @@
     <h1>¡FIN DEL QUIZ!</h1>
 
     <h2 *ngIf="puntuacion.puntosTotales >= 0">
-    ¡Enhorabuena!<br>
-    Sacaste <strong>{{ puntosAnimados }}</strong> puntos
+      ¡Enhorabuena!<br>
+      Sacaste <strong>{{ puntosAnimados }}</strong> puntos
     </h2>
 
     <h2 *ngIf="puntuacion.puntosTotales < 0">
@@ -17,7 +17,7 @@
 
     <p *ngIf="seleccion.modo === 'rapidas'">
       <strong>PREGUNTAS BLITZ</strong><br>
-      {{ puntuacion.correctas }} de  20 aciertos<br>
+      {{ puntuacion.correctas }} de 20 aciertos<br>
     </p>
 
     <p *ngIf="seleccion.modo !== 'rapidas'">
@@ -26,7 +26,7 @@
       Dificultad: {{ seleccion.dificultad || 'Aleatoria' }}
     </p>
     <p class="frase-motivadora">
-    {{ frase }}
+      {{ frase }}
     </p>
   </div>
 
@@ -36,21 +36,21 @@
   <!-- RANKING ABAJO -->
   <div class="ranking-final">
 
-  <h3 class="titulo-ranking-final">
-    ¡Tu posición esta semana! 
-  </h3>
+    <h3 class="titulo-ranking-final">
+      ¡Tu posición esta semana!
+    </h3>
 
-  <p class="puesto-jugador" *ngIf="puestoJugador">
-    Estás en el <strong>#{{ puestoJugador }}</strong> puesto
-  </p>
+    <p class="puesto-jugador" *ngIf="puestoJugador">
+      Estás en el <strong>#{{ puestoJugador }}</strong> puesto
+    </p>
 
-  <p class="puesto-jugador" *ngIf="!puestoJugador">
-    Aún no apareces en el ranking… ¡pero puedes lograrlo! 💪
-  </p>
+    <p class="puesto-jugador" *ngIf="!puestoJugador">
+      Aún no apareces en el ranking… ¡pero puedes lograrlo! 💪
+    </p>
 
-  <app-ranking></app-ranking>
+    <app-ranking></app-ranking>
 
-</div>
+  </div>
 
 
 </div>

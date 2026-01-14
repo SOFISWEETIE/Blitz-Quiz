@@ -4,7 +4,7 @@
 
 .resultados {
   text-align: center;
-  background: #c1cdf9;              
+  background: #c1cdf9;
   padding: 40px 30px;
   border-radius: 26px;
   box-shadow: 0 10px 28px rgba(75, 45, 189, 0.15);
@@ -14,7 +14,7 @@
 }
 
 .resultados h1 {
-  color: #4b2dbd;                   
+  color: #4b2dbd;
   font-size: 34px;
   margin-bottom: 12px;
   font-weight: 800;
@@ -27,14 +27,16 @@
   font-size: 22px;
   margin-bottom: 16px;
   margin: 0;
-  line-height: 1.4; font-weight: 600;
+  line-height: 1.4;
+  font-weight: 600;
 }
 
 .resultados p {
   font-size: 18px;
   color: #444;
   margin: 8px 0;
-  font-weight: 400; line-height: 1.5;
+  font-weight: 400;
+  line-height: 1.5;
 }
 
 button {
@@ -42,7 +44,7 @@ button {
   padding: 16px 24px;
   border-radius: 20px;
   border: none;
-  background: #3a0ca3;              
+  background: #3a0ca3;
   color: white;
   font-size: 16px;
   font-weight: 600;
@@ -56,12 +58,16 @@ button {
 }
 
 button:hover {
-  background: #f7c646;              
-  color: black;                     
-  transform: translateY(-4px); 
+  background: #f7c646;
+  color: black;
+  transform: translateY(-4px);
   box-shadow: 0 12px 26px rgba(255, 179, 0, 0.35);
 }
-button:active { transform: translateY(0); box-shadow: 0 4px 12px rgba(255, 179, 0, 0.2); }
+
+button:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 12px rgba(255, 179, 0, 0.2);
+}
 
 /* ranking */
 .fin-quiz {
@@ -72,7 +78,7 @@ button:active { transform: translateY(0); box-shadow: 0 4px 12px rgba(255, 179, 
 }
 
 .ranking-final {
-  background: #c1cdf9;              
+  background: #c1cdf9;
   padding: 40px 30px;
   border-radius: 26px;
   box-shadow: 0 10px 28px rgba(75, 45, 189, 0.15);
@@ -86,19 +92,21 @@ button:active { transform: translateY(0); box-shadow: 0 4px 12px rgba(255, 179, 
   display: none !important;
 }
 
-.titulo-ranking-final { 
-  font-size: 24px; 
-  font-weight: 800; 
-  color: #3a0ca3; 
-  margin-bottom: 10px; 
-  letter-spacing: 0.5px; }
+.titulo-ranking-final {
+  font-size: 24px;
+  font-weight: 800;
+  color: #3a0ca3;
+  margin-bottom: 10px;
+  letter-spacing: 0.5px;
+}
 
-.puesto-jugador { 
-  font-size: 18px; 
-  font-weight: 600; 
-  color: #4b2dbd; 
-  margin-bottom: 22px; 
-  opacity: 0.9; }
+.puesto-jugador {
+  font-size: 18px;
+  font-weight: 600;
+  color: #4b2dbd;
+  margin-bottom: 22px;
+  opacity: 0.9;
+}
 
 .puesto-jugador {
   font-size: 18px;
@@ -107,20 +115,28 @@ button:active { transform: translateY(0); box-shadow: 0 4px 12px rgba(255, 179, 
   text-align: center;
   margin-bottom: 20px;
 }
+
 .frase-motivadora {
   text-align: center;
   font-size: 22px;
   font-weight: 700;
-  color: #f7c646;  
+  color: #f7c646;
   margin: 25px 0;
-  font-style: italic;  
-  text-shadow: 0 2px 4px rgba(0,0,0,0.1);  
-  animation: fadeIn 1.5s ease-out;  
+  font-style: italic;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 1.5s ease-out;
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 
@@ -148,19 +164,19 @@ button:active { transform: translateY(0); box-shadow: 0 4px 12px rgba(255, 179, 
     padding: 14px 20px;
   }
 
-  .ranking-final { 
-    padding: 28px 20px;  
-    border-radius: 20px; 
-    margin-top: 30px; 
+  .ranking-final {
+    padding: 28px 20px;
+    border-radius: 20px;
+    margin-top: 30px;
     text-align: center;
-  } 
-      
-  .titulo-ranking-final { 
-    font-size: 20px; 
-  } 
-        
-  .puesto-jugador { 
-    font-size: 16px; 
-    margin-bottom: 18px; 
+  }
+
+  .titulo-ranking-final {
+    font-size: 20px;
+  }
+
+  .puesto-jugador {
+    font-size: 16px;
+    margin-bottom: 18px;
   }
 }

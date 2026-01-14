@@ -18,42 +18,42 @@
 
 .info-aleatorio {
   display: flex;
-  gap: 16px; 
+  gap: 16px;
   justify-content: center;
   margin-top: 18px;
 }
 
 .info-aleatorio .badge {
-  padding: 12px 24px;        
-  border-radius: 20px;     
-  font-size: 18px;           
+  padding: 12px 24px;
+  border-radius: 20px;
+  font-size: 18px;
   font-weight: 800;
   background: linear-gradient(180deg, #c1cdf9, #a18fff);
-  color: white;             
-  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+  color: white;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
   transition: all 0.3s ease;
   text-transform: capitalize;
 }
 
 /* Cambia el color con la dificultad */
 .info-aleatorio .badge.facil {
-  background: linear-gradient(180deg, #d4f7d4, #a8e6a3); 
+  background: linear-gradient(180deg, #d4f7d4, #a8e6a3);
   color: #2e7d32;
 }
 
 .info-aleatorio .badge.media {
-  background: linear-gradient(180deg, #fff6c0, #ffde78); 
+  background: linear-gradient(180deg, #fff6c0, #ffde78);
   color: #b58900;
 }
 
 .info-aleatorio .badge.dificil {
-  background: linear-gradient(180deg, #ffd2d2, #ff9f9f); 
+  background: linear-gradient(180deg, #ffd2d2, #ff9f9f);
   color: #c0392b;
 }
 
 .info-aleatorio .badge:hover {
   transform: translateY(-4px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
 }
 
 /* ===============================
@@ -135,9 +135,19 @@
 }
 
 @keyframes popSuave {
-  0% { transform: scale(0); opacity: 0; }
-  80% { transform: scale(1.1); }
-  100% { transform: scale(1); opacity: 1; }
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+
+  80% {
+    transform: scale(1.1);
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 /* ===============================
@@ -152,7 +162,7 @@
   background-color: #e0e7ff;
   border-radius: 14px;
   overflow: hidden;
-  box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .barra-relleno {
@@ -175,16 +185,16 @@
 .opcion-btn {
   padding: 22px 24px;
   border-radius: 18px;
-  background: #c1cdf9;  
-  border: none; 
+  background: #c1cdf9;
+  border: none;
   font-size: 18px;
   font-weight: 700;
   cursor: pointer;
   width: 100%;
   transition: all 0.2s ease;
   text-align: center;
-  color: #4b2dbd;  
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  color: #4b2dbd;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 .opcion-btn:hover {
@@ -243,7 +253,7 @@
   justify-content: center;
   align-items: center;
   font-weight: 700;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
 }
 
 .bloque.verde {
@@ -365,5 +375,5 @@
   .texto {
     font-size: 14px;
   }
-  
+
 }

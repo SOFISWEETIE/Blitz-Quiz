@@ -23,7 +23,7 @@ export class PreguntaRapidasComponent implements OnChanges, OnDestroy {
 
   respuestaSeleccionada: string | null = null;
 
-  constructor(public puntuacion: PuntuacionService) {}
+  constructor(public puntuacion: PuntuacionService) { }
 
   ngOnChanges() {
     if (this.pregunta) {

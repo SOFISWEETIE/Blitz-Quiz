@@ -26,18 +26,18 @@ export class PreguntaComponent implements OnChanges, OnDestroy {
   bloquearOpciones: boolean = false;
   tiempoInicial: number = 20;
 
-  constructor(public puntuacion: PuntuacionService, public seleccion: SeleccionService) {}
+  constructor(public puntuacion: PuntuacionService, public seleccion: SeleccionService) { }
 
   ngOnChanges() {
     if (this.pregunta) {
       this.prepararPregunta();
 
       // Animación GSAP al cargar nueva pregunta 
-      gsap.from(".pregunta-text", { 
-        scale: 0.85, 
-        opacity: 0, 
-        duration: 0.35, 
-        ease: "power2.out" 
+      gsap.from(".pregunta-text", {
+        scale: 0.85,
+        opacity: 0,
+        duration: 0.35,
+        ease: "power2.out"
       });
 
     }
@@ -58,7 +58,7 @@ export class PreguntaComponent implements OnChanges, OnDestroy {
       this.tiempoInicial = 20;
       this.tiempoRestante = 20;
     }
-    
+
     this.iniciarTemporizador();
   }
 
@@ -92,7 +92,7 @@ export class PreguntaComponent implements OnChanges, OnDestroy {
       let puntos = 0;
 
       if (this.seleccion.modo === 'clasico') {
-        
+
         const dif = this.seleccion.dificultad.toLowerCase();
 
         switch (dif) {
@@ -100,14 +100,14 @@ export class PreguntaComponent implements OnChanges, OnDestroy {
             puntos = 5;
             break;
           case 'media':
-            puntos = 10;  
+            puntos = 10;
             break;
           case 'dificil':
             puntos = 15;
             break;
           default:
             console.warn('Dificultad desconocida:', this.seleccion.dificultad);
-            puntos = 5; 
+            puntos = 5;
         }
       } else if (this.seleccion.modo === 'aleatorio') {
         const porcentajeRestante = this.tiempoRestante / this.tiempoInicial;

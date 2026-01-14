@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { firstValueFrom } from 'rxjs';
-
 import { PuntuacionService } from '../../servicios/puntuacion.service';
 import { SeleccionService } from '../../servicios/seleccion.service';
 import { PreguntasService } from '../../servicios/preguntas.service';

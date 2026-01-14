@@ -27,58 +27,58 @@ export class LayoutComponent {
   rankingAbierto = false;
   /* Controla si el ranking está desactivado  */
   desactivarRanking = false;
-  
-    constructor(public auth: AuthService, private router: Router) {
+
+  constructor(public auth: AuthService, private router: Router) {
     this.aliasData$ = this.auth.alias$;
 
-      /* Observa cambios de ruta para ajustar visibilidad de ranking */
-      this.router.events.subscribe(() => { 
-        this.desactivarRanking = this.router.url.includes('resultados');
+    /* Observa cambios de ruta para ajustar visibilidad de ranking */
+    this.router.events.subscribe(() => {
+      this.desactivarRanking = this.router.url.includes('resultados');
 
-        /* Cierra ranking automáticamente si estamos en resultados */
-        if (this.desactivarRanking) { 
-          this.rankingAbierto = false; 
-        } 
-      });
-    }
+      /* Cierra ranking automáticamente si estamos en resultados */
+      if (this.desactivarRanking) {
+        this.rankingAbierto = false;
+      }
+    });
+  }
 
-    /* Alterna la visibilidad del menú de perfil */
-    toggleMenu() {
+  /* Alterna la visibilidad del menú de perfil */
+  toggleMenu() {
     this.menuAbierto = !this.menuAbierto;
     this.rankingAbierto = false;
-    }
+  }
 
-    /* Alterna la visibilidad del menú de ranking, si no está desactivado */
-    toggleRanking() {   
-    if (this.desactivarRanking) return;  
-    
+  /* Alterna la visibilidad del menú de ranking, si no está desactivado */
+  toggleRanking() {
+    if (this.desactivarRanking) return;
+
     this.rankingAbierto = !this.rankingAbierto;
-    this.menuAbierto = false;    
-    }
+    this.menuAbierto = false;
+  }
 
-    /* Navega a la sección de logros y cierra el menú de perfil */
-    irALogros() {
+  /* Navega a la sección de logros y cierra el menú de perfil */
+  irALogros() {
     this.menuAbierto = false;
     this.router.navigate(['/app/logros']);
   }
 
 
-     /* Cierra sesión y redirige al login */
-    async salir() {
-      await this.auth.logout();
-      await this.router.navigate(['/login']);
-    }
+  /* Cierra sesión y redirige al login */
+  async salir() {
+    await this.auth.logout();
+    await this.router.navigate(['/login']);
+  }
 
-    /* Redirige a la página de creación/cambio de alias */
-    cambiarAlias() {
-      this.menuAbierto = false;
-      this.router.navigate(['/app/crear-alias']);
-    }
+  /* Redirige a la página de creación/cambio de alias */
+  cambiarAlias() {
+    this.menuAbierto = false;
+    this.router.navigate(['/app/crear-alias']);
+  }
 
-    /* Redirige a la página principal de modos de juego */
-    irAlInicio() {
+  /* Redirige a la página principal de modos de juego */
+  irAlInicio() {
     this.router.navigate(['/app/modos']);
-    }
+  }
 
 }
 

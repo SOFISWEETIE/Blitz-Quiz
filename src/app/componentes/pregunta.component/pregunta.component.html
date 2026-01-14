@@ -5,8 +5,8 @@
   </h2>
 
   <div class="info-aleatorio">
-  <span class="badge">{{ seleccion.categoria }}</span>
-  <span class="badge" [ngClass]="seleccion.dificultad.toLowerCase()">{{ seleccion.dificultad }}</span>
+    <span class="badge">{{ seleccion.categoria }}</span>
+    <span class="badge" [ngClass]="seleccion.dificultad.toLowerCase()">{{ seleccion.dificultad }}</span>
   </div>
 
   <h3 class="pregunta-text">{{ pregunta.pregunta }}</h3>
@@ -14,8 +14,7 @@
   <p class="meta">Pregunta {{ numeroPregunta }} de {{ totalPreguntas }}</p>
 
   <div class="barra-progreso">
-    <div class="barra-relleno"
-      [style.width.%]="(puntuacion.indice + 1) / puntuacion.totalPreguntas * 100">
+    <div class="barra-relleno" [style.width.%]="(puntuacion.indice + 1) / puntuacion.totalPreguntas * 100">
     </div>
   </div>
 
@@ -26,10 +25,7 @@
   <div class="puntos" *ngIf="mostrarPuntos">+{{ puntosGanados }}</div>
 
   <div class="opciones-grid">
-    <button
-      *ngFor="let opcion of opcionesMezcladas"
-      (click)="responder(opcion)"
-      class="opcion-btn"
+    <button *ngFor="let opcion of opcionesMezcladas" (click)="responder(opcion)" class="opcion-btn"
       [class.correcta]="respuestaSeleccionada && opcion === pregunta.correcta"
       [class.incorrecta]="respuestaSeleccionada === opcion && opcion !== pregunta.correcta"
       [disabled]="bloquearOpciones">
@@ -50,5 +46,3 @@
   </div>
 
 </div>
-
-

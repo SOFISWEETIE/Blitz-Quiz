@@ -7,7 +7,7 @@
 h1 {
   text-align: center;
   font-size: 52px;
-  color: #4b2dbd; 
+  color: #4b2dbd;
   margin: 40px 0 10px;
   font-weight: 800;
 }
@@ -34,11 +34,11 @@ h1 {
 .modo-card {
   width: 480px;
   height: 240px;
-  background: #c1cdf9; 
+  background: #c1cdf9;
   border-radius: 30px;
   cursor: pointer;
   transition: all 0.4s ease;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   position: relative;
   overflow: hidden;
   width: min(100%, 420px)
@@ -47,7 +47,7 @@ h1 {
 /* Estado interactivo al pasar el cursor sobre la tarjeta */
 .modo-card:hover {
   transform: translateY(-20px);
-  background: #f7c646; 
+  background: #f7c646;
   box-shadow: 0 30px 60px rgba(247, 198, 70, 0.4);
 }
 
@@ -125,8 +125,13 @@ h1 {
 
 /* Animación de pulsación y rotación del icono Blitz */
 @keyframes blitz-rayos {
-  0% { transform: translateX(-50%) scale(1) rotate(-10deg); }
-  100% { transform: translateX(-50%) scale(1.3) rotate(10deg); }
+  0% {
+    transform: translateX(-50%) scale(1) rotate(-10deg);
+  }
+
+  100% {
+    transform: translateX(-50%) scale(1.3) rotate(10deg);
+  }
 }
 
 /* Ajustes responsive para dispositivos móviles */

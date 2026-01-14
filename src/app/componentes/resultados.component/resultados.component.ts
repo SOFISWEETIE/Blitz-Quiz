@@ -16,20 +16,20 @@ import confetti from 'canvas-confetti';
   standalone: true,
   imports: [CommonModule, RankingComponent],
   templateUrl: './resultados.component.html',
-  styleUrls: ['./resultados.component.css'] 
+  styleUrls: ['./resultados.component.css']
 })
 export class ResultadosComponent {
   puestoJugador: number | null = null;
   frase: string = '';
   puntosAnimados = 0;
-  
+
   constructor(
     public seleccion: SeleccionService,
     public puntuacion: PuntuacionService,
     private router: Router,
     private servicioRanking: ServicioRanking,
     private auth: AuthService
-  ) {}  
+  ) { }
 
 
 
@@ -41,13 +41,13 @@ export class ResultadosComponent {
     this.frase = frasesMotivadoras[randomIndex];
     // Se lanza confeti si la puntuación es mayor que 0 
     if (this.puntuacion.puntosTotales > 0) {
-    this.lanzarConfeti();
-    } 
+      this.lanzarConfeti();
+    }
     // Se ve como se van sumando los puntos
     this.animarPuntos();
   }
 
-  
+
 
   async guardarResultadoEnRanking() {
     try {
@@ -69,8 +69,8 @@ export class ResultadosComponent {
         idJugador,
         nombreJugador,
         puntos,
-        mascotaJugador  
-      );    
+        mascotaJugador
+      );
       console.log('Puntuación guardada en ranking:', { idSemana, idJugador, puntos });
     } catch (err) {
       console.error('Error guardando en ranking:', err);
@@ -78,23 +78,23 @@ export class ResultadosComponent {
   }
 
   async calcularPuestoJugador() {
-  const aliasData = this.auth.alias$.value;
-  const alias = aliasData?.alias;
+    const aliasData = this.auth.alias$.value;
+    const alias = aliasData?.alias;
 
-  if (!alias) {
-    this.puestoJugador = null;
-    return;
-  }
+    if (!alias) {
+      this.puestoJugador = null;
+      return;
+    }
 
-  const idSemana = this.obtenerSemanaActual();
-  const ranking = await firstValueFrom(
-  this.servicioRanking.obtenerRankingSemanal(idSemana)
-  ) as any[];
+    const idSemana = this.obtenerSemanaActual();
+    const ranking = await firstValueFrom(
+      this.servicioRanking.obtenerRankingSemanal(idSemana)
+    ) as any[];
 
-  const index = ranking.findIndex(j => j.jugador === alias);
+    const index = ranking.findIndex(j => j.jugador === alias);
 
 
-  this.puestoJugador = index !== -1 ? index + 1 : null;
+    this.puestoJugador = index !== -1 ? index + 1 : null;
   }
 
 
@@ -103,13 +103,13 @@ export class ResultadosComponent {
   }
 
   jugarOtraVez() {
-    
-  this.puntuacion.resetPuntuacion();
-  this.seleccion.prepararNuevaPartida();
-  this.router.navigate(['app/juego']); 
+
+    this.puntuacion.resetPuntuacion();
+    this.seleccion.prepararNuevaPartida();
+    this.router.navigate(['app/juego']);
   }
 
-   // puedes reutilizar la misma lógica para obtener semana actual
+  // puedes reutilizar la misma lógica para obtener semana actual
   private obtenerSemanaActual(): string {
     const now = new Date();
     const year = now.getFullYear();
@@ -173,7 +173,7 @@ export class ResultadosComponent {
       } else {
         this.puntosAnimados = current;
       }
-    }, 20); 
+    }, 20);
   }
 
 }

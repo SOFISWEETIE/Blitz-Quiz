@@ -10,7 +10,7 @@ describe('Logros', () => {
     await TestBed.configureTestingModule({
       imports: [LogrosComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(LogrosComponent);
     component = fixture.componentInstance;

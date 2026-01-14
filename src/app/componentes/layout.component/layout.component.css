@@ -13,26 +13,26 @@
 }
 
 /* Fondo de mosaico animado */
-.fondo-mosaico { 
-  position: absolute; 
-  top: 0; 
-  left: 0; 
-  right: 0; 
-  bottom: 0; 
-  background-image: url('../../../assets/LOGOBORDES.png'); 
-  background-repeat: repeat; 
-  background-size: 180px; 
-  opacity: 0.09; 
-  pointer-events: none; 
-  z-index: 0; 
+.fondo-mosaico {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('../../../assets/LOGOBORDES.png');
+  background-repeat: repeat;
+  background-size: 180px;
+  opacity: 0.09;
+  pointer-events: none;
+  z-index: 0;
   animation: moverFondo 60s linear infinite, pulsoFondo 8s ease-in-out infinite;
 
-} 
+}
 
 /* Contenido por encima del fondo */
-.contenido { 
-  position: relative; 
-  z-index: 1; 
+.contenido {
+  position: relative;
+  z-index: 1;
 }
 
 /* ───────── TOP BAR ───────── */
@@ -44,7 +44,7 @@
   align-items: center;
   padding: 0 24px;
   justify-content: space-between;
-  box-shadow: 0 3px 8px rgba(0,0,0,0.1), 0 0 8px rgba(255, 255, 255, 0.2);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1), 0 0 8px rgba(255, 255, 255, 0.2);
   z-index: 10;
 }
 
@@ -53,15 +53,15 @@
   font-size: 26px;
   font-weight: 700;
   cursor: pointer;
-  font-family: 'Fugaz One', sans-serif; 
-  font-size: 32px; 
+  font-family: 'Fugaz One', sans-serif;
+  font-size: 32px;
   letter-spacing: 1px;
 }
 
 /* Efecto hover del logo */
-.top-bar .logo:hover { 
-  color: #f7c646; 
-  text-shadow: 0 0 6px rgba(247, 198, 70, 0.6); 
+.top-bar .logo:hover {
+  color: #f7c646;
+  text-shadow: 0 0 6px rgba(247, 198, 70, 0.6);
 }
 
 /* ───────── PERFIL ───────── */
@@ -108,7 +108,7 @@
   background: white;
   border-radius: 12px;
   padding: 10px;
-  box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -178,7 +178,7 @@
   background: #ffffff;
   border-radius: 22px;
   padding: 25px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -199,7 +199,7 @@
   align-items: center;
   gap: 8px;
   cursor: pointer;
-  padding: 4px 8px;              
+  padding: 4px 8px;
   border-radius: 12px;
   background: rgba(255, 255, 255, 0.1);
   transition: background 0.2s;
@@ -232,7 +232,7 @@
   background: white;
   border-radius: 12px;
   padding: 10px;
-  box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
   margin-top: 8px;
   z-index: 1000;
   max-height: 70vh;
@@ -252,15 +252,19 @@
   0% {
     background-position: 0 0;
   }
+
   100% {
     background-position: -180px -180px;
   }
 }
 
 @keyframes pulsoFondo {
-  0%, 100% {
+
+  0%,
+  100% {
     opacity: 0.12;
   }
+
   50% {
     opacity: 0.18;
   }
@@ -315,4 +319,3 @@
     border-radius: 18px;
   }
 }
-

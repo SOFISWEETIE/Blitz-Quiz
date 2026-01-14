@@ -14,14 +14,11 @@
   <!-- Subtítulo indicativo para la selección de mascotas -->
   <h3 class="mascota-title">Elige tu mascota:</h3>
   <br>
-  
+
   <!-- Contenedor de las mascotas disponibles, presentado en cuadrícula responsiva -->
   <div class="mascotas-grid">
     <!-- Iteración sobre la lista de mascotas para generar cada tarjeta individual -->
-    <div
-      class="mascota"
-      *ngFor="let m of mascotas"
-      [class.activa]="mascotaSeleccionada === m.src"
+    <div class="mascota" *ngFor="let m of mascotas" [class.activa]="mascotaSeleccionada === m.src"
       (click)="mascotaSeleccionada = m.src">
       <!-- Imagen representativa de la mascota -->
       <img [src]="m.src" [alt]="m.nombre" />
@@ -32,11 +29,7 @@
   <p class="sub-text">Este será tu nombre público.</p>
 
   <!-- Campo de entrada para que el usuario introduzca su alias -->
-  <input
-    type="text"
-    [(ngModel)]="alias"
-    placeholder="Tu alias"
-    maxlength="20"/>
+  <input type="text" [(ngModel)]="alias" placeholder="Tu alias" maxlength="20" />
 
   <!-- Contenedor de botones de acción para confirmar la selección -->
   <div class="botones-acciones">

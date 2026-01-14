@@ -21,17 +21,17 @@ export class DificultadComponent {
    * Array estático con las dificultades disponibles.
    * Se muestran como tarjetas clicables en la vista y se usan para generar clases dinámicas.
    */
-  dificultades = ['Facil','Media','Dificil'];
-  
+  dificultades = ['Facil', 'Media', 'Dificil'];
+
   /**
    * Constructor del componente.
    * Inyecta el Router para navegación y el servicio de selección para mantener el estado global.
    * @param router Servicio de Angular para manejar la navegación entre rutas
    * @param seleccion Servicio compartido que almacena categoría y dificultad elegidas por el usuario
    */
-  constructor(private router: Router, 
+  constructor(private router: Router,
     public seleccion: SeleccionService
-  ) {}
+  ) { }
 
   /**
    * Método ejecutado al hacer clic en una tarjeta de dificultad.

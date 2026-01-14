@@ -23,25 +23,25 @@
 /* Grid principal para las tarjetas (categorías o dificultades) */
 .categorias-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);   
+  grid-template-columns: repeat(3, 1fr);
   gap: 70px;
   width: 100%;
-  max-width: 1600px;                                    
+  max-width: 1600px;
 }
 
 .dificultades-grid {
-  grid-template-rows: 1fr;  
+  grid-template-rows: 1fr;
 }
 
 /* Tarjeta base (usada tanto para categorías como para dificultades) */
 .categoria-card {
   width: 100%;
-  height: 280px;                           
+  height: 280px;
   background: #c1cdf9;
   border-radius: 34px;
   cursor: pointer;
   transition: all 0.4s ease;
-  box-shadow: 0 12px 35px rgba(0,0,0,0.12);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -52,13 +52,13 @@
 /* Efecto hover genérico para las tarjetas */
 .categoria-card:hover {
   transform: translateY(-25px) scale(1.03);
-  background: #f7c646;  
+  background: #f7c646;
   box-shadow: 0 35px 70px rgba(247, 198, 70, 0.45);
 }
 
 /* Texto dentro de las tarjetas */
 .categoria-texto {
-  font-size: 44px;               
+  font-size: 44px;
   font-weight: 800;
   color: #4b2dbd;
   text-align: center;
@@ -68,7 +68,7 @@
 
 /* Cambio de color del texto en hover genérico */
 .categoria-card:hover .categoria-texto {
-  color: black; 
+  color: black;
 }
 
 
@@ -76,13 +76,13 @@
 /* Hover específico para dificultad fácil (verde) */
 .dificultad-facil:hover,
 .dificultad-fácil:hover {
-  background: #4caf50;  
+  background: #4caf50;
   box-shadow: 0 35px 70px rgba(76, 175, 80, 0.45);
 }
 
 .dificultad-facil:hover .categoria-texto,
 .dificultad-fácil:hover .categoria-texto {
-  color: white; 
+  color: white;
 }
 
 /* Hover específico para dificultad media (naranja) */
@@ -98,7 +98,7 @@
 /* Hover específico para dificultad difícil (rojo) */
 .dificultad-dificil:hover,
 .dificultad-difícil:hover {
-  background: #f44336;  
+  background: #f44336;
   box-shadow: 0 35px 70px rgba(244, 67, 54, 0.45);
 }
 
@@ -112,9 +112,11 @@
   .categorias-grid {
     gap: 40px;
   }
+
   .categoria-card {
     height: 180px;
   }
+
   .categoria-texto {
     font-size: 38px;
   }
@@ -122,22 +124,25 @@
 
 @media (max-width: 868px) {
   .categorias-grid {
-    grid-template-columns: repeat(3, 1fr);  
+    grid-template-columns: repeat(3, 1fr);
     gap: 40px;
   }
 }
 
 @media (max-width: 768px) {
   .categorias-grid {
-    grid-template-columns: 1fr;  
+    grid-template-columns: 1fr;
     gap: 35px;
   }
+
   .categoria-card {
     height: 160px;
   }
+
   .categoria-texto {
     font-size: 36px;
   }
+
   .titulo-categorias {
     font-size: 36px;
     margin: 40px 0 60px;

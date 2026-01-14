@@ -4,6 +4,12 @@ import { PuntuacionService } from '../../servicios/puntuacion.service';
 import { SeleccionService } from '../../servicios/seleccion.service';
 import { gsap } from 'gsap';
 
+
+/**
+ * Componente que muestra una pregunta individual en cualquier modo.
+ * Maneja timer, mezcla opciones, calcula puntos según dificultad/tiempo,
+ * emite evento de respuesta al padre (juego.component).
+ */
 @Component({
   selector: 'app-pregunta',
   standalone: true,
@@ -28,6 +34,10 @@ export class PreguntaComponent implements OnChanges, OnDestroy {
 
   constructor(public puntuacion: PuntuacionService, public seleccion: SeleccionService) { }
 
+  /**
+   * Se ejecuta cuando llega una nueva pregunta (Input cambia).
+   * Prepara la pregunta y anima la entrada del texto con GSAP.
+   */
   ngOnChanges() {
     if (this.pregunta) {
       this.prepararPregunta();
@@ -43,6 +53,10 @@ export class PreguntaComponent implements OnChanges, OnDestroy {
     }
   }
 
+  /**
+   * Prepara la pregunta: mezcla opciones, calcula timer según modo,
+   * guarda el tiempo de inicio y arranca el countdown.
+   */
   prepararPregunta() {
     clearInterval(this.intervalo);
     this.opcionesMezcladas = [...this.pregunta.opciones].sort(() => Math.random() - 0.5);
@@ -62,10 +76,17 @@ export class PreguntaComponent implements OnChanges, OnDestroy {
     this.iniciarTemporizador();
   }
 
+  /**
+   * Genera un tiempo random entre 8 y 20 segundos para modo aleatorio.
+   */
   tiempoAleatorio(): number {
     return Math.floor(Math.random() * (20 - 8 + 1)) + 8;
   }
 
+  /**
+   * Inicia el temporizador que baja cada segundo.
+   * Si llega a 0, responde como fallo (null).
+   */
   iniciarTemporizador() {
     this.intervalo = setInterval(() => {
       this.tiempoRestante--;
@@ -75,6 +96,12 @@ export class PreguntaComponent implements OnChanges, OnDestroy {
     }, 1000);
   }
 
+  /**
+   * Procesa la respuesta del usuario o tiempo agotado.
+   * Calcula acierto, puntos según modo/dificultad/tiempo,
+   * muestra feedback y emite evento al padre para avanzar.
+   * @param opcion Opción elegida o null si tiempo agotado
+   */
   responder(opcion: string | null) {
     clearInterval(this.intervalo);
     if (this.bloquearOpciones) return;
@@ -136,14 +163,23 @@ export class PreguntaComponent implements OnChanges, OnDestroy {
     }, 1100);
   }
 
+  /**
+   * Limpia el intervalo al destruir el componente (evita que siga contando forever).
+   */
   ngOnDestroy() {
     clearInterval(this.intervalo);
   }
 
+  /**
+   * Número de pregunta actual (empieza en 1).
+   */
   get numeroPregunta() {
     return this.puntuacion.indice + 1;
   }
 
+  /**
+   * Total de preguntas en la partida actual.
+   */
   get totalPreguntas() {
     return this.puntuacion.totalPreguntas;
   }

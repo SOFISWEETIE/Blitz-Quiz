@@ -6,6 +6,10 @@ import { PuntuacionService } from '../../servicios/puntuacion.service';
 import { firstValueFrom } from 'rxjs';
 import { map } from 'rxjs/operators';
 
+/**
+ * Componente que muestra el ranking semanal y guarda la puntuación del usuario actual.
+ * Carga el top filtrado (solo >0 puntos), guarda al finalizar partida y refresca la lista.
+ */
 @Component({
   selector: 'app-ranking',
   standalone: true,
@@ -14,6 +18,8 @@ import { map } from 'rxjs/operators';
   styleUrls: ['./ranking.component.css']
 })
 export class RankingComponent {
+
+  /** Observable del ranking semanal actual (filtrado por puntuación > 0) */
   ranking$: any;
 
   constructor(
@@ -33,7 +39,11 @@ export class RankingComponent {
 
   }
 
-  // metodo que guarda la puntuacion del usuario actual en la semana actual
+  /**
+   * Guarda la puntuación del usuario actual en el ranking semanal.
+   * Usa el alias y mascota del usuario, suma puntos de la partida actual
+   * y refresca el observable para que se vea el nuevo top inmediatamente.
+   */
   async finalizarJuego() {
     try {
       const user = await firstValueFrom(this.auth.user$);
@@ -79,7 +89,11 @@ export class RankingComponent {
     }
   }
 
-  // genera la semana actual en formato "YYYY_semana_N"
+  
+  /**
+   * Genera el ID de la semana actual en formato "YYYY_semana_N".
+   * Usa getISOWeek para calcular la semana ISO estándar.
+   */
   private getSemanaActual(): string {
     const now = new Date();
     const year = now.getFullYear();
@@ -87,10 +101,12 @@ export class RankingComponent {
     return `${year}_semana_${week}`;
   }
 
-  // función helper para número ISO de semana (1..53) esto lo busque porque ni idea
+  /**
+   * Calcula el número de semana ISO (1-53) para la fecha dada.
+   * Algoritmo estándar .
+   */
   private getISOWeek(date: Date): number {
     const tmp = new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()));
-    // Thursday in current week decides the year.
     tmp.setUTCDate(tmp.getUTCDate() + 4 - (tmp.getUTCDay() || 7));
     const yearStart = new Date(Date.UTC(tmp.getUTCFullYear(), 0, 1));
     const weekNo = Math.ceil(((tmp.getTime() - yearStart.getTime()) / 86400000 + 1) / 7);

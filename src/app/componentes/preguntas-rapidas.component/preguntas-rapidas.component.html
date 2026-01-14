@@ -1,12 +1,17 @@
+
+<!--Tarjeta principal de la pregunta en modo BLITZ-->
 <div class="card-pregunta">
 
 
+  <!-- Título fijo que indica el modo de juego -->
   <h2 class="modo">MODO BLITZ</h2>
 
+  <!-- Texto de la pregunta -->
   <h3 class="pregunta-text">
     {{ pregunta?.pregunta || 'Cargando pregunta rapidísima...' }}
   </h3>
 
+  <!-- Información de la pregunta actual -->
   <p class="meta">
     Pregunta {{ numeroPregunta }} de 20
   </p>
@@ -24,6 +29,7 @@
     {{ puntosGanados >= 0 ? '+' : '' }}{{ puntosGanados }}
   </div>
 
+  <!--Opciones de respuesta-->
   <div class="opciones-grid">
     <button *ngFor="let opcion of opcionesMezcladas" (click)="responder(opcion)" class="opcion-btn"
       [class.correcta]="respuestaSeleccionada && opcion === pregunta?.correcta"
@@ -33,6 +39,7 @@
     </button>
   </div>
 
+  <!-- Contador de aciertos e incorrectas -->
   <div class="bloques-contador">
     <div class="bloque verde">
       <div class="numero">{{ puntuacion.correctas }}</div>

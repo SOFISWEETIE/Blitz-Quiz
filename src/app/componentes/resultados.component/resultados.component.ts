@@ -10,7 +10,12 @@ import { RankingComponent } from '../ranking.component/ranking.component';
 import { frasesMotivadoras } from './frases-motivadoras';
 import confetti from 'canvas-confetti';
 
-
+/**
+ * Componente de pantalla final de resultados.
+ * Muestra puntuación animada, puesto en ranking, frase motivadora,
+ * lanza confeti si hay puntos, guarda en ranking semanal y ofrece
+ * jugar otra vez o volver a modos.
+ */
 @Component({
   selector: 'app-resultados',
   standalone: true,
@@ -31,10 +36,11 @@ export class ResultadosComponent {
     private auth: AuthService
   ) { }
 
-
-
+  /**
+   * Al cargar la pantalla: guarda resultado en ranking, calcula puesto,
+   * elige frase random, lanza confeti si hay puntos y anima la suma de puntos.
+   */
   async ngOnInit() {
-    // Guardar resultado automáticamente al entrar en la pantalla de resultados
     await this.guardarResultadoEnRanking();
     await this.calcularPuestoJugador();
     const randomIndex = Math.floor(Math.random() * frasesMotivadoras.length);
@@ -43,12 +49,13 @@ export class ResultadosComponent {
     if (this.puntuacion.puntosTotales > 0) {
       this.lanzarConfeti();
     }
-    // Se ve como se van sumando los puntos
     this.animarPuntos();
   }
 
-
-
+  /**
+   * Guarda la puntuación de la partida actual en el ranking semanal de Firestore.
+   * Usa alias y mascota del usuario, y refresca si hace falta.
+   */
   async guardarResultadoEnRanking() {
     try {
       const user = await firstValueFrom(this.auth.user$);
@@ -77,6 +84,10 @@ export class ResultadosComponent {
     }
   }
 
+  /**
+   * Calcula el puesto del jugador actual en el ranking semanal.
+   * Busca por alias y asigna posición (1-based) o null si no está.
+   */
   async calcularPuestoJugador() {
     const aliasData = this.auth.alias$.value;
     const alias = aliasData?.alias;
@@ -92,8 +103,6 @@ export class ResultadosComponent {
     ) as any[];
 
     const index = ranking.findIndex(j => j.jugador === alias);
-
-
     this.puestoJugador = index !== -1 ? index + 1 : null;
   }
 
@@ -102,14 +111,19 @@ export class ResultadosComponent {
     this.router.navigate(['app/modos']);
   }
 
+  /**
+   * Reinicia puntuación y selección para empezar una nueva partida,
+   * y navega directo al juego.
+   */
   jugarOtraVez() {
-
     this.puntuacion.resetPuntuacion();
     this.seleccion.prepararNuevaPartida();
     this.router.navigate(['app/juego']);
   }
 
-  // puedes reutilizar la misma lógica para obtener semana actual
+  /**
+   * Obtiene ID de la semana actual en formato "YYYY_semana_N" (ISO week).
+   */
   private obtenerSemanaActual(): string {
     const now = new Date();
     const year = now.getFullYear();
@@ -125,9 +139,11 @@ export class ResultadosComponent {
     return weekNo;
   }
 
-  // función para lanzar confeti
+  /**
+   * Lanza confeti desde los lados durante 1.5 segundos si hay puntos.
+   */
   private lanzarConfeti() {
-    const duration = 1500; // duración total
+    const duration = 1500; 
     const end = Date.now() + duration;
 
     const frame = () => {
@@ -155,13 +171,13 @@ export class ResultadosComponent {
     frame();
   }
 
-
-  // Animación de los puntos al final
+  /**
+   * Anima los puntos subiendo poco a poco desde 0 hasta el total (efecto motivador).
+   */
   private animarPuntos() {
     const total = this.puntuacion.puntosTotales;
     let current = 0;
 
-    // velocidad (más pequeño = más lento)
     const step = Math.ceil(total / 40);
 
     const interval = setInterval(() => {

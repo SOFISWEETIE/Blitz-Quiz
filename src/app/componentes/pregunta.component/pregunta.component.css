@@ -1,3 +1,4 @@
+/* Tarjeta principal que contiene la pregunta y sus elementos */
 .card-pregunta {
   display: flex;
   flex-direction: column;
@@ -7,9 +8,7 @@
   background: white;
   width: 100%;
 }
-
-
-
+/* Zona superior con información del modo y dificultad */
 .info-aleatorio {
   display: flex;
   gap: 16px;
@@ -29,7 +28,7 @@
   text-transform: capitalize;
 }
 
-/* Cambia el color con la dificultad */
+/* Colores específicos según dificultad */
 .info-aleatorio .badge.facil {
   background: linear-gradient(180deg, #d4f7d4, #a8e6a3);
   color: #2e7d32;
@@ -50,8 +49,6 @@
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
 }
 
-
-
 .modo {
   font-size: 26px;
   font-weight: 800;
@@ -59,7 +56,6 @@
   text-align: center;
   margin: 0;
 }
-
 
 .meta {
   font-size: 16px;
@@ -69,7 +65,7 @@
   margin-bottom: 6px;
 }
 
-
+/* Contador de tiempo con cambio de color cuando queda poco */
 .timer {
   width: 140px;
   height: 50px;
@@ -188,6 +184,7 @@
   outline: none;
 }
 
+/* Estilos cuando se revela si la respuesta es correcta o incorrecta */
 .opcion-btn.correcta {
   background-color: #4CAF50 !important;
   color: white !important;
@@ -206,7 +203,6 @@
   transform: none !important;
   box-shadow: none !important;
 }
-
 
 
 .bloques-contador {
@@ -250,7 +246,7 @@
 }
 
 
-
+/* Responsive*/
 @media (max-width: 480px) {
 
   .card-pregunta {

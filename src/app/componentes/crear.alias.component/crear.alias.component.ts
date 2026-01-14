@@ -5,7 +5,11 @@ import { AuthService } from '../../servicios/auth.service';
 import { Router } from '@angular/router';
 import { take } from 'rxjs';
 
-/* Componente responsable de la creación y configuración del alias de usuario */
+/**
+ * Componente que permite al usuario crear su alias único y seleccionar una mascota.
+ * Se muestra solo después del primer login.
+ * Valida longitud y unicidad del alias en Firebase, guarda el perfil y redirige a modos.
+ */
 @Component({
   selector: 'app-crear-alias',
   standalone: true,
@@ -15,10 +19,15 @@ import { take } from 'rxjs';
 })
 export class CrearAliasComponent {
 
-  /* Valor actual del alias ingresado por el usuario */
+  /**
+   * Valor del alias ingresado por el usuario en el input (binding two-way con ngModel).
+   */
   alias = '';
 
-  /* Lista de mascotas disponibles para seleccionar */
+  /**
+   * Lista estática de mascotas disponibles para elegir.
+   * Cada objeto tiene la ruta de la imagen y el nombre descriptivo.
+   */
   mascotas = [
     { src: 'assets/mascotas/caballo.png', nombre: 'Caballo' },
     { src: 'assets/mascotas/mapache.png', nombre: 'Mapache' },
@@ -34,11 +43,19 @@ export class CrearAliasComponent {
     { src: 'assets/mascotas/serpiente.jpg', nombre: 'serpiente' },
   ];
 
-  /* Mascota actualmente seleccionada, inicializada con la primera opción */
+  /**
+   * Mascota seleccionada actualmente por el usuario.
+   * Inicializada con la primera de la lista (Caballo).
+   */
   mascotaSeleccionada = this.mascotas[0].src;
 
-  /* Inyección de dependencias: servicio de autenticación y enrutador de Angular */
-  constructor(private auth: AuthService, private router: Router) { }
+  /** 
+   * Constructor del componente.
+   * Inyecta el servicio de autenticación y el Router para navegación.
+   * 
+   * @param auth Servicio que maneja Firebase Auth y operaciones de perfil de usuario
+   * @param router Servicio de Angular para redirigir tras guardar el alias
+  */  constructor(private auth: AuthService, private router: Router) { }
 
   /**
   * Guarda el alias y la mascota seleccionada en el perfil del usuario
@@ -46,10 +63,10 @@ export class CrearAliasComponent {
   */
   async guardar() {
 
-    /* Normaliza el alias: elimina espacios y convierte a minúsculas */
+    // Normaliza el alias: elimina espacios extras y convierte a minúsculas
     const aliasLimpio = this.alias.trim().toLowerCase();
 
-    /* Validación de longitud mínima y máxima */
+    // Validación básica de longitud (3-20 caracteres)
     if (aliasLimpio.length < 3 || aliasLimpio.length > 20) {
       alert('El alias debe tener al menos 3 caracteres y no más de 20');
       return;
@@ -82,8 +99,10 @@ export class CrearAliasComponent {
     });
   }
 
-  /** Permite volver a la pantalla anterior sin guardar cambios */
-  volverAtras() {
+  /**
+   * Navega de vuelta a la pantalla de modos sin guardar cambios.
+   * Usado en el botón "Volver atrás" o similar.
+   */  volverAtras() {
     this.router.navigate(['/app/modos']);
   }
 

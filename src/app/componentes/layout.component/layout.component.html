@@ -1,10 +1,10 @@
 <div class="layout">
-  <!-- ───────── BARRA SUPERIOR ───────── -->
+  <!--  BARRA SUPERIOR  -->
   <header class="top-bar">
     <!-- Logo de la app -->
     <div class="logo" (click)="irAlInicio()">BLITZ-QUIZ</div>
 
-    <!-- ───────── BOTÓN RANKING ───────── -->
+    <!--  BOTÓN RANKING  -->
     <div class="ranking-wrapper" (click)="$event.stopPropagation()">
       <div class="ranking-trigger" [class.desactivado]="desactivarRanking" (click)="toggleRanking()">
 
@@ -19,7 +19,7 @@
       </div>
     </div>
 
-    <!-- ───────── PERFIL USUARIO ───────── -->
+    <!--  PERFIL USUARIO  -->
     <div class="perfil-wrapper" *ngIf="aliasData$ | async as data" (click)="$event.stopPropagation()">
       <!-- Botón disparador del menú de perfil -->
       <div class="perfil-trigger" (click)="toggleMenu()">
@@ -42,7 +42,7 @@
   <!-- Fondo mosaico animado -->
   <div class="fondo-mosaico"></div>
 
-  <!-- ───────── ZONA PRINCIPAL ───────── -->
+  <!-- ZONA PRINCIPAL -->
   <main class="contenido">
     <section class="pantalla-juego">
       <!-- Contenedor para cargar los componentes de cada ruta hija -->

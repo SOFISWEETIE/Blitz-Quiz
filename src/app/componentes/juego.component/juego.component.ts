@@ -6,15 +6,16 @@ import { firstValueFrom } from 'rxjs';
 import { PuntuacionService } from '../../servicios/puntuacion.service';
 import { SeleccionService } from '../../servicios/seleccion.service';
 import { PreguntasService } from '../../servicios/preguntas.service';
-
 import { PreguntaComponent } from '../pregunta.component/pregunta.component';
 import { PreguntaRapidasComponent } from '../preguntas-rapidas.component/preguntas-rapidas.component';
-
 import { LogrosService } from '../../servicios/logros.service';
-
 import { JuegoGuard } from '../../servicios/juego.guard';
 
-/* Componente principal que gestiona la partida en todos los modos */
+/**
+ * Componente principal del juego: gestiona TODA la partida en cualquier modo.
+ * Carga preguntas, controla flujo, maneja logros en tiempo real,
+ * bloquea salida accidental y coordina servicios de puntuación, selección y logros.
+ */
 @Component({
   selector: 'app-juego',
   standalone: true,
@@ -41,7 +42,15 @@ export class JuegoComponent implements OnInit, JuegoGuard {
   /* Resolver para bloqueo de salida */
   private _resolverSalir?: (valor: boolean) => void;
 
-  /* Constructor con inyección de servicios */
+  /**
+   * Inyecta todos los servicios necesarios para la partida.
+   * @param puntuacion Maneja puntos, rachas, totales y stats generales
+   * @param seleccion Contiene categoría, dificultad y modo elegidos
+   * @param router Para navegar a resultados o modos al acabar
+   * @param preguntasService Carga preguntas de Firebase según filtros
+   * @param http Para cargar el JSON local en modo rápidas
+   * @param logrosService Desbloquea y consulta logros del usuario
+  */  
   constructor(
     public puntuacion: PuntuacionService,
     public seleccion: SeleccionService,
@@ -183,7 +192,11 @@ export class JuegoComponent implements OnInit, JuegoGuard {
   /* Devuelve total de preguntas en la partida */
   totalPreguntas() { return this.puntuacion.totalPreguntas; }
 
-  /* Avanza a la siguiente pregunta en modo clásico/aleatorio */
+  /**
+   * Avanza a la siguiente pregunta tras respuesta.
+   * Comprueba logros de acierto/racha y finaliza si es la última.
+   * @param evento { acierto: boolean, tiempo: number } del componente pregunta
+   */
   async avanzarPregunta(evento: { acierto: boolean; tiempo: number }) {
     const logros  = await this.logrosService.obtenerLogros();
 
@@ -214,7 +227,10 @@ export class JuegoComponent implements OnInit, JuegoGuard {
     }
   }
 
-  /* Finaliza partida clásica/aleatoria y desbloquea logros según progreso */
+  /**
+   * Finaliza partida clásica/aleatorio y desbloquea logros según resultados.
+   * (primer juego, perfecto, puntos, partidas jugadas, modos...)
+   */
   private async finalizarPartida() {
     const logros = await this.logrosService.obtenerLogros();
 
@@ -264,12 +280,14 @@ export class JuegoComponent implements OnInit, JuegoGuard {
     }
   }
 
-  /* ─── MODO BLITZ / RÁPIDAS ─── */
   
   /* Devuelve la pregunta actual en modo rápidas */
   preguntaActualRapida() { return this.preguntasRapidas[this.indiceRapida]; }
 
-  /* Avanza a la siguiente pregunta en modo blitz */
+  /**
+   * Avanza en modo rápidas, chequea logros específicos y finaliza si llega a 20.
+   * @param evento { acierto, tiempo } del componente pregunta-rapidas
+   */
   async avanzarRapida(evento: { acierto: boolean; tiempo: number }) {
     const logros = await this.logrosService.obtenerLogros();
 
@@ -300,7 +318,9 @@ export class JuegoComponent implements OnInit, JuegoGuard {
     }
   }
 
-  /* Finaliza partida rápidas y desbloquea logros */
+  /**
+   * Finaliza modo rápidas y desbloquea logros específicos (valiente, perfecto blitz, maratón...).
+   */
   private async finalizarPartidaRapidas() {
     const logros = await this.logrosService.obtenerLogros();
 
@@ -365,7 +385,10 @@ export class JuegoComponent implements OnInit, JuegoGuard {
 
   /* ─── GESTIÓN DE LOGROS ─── */
   
-  /* Muestra notificación de logro desbloqueado */
+  /**
+   * Añade un logro a la cola y procesa para mostrar uno a la vez.
+   * @param id ID del logro desbloqueado
+   */
   mostrarNotificacionLogro(id: string) {
     this.colaLogros.push(id);
     this.procesarColaLogros();

@@ -1,29 +1,38 @@
+<!-- Tarjeta principal de la pregunta -->
 <div class="card-pregunta">
 
+  <!-- Modo de juego seleccionado (Clásico o Aleatorio) -->  
   <h2 class="modo">
     {{ seleccion.modo === 'aleatorio' ? 'MODO ALEATORIO' : 'MODO CLÁSICO' }}
   </h2>
 
+  <!-- Información de categoría y dificultad seleccionadas -->
   <div class="info-aleatorio">
     <span class="badge">{{ seleccion.categoria }}</span>
     <span class="badge" [ngClass]="seleccion.dificultad.toLowerCase()">{{ seleccion.dificultad }}</span>
   </div>
 
+  <!-- Texto de la pregunta -->
   <h3 class="pregunta-text">{{ pregunta.pregunta }}</h3>
 
+  <!-- Información de la pregunta actual -->
   <p class="meta">Pregunta {{ numeroPregunta }} de {{ totalPreguntas }}</p>
 
+  <!-- Barra de progreso que indica el avance en la ronda -->
   <div class="barra-progreso">
     <div class="barra-relleno" [style.width.%]="(puntuacion.indice + 1) / puntuacion.totalPreguntas * 100">
     </div>
   </div>
 
+  <!-- Contador de tiempo restante para responder -->
   <div class="timer" [class.danger]="tiempoRestante <= 5">
     {{ tiempoRestante }}
   </div>
 
+  <!-- Puntos ganados en la pregunta actual -->
   <div class="puntos" *ngIf="mostrarPuntos">+{{ puntosGanados }}</div>
 
+  <!-- Grid de opciones de respuesta -->
   <div class="opciones-grid">
     <button *ngFor="let opcion of opcionesMezcladas" (click)="responder(opcion)" class="opcion-btn"
       [class.correcta]="respuestaSeleccionada && opcion === pregunta.correcta"
@@ -33,6 +42,7 @@
     </button>
   </div>
 
+  <!-- Contador de aciertos e incorrectas -->
   <div class="bloques-contador">
     <div class="bloque verde">
       <div class="numero">{{ puntuacion.correctas }}</div>

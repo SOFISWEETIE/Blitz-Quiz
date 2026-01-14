@@ -1,13 +1,17 @@
+<!-- Título principal del ranking con emoji para darle vidilla -->
 <h3 class="titulo-ranking">Ranking semanal 🏆</h3>
 
+<!-- Lista de jugadores del ranking semanal -->
 <ul class="lista-ranking">
   <li *ngFor="let jugador of ranking$ | async; let i = index" class="ranking-item" [attr.data-id]="jugador.jugador">
 
+    <!-- Columna izquierda: avatar (mascota) + nombre del jugador -->
     <div style="display: flex; align-items: center;">
       <img [src]="jugador.mascota" class="avatar">
       <span>{{ jugador.jugador }}</span>
     </div>
 
+    <!-- Columna derecha: puntuación del jugador -->
     <span>{{ jugador.puntuacion }} pts</span>
   </li>
 </ul>

@@ -1,7 +1,4 @@
-/* ===============================
-   CARD PREGUNTA (FONDO MORADO)
-================================ */
-
+/* Tarjeta principal que contiene toda la pregunta y sus elementos */
 .card-pregunta {
   display: flex;
   flex-direction: column;
@@ -11,11 +8,7 @@
   background: white;
   width: 100%;
 }
-
-/* ===============================
-  INFORMACIÓN EXTRA PARA EL JUGADOR (CATEGORÍA / DIFICULTAD) 
-================================ */
-
+ 
 .info-aleatorio {
   display: flex;
   gap: 16px;
@@ -35,7 +28,7 @@
   text-transform: capitalize;
 }
 
-/* Cambia el color con la dificultad */
+/* Colores específicos según dificultad (verde fácil, amarillo media, rojo difícil) */
 .info-aleatorio .badge.facil {
   background: linear-gradient(180deg, #d4f7d4, #a8e6a3);
   color: #2e7d32;
@@ -56,9 +49,6 @@
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
 }
 
-/* ===============================
-   MODO CLÁSICO / ALEATORIO
-================================ */
 
 .modo {
   font-size: 26px;
@@ -68,9 +58,7 @@
   margin: 0;
 }
 
-/* ===============================
-   TEXTO META (Pregunta X de Y)
-================================ */
+
 
 .meta {
   font-size: 16px;
@@ -80,10 +68,7 @@
   margin-bottom: 6px;
 }
 
-/* ===============================
-   TIMER
-================================ */
-
+/* Temporizador redondeado con cambio de color cuando queda poco tiempo */
 .timer {
   width: 140px;
   height: 50px;
@@ -104,10 +89,7 @@
   border-color: #ff6b6b;
 }
 
-/* ===============================
-   PREGUNTA
-================================ */
-
+/* Texto grande y destacado de la pregunta */
 .pregunta-text {
   font-size: 30px;
   font-weight: 800;
@@ -116,10 +98,7 @@
   margin: 10px 0;
 }
 
-/* ===============================
-   PUNTOS
-================================ */
-
+/* Puntos obtenidos en la respuesta, con animación de aparición */
 .puntos {
   position: relative;
   align-self: center;
@@ -150,10 +129,7 @@
   }
 }
 
-/* ===============================
-   BARRA DE PROGRESO (MÁS LARGA)
-================================ */
-
+/* Barra de progreso que indica el tiempo restante */
 .barra-progreso {
   width: 100%;
   max-width: 600px;
@@ -171,9 +147,7 @@
   transition: width 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-/* ===============================
-   OPCIONES
-================================ */
+
 
 .opciones-grid {
   display: grid;
@@ -182,6 +156,7 @@
   width: 100%;
 }
 
+/* Botones de opción con estilos y efectos al interactuar */
 .opcion-btn {
   padding: 22px 24px;
   border-radius: 18px;
@@ -232,11 +207,6 @@
   box-shadow: none !important;
 }
 
-/* ===============================
-   BLOQUES ACERTADAS / INCORRECTAS
-   (DENTRO DEL MORADO)
-================================ */
-
 .bloques-contador {
   display: flex;
   gap: 24px;
@@ -244,6 +214,7 @@
   margin-top: 10px;
 }
 
+/* Bloques de contador de correctas e incorrectas */
 .bloque {
   width: 170px;
   height: 120px;
@@ -277,12 +248,10 @@
   text-transform: lowercase;
 }
 
-/* ===============================
-   RESPONSIVE
-================================ */
+/* Responsive*/
 @media (max-width: 480px) {
 
-  /* CARD */
+
   .card-pregunta {
     padding: 20px;
     gap: 14px;
@@ -291,7 +260,6 @@
     box-sizing: border-box;
   }
 
-  /* BADGES MÁS PEQUEÑOS */
   .info-aleatorio {
     gap: 10px;
     flex-wrap: wrap;
@@ -305,7 +273,6 @@
     border-radius: 14px;
   }
 
-  /* MODO Y META */
   .modo {
     font-size: 22px;
   }
@@ -314,7 +281,6 @@
     font-size: 14px;
   }
 
-  /* TIMER */
   .timer {
     width: 110px;
     height: 42px;
@@ -323,13 +289,11 @@
     border-radius: 20px;
   }
 
-  /* PREGUNTA */
   .pregunta-text {
     font-size: 22px;
     margin: 6px 0;
   }
 
-  /* PUNTUACIÓN MÁS PEQUEÑA */
   .puntos {
     padding: 8px 16px;
     font-size: 20px;
@@ -337,13 +301,13 @@
     box-shadow: 0 6px 16px rgba(255, 179, 0, 0.25);
   }
 
-  /* BARRA DE PROGRESO */
+ 
   .barra-progreso {
     height: 16px;
     max-width: 100%;
   }
 
-  /* OPCIONES (2 EN 2, MÁS ANCHAS) */
+  
   .opciones-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 12px;
@@ -355,7 +319,7 @@
     border-radius: 14px;
   }
 
-  /* BLOQUES ACIERTOS / ERRORES MÁS PEQUEÑOS */
+  
   .bloques-contador {
     gap: 12px;
     flex-wrap: wrap;

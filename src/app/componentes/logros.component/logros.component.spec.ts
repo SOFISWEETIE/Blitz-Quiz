@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { LogrosComponent } from './logros.component';
 
 describe('Logros', () => {
@@ -10,7 +9,7 @@ describe('Logros', () => {
     await TestBed.configureTestingModule({
       imports: [LogrosComponent]
     })
-      .compileComponents();
+    .compileComponents();
 
     fixture = TestBed.createComponent(LogrosComponent);
     component = fixture.componentInstance;

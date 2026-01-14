@@ -1,14 +1,16 @@
+<!-- Contenedor principal de la pantalla de resultados-->
 <div class="fin-quiz">
 
-  <!-- RESULTADOS -->
   <div class="resultados">
     <h1>¡FIN DEL QUIZ!</h1>
 
+    <!-- Mensaje positivo si sacaste ≥0 puntos -->
     <h2 *ngIf="puntuacion.puntosTotales >= 0">
       ¡Enhorabuena!<br>
       Sacaste <strong>{{ puntosAnimados }}</strong> puntos
     </h2>
 
+    <!-- Mensaje "negativo" si sacaste negativo -->
     <h2 *ngIf="puntuacion.puntosTotales < 0">
       ¡Ups!<br>
       Sacaste <strong>{{ puntosAnimados }}</strong> puntos...
@@ -33,13 +35,14 @@
   <button (click)="irInicio()">Ir al menu principal</button>
   <button (click)="jugarOtraVez()">Jugar otra vez</button>
 
-  <!-- RANKING ABAJO -->
+
   <div class="ranking-final">
 
     <h3 class="titulo-ranking-final">
       ¡Tu posición esta semana!
     </h3>
 
+    <!-- Sección del ranking final: tu puesto esta semana y la lista completa -->
     <p class="puesto-jugador" *ngIf="puestoJugador">
       Estás en el <strong>#{{ puestoJugador }}</strong> puesto
     </p>

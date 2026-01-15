@@ -26,12 +26,12 @@ Para poder ejecutar el proyecto en un entorno local es necesario los siguientes 
 - Navegador web moderno (Chrome, Firefox, Edge, etc.)
 
 
-## ⚙️ Manual de instalación y ejecución
+##  Manual de instalación y ejecución
 
 Para iniciar el proyecto en local, hay que seguir los siguientes pasos:
 
 1. **Clonar el repositorio y acceder a la carpeta del proyecto**
-   ```bash
+```bash
    git clone https://github.com/SOFISWEETIE/Blitz-Quiz.git
    cd Blitz-Quiz
 ```  
